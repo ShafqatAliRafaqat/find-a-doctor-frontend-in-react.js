@@ -69,16 +69,16 @@ class ContactUs extends Component {
 										NETSOL Avenue, Main Ghazi Rd, Khuda Buksh Colony, Lahore, Pakistan
 										{/* <br /> + 61 (2) 8093 3400<br /> */}
 										<br></br>
-										<Link to="#">hello@hospitallcare.com</Link>
+										<a href="mailto:hello@hospitall.com">hello@hospitallcare.com</a>
 									</p>
 									<ul>
 										<li><strong>Book an Appointment</strong>
-											<Link to="tel://+923222555600">+92-322-2555600</Link><br />
-											<Link to="tel://+923222555400">+92-322-2555400</Link><br />
+											<a href="tel://+923222555600">+92-322-2555600</a><br />
+											<a href="tel://+923222555400">+92-322-2555400</a><br />
 											<small>24/7</small>
 										</li>
 										<li><strong>General questions</strong>
-											<Link to="tel://+923222555600">+92-322-2555600</Link><br />
+											<a href="tel://+923222555600">+92-322-2555600</a><br />
 											{/* <Link to="tel://003823932342">questions@findoctor.com</Link> */}
 											{/* <br /> */}
 											<p><small>Monday to Friday 9am - 6pm</small></p>

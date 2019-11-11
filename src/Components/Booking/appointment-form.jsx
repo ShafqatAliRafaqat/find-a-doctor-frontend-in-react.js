@@ -107,10 +107,7 @@ class AppointmentForm extends Component{
     renderPhoneModal = () => {
         const { treatment_id, doctor_data, booking_date, center_id } 	= this.state;
         let doctor_id = doctor_data.id;
-        
-        if(treatment_id != '' && booking_date != '' && center_id != ''){
             return <PhoneModal {...this.props} doctor_data = {doctor_data} doctor_id={doctor_id} treatment_id={treatment_id} booking_date={booking_date} center_id={center_id}/>;
-        }
     };
     renderCheckFields =()=>{
         const { treatment_id, booking_date, center_id } 	= this.state;
@@ -147,8 +144,8 @@ class AppointmentForm extends Component{
                                     showTimeSelect
                                     timeIntervals={15}
                                     minDate={new Date()}
-                                    // minTime={new Date(new Date().setHours(10,15))}
-                                    // maxTime={new Date(new Date().setHours(18,15))}
+                                    minTime={new Date(new Date().setHours(10,15))}
+                                    maxTime={new Date(new Date().setHours(18,15))}
                                     dateFormat="MMMM d, yyyy h:mm aa"
                                 />
 							</div>

@@ -363,7 +363,6 @@ class PhoneModal extends Component {
     };
     render() {
         const { phone,isOpen,processing,customeruser,codeSended,customertable} = this.state;
-        
         if(customeruser){
             return this.renderSignInModal();
         }
@@ -377,7 +376,7 @@ class PhoneModal extends Component {
         return (
             <React.Fragment>
                 <div style={{ position:"relative" }}>
-                    <button onClick={this.toggle} className='btn_1 full-width'>
+                    <button onClick={this.toggle} disabled={!this.props.treatment_id} className='btn_1 full-width'>
                         Book Appointment
                     </button>
                 </div>
