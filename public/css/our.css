@@ -1,0 +1,341 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.search-option{
+  width: 1000px;
+}
+.reactDatalist_input {
+  padding: 15px;
+  border-radius: 5px;
+}
+.search-list{
+  border-bottom: 1px solid #d4d4d4 !important;
+}
+@media (min-width: 991px) {
+  .search-list {
+    /* For less than 991px */
+    min-width: 633px;
+    max-width: 633px;
+  }
+}
+@media (max-width: 555px) {
+  .doctor-filters{
+    display: none !important;
+  }
+}
+
+.search-header-list{
+  /* max-width: 542px !important;
+  min-width: 542px !important; */
+  position: absolute !important;
+  min-width: fit-content !important;
+  right:0px !important;
+  top:29px !important;
+  overflow: auto !important;
+  color: black !important;
+  max-height: 300px !important;
+  background-color:#ffffff !important;
+  box-shadow:#b3b3b3 0px 0px 5px 1px !important;
+}
+
+.search-list-pages{
+  display: block !important;
+  border-bottom: 1px solid #d4d4d4 !important;
+
+}
+.list-img{
+  max-width: 40px !important;
+  padding-right: 10px !important;
+}
+.List_Align_Right{
+  float: right !important;
+  /* color: #0072bc  !important; */
+  font-family: 'Raleway', sans-serif;
+}
+.focus_area_search{
+  margin-top: 0 !important ;
+  text-align: left !important;
+  margin-left: 40px !important;
+  color: grey;
+}
+.search-icon{
+  margin-right: 16px !important; 
+  color: grey !important;
+}
+.search-name{
+  color: #313131 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  
+  /* text-shadow: 5px 3px 6px grey !important; */
+}
+.MuiList-roots{
+  /* width: 100% !important;
+  max-width: 542 !important; */
+  position: absolute !important;
+  right:108px !important;
+  top: 27px !important;
+  overflow: auto !important;
+  /* color: black !important; */
+  max-height: 300 !important;
+  background-color: #ffffff !important;
+}
+.MuiListItem-root:hover{
+   cursor: pointer;
+   background-color: #eaeaea;
+}
+
+.owl-carousel .owl-item img {
+  height: 300px !important;
+}
+#reccomended .item .title h4{
+  background: linear-gradient(to top right, #0066cc -18%, #66ff66 99%) !important;
+}
+.minH{
+  min-height: 600px !important;
+}
+.pagination_details{
+  margin-top: 35px;
+  font-size: 15px;
+  color: #3a80b1;
+}
+.card-bottom{
+  background-color: #358449;
+  text-align: center;
+  min-height: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.card-bottom h6{
+  color: white;
+}
+.card-bottom em{
+  color: white;
+  font-size: 13px;
+}
+.hr-border{
+  border-color: #616161;
+}
+.footer-logo {
+	display: inline-block;
+  width: 230px;
+  background-position: 0 -139px;
+}
+.app-p-footer{
+  font-size: 13px;
+  padding-top: 11px;
+  margin-bottom: 15px;
+  color: white;
+}
+.app-h4-footer{
+  margin-bottom: 14px;
+  color:white !important;
+}
+.h6-footer{
+  color: white !important;
+}
+.link-footer{
+  color: #b5b5b5 !important;
+}
+.link-footer:hover{
+  color: #4dc26b !important;
+}
+.p-btm-footer{
+  color: rgba(255,255,255,.5)!important;
+}
+.a-btm-footer{
+  color: rgba(255,255,255,.5)!important;
+}
+@media(min-width:996px)
+{
+  .text-side-left
+  {
+    text-align:left !important;
+  }
+  .text-side-right
+  {
+    text-align:right !important;
+  }
+}
+@media(max-width:995px)
+{
+  .text-side-left
+  {
+    text-align:center !important;
+  }
+  .text-side-right
+  {
+    text-align:center !important;
+  }
+}
+.footer-icon{
+  font-size: 17px;
+  padding-left: 5px;
+  color: rgba(255,255,255,.5)!important;
+}
+.footer-icon-insta{
+  font-size: 15px !important;
+}
+.hospitall-color{
+  color: #4dc26b;
+}
+.hospitall-color:hover{
+  color: rgba(255,255,255,.5)!important;
+}
+.app-link-img{
+  margin-right: 5px;
+}
+@media(max-width:337px)
+{
+  .app-link-img
+  {
+    margin-bottom: 5px;
+  }
+}
+.display-none{
+  display: none !important;
+}
+/*GOOGLE MAP STYLES*/
+
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+   #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  /* html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  } */
+  .map-height{
+    height: 400px;
+  }
+  #description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  #infowindow-content .title {
+    font-weight: bold;
+  }
+
+  #infowindow-content {
+    display: none;
+  }
+
+  #map #infowindow-content {
+    display: inline;
+  }
+
+  .pac-card {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+  }
+
+  #pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+  }
+
+  .pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+  }
+
+  .pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  #pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+  }
+
+  #pac-input:focus {
+    border-color: #4d90fe;
+  }
+
+  #title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+  }
+/*END OF GOOGLE MAP STYLES*/
+/* @media(min-width:598px), (max-width:764px)
+{
+  .app-link-img
+  {
+    margin-bottom: 5px;
+  }
+} */
+/* 
+
+
+@media(min--moz-device-pixel-ratio:1.5),
+(-o-min-device-pixel-ratio:3 2),
+(-webkit-min-device-pixel-ratio:1.5),
+(min-device-pixel-ratio:1.5),
+(min-resolution:1.5dppx) {
+	.sprite {
+		background-image: url(/dist/images/sprite-retina.png?1.0);
+		background-size: 181px 299px
+	}
+}
+
+.sprite--icon-bolt {
+	width: 15px;
+	height: 15px;
+  background-position: 0 -28px;
+  color: grey;
+}
+
+.sprite--icon-envelope {
+	width: 16px;
+	height: 16px;
+	background-position: 0 -43px;
+}
+
+.sprite--icon-insta {
+	width: 16px;
+	height: 16px;
+	background-position: 0 -59px;
+}
+
+.sprite--icon-facebook {
+	width: 16px;
+	height: 16px;
+  background-position: 0 -75px;
+  color
+}
+
+.sprite--icon-twitter {
+	width: 16px;
+	height: 16px;
+	background-position: 0 -123px;
+}
+
+.sprite--oladoc-footer {
+	width: 147px;
+	height: 33px;
+	background-position: 0 -139px;
+} */
