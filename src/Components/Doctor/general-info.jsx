@@ -16,6 +16,8 @@ class GeneralInfo extends Component {
 	state = {
 		// ...this.props.match.params.doctorId,
 		isLoading		: true,
+		callNowStyle	: 'none',
+		callNowButtoneStyle	: '',
 		doctor_data		: '',
 		qualification	: '',
 		certification	: '',
@@ -67,7 +69,7 @@ class GeneralInfo extends Component {
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }
-		const { doctor_data } = this.state;
+		const { doctor_data, callNowStyle, callNowButtoneStyle } = this.state;
 		return (
 			<div className="profile">
 				<div className="row">
@@ -104,8 +106,10 @@ class GeneralInfo extends Component {
 								<a href={doctor_data.map} target="_blank"> <strong>View on map</strong></a>
 							</li>
 							<li>
-								<h6>Phone</h6>
-								<a href="tel://03068989809">{doctor_data.phone}</a>
+								<button className="btn_1" onClick={ () => this.setState({ callNowButtoneStyle:"none", callNowStyle:""})} style={{display:callNowButtoneStyle}}> 
+									Call Now
+								</button>
+								<a href="tel://03068989809" style={{display:callNowStyle}}>{doctor_data.phone}</a>
 							</li>
 						</ul>
 					</div>
