@@ -144,8 +144,8 @@ class AppointmentForm extends Component{
                                     showTimeSelect
                                     timeIntervals={15}
                                     minDate={new Date()}
-                                    minTime={new Date(new Date().setHours(10,15))}
-                                    maxTime={new Date(new Date().setHours(18,15))}
+                                    // minTime={new Date(new Date().setHours(0,15))}
+                                    // maxTime={new Date(new Date().setHours(18,15))}
                                     dateFormat="MMMM d, yyyy h:mm aa"
                                 />
 							</div>

@@ -86,3 +86,12 @@ export const sendFeedback = (data) => {
         }
     });
 }
+
+export const doctorSignIn = (data) => {
+    return axios.post(APIModel.HOST+"doctor_signIn",data,{
+        'header': {
+            'Content-Type'  :   'application/json',
+            'Action'        :   'application/json',
+        }
+    });
+}  
