@@ -46,7 +46,7 @@ class Header extends Component{
                                                     <Link to="#0"  className="show-submenu" ><i className="pe-7s-user"></i></Link>
                                                     <ul>
                                                         <li><Link to="/login">Customer Login</Link></li>
-                                                        <li><Link to="/join_doctor">Doctor Login</Link></li>
+                                                        <li><Link to="/doctor_signin">Doctor Login</Link></li>
                                                     </ul>
                                                 </li>
                                             </ul>

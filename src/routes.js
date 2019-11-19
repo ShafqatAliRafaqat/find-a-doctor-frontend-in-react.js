@@ -13,7 +13,8 @@ import FAQ from './Components/FAQ/faq';
 import Contacts from './Components/ContactUs/contact';
 import Blog from './Components/Blog/blog';
 import BlogPage from './Components/Blog/blog-page';
-import JoinDoctor from './Components/Doctor/join-doctor';
+import DoctorSignIn from './Components/Doctor/doctor_sign_in';
+import JoinDoctor from './Components/Doctor/join_doctor';
 import Confirm from './Components/Booking/confirm';
 import logout from './Components/Login/logout';
 import CustomerProfile from './Components/CustomerProfile/Profile/profile';
@@ -40,6 +41,7 @@ export default [
   { path: "/blog", name:"Blog", Component: Blog},                  
   { path: "/blog-page", name:"Blog Page", Component: BlogPage},                  
   { path: "/join_doctor", name:"Join Doctor", Component: JoinDoctor},                  
+  { path: "/doctor_signin", name:"Doctor Sign In", Component: DoctorSignIn},                  
   { path: "/confirm", name:"Confirm", Component: Confirm },                  
   { path: "/contacts", name:"Contacts", Component: Contacts},             
   { path: "/customer_profile", name:"Customer Profile", Component: CustomerProfile},             

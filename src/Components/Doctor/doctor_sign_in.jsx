@@ -1,21 +1,27 @@
 import React, {Component} from "react";
 import { Link,Redirect } from "react-router-dom";
-import * as actions from "../../Store/Actions/AuthAction";
+import * as actions from "../../Store/Actions/DoctorAuthAction";
 import PhoneModal from "./forget-password";
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
+import SweetAlert from 'react-bootstrap-sweetalert';
 import 'react-phone-number-input/style.css'
 import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
 alertify.set('notifier', 'position', 'top-center');
 
-class JoinDoctor extends Component{
+class DoctorSignIn extends Component{
 	initState = {
-        phone		: '',
-        password	: '',
-        processing	: false,
+        phone			: 	'',
+        password		: 	'',
+		processing		: 	false,
+        showLoginAlert	:	false,
+        showSignUpAlert	:	false,
+        show        	: 	false
 	};
 	state = {
-        ...this.initState,
+		...this.initState,
+
+		
 	};
 	onChange = e => {
         this.setState({
@@ -34,17 +40,26 @@ class JoinDoctor extends Component{
         let params = { phone, password};
         signIn(params).then(res => {
 
-            this.setState({
-                ...this.initState,
-			});  
-			this.props.history.push('/');
-			alertify.success("Login Successfully");
-			setTimeout(window.location.reload(),100000);
-			dispatch({
-                type: actions.SIGN_IN,
-                payload: res.data
-            });
 
+			if(res.data.doctor_signUp){
+				this.setState({
+					showSignUpAlert:true,
+				});
+				// this.props.history.push('/join_doctor');
+			} else if(res.data.doctor_panel){
+				this.setState({
+					showLoginAlert:true,
+				});
+				// window.location.assign('https://support.hospitallcare.com/login');
+			} else if(res.data.create_doctor_password){
+				this.setState({
+					show:true,
+				});
+
+			}else if(res.data.invalid_data){
+				alertify.success("Please Enter a Valid Number");
+				
+			}
         }).catch(errorHandler).finally(() => {
             this.setState({
                 processing: false
@@ -52,6 +67,7 @@ class JoinDoctor extends Component{
         });
 
 	};
+
 	renderForgetPasswordModal = () => {
 		return <PhoneModal {...this.props}/>;
     };
@@ -80,12 +96,14 @@ class JoinDoctor extends Component{
 														placeholder = "Enter Phone Number"
 														value={this.state.phone}
 														onChange={ phone => this.setState({ phone }) }
-														error={ phone ? (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number') : 'Phone number required' }required/>								
+														error={ phone ? (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number') : 'Phone number required' }
+														required
+													/>								
 											</div>
-											<div className="form-group">
+											{/* <div className="form-group">
 												<label>Password</label>
 												<input type="password" className="form-control" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.onChange}required/>
-											</div>
+											</div> */}
 											<div className="form-group">
 												<div className="row">
 													<div className="col-6 text-left">
@@ -105,6 +123,36 @@ class JoinDoctor extends Component{
 						</div>
 					</div>
 				</main>
+				<SweetAlert
+                    warning
+                    show={this.state.show}
+                    confirmBtnBsStyle="info"
+                    title="Password Creation"
+                    onConfirm={() => this.setState({ ...this.initState })}
+                    onCancel={() => this.setState({ show: false })}
+                    >
+                    We have sent a URL on your Phone for Password Creation. Please follow that URL.
+                </SweetAlert>
+				<SweetAlert
+					warning
+					show={this.state.showLoginAlert}
+					confirmBtnBsStyle="info"
+					title="Your Phone number is in our System"
+					onConfirm={() => this.setState({ ...this.initState })}
+					onCancel={() => this.setState({ showLoginAlert: false })}
+					>
+						Please follow the <a href="http://localhost:8000/login">link</a> to Sign In. Thanks
+				</SweetAlert>
+				<SweetAlert
+					warning
+					show={this.state.showSignUpAlert}
+					confirmBtnBsStyle="info"
+					title="Phone Number is not in our System"
+					onConfirm={() => this.setState({ ...this.initState })}
+					onCancel={() => this.setState({ showSignUpAlert: false })}
+					>
+						Please recheck your phone number or go to our <a href="http://localhost:3000/join_doctor">Sign Up page</a> to Join Us.
+				</SweetAlert>
             </React.Fragment>
         );
     }
@@ -117,7 +165,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		dispatch: dispatch,
-        signIn: (params) => actions.signIn(params),
+        signIn: (params) => actions.doctorSignIn(params),
 
 	};
 };
@@ -125,4 +173,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(JoinDoctor);
+)(DoctorSignIn);
