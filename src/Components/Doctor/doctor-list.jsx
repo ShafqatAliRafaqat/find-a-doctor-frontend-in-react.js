@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../Store/Actions/DoctorAction";
-import SimplePagination from "../Common/SimplePagination";
 import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
 import List from './list';
@@ -148,7 +147,6 @@ class DoctorList extends Component{
 	};
 	
 	onChange =e =>{
-		
         this.setState({
             [e.target.name]: e.target.value
         }, () => {

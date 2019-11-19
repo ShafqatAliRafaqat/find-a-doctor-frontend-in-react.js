@@ -3,14 +3,90 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import List from './../Doctor/list';
 import * as actions from "../../Store/Actions/CenterAction";
-import SimplePagination from "../Common/SimplePagination";
 import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import SearchPages from '../Search/search_pages';
 import Pagination from "react-js-pagination";
 
+
+const useStyles = makeStyles({
+	root: {
+	  '&:hover': {
+		backgroundColor: 'transparent',
+	  },
+	},
+	icon: {
+	  borderRadius: '50%',
+	  width: 16,
+	  height: 16,
+	  boxShadow: 'inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)',
+	  backgroundColor: '#f5f8fa',
+	  backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
+	  '$root.Mui-focusVisible &': {
+		outline: '2px auto rgba(19,124,189,.6)',
+		outlineOffset: 2,
+	  },
+	  'input:hover ~ &': {
+		backgroundColor: '#ebf1f5',
+	  },
+	  'input:disabled ~ &': {
+		boxShadow: 'none',
+		background: 'rgba(206,217,224,.5)',
+	  },
+	},
+	checkedIcon: {
+	  backgroundColor: '#137cbd',
+	  backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
+	  '&:before': {
+		display: 'block',
+		width: 16,
+		height: 16,
+		backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
+		content: '""',
+	  },
+	  'input:hover ~ &': {
+		backgroundColor: '#106ba3',
+	  },
+	},
+  });
+  function StyledRadio(props) {
+	const classes = useStyles();
+  
+	return (
+	  <Radio
+		className={classes.root}
+		disableRipple
+		color="default"
+		checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
+		icon={<span className={classes.icon} />}
+		{...props}
+	  />
+	);
+  }
+
 class Detail extends Component{
+	initState = {
+		nearest_doctor	: '',
+		male			: false,
+		female			: false,
+		consultation_fee: '',
+		available		: '',
+        available_today	: false,		
+        available_any_day:false,
+        available_on_weekend:false,
+	}
     state = {
+		...this.initState,
 		isLoading	: true,
 		center_data	: '',
 		current_page: 0,
@@ -21,6 +97,8 @@ class Detail extends Component{
 		treatments	: '',
 		centerId	:'',
 		center_doctor:'',
+		latitude	:'',
+		longitude	:'',
 	};
 	componentDidUpdate(prevProps) {
         if (this.props.location.pathname !== prevProps.location.pathname) {
@@ -31,6 +109,26 @@ class Detail extends Component{
 					[key]: params[key]
 				});
 			}
+			navigator.geolocation.getCurrentPosition(
+				(position) => {
+				  this.setState({
+					latitude: position.coords.latitude,
+					longitude: position.coords.longitude,
+					error: null,
+				  });
+				},
+				(error) => this.setState({ error: error.message }),
+				{ enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+			  );
+			  navigator.geolocation.watchPosition(
+				(position) => {
+				  this.setState({
+					latitude: position.coords.latitude,
+					longitude: position.coords.longitude,
+					error: null,
+				  });
+				}
+			  );
         	this.fetchCenter(search);
         }
     }
@@ -42,9 +140,43 @@ class Detail extends Component{
                 [key]: params[key]
             });
         }
-
+		navigator.geolocation.getCurrentPosition(
+			(position) => {
+			  this.setState({
+				latitude: position.coords.latitude,
+				longitude: position.coords.longitude,
+				error: null,
+			  });
+			},
+			(error) => this.setState({ error: error.message }),
+			{ enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+		  );
+		  navigator.geolocation.watchPosition(
+			(position) => {
+			  this.setState({
+				latitude: position.coords.latitude,
+				longitude: position.coords.longitude,
+				error: null,
+			  });
+			}
+		  );
         this.fetchCenter(search);
 	}
+	filterChecked =e =>{
+		
+        this.setState({
+            [e.target.name]: e.target.checked
+        }, () => {
+            this.fetchCenter();
+        });
+	};
+	onChange =e =>{
+        this.setState({
+            [e.target.name]: e.target.value
+        }, () => {
+            this.fetchCenter();
+        });
+	};
 	fetchCenter = (search) => {
 
 		this.setState({
@@ -52,7 +184,10 @@ class Detail extends Component{
 		});
 		let { fetchCenter, dispatch, errorHandler, alertify} = this.props;
 		let centerId = this.props.match.params.centerId;
-		fetchCenter(centerId,search).then(res => {
+		const {male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude ,longitude} =	this.state;  
+        let data = {male, female,centerId, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude,longitude }; 
+
+		fetchCenter(search,data).then(res => {
 			this.setState({
 				center_data	: res.data.meta.center,
 				center_doctor:res.data.data,
@@ -62,6 +197,9 @@ class Detail extends Component{
                 per_page	: res.data.meta.per_page,
                 total		: res.data.meta.total,
 				});
+			if(res.data.data.length == 0){
+				alertify.error("There is no doctor");
+			}
 			window.scrollTo(0, 0);
 			if(res.data.meta.total == 0){
 				alertify.error("There is no doctor");
@@ -95,9 +233,9 @@ class Detail extends Component{
 	}
 	
     CenterProfile = () => {
-		if (this.state.isLoading) {
-            return (<div data-loader="circle-side"></div>);
-        }
+		// if (this.state.isLoading) {
+        //     return (<div data-loader="circle-side"></div>);
+        // }
 		const { center_data,total } = this.state;
 		return (
             <aside className="col-xl-3 col-lg-4" id="sidebar">
@@ -120,7 +258,7 @@ class Detail extends Component{
 					</span>
 					<ul className="statistic">
 						<li>{total} Doctor</li>
-						<li>{center_data.treatments.length} Treatment</li>
+						<li>{(center_data)?center_data.treatments.length:""} Treatment</li>
 					</ul>
 					<ul className="contacts">
 						<li><h6>Address</h6>{center_data.address}</li>
@@ -132,14 +270,95 @@ class Detail extends Component{
 						</a>
 					</div>
 				</div>
+				<div className="box_profile">
+				 		<div className="row">
+						 	<div className="col-12 mt-3 pt-2 text-left css-col-bottom">
+								 <h1 style={{color:"#fff"}}>
+									Filters
+								 </h1>
+							</div>
+							<div className="col-12 mt-3 text-left">
+								<div className="custom-control custom-checkbox custom-control-inline bg-white  pr-3">					
+									<input type="checkbox" id="maledoc" name="male" onChange={ this.filterChecked } className="custom-control-input"/>
+									<label className="custom-control-label" for="maledoc">Male doctor</label>
+								</div>
+							</div>
+							<div className="col-12 mt-3 mb-2 text-left">
+								<div className="custom-control custom-checkbox custom-control-inline bg-white pr-3  mr-0">
+									<input type="checkbox" id="femaledoc" name="female" onChange={ this.filterChecked } className="custom-control-input" />
+									<label className="custom-control-label" for="femaledoc">Female doctor</label>
+								</div>
+							</div>
+						</div>
+
+						<div className="row css-col-top">
+						 	<div className="col-12 pt-2 text-left css-col-bottom">
+								 <h1 style={{color:"#fff"}}>
+									Availability
+								 </h1>
+							</div>
+							<div className="col-12 mt-3 mb-3 text-left">
+								<div className="custom-checkbox custom-control-inline bg-white  pr-3 ">
+									<FormControl component="fieldset" className="custom-control">
+										<RadioGroup aria-label="consultation_fee" name="available" onChange={this.onChange}>
+											<FormControlLabel value="0" control={<StyledRadio />} label="Any Day" />
+											<FormControlLabel value="1" control={<StyledRadio />} label="Today" />
+											<FormControlLabel value="2" control={<StyledRadio />} label="Weekends" />
+										</RadioGroup>
+									</FormControl>
+								</div>
+							</div>
+						</div>
+						<div className="row css-col-top">
+						 	<div className="col-12 pt-2 text-left css-col-bottom">
+								 <h1 style={{color:"#fff"}}>
+								 	Consultaton Fee
+								 </h1>
+							</div>
+							<div className="col-12 mt-3 text-left">
+								<div className="custom-checkbox custom-control-inline bg-white  pr-3 ">
+									<FormControl component="fieldset" className="custom-control">
+										<RadioGroup aria-label="consultation_fee" name="consultation_fee" onChange={this.onChange}>
+											<FormControlLabel value="0-100000" control={<StyledRadio />} label="All" />
+											<FormControlLabel value="0-500" control={<StyledRadio />} label="300-500" />
+											<FormControlLabel value="501-1000" control={<StyledRadio />} label="500-1000" />
+											<FormControlLabel value="1001-2000" control={<StyledRadio />} label="1000-2000" />
+											<FormControlLabel value="2001-5000" control={<StyledRadio />} label="2000-5000" />
+											<FormControlLabel value="5001-100000" control={<StyledRadio />} label="5000+" />
+										</RadioGroup>
+									</FormControl>
+								</div>
+							</div>
+						</div>
+						<div className="row css-col-top">
+						 	<div className="col-12 pt-2 text-left css-col-bottom">
+								 <h1 style={{color:"#fff"}}>
+								 	Nearest Doctors
+								 </h1>
+							</div>
+							<div className="col-12 mt-3 text-left">
+								<div className="custom-checkbox custom-control-inline bg-white  pr-3 ">
+									<FormControl component="fieldset" className="custom-control">
+										<RadioGroup aria-label="nearest_doctor" name="nearest_doctor" onChange={this.onChange}>
+											<FormControlLabel value="0-10000" control={<StyledRadio />} label="All" />
+											<FormControlLabel value="0-5" control={<StyledRadio />} label="0-5 Km" />
+											<FormControlLabel value="5-10" control={<StyledRadio />} label="5-10 Km" />
+											<FormControlLabel value="10-20" control={<StyledRadio />} label="10-20 Km" />
+											<FormControlLabel value="21-10000" control={<StyledRadio />} label="20+" />
+										</RadioGroup>
+									</FormControl>
+								</div>
+							</div>
+						</div>
+					</div>
 			</aside>
         );
 	};
 	render(){
 		const { page,totalPages,total,to,center_data } = this.state;
-		if (this.state.isLoading) {
-            return (<div data-loader="circle-side"></div>);
-        }
+		// if (this.state.isLoading) {
+        //     return (<div data-loader="circle-side"></div>);
+        // }
 			return(
                 <React.Fragment>
                     <main>
@@ -203,7 +422,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		dispatch: dispatch,
-		fetchCenter: (id,search) => actions.fetchCenter(id,search),
+		fetchCenter: (search,data) => actions.fetchCenter(search,data),
 	};
 };
 

@@ -54,7 +54,7 @@ class Main extends Component{
 
             getDoctors(search).then(res => {
             this.setState({
-                doctor_data: res.data.data
+                doctor_data: JSON.parse(window.atob(res.data))
             });
 
         }).catch(errorHandler).finally(() => {
