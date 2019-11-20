@@ -231,7 +231,30 @@ class Detail extends Component{
 		const { center_doctor } = this.state;
 		return	<List {...this.props} doctor_data={center_doctor} />
 	}
-	
+	renderPagination =()=>{
+		const { page,totalPages,total,to,center_data } = this.state;
+		if (this.state.isLoading) {
+            return (<div data-loader="circle-side"></div>);
+        }
+		return(
+			<div className="row">
+			<div className="text-center col-12">
+				{(total != 0)?	<Pagination
+					prevPageText='prev'
+					nextPageText='next'
+					firstPageText='first'
+					lastPageText='last'
+					activePage={this.state.current_page}
+					itemsCountPerPage={this.state.per_page}
+					totalItemsCount={this.state.total}
+					onChange={this.handlePageChange}
+					/>
+					:<div className="text-center  col-12">There is no data</div>
+				}
+			</div>
+			</div>		
+		);
+	}
     CenterProfile = () => {
 		// if (this.state.isLoading) {
         //     return (<div data-loader="circle-side"></div>);
@@ -320,11 +343,9 @@ class Detail extends Component{
 									<FormControl component="fieldset" className="custom-control">
 										<RadioGroup aria-label="consultation_fee" name="consultation_fee" onChange={this.onChange}>
 											<FormControlLabel value="0-100000" control={<StyledRadio />} label="All" />
-											<FormControlLabel value="0-500" control={<StyledRadio />} label="300-500" />
-											<FormControlLabel value="501-1000" control={<StyledRadio />} label="500-1000" />
-											<FormControlLabel value="1001-2000" control={<StyledRadio />} label="1000-2000" />
-											<FormControlLabel value="2001-5000" control={<StyledRadio />} label="2000-5000" />
-											<FormControlLabel value="5001-100000" control={<StyledRadio />} label="5000+" />
+											<FormControlLabel value="0-1000" control={<StyledRadio />} label="1-1000" />
+											<FormControlLabel value="1001-3000" control={<StyledRadio />} label="1000-3000" />
+											<FormControlLabel value="3001-100000" control={<StyledRadio />} label="3000+" />
 										</RadioGroup>
 									</FormControl>
 								</div>
@@ -341,9 +362,8 @@ class Detail extends Component{
 									<FormControl component="fieldset" className="custom-control">
 										<RadioGroup aria-label="nearest_doctor" name="nearest_doctor" onChange={this.onChange}>
 											<FormControlLabel value="0-10000" control={<StyledRadio />} label="All" />
-											<FormControlLabel value="0-5" control={<StyledRadio />} label="0-5 Km" />
-											<FormControlLabel value="5-10" control={<StyledRadio />} label="5-10 Km" />
-											<FormControlLabel value="10-20" control={<StyledRadio />} label="10-20 Km" />
+											<FormControlLabel value="1-10" control={<StyledRadio />} label="1-10 Km" />
+											<FormControlLabel value="11-20" control={<StyledRadio />} label="11-20 Km" />
 											<FormControlLabel value="21-10000" control={<StyledRadio />} label="20+" />
 										</RadioGroup>
 									</FormControl>
@@ -389,22 +409,8 @@ class Detail extends Component{
 									<div className="row">
 										{this.ListOfDoctors()}
 									</div>
-									<div className="row">
-									<div className="text-center col-12">
-										{(total != 0)?	<Pagination
-											prevPageText='prev'
-											nextPageText='next'
-											firstPageText='first'
-											lastPageText='last'
-											activePage={this.state.current_page}
-											itemsCountPerPage={this.state.per_page}
-											totalItemsCount={this.state.total}
-											onChange={this.handlePageChange}
-											/>
-											:<div className="text-center  col-12">There is no data</div>
-										}
-									</div>
-									</div>
+									{this.renderPagination()}
+									
 								</div>
 							</div>
 						</div>
