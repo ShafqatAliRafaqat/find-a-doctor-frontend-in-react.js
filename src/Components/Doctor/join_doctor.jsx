@@ -205,7 +205,7 @@ class JoinDoctor extends Component{
     signUp = () => {
         this.setState({
             processing: true,
-            showLoginAlert:true,
+            showSignUpCfm:true,
         });
     };
     checkPassword = () => {
