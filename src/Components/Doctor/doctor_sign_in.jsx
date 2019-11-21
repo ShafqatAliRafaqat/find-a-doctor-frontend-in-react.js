@@ -141,7 +141,7 @@ class DoctorSignIn extends Component{
 					onConfirm={() => this.setState({ ...this.initState })}
 					onCancel={() => this.setState({ showLoginAlert: false })}
 					>
-						Please follow the <a href="http://localhost:8000/login">link</a> to Sign In. Thanks
+						Please follow the <a href="https://support.hospitallcare.com/admin">link</a> to Sign In. Thanks
 				</SweetAlert>
 				<SweetAlert
 					warning
@@ -151,7 +151,7 @@ class DoctorSignIn extends Component{
 					onConfirm={() => this.setState({ ...this.initState })}
 					onCancel={() => this.setState({ showSignUpAlert: false })}
 					>
-						Please recheck your phone number or go to our <a href="http://localhost:3000/join_doctor">Sign Up page</a> to Join Us.
+						Please recheck your phone number or go to our <a href="https://demo.hospitallcare.com/join_doctor">Sign Up page</a> to Join Us.
 				</SweetAlert>
             </React.Fragment>
         );
