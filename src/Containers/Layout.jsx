@@ -50,8 +50,7 @@ class Layout extends Component {
                                           </div>  
                                         );
                                     }
-                                    
-                                    return <Router history={browserHistory} />;
+                                    return <Redirect to='/404_not_found' />;
                                 }}
                                 />     
                         )
