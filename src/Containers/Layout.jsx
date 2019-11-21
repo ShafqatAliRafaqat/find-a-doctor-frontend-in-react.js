@@ -57,7 +57,7 @@ class Layout extends Component {
                           : (null) 
                       },
                       )}
-                    <Redirect to='/404_not_found' />
+                    {/* <Redirect to='/404_not_found' /> */}
                   </Switch>
                   <FooterSection />
             </React.Fragment>
