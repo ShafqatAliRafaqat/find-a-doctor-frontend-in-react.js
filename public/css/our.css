@@ -280,6 +280,54 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: 500;
     padding: 6px 12px;
   }
+
+.related-treatments{
+  background: #f5f8fa;
+  /* padding: 3px; */
+  padding: 4px 10px 4px;
+  border: 1px solid #b1b1b1;
+  border-radius: 8%;
+  color: #505050;
+  font-weight: 400;
+  margin-left: 10px;
+
+}
+.btn-outline-midgray{
+  color: #a5a5a5;
+    background-color: transparent;
+    background-image: none;
+    border-color: #a5a5a5;
+}
+.btn-outline-midgray:hover{
+  background-color: #e2e2e2;
+
+}
+.p-brief-intro{
+  color: grey;
+  font-size: 13px;
+  line-height: initial;
+}
+.h6-brief-intro{
+  color: #717171;
+}
+.faq-collapse-root{
+  width: 100% !important;
+}
+.faq-collapse-header{
+  font-size: 14px !important;
+  color: darkslategrey !important;
+}
+.faq-collapse-p{
+  font-size: 14px !important;
+  color: grey;
+}
+@media(max-width:767px)
+{
+  .faq-m-5
+  {
+    margin-bottom: 5px;
+  }
+}
 /*END OF GOOGLE MAP STYLES*/
 /* @media(min-width:598px), (max-width:764px)
 {

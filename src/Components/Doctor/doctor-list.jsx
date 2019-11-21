@@ -5,17 +5,14 @@ import * as actions from "../../Store/Actions/DoctorAction";
 import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
 import List from './list';
+import BottomFaq from './../FAQ/bottom_faq';
 import alertify from 'alertifyjs';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import SearchPages from '../Search/search_pages';
 import Pagination from "react-js-pagination";
 
@@ -289,7 +286,7 @@ class DoctorList extends Component{
 		this.getDoctors(search + "page=" + 	pageNumber , actions.GET_ALL_DOCTORS);
 	}
     render(){
-		let { page, totalPages,to,total } = this.state;
+		let { to,total } = this.state;
         return(
             <React.Fragment>
 				<main>
@@ -363,6 +360,8 @@ class DoctorList extends Component{
 							</div>
 						</div>
 					</div>
+					<BottomFaq/>
+					<div className="pb-5"></div>
 				</main>	
             </React.Fragment>
         );

@@ -10,6 +10,7 @@ import Register from './Components/Login/register';
 import Specializatoin from './Components/Specialization/specialization-list';
 import Clinic from './Components/Clinic/clinic-list';
 import FAQ from './Components/FAQ/faq';
+import BottomFaq from './Components/FAQ/bottom_faq';
 import Contacts from './Components/ContactUs/contact';
 import Blog from './Components/Blog/blog';
 import BlogPage from './Components/Blog/blog-page';
@@ -36,7 +37,8 @@ export default [
   { path: "/login", name:"Login", Component: Login },      
   { path: "/logout", name:"Logout", Component: logout },      
   { path: "/register", name:"Register", Component: Register },
-  { path: "/faq", name:"FAQ", Component: FAQ },                  
+  { path: "/faq", name:"FAQ", Component: FAQ },
+  { path: "/bottom_faq", name:"BottomFaq", Component: BottomFaq},                  
   { path: "/about_us", name:"about us", Component: Contacts },                  
   { path: "/blog", name:"Blog", Component: Blog},                  
   { path: "/blog-page", name:"Blog Page", Component: BlogPage},                  

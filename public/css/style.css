@@ -4090,6 +4090,18 @@ ul.bullets li:before {
   }
 }
 
+.margin_25_padding_0 {
+  padding-top: 25px;
+  padding-bottom: 0px;
+}
+@media (max-width: 767px) {
+  .margin_25_padding_0 {
+    /* For less than 767px */
+    padding-top: 20px;
+    padding-bottom: 0px;
+  }
+}
+
 .margin_60_35 {
   padding-top: 60px;
   padding-bottom: 35px;

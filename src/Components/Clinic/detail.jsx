@@ -390,7 +390,7 @@ class Detail extends Component{
 										<div className="container">
 											<ul>
 												<li><Link to="/">Home</Link></li>
-												<li><Link to="#">Hospitals</Link></li>
+												<li><Link to="/clinic_list">Hospitals</Link></li>
 												 	{(center_data.city_name)?<li><Link to="#">Hospitals in {center_data.city_name}</Link></li>:''}												
 												<li><Link>{center_data.name}</Link></li>
 											</ul>

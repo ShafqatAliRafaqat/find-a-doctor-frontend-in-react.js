@@ -193,7 +193,7 @@ class GeneralInfo extends Component {
 										<div className="container">
 											<ul>
 												<li><Link to="/">Home</Link></li>
-												<li><Link to="#">Find a Doctor</Link></li>
+												<li><Link to="/doctor_list">Find a Doctor</Link></li>
 												{(doctor_data.city_name)?<li><Link to="#">{doctor_data.city_name}</Link></li>:''}
 												{(doctor_data.speciality)?<li><Link to={{ pathname: `/treatment_detail/${doctor_data.speciality}`}}>{doctor_data.speciality}</Link></li>:''}
 												

@@ -2,20 +2,16 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import List from './../Doctor/list';
+import BottomFaq from './../FAQ/bottom_faq';
 import * as actions from "../../Store/Actions/TreatmentAction";
-import SimplePagination from "../Common/SimplePagination";
 import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import SearchPages from '../Search/search_pages';
 import Pagination from "react-js-pagination";
 
@@ -90,6 +86,7 @@ class Detail extends Component{
 		isLoading		: true,
 		radio			: 2,
 		treatment_data	: '',
+		related_treatments	: '',
 		current_page	: 0,
 		last_page		: 0,
 		per_page		: 0,
@@ -191,6 +188,7 @@ class Detail extends Component{
 		fetchTreatment(search,data).then(res => {
 			this.setState({
 				treatment_data	: res.data.meta.treatment,
+				related_treatments	: res.data.meta.related_treatments,
 				doctor_treatment:res.data.data,
 				current_page: res.data.meta.current_page,
                 last_page	: res.data.meta.last_page,
@@ -201,6 +199,7 @@ class Detail extends Component{
 			if(res.data.data.length == 0){
 				alertify.error("There is no doctor");
 			}
+			// console.log("related_treatments",res.data.meta.related_treatments)
 			window.scrollTo(0, 0);
 			if (res.data.meta.total == 0){
 				alertify.error('There is no doctor');
@@ -226,6 +225,29 @@ class Detail extends Component{
         }
 		const { doctor_treatment } = this.state;
 		return	<List {...this.props} doctor_data={doctor_treatment} />
+	}
+
+	RelatedTreatments = () => {
+		const{ related_treatments } 	=	this.state;
+		if (related_treatments.length < 1) {
+			return(
+				<div className="pb-5"></div>
+			);
+		}
+		return(
+			<div className="container margin_25">
+			<h6 className="h6-brief-intro">Related Treatments</h6>
+			<div className="row">
+				<div className="col">
+				{(related_treatments)?
+					related_treatments.map(m =><Link to={{ pathname:`/treatment_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+				:
+				''
+				}
+				</div>
+			</div>
+		</div>
+		);
 	}
 
 	handlePageChange = (pageNumber) => {
@@ -341,7 +363,7 @@ class Detail extends Component{
             );
 	};
 	render(){
-		const { page, totalPages, total, to,treatment_data } = this.state;
+		const { total, to,treatment_data ,related_treatments} = this.state;
 		// if (this.state.isLoading) {
         //     return (<div data-loader="circle-side"></div>);
         // }
@@ -395,6 +417,23 @@ class Detail extends Component{
 							</div>
 							</div>
 						</div>
+						
+
+						{(treatment_data.article) ? 						
+						<div className="container margin_25_padding_0">
+							<h6 className="h6-brief-intro">A Brief intro to {treatment_data.name}</h6>
+							<div className="row">
+								<div className="col">
+							<p className="p-brief-intro text-justify">{treatment_data.article}</p>
+								</div>
+							</div>
+						</div> : ''}
+
+
+						<BottomFaq/>
+
+						{this.RelatedTreatments()}
+						
 					</main>
                 </React.Fragment>
 			);
