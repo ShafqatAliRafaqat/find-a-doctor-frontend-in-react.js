@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, browserHistory } from 'react-router-dom';
 import FooterSection from "./Footer";
 import NavBarSection from "./Header";
 import alertify from "alertifyjs";
@@ -50,14 +50,15 @@ class Layout extends Component {
                                           </div>  
                                         );
                                     }
-                                    // return <Redirect to='/404_not_found' />;
+                                    
+                                    return <Router history={browserHistory} />;
                                 }}
                                 />     
                         )
                           : (null) 
                       },
                       )}
-                    {/* <Redirect to='/404_not_found' /> */}
+                    <Redirect to='/404_not_found' />
                   </Switch>
                   <FooterSection />
             </React.Fragment>
