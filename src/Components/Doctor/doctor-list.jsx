@@ -160,7 +160,7 @@ class DoctorList extends Component{
 
 		const {male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude ,longitude} =	this.state;  
         let data = {male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude,longitude }; 
-		
+		// console.log('data =>',data);
 	    getDoctors(search,data).then(res => {
             this.setState({
 				doctor_data	: res.data.data,
