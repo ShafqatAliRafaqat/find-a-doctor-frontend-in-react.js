@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Route, Switch, browserHistory } from 'react-router-dom';
+import { Redirect, Route, Switch, HashRouter } from 'react-router-dom';
 import FooterSection from "./Footer";
 import NavBarSection from "./Header";
 import alertify from "alertifyjs";
@@ -38,27 +38,29 @@ class Layout extends Component {
                     <div data-loader="circle-side"></div>
                   </div>
                   <NavBarSection />
-                  <Switch>
-                    {routes.map((route, idx) => {
-                        return route.Component ? (
-                                <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => {
-                                  
-                                  if(route.path){
-                                        return (
-                                          <div style={{minHeight:"500px"}}>
-                                            <route.Component alertify={alertify} {...props} {...this.props} errorHandler={this.errorHandler}  />                                  
-                                          </div>  
-                                        );
-                                    }
-                                    return <Redirect to='/404_not_found' />;
-                                }}
-                                />     
-                        )
-                          : (null) 
-                      },
-                      )}
-                    <Redirect to='/404_not_found' />
-                  </Switch>
+                  <HashRouter>
+                    <Switch>
+                      {routes.map((route, idx) => {
+                          return route.Component ? (
+                                  <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => {
+                                    
+                                    if(route.path){
+                                          return (
+                                            <div style={{minHeight:"500px"}}>
+                                              <route.Component alertify={alertify} {...props} {...this.props} errorHandler={this.errorHandler}  />                                  
+                                            </div>  
+                                          );
+                                      }
+                                      return <Redirect to='/404_not_found' />;
+                                  }}
+                                  />     
+                          )
+                            : (null) 
+                        },
+                        )}
+                      <Redirect to='/404_not_found' />
+                    </Switch>
+                  </HashRouter>
                   <FooterSection />
             </React.Fragment>
         );
