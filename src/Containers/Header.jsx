@@ -70,32 +70,22 @@ class Header extends Component{
                                     <li className="submenu">
                                         <Link to="#0" className="show-submenu">Home<i className="icon-down-open-mini"></i></Link>
                                         <ul>
-                                            <li><Link to="/">Home Default</Link></li>
-                                            <li><Link to="/">Home Version 2</Link></li>
-                                            <li><Link to="/">Home Version 3</Link></li>
-                                            <li><Link to="/">Home Version 4</Link></li>
-                                            <li><Link to="/">Revolution Slider</Link></li>
-                                            <li><Link to="/">With Cookie Bar (EU law)</Link></li>
+                                            <li><Link to="/doctor_list">Doctors</Link></li>
+                                            <li><Link to="/specialization_list">Specializations</Link></li>
+                                            <li><Link to="/clinic_list">Centers</Link></li>
                                         </ul>
                                     </li>
                                     <li className="submenu">
                                         <Link to="#0" className="show-submenu">Blog<i className="icon-down-open-mini"></i></Link>
                                         <ul>
                                             <li><Link to="/doctor_list">Doctor List</Link></li>
-                                            <li><Link to="/Doctor_detail">Doctor Detail</Link></li>
                                             <li><Link to="/blog">Blog</Link></li>
-
-                                            <li><Link to="/login">Login</Link></li>
-                                            <li><Link to="/register">Register</Link></li>
-                                            <li><Link to="/join_doctor">Register Doctor</Link></li>
                                             <li><Link to="/contacts">Contacts</Link></li>
                                         </ul>
                                     </li>
                                     <li className="submenu">
                                         <Link to="#0" className="show-submenu">About Us<i className="icon-down-open-mini"></i></Link>
                                         <ul>
-                                            <li><Link to="/booking">Booking page</Link></li>
-                                            <li><Link to="/confirm">Confirm page</Link></li>
                                             <li><Link to="/faq">Faq page</Link></li>
                                             <li><Link to="/404_not_found">404 page</Link></li>
                                         </ul>

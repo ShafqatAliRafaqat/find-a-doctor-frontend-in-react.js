@@ -163,12 +163,10 @@ class PhoneModal extends Component {
         this.setState({
             processing: true
         });
-        const {signIn,dispatch,errorHandler} = this.props;
+        const {signIn,dispatch,errorHandler, center_id,date, doctor_id,treatment_id} = this.props;
 
-        const { phone, password,treatment_id, booking_date,  center_id, doctor_id } 	=	this.state;
-        let date = moment(booking_date).format('MMMM Do YYYY, h:mm:ss a');
+        const { phone, password, } 	=	this.state;
         let params = { phone, password, treatment_id, date, center_id, doctor_id};
-        
         signIn(params).then(res => {
 
             this.setState({
@@ -176,14 +174,15 @@ class PhoneModal extends Component {
                 SignInModal:false,
                 customer:res.data.customer,
             });  
-            this.props.history.push('/current_appointment');
-            alertify.success('Your appointment has been booked. Thank you for contacting us.')
-            setTimeout(window.location.reload(),100000);
-
             dispatch({
                 type: actions.SIGN_IN,
                 payload: res.data
             });
+            // this.props.history.push('/current_appointment');
+            alertify.success('Your appointment has been booked. Thank you for contacting us.')
+            setTimeout(window.location.reload(),100000);
+
+            
 
         }).catch(errorHandler).finally(() => {
             this.setState({
@@ -197,9 +196,9 @@ class PhoneModal extends Component {
         this.setState({
             processing: true,
         });
-        const {signUp,dispatch,errorHandler} = this.props;
+        const {signUp,dispatch,errorHandler, center_id,date, doctor_id,treatment_id} = this.props;
 
-        const {code,codeSended ,name,password, treatment_id, booking_date, center_id, doctor_id,customerName,customertable} 	=	this.state;
+        const {code,codeSended ,name,password,customerName,customertable} 	=	this.state;
         if(!name){
             if(customerName){
             var  customer_name = customerName;
@@ -209,7 +208,6 @@ class PhoneModal extends Component {
             var customer_name = name;
         }   
         let status_id = 11;
-        let date = moment(booking_date).format('MMMM Do YYYY, h:mm:ss a');
 
         let params = { code,codeSended,name:customer_name,password, treatment_id, date, center_id, doctor_id,customertable,status_id};
         
@@ -219,13 +217,14 @@ class PhoneModal extends Component {
                 ...this.initState,
                 SignUpModal:false,
             }); 
-            this.props.history.push('/current_appointment'); 
-            alertify.success('Your appointment has been booked. Thank you for contacting us.')
-            setTimeout(window.location.reload(),100000);
             dispatch({
                 type: actions.SIGN_UP,
                 payload: res.data
             });
+            // this.props.history.push('/current_appointment'); 
+            alertify.success('Your appointment has been booked. Thank you for contacting us.')
+            setTimeout(window.location.reload(),100000);
+            
 
         }).catch(errorHandler).finally(() => {
             this.setState({
