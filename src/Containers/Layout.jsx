@@ -37,8 +37,8 @@ class Layout extends Component {
                   <div id="preloader">
                     <div data-loader="circle-side"></div>
                   </div>
-                  <NavBarSection />
                   <HashRouter>
+                  <NavBarSection />
                     <Switch>
                       {routes.map((route, idx) => {
                           return route.Component ? (
@@ -60,8 +60,9 @@ class Layout extends Component {
                         )}
                       <Redirect to='/404_not_found' />
                     </Switch>
+                    <FooterSection />
                   </HashRouter>
-                  <FooterSection />
+                  
             </React.Fragment>
         );
       }
