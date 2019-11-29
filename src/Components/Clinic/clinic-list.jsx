@@ -9,6 +9,8 @@ import alertify from 'alertifyjs';
 import List from './list';
 import SearchPages from '../Search/search_pages';
 import Pagination from "react-js-pagination";
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 class CenterList extends Component{
     state = {
@@ -87,6 +89,7 @@ class CenterList extends Component{
         return(
             <React.Fragment>
 				<main>
+
 					<div id="results">
 						<div className="container">
 							<div className="row">
@@ -132,7 +135,26 @@ class CenterList extends Component{
 							</ul>
 						</div>
 					</div>
-					<div className="container margin_60_35">
+					{/* <div className="container margin_60_35">
+						<div className="grid-root">
+							<Grid container spacing={3}>
+								<Grid item xs={3}>
+								<Paper className="grid-paper">xs=3</Paper>
+								</Grid>
+								<Grid item xs={3}>
+								<Paper className="grid-paper">xs=3</Paper>
+								</Grid>
+								<Grid item xs={3}>
+								<Paper className="grid-paper">xs=3</Paper>
+								</Grid>
+								<Grid item xs={3}>
+								<Paper className="grid-paper">xs=3</Paper>
+								</Grid>
+							</Grid>
+						</div>
+					</div> */}
+					
+					<div className="container margin_0_35">
 						<div className="row">
 							{this.ListOfCenters()}
 						</div>

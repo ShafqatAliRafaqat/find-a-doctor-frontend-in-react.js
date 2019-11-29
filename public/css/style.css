@@ -2318,7 +2318,7 @@ a.wish_bt:hover:after {
 }
 
 .filters_listing {
-  border-bottom: 1px solid #e1e8ed;
+  /* border-bottom: 1px solid #e1e8ed; */
   padding: 15px 0;
 }
 .filters_listing.map_listing {
@@ -4113,6 +4113,19 @@ ul.bullets li:before {
     padding-bottom: 5px;
   }
 }
+
+.margin_0_35 {
+  padding-top: 0px;
+  padding-bottom: 35px;
+}
+@media (max-width: 767px) {
+  .margin_0_35 {
+    /* For less than 767px */
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+}
+
 
 .margin_120 {
   padding-top: 120px;

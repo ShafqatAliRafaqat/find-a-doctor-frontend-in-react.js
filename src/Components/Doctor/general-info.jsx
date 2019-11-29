@@ -5,6 +5,7 @@ import * as actions from "../../Store/Actions/DoctorAction";
 import * as appointmentactions from "../../Store/Actions/AppointmentAction";
 import AppointmentForm from "../Booking/appointment-form";
 import PhoneModal from "../Booking/PhoneModal";
+import DoctorFaq from './../FAQ/doctor_faq';
 import SearchPages from '../Search/search_pages';
 
 class GeneralInfo extends Component {
@@ -23,6 +24,8 @@ class GeneralInfo extends Component {
 		certification	: '',
 		schedules		: '',
 		specialization	: '',
+		related_doctors	: '',
+		related_centers : '',
 		doctorId		: '',
 		all_treatments	: '',
 		...this.initState,
@@ -50,6 +53,8 @@ class GeneralInfo extends Component {
 				schedules		: res.data.meta.doctor_schedules,
 				specialization	: res.data.meta.specialization,
 				all_treatments	: res.data.meta.all_treatments,
+				related_doctors	: res.data.meta.related_doctors,
+				related_centers	: res.data.meta.related_centers,
 			});
 			dispatch({
 				type: actions.FETCH_DOCTOR,
@@ -62,9 +67,12 @@ class GeneralInfo extends Component {
 		});
 	};
 	SearchPages = () => {
-		return	<SearchPages {...this.props} />		
+		return	<SearchPages {...this.props  } />		
 	};
-	
+
+	DoctorFaq = () => {
+		return <DoctorFaq {...this.props  } doctor_data = {this.state.doctor_data} schedules = {this.state.schedules} />
+	}	
 	DoctorProfile = () => {
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
@@ -142,7 +150,6 @@ class GeneralInfo extends Component {
 				</div>
 			);
 		}
-
 	}
 	Curriculum = () => {
 		if (this.state.isLoading) {
@@ -175,6 +182,52 @@ class GeneralInfo extends Component {
         }
 		const { all_treatments, doctor_data, schedules } 	= this.state;
 		return<AppointmentForm {...this.props} doctor_data = {doctor_data} all_treatments={all_treatments} schedules ={schedules}/>;
+	}
+	relatedDoctors = () => {
+		const {related_doctors} =	this.state;
+		console.log("related_doctors",related_doctors)
+		if (related_doctors.length < 1) {
+			return(
+				<div className="pb-5"></div>
+			);
+		}
+		return(
+			<div className="container margin_25_padding_0">
+			<h6 className="h6-brief-intro">Nearest &amp; Related Doctors</h6>
+			<div className="row">
+				<div className="col">
+				{(related_doctors)?
+					related_doctors.map(m =><Link to={{ pathname:`/doctor_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+				:
+				''
+				}
+				</div>
+			</div>
+		</div>
+		);
+	}
+	relatedCenters = () => {
+		const {related_centers} =	this.state;
+		console.log("related_centers",related_centers)
+		if (related_centers.length < 1) {
+			return(
+				<div className="pb-5"></div>
+			);
+		}
+		return(
+			<div className="container margin_25">
+			<h6 className="h6-brief-intro">Nearest Centers</h6>
+			<div className="row">
+				<div className="col">
+				{(related_centers)?
+					related_centers.map(m =><Link to={{ pathname:`/doctor_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+				:
+				''
+				}
+				</div>
+			</div>
+		</div>
+		);
 	}
 	render() {
 		if (this.state.isLoading) {
@@ -260,6 +313,10 @@ class GeneralInfo extends Component {
 							{this.renderBookingCard()}
 						</div>
 					</div>
+					{this.relatedDoctors()}
+					{this.DoctorFaq()}
+					{this.relatedCenters()}
+
 				</main>
 			</React.Fragment>
 		);

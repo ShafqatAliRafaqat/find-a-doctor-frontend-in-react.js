@@ -7,11 +7,14 @@ import TreatmentDetails from './Components/Specialization/detail';
 import Booking from './Components/Booking/booking-page';
 import Login from './Components/Login/login';
 import Register from './Components/Login/register';
-import Specializatoin from './Components/Specialization/specialization-list';
+import Specialization from './Components/Specialization/specialization-list';
+import BottomTopSpecializations from './Components/Specialization/bottom_top_specializations';
 import Clinic from './Components/Clinic/clinic-list';
 import FAQ from './Components/FAQ/faq';
 import BottomFaq from './Components/FAQ/bottom_faq';
+import DoctorFaq from './Components/FAQ/doctor_faq';
 import Contacts from './Components/ContactUs/contact';
+import About from './Components/ContactUs/about';
 import Blog from './Components/Blog/blog';
 import BlogPage from './Components/Blog/blog-page';
 import DoctorSignIn from './Components/Doctor/doctor_sign_in';
@@ -33,13 +36,15 @@ export default [
   { path: "/doctor_list", name:"Genral List", Component: DoctorList },      
   { path: "/booking", name:"Booking", Component: Booking },      
   { path: "/clinic_list", name:"Clinic", Component: Clinic },      
-  { path: "/specialization_list", name:"Specializatoin", Component: Specializatoin },      
+  { path: "/specialization_list", name:"Specialization", Component: Specialization },
+  { path: "/bottom_top_special",  name:"BottomTopSpecializations", Component: BottomTopSpecializations },      
   { path: "/login", name:"Login", Component: Login },      
   { path: "/logout", name:"Logout", Component: logout },      
   { path: "/register", name:"Register", Component: Register },
   { path: "/faq", name:"FAQ", Component: FAQ },
   { path: "/bottom_faq", name:"BottomFaq", Component: BottomFaq},                  
-  { path: "/about_us", name:"about us", Component: Contacts },                  
+  { path: "/doctor_faq", name:"DoctorFaq", Component: DoctorFaq},                  
+  { path: "/about_us", name:"AboutUs", Component: About },                  
   { path: "/blog", name:"Blog", Component: Blog},                  
   { path: "/blog-page", name:"Blog Page", Component: BlogPage},                  
   { path: "/join_doctor", name:"Join Doctor", Component: JoinDoctor},                  

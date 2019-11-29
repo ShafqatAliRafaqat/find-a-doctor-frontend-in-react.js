@@ -132,7 +132,6 @@ class SpecializatoinList extends Component{
 										
 									</div>
 								</li>
-							
 								<li className="pt-3">
 									<span><strong>Showing {to}</strong> of {total} results</span>
 								</li>
@@ -140,7 +139,7 @@ class SpecializatoinList extends Component{
 						</div>
 					</div>
 					
-					<div className="container margin_60_35">
+					<div className="container margin_0_35">
 						<div className="row">
 
 							{this.ListOftreatments()}

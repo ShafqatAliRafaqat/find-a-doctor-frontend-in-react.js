@@ -83,20 +83,21 @@ class Detail extends Component{
 	}
     state = {
 		...this.initState,
-		isLoading		: true,
-		radio			: 2,
-		treatment_data	: '',
+		isLoading			: true,
+		radio				: 2,
+		treatment_data		: '',
 		related_treatments	: '',
-		current_page	: 0,
-		last_page		: 0,
-		per_page		: 0,
-		treatments		:'',
-		activePage		:0,
-		treatments		: '',
-		centerId		:'',
-		latitude		:'',
-		longitude		:'',
-		doctor_treatment:'',
+		current_page		: 0,
+		last_page			: 0,
+		per_page			: 0,
+		treatments			: '',
+		center_id 			: (this.props.location.state)? this.props.location.state : null,
+		activePage			: 0,
+		treatments			: '',
+		centerId			: '',
+		latitude			: '',
+		longitude			: '',
+		doctor_treatment	: '',
 	};
 	componentDidUpdate(prevProps) {
         if (this.props.location.pathname !== prevProps.location.pathname) {
@@ -180,11 +181,13 @@ class Detail extends Component{
 		this.setState({
 			isLoading: true
 		});
-		let { fetchTreatment, dispatch, errorHandler, alertify } = this.props;
-		let treatmentId = this.props.match.params.treatmentId;
-		const {male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude ,longitude} =	this.state;  
-        let data = {male, female,treatmentId, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude,longitude }; 
 
+		let { fetchTreatment, dispatch, errorHandler, alertify } = this.props;
+		
+		let treatmentId = this.props.match.params.treatmentId;
+		const {male, female, available_today, available_any_day, available_on_weekend, consultation_fee,center_id, nearest_doctor, available, latitude ,longitude} =	this.state;  
+        let data = {center_id, male, female,treatmentId, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude,longitude }; 
+		console.log("data =>", data);
 		fetchTreatment(search,data).then(res => {
 			this.setState({
 				treatment_data	: res.data.meta.treatment,
@@ -259,8 +262,8 @@ class Detail extends Component{
     CenterProfile = () => {
 		const { treatment_data,total } = this.state;
 		return (
-            <aside className="col-xl-3 col-lg-4" id="sidebar">
-					<div className="box_profile">
+            <aside className="col-xl-3 col-lg-4 pull-right" id="sidebar">
+					{/* <div className="box_profile">
 						<figure>
 							{ (treatment_data.picture) ? <img src={treatment_data.picture} alt="" className="img-fluid" /> : <img src="http://via..com/565x565.jpg" alt="" className="img-fluid" />}
 						</figure>
@@ -280,7 +283,7 @@ class Detail extends Component{
 						<ul className="statistic">
 							<li>{total} Doctors</li>
 						</ul>
-					</div>
+					</div> */}
 					<div className="box_profile">
 				 		<div className="row">
 						 	<div className="col-12 mt-3 pt-2 text-left css-col-bottom">
@@ -388,7 +391,21 @@ class Detail extends Component{
 								</div>
 							</div>
 						</div>
-						<div className="container pagination_details text-right"><span><strong>Showing {to}</strong> of {total} results</span></div>
+						<div className="container ">
+							<div className=" row pagination_details ">
+							<div className=" col-6 text-left ">
+									<span className="span-treatmentName">{treatment_data.name}</span>
+								</div>
+								<div className=" col-6 text-right">
+									{(to) ? <span><strong>Showing {to}</strong> of {total} results</span>
+									 : 
+									 <span><strong>No results found</strong></span>
+									 }
+									
+								</div>
+							</div>
+						</div>
+
 						<div className="container margin_25">
 						
 							<div className="row">
@@ -433,7 +450,7 @@ class Detail extends Component{
 						<BottomFaq/>
 
 						{this.RelatedTreatments()}
-						
+
 					</main>
                 </React.Fragment>
 			);
