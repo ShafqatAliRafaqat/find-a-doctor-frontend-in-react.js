@@ -117,7 +117,8 @@ class GeneralInfo extends Component {
 								<button className="btn_1" onClick={ () => this.setState({ callNowButtoneStyle:"none", callNowStyle:""})} style={{display:callNowButtoneStyle}}> 
 									Call Now
 								</button>
-								<a href="tel://03068989809" style={{display:callNowStyle}}>{doctor_data.phone}</a>
+								<a href="tel://+923222555600" style={{display:callNowStyle}}>+92-322-2555600</a><br />
+								<a href="tel://+923222555400" style={{display:callNowStyle}}>+92-322-2555400</a><br />
 							</li>
 						</ul>
 					</div>
@@ -185,11 +186,12 @@ class GeneralInfo extends Component {
 	}
 	relatedDoctors = () => {
 		const {related_doctors} =	this.state;
-		console.log("related_doctors",related_doctors)
-		if (related_doctors.length < 1) {
-			return(
-				<div className="pb-5"></div>
-			);
+		if(related_doctors){
+			if (related_doctors.length < 1) {
+				return(
+					<div className="pb-5"></div>
+				);
+			}
 		}
 		return(
 			<div className="container margin_25_padding_0">
@@ -208,12 +210,14 @@ class GeneralInfo extends Component {
 	}
 	relatedCenters = () => {
 		const {related_centers} =	this.state;
-		console.log("related_centers",related_centers)
-		if (related_centers.length < 1) {
-			return(
-				<div className="pb-5"></div>
-			);
+		if(related_centers){
+			if (related_centers.length < 1) {
+				return(
+					<div className="pb-5"></div>
+				);
+			}
 		}
+		
 		return(
 			<div className="container margin_25">
 			<h6 className="h6-brief-intro">Nearest Centers</h6>

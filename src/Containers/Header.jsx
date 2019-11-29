@@ -83,7 +83,7 @@ class Header extends Component{
                                         <ul>
                                             <li><Link to="/doctor_list">Doctor List</Link></li>
                                             <li><Link to="/blog">Blog</Link></li>
-                                            <li><Link to="/contacts">Contacts</Link></li>
+                                            <li><Link to="/contact" >Contacts</Link></li>
                                         </ul>
                                     </li>
                                     <li className="submenu">

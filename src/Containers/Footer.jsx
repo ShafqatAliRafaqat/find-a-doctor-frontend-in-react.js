@@ -79,7 +79,7 @@ class Footer extends Component {
                                 &copy; 2018 - 2020 
                                 <a href="https://hospitallcare.com" className="pl-1 hospitall-color">HospitALL-Care to Cure</a> 
                                 <a href="https://hospitallcare.com/privacy-policy-2/" className=" pl-1 a-btm-footer text-sm">Privacy policy</a> | 
-                                <a href="https://hospitallcare.com/contacts/" className=" pl-1 a-btm-footer text-sm">Contact us</a>
+                                <a href="https://hospitallcare.com/contact/" className=" pl-1 a-btm-footer text-sm">Contact us</a>
                             </p>
                         </div>
                         <div className="col-lg-6 col-sm-12 col-lg-auto text-side-right">

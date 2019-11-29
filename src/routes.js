@@ -53,7 +53,7 @@ export default [
   { path: "/join_doctor", name:"Join Doctor", Component: JoinDoctor},                  
   { path: "/doctor_signin", name:"Doctor Sign In", Component: DoctorSignIn},                  
   { path: "/confirm", name:"Confirm", Component: Confirm },                  
-  { path: "/contacts", name:"Contacts", Component: Contacts},             
+  { path: "/contact", name:"Contacts", Component: Contacts},             
   { path: "/customer_profile", name:"Customer Profile", Component: CustomerProfile},             
   { path: "/current_appointment", name:"Current Appointment", Component: CurrentAppointment},             
   { path: "/appointment_history", name:"Appointment History", Component: AppointmentHistory},             
