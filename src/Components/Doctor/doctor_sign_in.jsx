@@ -118,7 +118,7 @@ class DoctorSignIn extends Component{
 										<div className="col-2"></div>
 									</div>						
 								</div>
-								<p className="text-center link_bright">Do not have an account yet? <Link to="/register"><strong>Register now!</strong></Link></p>
+								<p className="text-center link_bright">Do not have an account yet? <Link to="/join_doctor"><strong>Register now!</strong></Link></p>
 							</div>
 						</div>
 					</div>
@@ -151,7 +151,7 @@ class DoctorSignIn extends Component{
 					onConfirm={() => this.setState({ ...this.initState })}
 					onCancel={() => this.setState({ showSignUpAlert: false })}
 					>
-						Please recheck your phone number or go to our <a href="https://demo.hospitallcare.com/join_doctor">Sign Up page</a> to Join Us.
+						Please recheck your phone number or go to our <Link to="/join_doctor">Sign Up page</Link> to Join Us.
 				</SweetAlert>
             </React.Fragment>
         );

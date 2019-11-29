@@ -107,7 +107,8 @@ class AppointmentForm extends Component{
     renderPhoneModal = () => {
         const { treatment_id, doctor_data, booking_date, center_id } 	= this.state;
         let doctor_id = doctor_data.id;
-            return <PhoneModal {...this.props} doctor_data = {doctor_data} doctor_id={doctor_id} treatment_id={treatment_id} booking_date={booking_date} center_id={center_id}/>;
+        let date = moment(booking_date).format('MMMM Do YYYY, h:mm:ss a');
+            return <PhoneModal {...this.props} doctor_data = {doctor_data} doctor_id={doctor_id} treatment_id={treatment_id} date={date} center_id={center_id}/>;
     };
     renderCheckFields =()=>{
         const { treatment_id, booking_date, center_id } 	= this.state;
