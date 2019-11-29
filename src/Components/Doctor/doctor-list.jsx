@@ -6,6 +6,7 @@ import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
 import List from './list';
 import BottomFaq from './../FAQ/bottom_faq';
+import BottomTopSpecialization from './../Specialization/bottom_top_specializations';
 import alertify from 'alertifyjs';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -73,13 +74,14 @@ const useStyles = makeStyles({
   }
 class DoctorList extends Component{
 	initState = {
-		nearest_doctor	: '',
-		male			: false,
-		female			: false,
-		consultation_fee: '',
-		available		: '',
-        available_today	: false,		
-        available_any_day:false,
+		nearest_doctor		: '',
+		specializations		: '',
+		male				: false,
+		female				: false,
+		consultation_fee	: '',
+		available			: '',
+        available_today		: false,		
+        available_any_day 	:false,
         available_on_weekend:false,
 	}
 	state = {
@@ -92,11 +94,10 @@ class DoctorList extends Component{
 		doctor_data		: '',
 		latitude		: '',
 		longitude		: '',
-		current_page: 0,
-		last_page	: 0,
-		per_page	: 0,
-		activePage	:0,
-        
+		current_page	: 0,
+		last_page		: 0,
+		per_page		: 0,
+		activePage		:0,   
 	};
 
     componentDidMount() {
@@ -158,12 +159,13 @@ class DoctorList extends Component{
 		});
 		let { getDoctors, dispatch, errorHandler } = this.props;
 
-		const {male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude ,longitude} =	this.state;  
-        let data = {male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude,longitude }; 
-		// console.log('data =>',data);
+		const { male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude ,longitude} =	this.state;  
+        let data = { male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude,longitude }; 
+		
 	    getDoctors(search,data).then(res => {
             this.setState({
 				doctor_data	: res.data.data,
+				specializations	: res.data.meta.specializations,
 				current_page: res.data.meta.current_page,
                 last_page	: res.data.meta.last_page,
                 to			: res.data.meta.to,
@@ -280,11 +282,34 @@ class DoctorList extends Component{
 		);
 	};
 
+	BottomSpecialization = () => {
+		const {specializations } = this.state;
+		if (specializations.length < 1) {
+			return(
+				<div className="pb-5"></div>
+			);
+		}
+		return(
+			<div className="container margin_25">
+			<h6 className="h6-brief-intro">Top Specializations</h6>
+			<div className="row">
+				<div className="col">
+				{(specializations)?
+					specializations.map(m =><Link to={{ pathname:`/treatment_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+				:
+				''
+				}
+				</div>
+			</div>
+		</div>
+		);
+	}
 	handlePageChange = (pageNumber) => {
 		this.setState({activePage: pageNumber});
 		let search = getSearchUrlFromState(this.state);
 		this.getDoctors(search + "page=" + 	pageNumber , actions.GET_ALL_DOCTORS);
 	}
+
     render(){
 		let { to,total } = this.state;
         return(
@@ -334,7 +359,7 @@ class DoctorList extends Component{
 							</ul>
 						</div>
 					</div>
-					<div className="container margin_60_35">
+					<div className="container margin_0_35">
 						<div className="row">	
 							{this.renderDoctorFilter()}
 							<div className="col-xl-9 col-lg-8">
@@ -361,6 +386,7 @@ class DoctorList extends Component{
 						</div>
 					</div>
 					<BottomFaq/>
+					{this.BottomSpecialization()}
 					<div className="pb-5"></div>
 				</main>	
             </React.Fragment>

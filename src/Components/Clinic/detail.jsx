@@ -16,6 +16,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import SearchPages from '../Search/search_pages';
+import BottomFaq from './../FAQ/bottom_faq';
 import Pagination from "react-js-pagination";
 
 
@@ -93,6 +94,8 @@ class Detail extends Component{
 		last_page	: 0,
 		per_page	: 0,
 		treatment_data:'',
+		center_treatments:'',
+		nearest_clinics: '',
 		activePage	:0,
 		treatments	: '',
 		centerId	:'',
@@ -189,14 +192,16 @@ class Detail extends Component{
 
 		fetchCenter(search,data).then(res => {
 			this.setState({
-				center_data	: res.data.meta.center,
-				center_doctor:res.data.data,
-				current_page: res.data.meta.current_page,
-                last_page	: res.data.meta.last_page,
-                to			: res.data.meta.to,
-                per_page	: res.data.meta.per_page,
-                total		: res.data.meta.total,
-				});
+				center_data			: res.data.meta.center,
+				center_treatments	: res.data.meta.center_treatments,
+				nearest_clinics		: res.data.meta.nearest_clinics,
+				center_doctor 		: res.data.data,
+				current_page 		: res.data.meta.current_page,
+                last_page			: res.data.meta.last_page,
+                to					: res.data.meta.to,
+                per_page			: res.data.meta.per_page,
+                total				: res.data.meta.total,
+			});
 			if(res.data.data.length == 0){
 				alertify.error("There is no doctor");
 			}
@@ -254,6 +259,52 @@ class Detail extends Component{
 			</div>
 			</div>		
 		);
+	}
+	centerTreatments = () => {
+		const { center_treatments,center_data } 	=	this.state;
+		if (center_treatments.length < 1) {
+			return(
+				<div className="pb-5"></div>
+			);
+		} else {
+			return(
+				<div className="container margin_25">
+				<h6 className="h6-brief-intro">Treatments done in {center_data.name} </h6>
+				<div className="row">
+					<div className="col">
+					{(center_treatments)?
+						center_treatments.map(m =><Link to={{ pathname:`/treatment_detail/${m.id}`, state: { center_id : center_data.id }}} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					:
+					''
+					}
+					</div>
+				</div>
+			</div>
+			);
+		}
+	}
+	nearestClinics = () => {
+		const { nearest_clinics,center_data } 	=	this.state;
+		if (nearest_clinics.length < 1) {
+			return(
+				<div className="pb-5"></div>
+			);
+		} else {
+			return(
+				<div className="container margin_25">
+				<h6 className="h6-brief-intro">Clinics/Centers near {center_data.name}</h6>
+				<div className="row">
+					<div className="col">
+					{(nearest_clinics)?
+						nearest_clinics.map(m =><Link to={{ pathname:`/center_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					:
+					''
+					}
+					</div>
+				</div>
+			</div>
+			);
+		}
 	}
     CenterProfile = () => {
 		// if (this.state.isLoading) {
@@ -414,6 +465,9 @@ class Detail extends Component{
 								</div>
 							</div>
 						</div>
+						{this.centerTreatments()}
+						<BottomFaq/>
+						{this.nearestClinics()}
 					</main>
                 </React.Fragment>
 			);

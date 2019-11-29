@@ -99,7 +99,7 @@ input[type=number]::-webkit-outer-spin-button {
 .pagination_details{
   margin-top: 35px;
   font-size: 15px;
-  color: #3a80b1;
+  /* color: #3a80b1; */
 }
 .card-bottom{
   background-color: #358449;
@@ -327,6 +327,99 @@ input[type=number]::-webkit-outer-spin-button {
   {
     margin-bottom: 5px;
   }
+}
+.span-treatmentName{
+  text-shadow: 1px 3px 12px grey;
+  font-size: 20px;
+  color: #505050;
+  font-weight: 600;
+}
+.list-card{
+  background: white;
+  padding: 30px;
+  box-shadow: 0px 0px 1px 0px grey;
+  transition: 0.3s;
+  border-radius: 4%;
+}
+.center-card{
+  min-height: 325px;
+}
+.specialization-card{
+  min-height: 185px;
+}
+.list-card:hover{
+  background: #f9f9f9;;
+  box-shadow: 0px 0px 5px 1px #67addd;
+  cursor: pointer;
+}
+.grid-root{
+  flex-grow: 1 !important;
+}
+.grid-paper{
+  padding: 20px !important;
+  text-align: center !important;
+}
+.h6-center-list{
+  margin-top: 34px;
+}
+.img-padding{
+  padding: 0px 35px;
+}
+.circle {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding: 100% 0 0;
+  border-radius: 50%;
+  overflow: hidden;
+  /* border: 1px solid gray; */
+}
+
+.circle img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.text-12{
+  font-size: 12px;
+}
+.hr-card{
+  margin: 12px 0px;
+}
+.btn-doctors{
+  float: right;
+  margin-bottom: 20px;
+}
+.white-container{
+  background: white;
+}
+.second-container{
+  background-color: #f5f8fa !important;
+}
+.hr-shine {
+  border: 0;
+  margin: 1.35em auto;
+  max-width: 100%;
+  background-position: 50%;
+  box-sizing: border-box;
+}
+.hr-shine:before {
+  content: '';
+}
+.hr-shine:after {
+  content: '';
+}
+.p-about{
+  color: grey;
+}
+.shine {
+  height: 3px;
+  width: 60%;
+  background-image: radial-gradient(farthest-side at 50% -50%, rgb(53, 132, 73), rgba(255, 255, 255, 0));
+  position: relative; 
 }
 /*END OF GOOGLE MAP STYLES*/
 /* @media(min-width:598px), (max-width:764px)
