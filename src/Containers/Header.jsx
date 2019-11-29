@@ -32,6 +32,9 @@ class Header extends Component{
                                                     <li><Link to="/current_appointment">My Appointments</Link></li>
                                                     <li><Link to="/customer_profile">My Profile</Link></li>
                                                     <li><Link to="/current_lab_test">My Test</Link></li>
+                                                    <li><Link to="/allergy_notes">Allergies</Link></li>
+                                                    <li><Link to="/riskfactor_notes">Risk Factor</Link></li>
+                                                    <li><Link to="/doctor_notes">Doctor Notes</Link></li>
                                                     <li><Link to="/logout">Logout</Link></li>
                                                 </ul>
                                             </li>

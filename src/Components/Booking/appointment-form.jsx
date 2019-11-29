@@ -86,7 +86,8 @@ class AppointmentForm extends Component{
 
           this.setState({
               ...this.initState,
-          });  
+          });
+        //   alertify.alert(res.data.data);  
           this.props.history.push('/current_appointment');
           alertify.success('Your appointment has been booked.')
           setTimeout(window.location.reload(),100000);

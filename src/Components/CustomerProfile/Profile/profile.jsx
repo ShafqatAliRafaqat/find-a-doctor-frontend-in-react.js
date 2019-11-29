@@ -55,8 +55,6 @@ class Profile extends Component{
                 address	        : res.data.data.address,
                 height	        : res.data.data.height,
                 weight	        : res.data.data.weight,
-                allergies	    : res.data.data.allergies,
-                riskfactor_notes: res.data.data.riskfactor_notes,
                 
 			});
 			dispatch({
@@ -78,12 +76,12 @@ class Profile extends Component{
 		});
         let { updateCustomer, dispatch, errorHandler,alertify } = this.props;
        
-        const {blood_group_id, marital_status, gender, name, phone,email,address,height,weight,allergies,riskfactor_notes} = this.state;
+        const {blood_group_id, marital_status, gender, name, phone,email,address,height,weight,} = this.state;
         
         let id = this.props.user.customer.id;
         let token = this.props.user.access_token;
 
-        let params ={blood_group_id, marital_status, gender, name, phone,email,address,height,weight,allergies,riskfactor_notes, id};
+        let params ={blood_group_id, marital_status, gender, name, phone,email,address,height,weight, id};
 
         updateCustomer(params, token).then(res => {
 			this.setState({
@@ -97,8 +95,6 @@ class Profile extends Component{
                 address	        : res.data.data.address,
                 height	        : res.data.data.height,
                 weight	        : res.data.data.weight,
-                allergies	    : res.data.data.allergies,
-                riskfactor_notes: res.data.data.riskfactor_notes,
             });
 			dispatch({
 				type: actions.UPDATE_CUSTOMER,
@@ -131,7 +127,7 @@ class Profile extends Component{
         if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }
-        const {processing, customer_data, blood_group_id, marital_status, gender, name, phone,email,address,height,weight,allergies,riskfactor_notes} =this.state;
+        const {processing, blood_group_id, marital_status, gender, name, phone,email,address,height,weight} =this.state;
         return(
             <React.Fragment>
                 <main>
@@ -167,6 +163,17 @@ class Profile extends Component{
                                                 <ul class="sidebar-menu">
                                                     <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current_lab_test" >Current Test</Link></li>
                                                     <li className="pl-3"><Link to="/lab_test_history" >Test History</Link></li>
+                                                </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-toggle="collapse" data-target="#details" aria-expanded="false" aria-controls="users">
+                                                <i class="icon_document_alt"></i>Additional Detail</a>
+                                                <div id="details" class="collapse ">
+                                                <ul class="sidebar-menu">
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/allergy_notes" >Allergy Notes</Link></li>
+                                                    <li className="pl-3"><Link to="/riskfactor_notes" >Risk Factor</Link></li>
+                                                    <li className="pl-3"><Link to="/doctor_notes" >Doctor Notes</Link></li>
                                                 </ul>
                                                 </div>
                                             </li>
@@ -253,20 +260,6 @@ class Profile extends Component{
                                         <div className="col-md-12">
                                             <div className="form-group">
                                                 <TextField  id="standard-basic" defaultValue = {address} onChange={this.onChange}  name="address" className="form-control" label="Address" margin="normal" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-6 ">
-                                            <div className="form-group">
-                                                <InputLabel htmlFor="grouped-select">Allergies</InputLabel>
-                                                <TextareaAutosize className="form-control" name="allergies" onChange={this.onChange}  defaultValue = {allergies} aria-label="Allergies" rows={3} placeholder="Allergies" />
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <div className="form-group">
-                                                <InputLabel htmlFor="grouped-select">Risk Factor</InputLabel>
-                                                <TextareaAutosize className="form-control" name="riskfactor_notes" onChange={this.onChange}  defaultValue = {riskfactor_notes} aria-label="Risk Factor" rows={3} placeholder="Risk Factor" />
                                             </div>
                                         </div>
                                     </div>

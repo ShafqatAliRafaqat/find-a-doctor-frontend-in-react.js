@@ -23,6 +23,9 @@ import CurrentAppointment from './Components/CustomerProfile/Appointments/appoin
 import AppointmentHistory from './Components/CustomerProfile/Appointments/history';
 import CurrentLabTest from './Components/CustomerProfile/LabTest/lab-test';
 import LabTestHistory from './Components/CustomerProfile/LabTest/history';
+import AllergyNotes from './Components/CustomerProfile/CustomerNotes/allergy-notes';
+import RiskFactorNotes from './Components/CustomerProfile/CustomerNotes/riskfactor-notes';
+import DoctorNotes from './Components/CustomerProfile/CustomerNotes/doctor-notes';
 
 export default [
   { path: "/", exact: true,name:"Layout", Component: MainHome },
@@ -51,5 +54,8 @@ export default [
   { path: "/appointment_history", name:"Appointment History", Component: AppointmentHistory},             
   { path: "/current_lab_test", name:"Customer Lab test", Component: CurrentLabTest},             
   { path: "/lab_test_history", name:"Customer Lab test History", Component: LabTestHistory},             
+  { path: "/allergy_notes", name:"Allergy Notes", Component: AllergyNotes},             
+  { path: "/riskfactor_notes", name:"Risk Factor Notes", Component: RiskFactorNotes},             
+  { path: "/doctor_notes", name:"Doctor Notes", Component: DoctorNotes},             
   { path: "/404_not_found", name:"404 Not Found", Component: NotFound },
 ];

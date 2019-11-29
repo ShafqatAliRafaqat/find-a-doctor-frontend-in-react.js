@@ -222,6 +222,17 @@ class AppointmentHistory extends Component{
                                                 </ul>
                                                 </div>
                                             </li>
+                                            <li>
+                                                <a href="#" data-toggle="collapse" data-target="#details" aria-expanded="false" aria-controls="users">
+                                                <i class="icon_document_alt"></i>Additional Detail</a>
+                                                <div id="details" class="collapse ">
+                                                <ul class="sidebar-menu">
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/allergy_notes" >Allergy Notes</Link></li>
+                                                    <li className="pl-3"><Link to="/riskfactor_notes" >Risk Factor</Link></li>
+                                                    <li className="pl-3"><Link to="/doctor_notes" >Doctor Notes</Link></li>
+                                                </ul>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </div>
                             </aside> 
