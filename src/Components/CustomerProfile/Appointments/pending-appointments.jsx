@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import moment from 'moment';
 import * as actions from "../../../Store/Actions/AppointmentAction";
 import CancelAppointment from "./cancel-appointment";
-class Appointments extends Component{
+class PendingAppointments extends Component{
     initState = {
         processing	: false,
     };
@@ -18,20 +18,20 @@ class Appointments extends Component{
         if(!this.props.user){
 			return <Redirect to='/404_not_found' />;
         };
-        this.fetchCurrentAppointment();
+        this.fetchPendingAppointment();
     }
-    fetchCurrentAppointment= () => {
+    fetchPendingAppointment= () => {
         
         this.setState({
 			isLoading: true
         });
         
-		let { fetchCurrentAppointment, dispatch, errorHandler } = this.props;
+		let { fetchPendingAppointment, dispatch, errorHandler } = this.props;
 
         let customerId  = this.props.user.customer.id;
         let token       = this.props.user.access_token;
 
-        fetchCurrentAppointment(customerId, token).then(res => {
+        fetchPendingAppointment(customerId, token).then(res => {
 			this.setState({
 				treatment_data	: res.data.data,
 			});
@@ -193,7 +193,8 @@ class Appointments extends Component{
                                                 <i class="icon_document_alt"></i>Appointments</a>
                                                 <div id="appointment" class="collapse show ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="#" className="active">Current Appointments</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="#" className="active">Pending Appointments</Link></li>
+                                                    <li className="pl-3"><Link to="/approved_appointments" >Approved Appointments</Link></li>
                                                     <li className="pl-3"><Link to="/appointment_history">Appointment History</Link></li>
                                                 </ul>
                                                 </div>
@@ -241,9 +242,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		dispatch: dispatch,
-		fetchCurrentAppointment: (id, token)     => actions.fetchCurrentAppointment(id, token),
+		fetchPendingAppointment: (id, token)     => actions.fetchPendingAppointment(id, token),
 
 	};
 };
 
-export default connect( mapStateToProps, mapDispatchToProps )(Appointments);
+export default connect( mapStateToProps, mapDispatchToProps )(PendingAppointments);

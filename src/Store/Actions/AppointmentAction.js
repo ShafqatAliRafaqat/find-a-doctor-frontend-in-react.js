@@ -16,8 +16,17 @@ export const postLeadCrm    =   (data)  =>  {
         }
     });
 };
-export const fetchCurrentAppointment = (id,token) => {
-    return axios.get(APIModel.HOST + "get_treatment_appointments",{
+export const fetchApprovedAppointment = (id,token) => {
+    return axios.get(APIModel.HOST + "approved_treatment_appointments",{
+      'headers': {
+        'Content-Type': 'application/json',
+        'Accept':'application/json',
+        'Authorization':'Bearer '+token
+      }
+    });
+};
+export const fetchPendingAppointment = (id,token) => {
+    return axios.get(APIModel.HOST + "pending_treatment_appointments",{
       'headers': {
         'Content-Type': 'application/json',
         'Accept':'application/json',
