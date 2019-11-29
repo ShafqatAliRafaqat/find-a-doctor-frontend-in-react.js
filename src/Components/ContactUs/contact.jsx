@@ -63,7 +63,7 @@ class ContactUs extends Component {
 
 	render() {
 		const {name,email,phone,message} 	=	this.state;
-			if(window.location.href == "http://demo.hospitallcare.com/#/contact") {
+			if(window.location.href == "https://demo.hospitallcare.com/#/contact") {
 				window.location = window.location.href + '/';
 				window.location.reload();
 			}
