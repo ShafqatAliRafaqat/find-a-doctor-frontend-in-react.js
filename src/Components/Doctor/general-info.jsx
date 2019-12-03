@@ -224,7 +224,7 @@ class GeneralInfo extends Component {
 			<div className="row">
 				<div className="col">
 				{(related_centers)?
-					related_centers.map(m =><Link to={{ pathname:`/doctor_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					related_centers.map(m =><Link to={{ pathname:`/center_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}
