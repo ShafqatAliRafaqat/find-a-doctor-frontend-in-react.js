@@ -177,8 +177,8 @@ class PendingAppointments extends Component{
                         <div className="container">
                             <ul>
                             <li><Link to="/">Home</Link></li>
-                                <li><Link to="/">Category</Link></li>
-                                <li>Page active</li>
+                                <li><Link to="#">My Appointments</Link></li>
+                                <li>Pending Appointments</li>
                             </ul>
                         </div>
                     </div>

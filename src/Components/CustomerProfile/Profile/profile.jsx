@@ -134,9 +134,9 @@ class Profile extends Component{
                     <div id="breadcrumb">
                         <div className="container">
                             <ul>
-                            <li><Link to="/">Home</Link></li>
-                                <li><Link to="/">Category</Link></li>
-                                <li>Page active</li>
+                                <li><Link to="/">Home</Link></li>
+                                <li><Link to="#">My Profile</Link></li>
+                                {/* <li>History</li> */}
                             </ul>
                         </div>
                     </div>
