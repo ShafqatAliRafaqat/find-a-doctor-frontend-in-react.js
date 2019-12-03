@@ -65,7 +65,7 @@ class Blocks extends Component {
             <div className="container margin_120_95">
                 <div className="main_title">
                     <h2>Find by specialization</h2>
-                    <p>Nec graeci sadipscing disputationi ne, mea ea nonumes percipitur. Nonumy ponderum oporteat cu mel, pro movet cetero at.</p>
+                    <p>Here is our few of the Top Specializations.</p>
                 </div>
                 <div className="row">
                     {this.Blocks()}

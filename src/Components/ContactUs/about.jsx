@@ -1,9 +1,34 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
+import OwlCarousel from 'react-owl-carousel';
+
 
 import SearchPages from '../Search/search_pages';
 
 class About extends Component{
+    state = {
+        isLoading   : true,
+        responsive  : {
+            0: {
+                items: 1,
+                animateOut:false,
+                nav:false,
+            },
+            600: {
+                items: 3,
+                animateOut:true,
+                nav:true,
+            },
+            1000: {
+                    animateOut:true,
+                    items: 5,
+                    nav:true,
+            },
+        },
+    };
+    componentDidMount(){
+        window.scrollTo(0, 0);
+    }
     SearchPages = () => {
 		return	<SearchPages {...this.props} />		
 	};
@@ -70,17 +95,252 @@ class About extends Component{
                 </div>
             </div>
             </div>
-            <div class="second-container">
+            <div className="second-container">
                 <div className="container py-4">
-                <div className="row">
+                    <div className="row">
                         <div className="col-12 text-center">
                             <h3>Leadership Team</h3>
                         </div>
                         <hr className="shine hr-shine"></hr>
+    <section id="team" className="pb-5">
+    <div className="container">
+        <div className="row">
+            {/* <!-- Team member  1--> */}
+            <div className="col-xs-12 col-sm-6 col-md-4">
+                <div className="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div className="mainflip">
+                        <div className="frontside">
+                            <div className="card">
+                                <div className="card-body text-center">
+                                    <p><img className=" img-fluid" src="web_imgs/ayubGhauri.jpg" alt="card image"/></p>
+                                    <h4 className="card-title">Ayub Ghauri</h4>
+                                    <h6 className="card-text h6-team">Founder / CEO</h6>
+                                    {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
+                                    <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="backside">
+                            <div className="card">
+                                <div className="card-body text-center mt-4">
+                                    <h4 className="card-title">Ayub Ghauri</h4>
+                                    <p className="card-text">Ayub Ghauri is currently in charge of providing Information Security Solutions to the 
+                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- ./Team member 1 --> */}
+            {/* <!-- Team member 2 --> */}
+            <div className="col-xs-12 col-sm-6 col-md-4">
+                <div className="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div className="mainflip">
+                        <div className="frontside">
+                            <div className="card">
+                                <div className="card-body text-center">
+                                    <p><img className=" img-fluid" src="web_imgs/shahid-javed-burki.jpg" alt="card image"/></p>
+                                    <h4 className="card-title">Shahid Burki</h4>
+                                    <h6 className="card-text h6-team">Board of Director</h6>
+                                    {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
+                                    <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="backside">
+                            <div className="card">
+                                <div className="card-body text-center mt-4">
+                                    <h4 className="card-title">Shahid Burki</h4>
+                                    <p className="card-text">Shahid Burki is currently in charge of providing Information Security Solutions to the 
+                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- ./Team member 2 --> */}
+            {/* <!-- Team member 3 --> */}
+            <div className="col-xs-12 col-sm-6 col-md-4">
+                <div className="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div className="mainflip">
+                        <div className="frontside">
+                            <div className="card">
+                                <div className="card-body text-center">
+                                    <p><img className=" img-fluid" src="web_imgs/najam-1.jpg" alt="card image"/></p>
+                                    <h4 className="card-title">Shahid Najam</h4>
+                                    <h6 className="card-text h6-team">Board of Director</h6>
+                                    {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
+                                    <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="backside">
+                            <div className="card">
+                                <div className="card-body text-center mt-4">
+                                    <h4 className="card-title">Shahid Najam</h4>
+                                    <p className="card-text">Shahid Burki is currently in charge of providing Information Security Solutions to the 
+                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- ./Team member 3 --> */}
+            {/* <!-- Team member 4 --> */}
+            <div className="col-xs-12 col-sm-6 col-md-4">
+                <div className="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div className="mainflip">
+                        <div className="frontside">
+                            <div className="card">
+                                <div className="card-body text-center">
+                                    <p><img className=" img-fluid" src="web_imgs/Najeeb-Ghauri.jpg" alt="card image"/></p>
+                                    <h4 className="card-title">Najeeb Ghauri</h4>
+                                    <h6 className="card-text h6-team">Board of Advisory</h6>
+                                    {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
+                                    <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="backside">
+                            <div className="card">
+                                <div className="card-body text-center mt-4">
+                                    <h4 className="card-title">Najeeb Ghauri</h4>
+                                    <p className="card-text">Najeeb Ghauri is currently in charge of providing Information Security Solutions to the 
+                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- ./Team member 4 --> */}
+            {/* <!-- Team member 5 --> */}
+            <div className="col-xs-12 col-sm-6 col-md-4">
+                <div className="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div className="mainflip">
+                        <div className="frontside">
+                            <div className="card">
+                                <div className="card-body text-center">
+                                    <p><img className=" img-fluid" src="web_imgs/Sairah.jpg" alt="card image"/></p>
+                                    <h4 className="card-title">Saira Burki</h4>
+                                    <h6 className="card-text h6-team">Board of Advisory</h6>
+                                    {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
+                                    <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="backside">
+                            <div className="card">
+                                <div className="card-body text-center mt-4">
+                                    <h4 className="card-title">Saira Burki</h4>
+                                    <p className="card-text">Saira Burki is currently in charge of providing Information Security Solutions to the 
+                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- ./Team member 5 --> */}
+            {/* <!-- Team member 6 --> */}
+            <div className="col-xs-12 col-sm-6 col-md-4">
+                <div className="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div className="mainflip">
+                        <div className="frontside">
+                            <div className="card">
+                                <div className="card-body text-center">
+                                    <p><img className=" img-fluid" src="web_imgs/Naeem-Ghuri.jpg" alt="card image"/></p>
+                                    <h4 className="card-title">Naeem Ghauri</h4>
+                                    <h6 className="card-text h6-team">Board of Advisory</h6>
+                                    {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
+                                    <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="backside">
+                            <div className="card">
+                                <div className="card-body text-center mt-4">
+                                    <h4 className="card-title">Naeem Ghauri</h4>
+                                    <p className="card-text">Naeem Ghauri is currently in charge of providing Information Security Solutions to the 
+                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- ./Team member 6 --> */}
+
+
+
+        </div>
+    </div>
+</section>
                     </div>
                 </div>
             </div>
             
+            <div className="white-container">
+            <div className="container py-5">
+                <div className="row">
+                    <div className="col-12 text-center">
+                        <h3>Our Partners</h3>
+                    </div>
+                    <hr className="shine hr-shine"></hr>
+                </div>
+                <div className="col-12 text-center">
+                <OwlCarousel
+                    id          = "reccomended"
+                    className   = "owl-carousel owl-theme owl-loaded owl-drag owl-item cloned"
+                    loop        = {true}
+                    margin      = {2}
+                    items       = {5}
+                    responsive  = {this.state.responsive}
+                    autoplay    = {true}
+                    animateOut  = {true}
+                    center      = {true}
+                    nav         = {true}                    
+                    >
+
+                    <div className="item ">
+                    <Link>
+                        <img className="logos-img" src="web_imgs/logos/Advance-Hair-Center-400x300.jpg" alt=""  width="200px"  height="300px" />
+                    </Link>
+                    </div>
+
+                    <div className="item">
+                    <Link>
+                    <img className="logos-img" src="web_imgs/logos/CosmoLux-400x300.jpg" alt=""  width="200px"  height="300px" />
+                    </Link>
+                    </div>
+                    <div className="item">
+                    <Link>
+                    <img className="logos-img" src="web_imgs/logos/Doctor-Hospital-400x300.jpg" alt=""  width="200px"  height="300px" />
+                    </Link>
+                    </div>
+                    <div className="item">
+                    <Link>
+                        <img  className="logos-img"src="web_imgs/logos/Netsol-400x300.jpg" alt=""  width="200px"  height="300px" />
+                    </Link>
+                    </div>
+                    <div className="item">
+                    <Link>
+                        <img className="logos-img" src="web_imgs/logos/NSpire-400x300.jpg" alt=""  width="200px"  height="300px" />
+                    </Link>
+                    </div>
+                    <div className="item">
+                    <Link>
+                        <img className="logos-img" src="web_imgs/logos/Servaid--400x300.jpg" alt=""  width="200px"  height="300px" />
+                    </Link>
+                    </div>
+                </OwlCarousel>
+                </div>
+            </div>
+            </div>
+
             </React.Fragment>
         );
     }

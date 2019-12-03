@@ -64,7 +64,7 @@ class DoctorFaq extends Component{
                         </div>
                     </div>
                     <div className="row">
-                    {(schedules[0].discount)
+                    {(schedules)
                                     ?
                         <div className="col-12 col-lg-6 col-md-6 col-sm-12 col-xs-12 faq-m-5">
                             <div className="faq-collapse-root">

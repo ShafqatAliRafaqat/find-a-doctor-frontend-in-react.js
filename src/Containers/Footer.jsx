@@ -61,10 +61,13 @@ class Footer extends Component {
                                     <h6 className="h6-footer">Pages</h6>
                                     <ul className="links">
                                         <li><Link className="link-footer" to="/about_us">About us</Link></li>
-                                        <li><Link className="link-footer" to="/blog">Blog</Link></li>
-                                        <li><Link className="link-footer" to="/faq">FAQ</Link></li>
-                                        <li><Link className="link-footer" to="/login">Login</Link></li>
-                                        <li><Link className="link-footer" to="/register">Register</Link></li>
+                                        <li><Link className="link-footer" to="/doctor_list">Doctors</Link></li>
+                                        <li><Link className="link-footer" to="/specialization_list">Specializations</Link></li>
+                                        <li><Link className="link-footer" to="/clinic_list">Clinics</Link></li>
+                                        <li><Link className="link-footer" to="/contacts">Contacts</Link></li>
+                                        <li><Link className="link-footer" to="/#/privacy-policy">Privacy policy</Link></li>
+                                        <li><Link className="link-footer" to="/#/terms-and-conditions">Terms &amp; Conditions</Link></li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -77,9 +80,10 @@ class Footer extends Component {
                         <div className="col-lg-6 col-sm-12 col-lg-auto text-side-left">
                             <p className="p-btm-footer m-0">
                                 &copy; 2018 - 2020 
-                                <a href="https://hospitallcare.com" className="pl-1 hospitall-color">HospitALL-Care to Cure</a> 
-                                <a href="https://hospitallcare.com/privacy-policy-2/" className=" pl-1 a-btm-footer text-sm">Privacy policy</a> | 
-                                <a href="https://hospitallcare.com/contacts/" className=" pl-1 a-btm-footer text-sm">Contact us</a>
+                                <a href="/" className="pl-1 hospitall-color">HospitALL-Care to Cure</a> 
+                                <a href="/#/privacy-policy" className=" pl-1 a-btm-footer text-sm">Privacy policy</a> | 
+                                <a href="/#/terms-and-conditions" className=" pl-1 a-btm-footer text-sm">Terms &amp; Conditions</a>
+                                {/* <a href="https://www.demo.hospitallcare.com/#/contact/" className=" pl-1 a-btm-footer text-sm">Contact us</a> */}
                             </p>
                         </div>
                         <div className="col-lg-6 col-sm-12 col-lg-auto text-side-right">
@@ -87,6 +91,8 @@ class Footer extends Component {
                             <a className="link-footer" href="https://www.facebook.com/HospitALLOfficial/" target="_blank"><i class="icon-facebook-squared-1 footer-icon"></i></a>
                             <a className="link-footer" href="https://www.instagram.com/hospitallofficial/"><i class=" icon-instagram-filled footer-icon footer-icon-insta"></i></a>
                             <a className="link-footer" href="mailto:hello@hospitall.com"><i class="icon-email footer-icon"></i></a>
+                            <a className="link-footer" href="tel://03222555600"><i class="icon-phone-squared footer-icon"></i></a>
+
                         </div>                        
                     </div>
                 </div>

@@ -14,7 +14,9 @@ class ContactUs extends Component {
 	state = {
 		...this.initState,
 	};
-
+    componentDidMount(){
+        window.scrollTo(0, 0);
+    }
 	onChange = e => {
 		this.setState({
 			[e.target.name] 	:	e.target.value
