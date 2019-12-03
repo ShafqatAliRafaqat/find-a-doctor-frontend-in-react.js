@@ -284,10 +284,12 @@ class DoctorList extends Component{
 
 	BottomSpecialization = () => {
 		const {specializations } = this.state;
-		if (specializations.length < 1) {
-			return(
-				<div className="pb-5"></div>
-			);
+		if(specializations){
+			if (specializations.length < 1) {
+				return(
+					<div className="pb-5"></div>
+				);
+			}
 		}
 		return(
 			<div className="container margin_25">

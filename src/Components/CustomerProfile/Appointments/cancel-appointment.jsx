@@ -55,7 +55,7 @@ class CancelAppointment extends Component {
 				data	: res.data.data,
 			});
 			if(res.data.data){
-                this.props.history.push('/current_appointment');
+                this.props.history.push('/approved_appointments');
                 alertify.success("Your appointment has been canceled!");
                 setTimeout(window.location.reload(false),100000);
             }

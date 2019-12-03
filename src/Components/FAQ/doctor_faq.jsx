@@ -17,7 +17,6 @@ class DoctorFaq extends Component{
 
     render() {
         const { doctors,schedules }  =    this.props;
-        console.log("doctors",doctors);
         return (
             <React.Fragment>
                 <div className="container margin_25_padding_0">

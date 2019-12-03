@@ -102,7 +102,7 @@ class Profile extends Component{
 				access_token: token,
             });
             if(res.data.data){
-                this.props.history.push('/current_appointment');
+                this.props.history.push('/approved_appointments');
                 alertify.success("Your profile has been updated!");
                 setTimeout(window.location.reload(false),100000);
             }
@@ -151,7 +151,8 @@ class Profile extends Component{
                                                 <i class="icon_document_alt"></i>Appointments</a>
                                                 <div id="appointment" class="collapse ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current_appointment" >Current Appointments</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/pending_appointments" >Pending Appointments</Link></li>
+                                                    <li className="pl-3"><Link to="/approved_appointments" >Approved Appointments</Link></li>
                                                     <li className="pl-3"><Link to="/appointment_history">Appointment History</Link></li>
                                                 </ul>
                                                 </div>

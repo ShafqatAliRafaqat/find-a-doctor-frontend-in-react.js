@@ -178,7 +178,7 @@ class PhoneModal extends Component {
                 type: actions.SIGN_IN,
                 payload: res.data
             });
-            // this.props.history.push('/current_appointment');
+            // this.props.history.push('/approved_appointments');
             alertify.success('Your appointment has been booked. Thank you for contacting us.')
             setTimeout(window.location.reload(),100000);
 
@@ -221,7 +221,7 @@ class PhoneModal extends Component {
                 type: actions.SIGN_UP,
                 payload: res.data
             });
-            // this.props.history.push('/current_appointment'); 
+            // this.props.history.push('/approved_appointments'); 
             alertify.success('Your appointment has been booked. Thank you for contacting us.')
             setTimeout(window.location.reload(),100000);
             

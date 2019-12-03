@@ -159,7 +159,8 @@ class RiskFactorNotes extends Component{
                                                 <i class="icon_document_alt"></i>Appointments</a>
                                                 <div id="appointment" class="collapse ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current_appointment" >Current Appointments</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/pending_appointments" >Pending Appointments</Link></li>
+                                                    <li className="pl-3"><Link to="/approved_appointments" >Approved Appointments</Link></li>
                                                     <li className="pl-3"><Link to="/appointment_history">Appointment History</Link></li>
                                                 </ul>
                                                 </div>
