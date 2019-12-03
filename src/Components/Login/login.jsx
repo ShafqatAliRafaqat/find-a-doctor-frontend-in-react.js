@@ -28,7 +28,7 @@ class Login extends Component{
         this.setState({
             processing: true
         });
-        const {signIn,dispatch,errorHandler ,histroy} = this.props;
+        const {signIn,dispatch,errorHandler ,history} = this.props;
 
         const { phone, password } 	=	this.state;
         let params = { phone, password};

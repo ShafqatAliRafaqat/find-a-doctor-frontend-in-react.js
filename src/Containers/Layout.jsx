@@ -4,7 +4,7 @@ import FooterSection from "./Footer";
 import NavBarSection from "./Header";
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
-
+import ScrollToTop from "./../ScrollToTop"
 import routes from "./../routes";
 alertify.set('notifier', 'position', 'top-center');
 
@@ -39,8 +39,10 @@ class Layout extends Component {
                   </div>
                   <HashRouter>
                   <NavBarSection />
-                    <Switch>
-                      {routes.map((route, idx) => {
+                  
+                      <Switch>
+                      {/* <ScrollToTop> */}
+                        {routes.map((route, idx) => {
                           return route.Component ? (
                                   <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => {
                                     
@@ -57,9 +59,11 @@ class Layout extends Component {
                           )
                             : (null) 
                         },
-                        )}
-                      <Redirect to='/404_not_found' />
-                    </Switch>
+                          )}
+                          <Redirect to='/404_not_found' />
+                          {/* </ScrollToTop> */}
+                      </Switch>
+                    
                     <FooterSection />
                   </HashRouter>
                   

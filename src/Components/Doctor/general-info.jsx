@@ -178,7 +178,7 @@ class GeneralInfo extends Component {
 	}
 
 	renderBookingCard = () => {
-		if (this.state.isLoading) {
+		if (this.state.isLoading ) {
             return (<div data-loader="circle-side"></div>);
         }
 		const { all_treatments, doctor_data, schedules } 	= this.state;
