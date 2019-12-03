@@ -175,27 +175,27 @@ class Main extends Component{
                         <div className="container margin_120_95">
                             <div className="main_title">
                                 <h2>Discover the <strong>online</strong> appointment!</h2>
-                                <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie. Sed ad debet scaevola, ne mel.</p>
+                                <p>Now you can Book your Appointment with a Doctor in three very easy Steps.</p>
                             </div>
                             <div className="row add_bottom_30">
                                 <div className="col-lg-4">
                                     <div className="box_feat" id="icon_1">
                                         <span></span>
                                         <h3>Find a Doctor</h3>
-                                        <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
+                                        <p>Find a Doctor by Specialization, Clinic or Doctors near to your location using filters.</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box_feat" id="icon_2">
                                         <span></span>
                                         <h3>View profile</h3>
-                                        <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
+                                        <p>From the list of Doctors, click on any Doctor's name and View his/her Profile</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box_feat" id="icon_3">
                                         <h3>Book a visit</h3>
-                                        <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
+                                        <p>On Doctor's Profile, select the Center, Treatment, date and slot of Appointment.</p>
                                     </div>
                                 </div>
                             </div>

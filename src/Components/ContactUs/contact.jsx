@@ -14,15 +14,9 @@ class ContactUs extends Component {
 	state = {
 		...this.initState,
 	};
-	// componentWillMount() {
-	// 	this.renderRefresh();
-	// }
-	// componentWillUnmount(){
-	// 	this.renderRefresh();
-	// }
-	renderRefresh=()=>{
-		return window.location.reload();
-	}
+    componentDidMount(){
+        window.scrollTo(0, 0);
+    }
 	onChange = e => {
 		this.setState({
 			[e.target.name] 	:	e.target.value

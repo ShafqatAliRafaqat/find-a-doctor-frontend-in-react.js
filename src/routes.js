@@ -15,6 +15,8 @@ import BottomFaq from './Components/FAQ/bottom_faq';
 import DoctorFaq from './Components/FAQ/doctor_faq';
 import Contacts from './Components/ContactUs/contact';
 import About from './Components/ContactUs/about';
+import PrivacyPolicy from './Components/ContactUs/privacy-policy';
+import TermsAndConditions from './Components/ContactUs/terms-and-conditions';
 import Blog from './Components/Blog/blog';
 import BlogPage from './Components/Blog/blog-page';
 import DoctorSignIn from './Components/Doctor/doctor_sign_in';
@@ -49,6 +51,8 @@ export default [
   { path: "/bottom_faq", name:"BottomFaq", Component: BottomFaq},                  
   { path: "/doctor_faq", name:"DoctorFaq", Component: DoctorFaq},                  
   { path: "/about_us", name:"AboutUs", Component: About },                  
+  { path: "/privacy-policy", name:"PrivacyPolicy", Component: PrivacyPolicy },                  
+  { path: "/terms-and-conditions", name:"TermsAndConditions", Component: TermsAndConditions },                  
   { path: "/blog", name:"Blog", Component: Blog},                  
   { path: "/blog-page", name:"Blog Page", Component: BlogPage},                  
   { path: "/join_doctor", name:"Join Doctor", Component: JoinDoctor},                  
