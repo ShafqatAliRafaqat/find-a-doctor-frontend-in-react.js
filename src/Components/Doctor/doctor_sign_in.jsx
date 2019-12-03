@@ -82,7 +82,7 @@ class DoctorSignIn extends Component{
 					<div className="bg_color_2">
 						<div className="container margin_60_35">
 							<div id="login-2">
-								<h1>Please login to Findoctor!</h1>
+								<h1>Login as a Doctor</h1>
 									<div className="box_form clearfix">
 										<div className="row">
 											<div className="col-2"></div>
