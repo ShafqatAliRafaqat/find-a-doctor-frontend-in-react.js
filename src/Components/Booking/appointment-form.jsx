@@ -10,6 +10,7 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import * as actions from "../../Store/Actions/AuthAction";
 import * as treatmentactions from "../../Store/Actions/TreatmentAction";
 import { Link } from "react-router-dom";
+import { noConflict } from "q";
 
 alertify.set('notifier', 'position', 'top-center');
 
@@ -22,6 +23,7 @@ class AppointmentForm extends Component{
         center_id   : '',
         treatment_id: '',
         doctor_id   : '',
+        time        : '',
         processing  : false,
         booking_date: new Date(),
 
@@ -31,9 +33,17 @@ class AppointmentForm extends Component{
         nameError   : '',
 		isLoading   : true,
         emailError  : '',
+        TimeRange   : '',
         treatment_data: [],
         doctor_name : this.initState.doctor_data.first_name,
         doctor_id   : this.initState.doctor_data.id,
+        showStyle   :{
+            paddingBottom:"2px",
+        },
+        myStyle     : {
+          color     : "white",
+          background: "green",
+        }
     };
 
     getCenterTreatments =()=>{
@@ -47,6 +57,7 @@ class AppointmentForm extends Component{
             
             this.setState({
                 treatment_data:res.data.data, 
+                TimeRange:res.data.schedules, 
             });
 		}).catch(errorHandler);
     }
@@ -76,19 +87,21 @@ class AppointmentForm extends Component{
       });
       const {bookAppointment,dispatch,errorHandler} = this.props;
 
-      const {treatment_id, booking_date, center_id, doctor_id} 	=	this.state;
+      const {treatment_id, booking_date, center_id, doctor_id, time} 	=	this.state;
 
       let user = this.props.user
       let customer_id = user.customer.id
-      let date = moment(booking_date).format('MMMM Do YYYY, h:mm:ss a');
-      let params = { treatment_id, date, center_id, doctor_id,customer_id}; 
+      let date = moment(booking_date).format('YYYY-MM-DD');
+    //   let date = moment(bdate_format + ' ' + time,'MMMM Do YYYY, h:mm:ss a');
+      let params = { treatment_id, date, center_id, doctor_id,customer_id,time}; 
+      console.log("params =>",params);
       bookAppointment(params).then(res => {
 
           this.setState({
               ...this.initState,
           });
-        //   alertify.alert(res.data.data);  
-          this.props.history.push('/approved_appointments');
+
+          this.props.history.push('/pending_appointments');
           alertify.success('Your appointment has been booked.')
           setTimeout(window.location.reload(),100000);
           
@@ -106,22 +119,28 @@ class AppointmentForm extends Component{
   };
  
     renderPhoneModal = () => {
-        const { treatment_id, doctor_data, booking_date, center_id } 	= this.state;
+        const { treatment_id, doctor_data, booking_date, center_id,time } 	= this.state;
         let doctor_id = doctor_data.id;
-        let date = moment(booking_date).format('MMMM Do YYYY, h:mm:ss a');
-            return <PhoneModal {...this.props} doctor_data = {doctor_data} doctor_id={doctor_id} treatment_id={treatment_id} date={date} center_id={center_id}/>;
+        let date = moment(booking_date).format('YYYY-MM-DD');
+        
+        return <PhoneModal {...this.props} doctor_data = {doctor_data} doctor_id={doctor_id} treatment_id={treatment_id} time={time} date={date} center_id={center_id}/>;
     };
     renderCheckFields =()=>{
-        const { treatment_id, booking_date, center_id } 	= this.state;
-        if(treatment_id != '' && center_id != '' && booking_date != ''){
+        const { treatment_id, booking_date, center_id ,time} 	= this.state;
+        if(treatment_id != '' && center_id != '' && booking_date != '' && time !=''){
             this.bookAppointment();
         }else{
             alertify.error('Enter all fields first');
         }
     };
     renderCenterTreatment =()=>{
-        const { treatment_id, treatment_data, center_id } 	= this.state;
+        const { treatment_id, treatment_data, TimeRange, showStyle,time,myStyle} 	= this.state;
         let count = treatment_data.length;
+        
+        // if(TimeRange){
+        //     var TimeRangeFormate = TimeRange.map(m =>m.split(":"));
+        // }
+        
         if(count > 0){
                 return(
                     <React.Fragment>
@@ -143,16 +162,31 @@ class AppointmentForm extends Component{
                                     name="booking_date"
                                     selected={this.state.booking_date}
                                     onChange={this.handleChange}
-                                    showTimeSelect
-                                    timeIntervals={15}
+                                    // showTimeSelect
+                                    // timeIntervals={15}      
                                     minDate={new Date()}
-                                    // minTime={new Date(new Date().setHours(0,15))}
-                                    // maxTime={new Date(new Date().setHours(18,15))}
-                                    dateFormat="MMMM d, yyyy h:mm aa"
+                                    // includeTimes={TimeRangeFormate.map( t => new Date(new Date().setHours(t[0],t[1])))}
+                                    // dateFormat="MMMM d, yyyy h:mm aa"
+                                    dateFormat="MMMM d, yyyy"
                                 />
 							</div>
 						</div>
 					</div>
+                    <div className="row">
+                        <div className="col pb-2">
+                        {(TimeRange)?
+                            TimeRange.map(( m, index )=>
+                            <span id={index}>
+                                <button className='m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal' style={(time == m)? myStyle : showStyle} onClick={ () => this.setState({ time: m,})}>
+                                    {m}
+                                </button>
+                            </span>
+                            )
+                        :
+                        ''
+                        }
+                        </div>
+                    </div>
                     </React.Fragment>
                 );
         }

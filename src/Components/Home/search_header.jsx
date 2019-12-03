@@ -39,10 +39,9 @@ class SearchHeader extends Component {
     this.setState({
       isLoading: true
     });
-    let { getSearch, dispatch } = this.props;
+    let { getSearch, dispatch ,errorHandler} = this.props;
     let search = e;
     getSearch(search).then(res => {
-      console.log("in get function", res.data.data);
       if(res.data.message){
         this.setState({
           ...this.initState,
@@ -57,11 +56,7 @@ class SearchHeader extends Component {
         type: actions.GET_ALL_SEARCH,
         payload: res.data.data
       });
-    }).catch(
-      error => {
-        console.log("Error=>", error);
-      }
-    ).finally(() => {
+    }).catch(errorHandler).finally(() => {
       this.setState({
         isLoading: false
       });
@@ -70,7 +65,6 @@ class SearchHeader extends Component {
 
   datalist = () => {
     const { search } = this.state;
-    console.log("search data", search);
     let doctors = search.doctors;
     let specializations = search.specializations;
     let centers = search.centers;
@@ -187,7 +181,6 @@ class SearchHeader extends Component {
 
   render() {
     const { search,page } = this.state;
-    console.log("search",search);
     return (
       <React.Fragment>
         <div className="hero_home version_1">

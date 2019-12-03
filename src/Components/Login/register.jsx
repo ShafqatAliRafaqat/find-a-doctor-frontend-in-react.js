@@ -150,13 +150,11 @@ class Register extends Component{
     };
     checkPassword = () => {
         const {password, confirmPassword,name,phone} = this.state;
-        console.log("password =>",password,"password1 =>",confirmPassword)
 
         if(name != '' && phone != '' && password != '' && confirmPassword != ''){
             if(password == confirmPassword ){
                 this.create();
             }else{
-                console.log("password =>",password,"password1 =>",confirmPassword)
                 alertify.error("The passwords don't match")
             }
         }else{

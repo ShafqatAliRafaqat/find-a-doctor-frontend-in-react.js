@@ -163,10 +163,10 @@ class PhoneModal extends Component {
         this.setState({
             processing: true
         });
-        const {signIn,dispatch,errorHandler, center_id,date, doctor_id,treatment_id} = this.props;
+        const {signIn,dispatch,errorHandler, center_id,date,time, doctor_id,treatment_id} = this.props;
 
         const { phone, password, } 	=	this.state;
-        let params = { phone, password, treatment_id, date, center_id, doctor_id};
+        let params = { phone, password, treatment_id, date,time, center_id, doctor_id};
         signIn(params).then(res => {
 
             this.setState({
@@ -178,7 +178,7 @@ class PhoneModal extends Component {
                 type: actions.SIGN_IN,
                 payload: res.data
             });
-            // this.props.history.push('/approved_appointments');
+            this.props.history.push('/pending_appointments');
             alertify.success('Your appointment has been booked. Thank you for contacting us.')
             setTimeout(window.location.reload(),100000);
 
@@ -196,7 +196,7 @@ class PhoneModal extends Component {
         this.setState({
             processing: true,
         });
-        const {signUp,dispatch,errorHandler, center_id,date, doctor_id,treatment_id} = this.props;
+        const {signUp,dispatch,errorHandler, center_id,date, time,doctor_id,treatment_id} = this.props;
 
         const {code,codeSended ,name,password,customerName,customertable} 	=	this.state;
         if(!name){
@@ -209,7 +209,7 @@ class PhoneModal extends Component {
         }   
         let status_id = 11;
 
-        let params = { code,codeSended,name:customer_name,password, treatment_id, date, center_id, doctor_id,customertable,status_id};
+        let params = { code,codeSended,name:customer_name,password,time, treatment_id, date, center_id, doctor_id,customertable,status_id};
         
         signUp(params).then(res => {
 
@@ -221,7 +221,7 @@ class PhoneModal extends Component {
                 type: actions.SIGN_UP,
                 payload: res.data
             });
-            // this.props.history.push('/approved_appointments'); 
+            this.props.history.push('/pending_appointments'); 
             alertify.success('Your appointment has been booked. Thank you for contacting us.')
             setTimeout(window.location.reload(),100000);
             
@@ -375,7 +375,7 @@ class PhoneModal extends Component {
         return (
             <React.Fragment>
                 <div style={{ position:"relative" }}>
-                    <button onClick={this.toggle} disabled={!this.props.treatment_id} className='btn_1 full-width'>
+                    <button onClick={this.toggle} disabled={!this.props.treatment_id || !this.props.time} className='btn_1 full-width'>
                         Book Appointment
                     </button>
                 </div>

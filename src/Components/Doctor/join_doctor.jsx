@@ -134,10 +134,8 @@ class JoinDoctor extends Component{
 		let params = { first_name,last_name,email,pmdc,gender,location,phone,password};
 
         create(params).then(res => {
-            console.log()
+           
                 if(res.data.code_sent){
-                    console.log("code Sent",res.data);
-
                     this.setState({
                         SendCodeModal:true,
                         doctor_id:res.data.code_sent,
@@ -210,13 +208,11 @@ class JoinDoctor extends Component{
     };
     checkPassword = () => {
         const {password, confirmPassword,name,phone,email} = this.state;
-        console.log("password =>",password,"password1 =>",confirmPassword)
 
         if(name != '' && phone != '' && email != '' && password != '' && confirmPassword != ''){
             if(password == confirmPassword ){
                 this.create();
             }else{
-                console.log("password =>",password,"password1 =>",confirmPassword)
                 alertify.error("The passwords don't match")
             }
         }else{
@@ -226,8 +222,7 @@ class JoinDoctor extends Component{
 
 	renderCodeSendedModal = () => {
         const { SendCodeModal ,processing, phone} 	= this.state;
-		console.log("SendCodeModal",SendCodeModal);
-        return (
+         return (
             <React.Fragment>
 					<div className="form-group text-center add_top_30">
 						<button color="primary" className='btn_1' onClick={this.checkPassword}>{(processing) ? "Updating..." : " Continue"}</button>{' '}

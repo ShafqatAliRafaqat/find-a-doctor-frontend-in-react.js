@@ -187,7 +187,7 @@ class Detail extends Component{
 		let treatmentId = this.props.match.params.treatmentId;
 		const {male, female, available_today, available_any_day, available_on_weekend, consultation_fee,center_id, nearest_doctor, available, latitude ,longitude} =	this.state;  
         let data = {center_id, male, female,treatmentId, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude,longitude }; 
-		console.log("data =>", data);
+		
 		fetchTreatment(search,data).then(res => {
 			this.setState({
 				treatment_data	: res.data.meta.treatment,
@@ -202,7 +202,6 @@ class Detail extends Component{
 			if(res.data.data.length == 0){
 				alertify.error("There is no doctor");
 			}
-			// console.log("related_treatments",res.data.meta.related_treatments)
 			window.scrollTo(0, 0);
 			if (res.data.meta.total == 0){
 				alertify.error('There is no doctor');
@@ -263,27 +262,6 @@ class Detail extends Component{
 		const { treatment_data,total } = this.state;
 		return (
             <aside className="col-xl-3 col-lg-4 pull-right" id="sidebar">
-					{/* <div className="box_profile">
-						<figure>
-							{ (treatment_data.picture) ? <img src={treatment_data.picture} alt="" className="img-fluid" /> : <img src="http://via..com/565x565.jpg" alt="" className="img-fluid" />}
-						</figure>
-						<small>{treatment_data.focus_area}</small>
-						<h1>{treatment_data.name}</h1>
-						<span className="rating">
-							<i className="icon_star voted"></i>
-							<i className="icon_star voted"></i>
-							<i className="icon_star voted"></i>
-							<i className="icon_star voted"></i>
-							<i className="icon_star"></i>
-							<small>(145)</small>
-							<a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" className="badge_list_1"> 
-                            <img src="img/badges/badge_1.svg" width="15" height="15" alt="" />
-                            </a>
-						</span>
-						<ul className="statistic">
-							<li>{total} Doctors</li>
-						</ul>
-					</div> */}
 					<div className="box_profile">
 				 		<div className="row">
 						 	<div className="col-12 mt-3 pt-2 text-left css-col-bottom">
