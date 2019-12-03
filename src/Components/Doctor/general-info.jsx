@@ -286,9 +286,9 @@ class GeneralInfo extends Component {
 										<div className="indent_title_in">
 											<i className="pe-7s-user"></i>
 											<h3>Professional statement</h3>
-											<p>Best Known for Non Surgical Orthopedic Treatments.</p>
+											<p>{doctor_data.focus_area}</p>
 										</div>
-										<div className="wrapper_indent">
+										<div className="wrapper_indent text-justify">
 											<p>{doctor_data.about}</p>
 										</div>
 										<div className="wrapper_indent">
@@ -304,10 +304,6 @@ class GeneralInfo extends Component {
 											<p>Highly Educated and Skilled.</p>
 										</div>
 										<div className="wrapper_indent">
-											<p>{doctor_data.first_name} is a Nephrologist practicing in Lahore. {doctor_data.first_name} has
-												the following degrees: MBBS, MRCP (UK), MRCP (Glasgow), FCPS, FRCP (Glasgow).
-												You can book an appointment with {doctor_data.first_name} by calling us or
-												using the 'book appointment' button.</p>
 											<h6>Curriculum</h6>
 											{this.Curriculum()}
 										</div>

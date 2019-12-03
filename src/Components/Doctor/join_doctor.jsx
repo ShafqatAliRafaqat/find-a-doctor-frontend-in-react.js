@@ -270,7 +270,7 @@ class JoinDoctor extends Component{
 		<div className="bg_color_2">
 			<div className="container margin_60_35">
 				<div id="register">
-					<h1>Please register to Findoctor!</h1>
+					<h1>Join Our Best Doctor's Team</h1>
 					<div className="row justify-content-center">
 						<div className="col-md-8">
 								<div className="box_form">
@@ -334,8 +334,7 @@ class JoinDoctor extends Component{
 									</div>
 									{this.renderCodeSendedModal()}
 								</div>
-								<p className="text-center">
-                                    <small>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</small></p>
+                                <p className="text-center link_bright">Already have an Account <Link to="/doctor_signin" style={{ color:"#7ecaff", }}><strong>Login now!</strong></Link></p>
 						</div>
 					</div>
 					{/* <!-- /row --> */}

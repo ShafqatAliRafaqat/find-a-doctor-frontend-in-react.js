@@ -205,7 +205,7 @@ class Main extends Component{
                             <div className="container margin_120_95">
                                 <div className="main_title">
                                     <h2>Most Viewed doctors</h2>
-                                    <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>
+                                    <p>Here is few of our Top Doctors loved by our Customers</p>
                                 </div>
                                 <OwlCarousel
                                     id          = "reccomended"
@@ -227,7 +227,7 @@ class Main extends Component{
                             <div className="container margin_120_95">
                                 <div className="main_title">
                                     <h2>Most Viewed Medical Facilities</h2>
-                                    <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>
+                                    <p>Here is the list of our Most viewed Medical Facilities in Town.</p>
                                 </div>
                                 <OwlCarousel
                                     id          = "reccomended"
