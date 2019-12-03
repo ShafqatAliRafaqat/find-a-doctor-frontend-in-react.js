@@ -335,7 +335,6 @@ class JoinDoctor extends Component{
 									{this.renderCodeSendedModal()}
 								</div>
                                 <p className="text-center link_bright">Already have an Account <Link to="/doctor_signin" style={{ color:"#7ecaff", }}><strong>Login now!</strong></Link></p>
-
 						</div>
 					</div>
 					{/* <!-- /row --> */}
