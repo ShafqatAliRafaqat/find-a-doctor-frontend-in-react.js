@@ -94,7 +94,6 @@ class AppointmentForm extends Component{
       let date = moment(booking_date).format('YYYY-MM-DD');
     //   let date = moment(bdate_format + ' ' + time,'MMMM Do YYYY, h:mm:ss a');
       let params = { treatment_id, date, center_id, doctor_id,customer_id,time}; 
-      console.log("params =>",params);
       bookAppointment(params).then(res => {
 
           this.setState({
@@ -136,10 +135,6 @@ class AppointmentForm extends Component{
     renderCenterTreatment =()=>{
         const { treatment_id, treatment_data, TimeRange, showStyle,time,myStyle} 	= this.state;
         let count = treatment_data.length;
-        
-        // if(TimeRange){
-        //     var TimeRangeFormate = TimeRange.map(m =>m.split(":"));
-        // }
         
         if(count > 0){
                 return(

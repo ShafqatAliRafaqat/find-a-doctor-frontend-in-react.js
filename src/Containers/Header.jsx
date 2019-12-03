@@ -30,6 +30,7 @@ class Header extends Component{
                                                 <Link to="#0" className="show-submenu">{user.customer.name}<i className="icon-down-open-mini"></i></Link>
                                                 <ul>
                                                     <li><Link to="/approved_appointments">My Appointments</Link></li>
+                                                    <li><Link to="/pending_appointments">Pending Appointments</Link></li>
                                                     <li><Link to="/customer_profile">My Profile</Link></li>
                                                     <li><Link to="/current_lab_test">My Test</Link></li>
                                                     <li><Link to="/allergy_notes">Allergies</Link></li>
