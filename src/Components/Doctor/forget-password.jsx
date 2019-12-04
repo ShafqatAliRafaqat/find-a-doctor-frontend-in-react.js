@@ -11,7 +11,7 @@ import {
     FormGroup, Input, Label,
 } from 'reactstrap';
 
-import * as actions from "../../Store/Actions/AuthAction";
+import * as actions from "../../Store/Actions/DoctorAuthAction";
 import 'react-phone-number-input/style.css'
 import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
 alertify.set('notifier', 'position', 'top-center');
@@ -96,7 +96,7 @@ class PhoneModal extends Component {
 			    this.props.history.push('/register');
             }
             dispatch({
-                type: actions.FORGET_PHONE_VARIFICATOIN,
+                type: actions.FORGET_PHONE_VARIFICATION,
                 payload: res.data.data
             });
         }).catch(errorHandler).finally(() => {
@@ -126,7 +126,7 @@ class PhoneModal extends Component {
             });  
 
             dispatch({
-                type: actions.CODE_VARIFICATOIN,
+                type: actions.CODE_VARIFICATION,
                 payload: res.data.data
             });
         }).catch(errorHandler).finally(() => {
@@ -154,7 +154,7 @@ class PhoneModal extends Component {
                 PasswordModal:false,
             });  
             alertify.success('Your Password has been updated. Thank you for contacting us.')
-			this.props.history.push('/login');
+			this.props.history.push('/doctor_signin');
            
         }).catch(errorHandler).finally(() => {
             this.setState({
@@ -295,7 +295,7 @@ const mapDispatchToProps = dispatch => {
 		dispatch: dispatch,
         newPassword : (params) => actions.newPassword(params),
         create      : (params) => actions.forgetPhoneVarification(params),
-        sendCode    : (params) => actions.codeVarification(params),
+        sendCode    : (params) => actions.doctorForgetCodeVarification(params),
 	};
 };
 

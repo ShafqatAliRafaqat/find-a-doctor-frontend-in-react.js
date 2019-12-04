@@ -124,9 +124,11 @@ class About extends Component{
                             <div className="card">
                                 <div className="card-body text-center mt-4">
                                     <h4 className="card-title">Ayub Ghauri</h4>
-                                    <p className="card-text">Ayub Ghauri is currently in charge of providing Information Security Solutions to the 
-                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                    <p className="card-text">Mr. Ayub Ghauri is a seasoned business leader with over 25 years blend of rich experience in 
+                                    Marketing, Branding, Business Development and Entrepreneurship. He has worked with well-renowned organizations in 
+                                    the IT , Education, Health, Electronic Media, and Fashion industries of which around 20 years in UK with NETSOL Technologies, Inc.</p>
                                 </div>
+                                <hr className="shine2 hr-shine2"></hr>
                             </div>
                         </div>
                     </div>
@@ -152,9 +154,10 @@ class About extends Component{
                             <div className="card">
                                 <div className="card-body text-center mt-4">
                                     <h4 className="card-title">Shahid Burki</h4>
-                                    <p className="card-text">Shahid Burki is currently in charge of providing Information Security Solutions to the 
-                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                    <p className="card-text">Shahid Javed Burki is a Pakistani American professional economist who has served as a 
+                                    Vice-President of the World Bank and as de facto Finance Minister of Pakistan on a caretaker basis. He has written extensively on economic development and on the political history of Pakistan. </p>
                                 </div>
+                                <hr className="shine2 hr-shine2"></hr>
                             </div>
                         </div>
                     </div>
@@ -180,9 +183,12 @@ class About extends Component{
                             <div className="card">
                                 <div className="card-body text-center mt-4">
                                     <h4 className="card-title">Shahid Najam</h4>
-                                    <p className="card-text">Shahid Burki is currently in charge of providing Information Security Solutions to the 
-                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                    <p className="card-text">Mr. Najam is the Vice Chairman of BIPP. He has four Masters including LLM and MSc. Public 
+                                    Policy form London School of Economics, UK and MSc. Rural Development from Wye College London. He has more than 39 
+                                    years of experience (17 years with Government of Pakistan and more than 22 years with the UN System) in policy and 
+                                    strategy formulation.</p>
                                 </div>
+                                <hr className="shine2 hr-shine2"></hr>
                             </div>
                         </div>
                     </div>
@@ -208,9 +214,11 @@ class About extends Component{
                             <div className="card">
                                 <div className="card-body text-center mt-4">
                                     <h4 className="card-title">Najeeb Ghauri</h4>
-                                    <p className="card-text">Najeeb Ghauri is currently in charge of providing Information Security Solutions to the 
-                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                    <p className="card-text">Najeeb Ghauri is the founder and chief executive of NetSol Technologies Inc., 
+                                    a Calabasas software company that makes a lot of its money from a program widely used in automobile leasing. 
+                                    Its customers include automakers Mercedes-Benz, Volkswagen, BMW, Nissan and Hyundai. </p>
                                 </div>
+                                <hr className="shine2 hr-shine2"></hr>
                             </div>
                         </div>
                     </div>
@@ -236,9 +244,12 @@ class About extends Component{
                             <div className="card">
                                 <div className="card-body text-center mt-4">
                                     <h4 className="card-title">Saira Burki</h4>
-                                    <p className="card-text">Saira Burki is currently in charge of providing Information Security Solutions to the 
-                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                    <p className="card-text">Sairah is Senior Policy Director at Structured Finance Industry Group (SFIG). She focuses on 
+                                    regulation that have broad impact across all ABS asset classes. Her agenda includes such areas as capital and 
+                                    liquidity, risk retention, Volcker, Regulation AB II, marketplace lending, and blockchain technology. Sairah 
+                                    has also co-authored several articles on securitization and speaks regularly at industry conferences.</p>
                                 </div>
+                                <hr className="shine2 hr-shine2"></hr>
                             </div>
                         </div>
                     </div>
@@ -264,9 +275,12 @@ class About extends Component{
                             <div className="card">
                                 <div className="card-body text-center mt-4">
                                     <h4 className="card-title">Naeem Ghauri</h4>
-                                    <p className="card-text">Naeem Ghauri is currently in charge of providing Information Security Solutions to the 
-                                    companies in the region, and as well as in the process of expanding the domain footprint globally. </p>
+                                    <p className="card-text">Naeem Ghauri is a founding member of NetSol Technologies Inc., a Global provider of 
+                                    end to end IT solutions for Leasing and Finance Industry. His Clients are the Global Who's Who of Captive 
+                                    Auto Finance Companies as well as specialist Banks lending into Asset and Auto Finance for Large Enterprises, 
+                                    SME's and Consumers. </p>
                                 </div>
+                                <hr className="shine2 hr-shine2"></hr>
                             </div>
                         </div>
                     </div>

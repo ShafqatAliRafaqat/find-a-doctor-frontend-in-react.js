@@ -360,7 +360,7 @@ class Detail extends Component{
 										<div className="container">
 											<ul>
 												<li><Link to="/">Home</Link></li>
-												<li><Link to="/">Find A Doctor</Link></li>
+												<li><Link to="/doctor_list">Find A Doctor</Link></li>
 												<li><Link>{treatment_data.name}</Link></li>
 											</ul>
 										</div>

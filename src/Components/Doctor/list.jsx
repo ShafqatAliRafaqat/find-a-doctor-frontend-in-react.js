@@ -75,7 +75,7 @@ class List extends Component{
                                                         <div className="row css-name-offset">
                                                             <div className="col-12">
                                                                 <h2 className="h5 font-weight-bold m-0">
-                                                                    <Link to={{pathname:`/doctor_detail/${m.id}`}} className="text-decoration-none shadow-none btn-outline-none">{m.first_name}</Link>
+                                                                    <Link to={{pathname:`/doctor_detail/${m.id}`}} className="text-decoration-none shadow-none btn-outline-none">{m.first_name} {m.last_name}</Link>
                                                                 </h2>
                                                                 <p className="m-0">{(m.doctor_qualification)? m.doctor_qualification.map(dq=><small className="text-sm pr-2 degree-text">{dq.degree}</small>):""}</p>
                                                                 <h3 className="m-0 h6"><small className="text-sm">{m.focus_area}</small></h3>
@@ -134,7 +134,7 @@ class List extends Component{
                                                                 View on map
                                                             </a>
                                                             <a href={m.map} className="btn btn-block btn-light text-white font-weight-bold m-0 d-lg-none no-booking-btn">
-                                                            View on map
+                                                                View on map
                                                             </a>
                                                         </div>
                                                     </div>

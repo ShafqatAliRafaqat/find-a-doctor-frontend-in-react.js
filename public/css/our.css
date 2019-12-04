@@ -421,15 +421,16 @@ input[type=number]::-webkit-outer-spin-button {
 .hr-shine:after {
   content: '';
 }
-.p-about{
-  color: grey;
-  line-height: 30px;
-}
+
 .shine {
   height: 3px;
   width: 60%;
   background-image: radial-gradient(farthest-side at 50% -50%, rgb(53, 132, 73), rgba(255, 255, 255, 0));
   position: relative; 
+}
+.p-about{
+  color: grey;
+  line-height: 30px;
 }
 #team {
   background: #eee !important;
@@ -561,9 +562,30 @@ section .section-title {
   margin: 28px 0px;
   color: #696969 ;
 }
+.hr-shine2 {
+  border: 0;
+  margin: 1.35em auto;
+  max-width: 100%;
+  background-position: 50%;
+  box-sizing: border-box;
+}
+.hr-shine2:before {
+  content: '';
+}
+.hr-shine2:after {
+  content: '';
+}
+
+.shine2 {
+  height: 3px;
+  width: 100%;
+  background-image: radial-gradient(farthest-side at 50% -50%, rgb(53, 132, 73), rgba(255, 255, 255, 0));
+  position: relative; 
+}
 .owl-carousel .owl-item .logos-img{
   height: 140px !important;
 }
+
 /* .ol-privacy{
   list-style: decimal inside !important;
   counter-reset: item ;
