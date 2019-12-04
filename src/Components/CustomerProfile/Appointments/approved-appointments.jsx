@@ -178,9 +178,9 @@ class Appointments extends Component{
                     <div id="breadcrumb">
                         <div className="container">
                             <ul>
-                            <li><Link to="/">Home</Link></li>
-                                <li><Link to="/">Category</Link></li>
-                                <li>Page active</li>
+                                <li><Link to="/">Home</Link></li>
+                                <li><Link to="#">My Appointments</Link></li>
+                                <li>Approved Appointments</li>
                             </ul>
                         </div>
                     </div>

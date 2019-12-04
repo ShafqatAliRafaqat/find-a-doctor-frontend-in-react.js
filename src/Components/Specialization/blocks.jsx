@@ -11,6 +11,7 @@ class Blocks extends Component {
         treatments      : '',
     };
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.getTreatments();
     }
 

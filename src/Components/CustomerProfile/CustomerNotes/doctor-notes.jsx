@@ -69,8 +69,8 @@ class DoctorNotes extends Component{
                         <div className="container">
                             <ul>
                             <li><Link to="/">Home</Link></li>
-                                <li><Link to="/">Category</Link></li>
-                                <li>Page active</li>
+                                <li><Link to="#">My Notes</Link></li>
+                                <li>Doctor Notes</li>
                             </ul>
                         </div>
                     </div>

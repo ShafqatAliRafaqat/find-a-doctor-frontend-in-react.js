@@ -132,6 +132,7 @@ class Detail extends Component{
         }
     }
 	componentWillMount() {
+		window.scrollTo(0, 0);
 		let search = this.props.location.search;
         const params = qs.parse(search);
         for (let key in params) {
