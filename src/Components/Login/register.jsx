@@ -251,8 +251,7 @@ class Register extends Component{
 									</div>
 									{this.renderCodeSendedModal()}
 								</div>
-								<p className="text-center">
-                                    <small>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</small></p>
+                                <p className="text-center link_bright">Already have an Account <Link to="/login" style={{ color:"#7ecaff", }}><strong>Login now!</strong></Link></p>
 						</div>
 					</div>
 					{/* <!-- /row --> */}

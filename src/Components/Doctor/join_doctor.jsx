@@ -188,7 +188,7 @@ class JoinDoctor extends Component{
 				this.signUp();
 			}
             dispatch({
-                type: actions.CODE_VARIFICATOIN,
+                type: actions.CODE_VARIFICATION,
                 payload: res.data.data
             });
 

@@ -151,25 +151,13 @@ class SearchHeader extends Component {
     } else {
       return(
         <React.Fragment>
-         <List  
-          style={{
-           // width: '100%',
-           maxWidth: 542,
-           minWidth: 542,
-           position: 'absolute',
-           right:'108px',
-           top:'27px',
-           overflow: 'auto',
-           color: "black",
-           maxHeight: 300,
-           backgroundColor:"#ffffff",
-           boxShadow:"#b3b3b3 0px 0px 5px 1px",
-         }}
+         <List  className="search-header-list"
          >
         <ListItem key={0} className="search-list">
           <div>
           <SearchIcon className="search-icon"></SearchIcon>
           <span className="search-name">No Search Found</span>
+
           </div>
         </ListItem>
           </List>
