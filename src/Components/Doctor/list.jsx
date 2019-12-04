@@ -134,7 +134,7 @@ class List extends Component{
                                                                 View on map
                                                             </a>
                                                             <a href={m.map} className="btn btn-block btn-light text-white font-weight-bold m-0 d-lg-none no-booking-btn">
-                                                            View on map
+                                                                View on map
                                                             </a>
                                                         </div>
                                                     </div>
