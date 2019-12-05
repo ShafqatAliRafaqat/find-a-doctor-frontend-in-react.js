@@ -102,7 +102,7 @@ class Profile extends Component{
 				access_token: token,
             });
             if(res.data.data){
-                this.props.history.push('/approved_appointments');
+                // this.props.history.push('/approved_appointments');
                 alertify.success("Your profile has been updated!");
                 setTimeout(window.location.reload(false),100000);
             }
@@ -268,7 +268,7 @@ class Profile extends Component{
                                         <button color="primary" className='btn_1' onClick={ this.updateCustomer}>{(processing) ? "Updating..." : " Update Profile"}</button>{' '}
                                     </p>
                                     <div className="text-center">
-                                        <small>Ut nam graece accumsan cotidieque. Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet.</small>
+                                        {/* <small>Ut nam graece accumsan cotidieque. Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet.</small> */}
                                     </div>
                                 </div>
                             </div>

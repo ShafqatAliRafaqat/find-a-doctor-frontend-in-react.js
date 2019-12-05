@@ -185,7 +185,7 @@ class List extends Component{
                                                 <small className="col pl-0 font-weight-bold text-sm">Availability </small>
                                             </div>
                                         </div>
-                                        <div className="my-1 col-6 col-lg-12">
+                                        <div className="my-1 col-12 col-lg-12">
                                             <div className="row align-items-center">
                                                 {/* <span className="col-2 text-center d-flex justify-content-center align-items-center">
                                                     <svg viewBox="0 0 100 100" className="d-inline-block listing-svg" width="15px" height="15px" fill="#ff9e15">

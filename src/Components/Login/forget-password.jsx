@@ -30,12 +30,13 @@ class PhoneModal extends Component {
     state = {
         ...this.initState,
         codeSended      : '',
+        code            : '',
         sendCode        : '',
         codeVarified    : '',
         customer        : '',
         SendCodeModal   : false,
         isLoading       : false,
-        NewPasswordModal: false,
+        PasswordModal   : false,
     };
 
     toggle = () => {
@@ -202,6 +203,14 @@ class PhoneModal extends Component {
             </React.Fragment>
         );
     };
+    checkCode = ()=>{
+        const {code} 	= this.state;
+        if(code !=''){
+            this.sendCode();
+        }else{
+            alertify.error('Enter Code first');
+        }
+    }
     renderCodeSendedModal = () => {
         const { SendCodeModal ,processing ,codeVarified} 	= this.state;
         
@@ -232,7 +241,7 @@ class PhoneModal extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <button color="primary" className='btn_danger' onClick={this.toggleSendCodeClose}>Close</button>
-                        <button color="primary" className='btn_1' onClick={this.sendCode}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
+                        <button color="primary" className='btn_1' onClick={this.checkCode}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
             </React.Fragment>
