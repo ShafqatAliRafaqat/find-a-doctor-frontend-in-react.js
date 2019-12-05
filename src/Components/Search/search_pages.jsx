@@ -102,9 +102,9 @@ class SearchPages extends Component {
                                 <img className="list-img" src={`https://support.hospitallcare.com/backend/uploads/doctors/${m.picture.picture}`} alt="img" />
                                 :
                                 (m.gender == 1)?
-                                <img src="web_imgs/male.png" alt="" className="list-img" />
+                                <img src="web_imgs/Male.png" alt="" className="list-img" />
                                 :
-                                <img src="web_imgs/female.png" alt="" className="list-img" />
+                                <img src="web_imgs/Female.png" alt="" className="list-img" />
 
                             }
                             <span className="search-name">{m.name}</span>
