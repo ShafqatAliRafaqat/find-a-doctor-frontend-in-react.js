@@ -11,7 +11,7 @@ class Header extends Component{
             const { user } = this.props;
         return(
             <React.Fragment>
-                <header className="header_sticky ">
+                <header className="header_sticky navbar-expand-lg">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-3 col-6 ">
