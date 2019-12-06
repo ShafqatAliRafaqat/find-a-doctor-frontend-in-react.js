@@ -56,6 +56,15 @@ class RiskFactorNotes extends Component{
         this.setState({options: riskfactor,}); // Update the state.
     
     }
+    checkUpdateRiskFactor =()=>{
+        const {options} = this.state;
+        let { alertify } = this.props;
+        if(options[0] !=""){
+            this.updateRiskFactor();
+        }else{
+            alertify.error('Enter Risk factor first');
+        }
+    }
     updateRiskFactor = () => {
 
 		this.setState({
@@ -199,7 +208,7 @@ class RiskFactorNotes extends Component{
                                     </FormGroup>
                                     <FormGroup row className="text-center">
                                         <Col sm={12}>
-                                            <Button color="success" onClick={this.updateRiskFactor}> Save</Button>
+                                            <Button color="success" onClick={this.checkUpdateRiskFactor}> Save</Button>
                                         </Col>
                                     </FormGroup>
                                 </div>

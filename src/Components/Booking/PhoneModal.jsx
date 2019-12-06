@@ -46,9 +46,13 @@ class PhoneModal extends Component {
     };
 
     toggle = () => {
+        if(!this.props.treatment_id || !this.props.time){
+            alertify.error('Select all fields !');
+        }else{
         this.setState({
             isOpen: !this.state.isOpen
         })
+    }
     };
 
     toggleSendCode = () => {
@@ -375,7 +379,7 @@ class PhoneModal extends Component {
         return (
             <React.Fragment>
                 <div style={{ position:"relative" }}>
-                    <button onClick={this.toggle} disabled={!this.props.treatment_id || !this.props.time} className='btn_1 full-width'>
+                    <button onClick={this.toggle}  className='btn_1 full-width'>
                         Book Appointment
                     </button>
                 </div>
