@@ -39,6 +39,8 @@ class AppointmentForm extends Component{
         doctor_id   : this.initState.doctor_data.id,
         showStyle   :{
             paddingBottom:"2px",
+            // backgroundColor: "#74d1c6",
+            // color:"white"
         },
         myStyle     : {
           color     : "white",
@@ -143,7 +145,7 @@ class AppointmentForm extends Component{
 						<div className="col-lg-12">
 							<div className="form-group">
 								<select className="form-control" name="treatment_id"  onChange={this.onChange} id="booking_visit"required>
-									<option value={this.state.treatment_id}>Select Treatment</option>
+									<option value=''>Select Treatment</option>
 								    {treatment_data.map(m => <option key={m.id} value={m.id}>{m.treatment_name}</option>)}
 								</select>
 							</div>
@@ -256,7 +258,7 @@ class AppointmentForm extends Component{
 						<div className="col-lg-12">
 							<div className="form-group">
 								<select className="form-control" name="center_id"  onChange={this.onChangeCenter} required>
-									<option value={this.state.center_id}>Select Hospital</option>
+									<option value=''>Select Hospital</option>
 								    {(schedules)?schedules.map(s => <option key={s.center_id} value={s.center_id}>{s.center_name}</option>):''}
 								</select>
 							</div>

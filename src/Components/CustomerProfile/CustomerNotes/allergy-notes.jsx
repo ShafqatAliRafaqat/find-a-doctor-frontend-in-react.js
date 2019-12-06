@@ -56,6 +56,15 @@ class AllergyNotes extends Component{
         this.setState({options: riskfactor,}); // Update the state.
     
     }
+    checkUpdateAllergies =()=>{
+        const {options} = this.state;
+        let { alertify } = this.props;
+        if(options[0] !=""){
+            this.updateAllergies();
+        }else{
+            alertify.error('Enter Allergy First');
+        }
+    }
     updateAllergies = () => {
 
 		this.setState({
@@ -199,7 +208,7 @@ class AllergyNotes extends Component{
                                     </FormGroup>
                                     <FormGroup row className="text-center">
                                         <Col sm={12}>
-                                            <Button color="success" onClick={this.updateAllergies}> Save</Button>
+                                            <Button color="success" onClick={this.checkUpdateAllergies}> Save</Button>
                                         </Col>
                                     </FormGroup>
                                 </div>
