@@ -27,7 +27,7 @@ class Header extends Component{
                                     <div className="main-menu pt-2">
                                         <ul>
                                             <li className="submenu">
-                                                <Link to="#0" className="show-submenu">{user.customer.name}<i className="icon-down-open-mini"></i></Link>
+                                                <Link to="/customer_profile" className="show-submenu">{user.customer.name}<i className="icon-down-open-mini"></i></Link>
                                                 <ul>
                                                     <li><Link to="/approved_appointments">My Appointments</Link></li>
                                                     <li><Link to="/pending_appointments">Pending Appointments</Link></li>

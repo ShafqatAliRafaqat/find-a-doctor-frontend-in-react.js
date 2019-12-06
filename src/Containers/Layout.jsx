@@ -42,11 +42,15 @@ class Layout extends Component {
                   
                       <Switch>
                       {/* <ScrollToTop> */}
+                      
                         {routes.map((route, idx) => {
                           return route.Component ? (
                                   <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => {
                                     
                                     if(route.path){
+                                      // if(window.location.pathname == route.path){
+                                      //   window.location.reload()
+                                      // }
                                           return (
                                             <div style={{minHeight:"500px"}}>
                                               <route.Component alertify={alertify} {...props} {...this.props} errorHandler={this.errorHandler}  />                                  

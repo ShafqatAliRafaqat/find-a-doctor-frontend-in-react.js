@@ -305,7 +305,7 @@ class Detail extends Component{
 						<div className="row css-col-top">
 						 	<div className="col-12 pt-2 text-left css-col-bottom">
 								 <h1 style={{color:"#fff"}}>
-								 	Consultaton Fee
+								 	Consultation Fee
 								 </h1>
 							</div>
 							<div className="col-12 mt-3 text-left">

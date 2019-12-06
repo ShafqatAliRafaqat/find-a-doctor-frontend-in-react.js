@@ -92,7 +92,7 @@ class DoctorFilter extends Component{
                                         <div className="custom-control custom-checkbox custom-control-inline bg-white  pr-3 ">
                                             <ul style={{margin:0}}> 
                                                 <li>
-                                                    <h6 style={{fontSize:"0.75rem", color:"#999",marginBottom:"5px"}}>Consultaton Fee</h6>
+                                                    <h6 style={{fontSize:"0.75rem", color:"#999",marginBottom:"5px"}}>Consultation Fee</h6>
                                                         <select name="orderby" className="selectbox" onChange={ this.onChange } name="consultation_fee">
                                                             <option value="Closest">300-500</option>
                                                             <option value="Best rated">500-1000</option>
