@@ -65,7 +65,17 @@ class List extends Component{
                                             <div className="col-3 col-lg-12 px-3 px-lg-3 pb-2">
                                                 <div className=" position-relative">
                                                     <Link to={{pathname:`/doctor_detail/${m.id}`}} className="css-avatar-img rounded-circle d-block overflow-hidden position-relative overflow-hidden shadow-none">
-                                                        {(m.picture) ? <img src={m.picture} alt="" className="img-fluid card-img-overlay card-img-fit p-0"/> : <img src="web_imgs/doctor2.jpg" alt="" className="img-fluid card-img-overlay p-0" />}
+                                                    {(m.picture) ?
+                                                        <img className="img-fluid card-img-overlay card-img-fit p-0" src={m.picture} alt="img" />
+                                                        :
+                                                        (m.gender == "Male")?
+                                                        <img src="web_imgs/Male.png" alt="" className="img-fluid card-img-overlay p-0" />
+                                                        :
+                                                        <img src="web_imgs/Female.png" alt="" className="img-fluid card-img-overlay p-0" />
+
+                                                    }    
+                                                    {/* {(m.picture) ? <img src={m.picture} alt="" className="img-fluid card-img-overlay card-img-fit p-0"/> : <img src="web_imgs/doctor2.jpg" alt="" className="img-fluid card-img-overlay p-0" />} */}
+                                                    
                                                     </Link>
                                                 </div>
                                             </div>
