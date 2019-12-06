@@ -505,7 +505,7 @@ a.btn_1.outline:hover,
 header {
   background-color: #fff;
   min-height: 55px;
-  padding: 10px 0;
+  /* padding: 10px 0; */
   border-bottom: 1px solid transparent;
 }
 header.header_sticky {

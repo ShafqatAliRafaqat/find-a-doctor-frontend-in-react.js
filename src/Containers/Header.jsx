@@ -11,88 +11,85 @@ class Header extends Component{
             const { user } = this.props;
         return(
             <React.Fragment>
-                <header className="header_sticky navbar-expand-lg">
+                <header className="header_sticky ">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-3 col-6 ">
-                            <div id="logo_home" className="pt-2">
-                                <h1>
-                                    <Link to="/" title="Findoctor">Findoctor</Link></h1>
-                            </div>
+                {/* <!--Navbar --> */}
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <a className="navbar-brand" href="#">
+                        <div id="logo_home">
+                            <h1>
+                                <Link to="/" title="Find a Doctor">Find doctor</Link>
+                            </h1>
                         </div>
-                        <nav className="col-lg-9 col-6">
-                            <Link className="cmn-toggle-switch cmn-toggle-switch__htx open_close" to="#0"><span>Menu mobile</span></Link>
-                            
-                                {(user != null)? 
-                                    <div className="main-menu pt-2">
-                                        <ul>
-                                            <li className="submenu">
-                                                <Link to="#0" className="show-submenu">{user.customer.name}<i className="icon-down-open-mini"></i></Link>
-                                                <ul>
-                                                    <li><Link to="/approved_appointments">My Appointments</Link></li>
-                                                    <li><Link to="/pending_appointments">Pending Appointments</Link></li>
-                                                    <li><Link to="/customer_profile">My Profile</Link></li>
-                                                    <li><Link to="/current_lab_test">My Test</Link></li>
-                                                    <li><Link to="/allergy_notes">Allergies</Link></li>
-                                                    <li><Link to="/riskfactor_notes">Risk Factor</Link></li>
-                                                    <li><Link to="/doctor_notes">Doctor Notes</Link></li>
-                                                    <li><Link to="/logout">Logout</Link></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    :
-                                    <ul id="top_access"> 
-                                        
-                                        <div className="main-menu">
-                                            <ul>
-                                                <li className="submenu">
-                                                    <Link to="#0"  className="show-submenu" ><i className="pe-7s-user"></i></Link>
-                                                    <ul>
-                                                        <li><Link to="/login">Customer Login</Link></li>
-                                                        <li><Link to="/doctor_signin">Doctor Login</Link></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div className="main-menu">
-                                            <ul>
-                                                <li className="submenu">
-                                                    <Link to="#0"  className="show-submenu" ><i className="pe-7s-add-user"></i></Link>
-                                                    <ul>
-                                                        <li><Link to="/register">Customer Register</Link></li>
-                                                        <li><Link to="/join_doctor">Doctor Register</Link></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </ul>
-                                }
-                               
-                            <div className="main-menu pt-2">
-                                <ul>
-                                    <li>
-                                        <Link to="/">Home</Link>
-                                    </li>
-                                    <li className="submenu">
-                                        <Link to="#0" className="show-submenu">Our Offers<i className="icon-down-open-mini"></i></Link>
-                                        <ul>
-                                            <li><Link to="/doctor_list">Doctors</Link></li>
-                                            <li><Link to="/specialization_list">Specializations</Link></li>
-                                            <li><Link to="/clinic_list">Clinics</Link></li>
-                                        </ul>
-                                    </li>
-                                    <li className="submenu">
-                                        <Link to="#0" className="show-submenu">About Us<i className="icon-down-open-mini"></i></Link>
-                                        <ul>
-                                            <li><Link to="/about_us">About</Link></li>
-                                            <li><Link to="/contacts">Contacts</Link></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                    </a>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul className="navbar-nav ml-auto">
+                        <li className="nav-item nav-item-margin-top">
+                            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                        </li>
+                        <li className="nav-item nav-item-margin-top">
+                            <Link className="nav-link" to="/doctor_list">Doctors</Link>
+                        </li>
+                        <li className="nav-item nav-item-margin-top">
+                            <Link className="nav-link" to="/specialization_list">Specializations</Link>
+                        </li>
+                        <li className="nav-item nav-item-margin-top">
+                            <Link className="nav-link" to="/clinic_list">Clinics</Link>
+                        </li>
+                        <li className="nav-item nav-item-margin-top dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="about" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                            </a>
+                            <div className="dropdown-menu" aria-labelledby="about">
+                                <Link className="dropdown-item" to="/about_us">About</Link>
+                                <Link className="dropdown-item" to="/contacts">Contact Us</Link>
                             </div>
-                        </nav>
+                        </li>
+                        {(user != null)? 
+                        <li className="nav-item nav-item-margin-top dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="loged-in" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {user.customer.name}
+                            </a>
+                            <div className="dropdown-menu" aria-labelledby="loged-in">
+                                <Link className="dropdown-item" to="/approved_appointments">My Appointments</Link>
+                                <Link className="dropdown-item" to="/pending_appointments">Pending Appointments</Link>
+                                <Link className="dropdown-item" to="/customer_profile">My Profile</Link>
+                                <Link className="dropdown-item" to="/current_lab_test">My Test</Link>
+                                <Link className="dropdown-item" to="/allergy_notes">Allergies</Link>
+                                <Link className="dropdown-item" to="/riskfactor_notes">Risk Factor</Link>
+                                <Link className="dropdown-item" to="/doctor_notes">Doctor Notes</Link>
+                                <Link className="dropdown-item" to="/logout">Logout</Link>
+                            </div>
+                        </li>
+                        :
+                        <React.Fragment>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link" href="#" id="signup-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i className="pe-7s-add-user user-logo"></i>
+                            </a>
+                            <div className="dropdown-menu m-top" aria-labelledby="signup-nav">
+                                <Link className="dropdown-item" to="/register">Customer Register</Link>
+                                <Link className="dropdown-item"   to="/join_doctor">Doctor Register</Link>
+                            </div>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link" href="#" id="login-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i className="pe-7s-user user-logo"></i>
+                            </a>
+                            <div className="dropdown-menu m-top" aria-labelledby="login-nav">
+                                <Link className="dropdown-item" to="/login">Customer Login</Link>
+                                <Link className="dropdown-item" to="/doctor_signin">Doctor Login</Link>
+                            </div>
+                        </li>
+                        </React.Fragment>
+                        }
+                        </ul>
                     </div>
+                </nav>
+                {/* <!--/.Navbar --> */}
                 </div>
             </header>
             </React.Fragment>
