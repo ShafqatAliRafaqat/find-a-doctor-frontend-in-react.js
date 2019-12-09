@@ -756,7 +756,7 @@ ol {
 .m-top{
   top: 43px !important;
 }
-@media (max-width: 992px){
+@media (max-width: 991px){
   .nav-icons-span{
     /* margin-left: 10px; */
     display: inline-block;
@@ -765,10 +765,39 @@ ol {
     margin-left: 10px;
     vertical-align: super;
   }
+  .app-nav{
+    /* display: inline-block; */
+    padding: 10px;
+    background: #ececec;
+    border-radius: 5px;
+    min-height: 58px;
+  }
+  }
+  /* .text-app{
+    display: inline-block;
+  } */
+  .div-icon {
+    float: left;
+    width: 10%;
+    height: 50px;
+    margin-right: 8px;
 }
+  .text-app {
+    font-size: 12px;
+    margin-top: 3px;
+    color: #464646;
+  }
+  .app-icon{
+    font-size: 25px;
+    color: #4dc26b;
+  }
+
 @media (min-width: 992px){
   .nav-icons-span span{
-    display: none;
+    display: none !important;
+  }
+  .app-nav{
+    display: none !important;
   }
 }
 .active-nav{
