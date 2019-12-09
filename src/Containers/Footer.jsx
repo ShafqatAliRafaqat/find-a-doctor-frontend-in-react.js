@@ -64,7 +64,7 @@ class Footer extends Component {
                                         <li><Link className="link-footer" to="/doctor_list">Doctors</Link></li>
                                         <li><Link className="link-footer" to="/specialization_list">Specializations</Link></li>
                                         <li><Link className="link-footer" to="/clinic_list">Clinics</Link></li>
-                                        <li><Link className="link-footer" to="/contacts">Contacts</Link></li>
+                                        <li><Link className="link-footer" to="/contacts">Contact Us</Link></li>
                                         <li><Link className="link-footer" to="/privacy-policy">Privacy policy</Link></li>
                                         <li><Link className="link-footer" to="/terms-and-conditions">Terms &amp; Conditions</Link></li>
 

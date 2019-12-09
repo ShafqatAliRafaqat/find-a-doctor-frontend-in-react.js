@@ -7,8 +7,13 @@ alertify.set('notifier', 'position', 'top-center');
 
 // const Header = (props) => {
 class Header extends Component{
-        render(){
-            const { user } = this.props;
+
+    state = {
+        activeTabClassName: '',
+    }
+    render(){
+        const { user } = this.props;
+        const { activeTabClassName } = this.state;
         return(
             <React.Fragment>
                 <header className="header_sticky ">
@@ -28,16 +33,16 @@ class Header extends Component{
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav ml-auto">
                         <li className="nav-item nav-item-margin-top">
-                            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                            <a className={(this.state.activeTabClassName === "#/") ? " nav-link active-nav" : "nav-link"} href="#">Home <span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item nav-item-margin-top">
-                            <Link className="nav-link" to="/doctor_list">Doctors</Link>
+                            <Link className={(this.state.activeTabClassName === "#/doctor_list") ? " nav-link active-nav" : "nav-link"} to="/doctor_list">Doctors</Link>
                         </li>
                         <li className="nav-item nav-item-margin-top">
-                            <Link className="nav-link" to="/specialization_list">Specializations</Link>
+                            <Link className={(this.state.activeTabClassName === "#/specialization_list") ? " nav-link active-nav" : "nav-link"} to="/specialization_list">Specializations</Link>
                         </li>
                         <li className="nav-item nav-item-margin-top">
-                            <Link className="nav-link" to="/clinic_list">Clinics</Link>
+                            <Link className={(this.state.activeTabClassName === "#/clinic_list") ? " nav-link active-nav" : "nav-link"} to="/clinic_list">Clinics</Link>
                         </li>
                         <li className="nav-item nav-item-margin-top dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="about" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,7 +73,7 @@ class Header extends Component{
                         <React.Fragment>
                         <li className="nav-item dropdown">
                             <a className="nav-link" href="#" id="signup-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i className="pe-7s-add-user user-logo"></i>
+                            <div className="nav-icons-span"><i className="pe-7s-add-user user-logo"></i><span>Register</span></div>
                             </a>
                             <div className="dropdown-menu m-top" aria-labelledby="signup-nav">
                                 <Link className="dropdown-item" to="/register">Customer Register</Link>
@@ -77,7 +82,7 @@ class Header extends Component{
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link" href="#" id="login-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i className="pe-7s-user user-logo"></i>
+                            <div className="nav-icons-span"><i className="pe-7s-user user-logo"></i><span>Login</span></div>
                             </a>
                             <div className="dropdown-menu m-top" aria-labelledby="login-nav">
                                 <Link className="dropdown-item" to="/login">Customer Login</Link>
