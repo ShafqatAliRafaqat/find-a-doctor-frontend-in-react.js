@@ -45,6 +45,7 @@ input[type=number]::-webkit-outer-spin-button {
   max-height: 300px !important;
   background-color:#ffffff !important;
   box-shadow:#b3b3b3 0px 0px 5px 1px !important;
+  z-index: 99;
 }
 
 .search-list-pages{
