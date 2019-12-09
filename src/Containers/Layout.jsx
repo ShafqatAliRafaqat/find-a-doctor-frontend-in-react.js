@@ -31,7 +31,7 @@ class Layout extends Component {
       }
     
     render() {
-     
+      
           return ( 
               <React.Fragment>
                   <div id="preloader">
