@@ -50,7 +50,7 @@ class Header extends Component{
                             </a>
                             <div className="dropdown-menu" aria-labelledby="about">
                                 <Link className="dropdown-item" to="/about_us">About</Link>
-                                <Link className="dropdown-item" to="/contacts">Contact Us</Link>
+                                <Link className="dropdown-item" to="/contact_us">Contact Us</Link>
                             </div>
                         </li>
                         {(user != null)? 
