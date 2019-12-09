@@ -793,6 +793,7 @@ ol {
   .app-icon{
     font-size: 25px;
     color: #4dc26b;
+    margin-left: -5px;
   }
 
 @media (min-width: 992px){
