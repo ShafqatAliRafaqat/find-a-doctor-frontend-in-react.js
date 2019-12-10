@@ -45,6 +45,7 @@ input[type=number]::-webkit-outer-spin-button {
   max-height: 300px !important;
   background-color:#ffffff !important;
   box-shadow:#b3b3b3 0px 0px 5px 1px !important;
+  z-index: 99;
 }
 
 .search-list-pages{
@@ -347,6 +348,21 @@ input[type=number]::-webkit-outer-spin-button {
   box-shadow: 0px 0px 1px 0px grey;
   transition: 0.3s;
   border-radius: 4%;
+}
+@media(max-width:767px)
+{
+  .list-card-media
+  {
+    padding: 15px 15px 0px 15px !important;
+    min-height: 175px !important;
+    
+  }
+  .h6-media{
+    font-size: smaller !important;
+  }
+  .img-media{
+    padding: 0px 10px !important;
+  }
 }
 .center-card{
   min-height: 325px;
@@ -684,7 +700,7 @@ ol {
     padding-right: .5rem;
     padding-left: .5rem;
     color: black;
-    font-size: 16px !important;
+    font-size: 15px !important;
   }
 }
 @media (max-width: 992px){
@@ -740,7 +756,7 @@ ol {
 .m-top{
   top: 43px !important;
 }
-@media (max-width: 992px){
+@media (max-width: 991px){
   .nav-icons-span{
     /* margin-left: 10px; */
     display: inline-block;
@@ -749,10 +765,43 @@ ol {
     margin-left: 10px;
     vertical-align: super;
   }
+  .app-nav{
+    /* display: inline-block; */
+    padding: 10px;
+    background: #ececec;
+    border-radius: 5px;
+    min-height: 58px;
+  }
+  }
+  /* .text-app{
+    display: inline-block;
+  } */
+  .div-icon {
+    float: left;
+    width: 10%;
+    height: 50px;
+    margin-right: 8px;
 }
+  .text-app {
+    font-size: 12px;
+    margin-top: 3px;
+    color: #464646;
+  }
+  .text-app span{
+    color: grey;
+  }
+  .app-icon{
+    font-size: 25px;
+    color: #4dc26b;
+    margin-left: -5px;
+  }
+
 @media (min-width: 992px){
   .nav-icons-span span{
-    display: none;
+    display: none !important;
+  }
+  .app-nav{
+    display: none !important;
   }
 }
 .active-nav{
@@ -778,5 +827,15 @@ ol {
     min-width: 339px !important;
     right: 0px !important;
     width: -webkit-fill-available;
+  }
+}
+@media (min-width: 100px) and (max-width: 768px){
+  .clinics-main{
+    display: none !important;
+  }
+}
+@media (min-width:769px){
+  .clinics-mobile{
+    display: none !important;
   }
 }

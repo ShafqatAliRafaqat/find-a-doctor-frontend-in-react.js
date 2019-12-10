@@ -58,7 +58,7 @@ class Header extends Component{
                             </a>
                             <div className="dropdown-menu" aria-labelledby="about">
                                 <Link className={(name == '#/about_us') ? " dropdown-item active-nav" : "dropdown-item"} name="#/about_us" to="/about_us" onClick={this.renderRefreshPage}>About</Link>
-                                <Link className={(name == '#/contacts') ? " dropdown-item active-nav" : "dropdown-item"} name="#/contacts" to="/contacts" onClick={this.renderRefreshPage}>Contact Us</Link>
+                                <Link className={(name == '#/contact_us') ? " dropdown-item active-nav" : "dropdown-item"} name="#/contact_us" to="/contacts" onClick={this.renderRefreshPage}>Contact Us</Link>
                             </div>
                         </li>
                         {(user != null)? 
@@ -99,6 +99,15 @@ class Header extends Component{
                         </li>
                         </React.Fragment>
                         }
+                        <li className="nav-item nav-item-margin-top app-nav">
+
+                        <a href="https://play.google.com/store/apps/details?id=com.hospitall.drathospitall">
+                            <div className="div-icon"><i className="icon-mobile-1 app-icon"></i></div>
+                            <div className="text-app">Download Our DoctorALL App Now.<br/>
+                                <span>Now it's Easy to handle your Appointments</span>
+                            </div>
+                        </a>
+                        </li>
                         </ul>
                     </div>
                 </nav>

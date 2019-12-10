@@ -12,16 +12,16 @@ class List extends Component{
         const { treatment_data } = this.state;
 		return treatment_data.map(m => {
 			return(
-				<div className="col-lg-3 col-md-4  text-center feature-item spin rounded py-3">
+				<div className="col-lg-3 col-md-4 col-6 text-center feature-item spin rounded py-3">
 				<Link to={{pathname:`/treatment_detail/${m.id}`}}>
-				<div className="shadow list-card specialization-card">
-					<div className="img-padding">
+				<div className="shadow list-card list-card-media specialization-card">
+					<div className="img-padding img-media">
 					<div className="circle">
 						{(m.picture) ?  <img src={m.picture} alt=""/>: <img src="https://support.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt=""/>}
 						{/* // <img src="https://support.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt=""/> */}
 					</div>
 					</div>
-					<h6 className="h6-center-list">{m.name}</h6>
+					<h6 className="h6-center-list h6-media">{m.name}</h6>
 				</div>
 				</Link>
 			</div>

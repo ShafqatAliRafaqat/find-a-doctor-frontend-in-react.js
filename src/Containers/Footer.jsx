@@ -69,7 +69,7 @@ class Footer extends Component {
                                         <li><Link className="link-footer" to="/doctor_list" onClick={this.renderRefreshPage}>Doctors</Link></li>
                                         <li><Link className="link-footer" to="/specialization_list" onClick={this.renderRefreshPage}>Specializations</Link></li>
                                         <li><Link className="link-footer" to="/clinic_list" onClick={this.renderRefreshPage}>Clinics</Link></li>
-                                        <li><Link className="link-footer" to="/contacts" onClick={this.renderRefreshPage}>Contacts</Link></li>
+                                        <li><Link className="link-footer" to="/contact_us" onClick={this.renderRefreshPage}>Contact Us</Link></li>
                                         <li><Link className="link-footer" to="/privacy-policy" onClick={this.renderRefreshPage}>Privacy policy</Link></li>
                                         <li><Link className="link-footer" to="/terms-and-conditions" onClick={this.renderRefreshPage}>Terms &amp; Conditions</Link></li>
 
