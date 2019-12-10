@@ -2,3 +2,4 @@ node_modules/
 /src/Models/APIModel.js
 npm-debug.log
 /src/Models/*.key
+/src/Models/APIModel
