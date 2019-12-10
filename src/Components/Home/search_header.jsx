@@ -166,7 +166,10 @@ class SearchHeader extends Component {
     }
 
   }
-
+  renderRefreshPage = (e)=>{
+		this.props.history.push(e.target.name);
+            window.location.reload();
+    }
   render() {
     const { search,page } = this.state;
     return (
@@ -209,19 +212,19 @@ class SearchHeader extends Component {
                   <label htmlFor="all">All</label>
                 </li>
                 <li>
-                  <Link to="/doctor_list" className="filter-button-style">
-                    <label htmlFor="doctor">Doctors</label>
-                  </Link>
+                    <Link to="doctor_list" className=" filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/doctor_list" onClick={this.renderRefreshPage}>
+											Doctors
+										</Link>
                 </li>
                 <li>
-                  <Link to="/clinic_list" className="filter-button-style">
-                    <label htmlFor="clinic">Clinics</label>
-                  </Link>
+                    <Link to="specialization_list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/specialization_list" onClick={this.renderRefreshPage}>
+										 	Specialization
+										</Link>
                 </li>
                 <li>
-                  <Link to="/specialization_list" className="filter-button-style">
-                    <label htmlFor="Specialization">Specializations</label>
-                  </Link>
+                    <Link to="clinic_list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/clinic_list" onClick={this.renderRefreshPage}>
+											Clinics
+										</Link>
                 </li>
               </ul>
             </div>

@@ -1,9 +1,69 @@
 /*============================================================================================*/
 /* Your custom styles below */
 /*============================================================================================*/
-.filter-button-style:hover label {
+.filter-button-style:hover label{
     background-color: #21a747 !important;
     color: #fff !important;
+}
+.filter-button-style-label:hover {
+    background-color: #21a747 !important;
+    color: #fff !important;
+}
+.filter-button-style-label-active:hover {
+    background-color: #21a747 !important;
+    color: #fff !important;
+}
+.switch-field {
+    display: inline-flex;
+}
+.filter-button-style-label-active{
+    display: inline-block;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #358449;
+    color: #fff ;
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    padding: 8px 10px 6px 10px;
+    line-height: 1;
+    text-shadow: none;
+    min-width: 80px;
+    text-align: center;
+    cursor: pointer;
+}
+.filter-button-style-label{
+    display: inline-block;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+    color:  #358449 ;
+    border-radius: 0 3px 3px 0;
+    border: 1px solid #e1e8ed;  
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    padding: 8px 10px 6px 10px;
+    line-height: 1;
+    text-shadow: none;
+    min-width: 80px;
+    text-align: center;
+    cursor: pointer;
+}
+.filter-button-style-label:hover{
+    color: #fff ;
+    text-decoration: none;
+    outline: none;
 }
 .owl-carousel .owl-nav.disabled, .owl-carousel .owl-dots.disabled {
     display: inline-block !important;

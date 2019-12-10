@@ -312,7 +312,10 @@ class DoctorList extends Component{
 		let search = getSearchUrlFromState(this.state);
 		this.getDoctors(search + "page=" + 	pageNumber , actions.GET_ALL_DOCTORS);
 	}
-
+	renderRefreshPage = (e)=>{
+		this.props.history.push(e.target.name);
+            window.location.reload();
+    }
     render(){
 		let { to,total } = this.state;
         return(
@@ -342,18 +345,17 @@ class DoctorList extends Component{
 								<li>
 									<h6>Type</h6>
 									<div className="switch-field">
-										<Link to="doctor_list">
-											<input type="radio" id="doctors" name="type_patient" value="doctors" checked/>
-											<label >Doctors</label>
+										
+										<Link to="doctor_list" className=" filter-button-style-label-active" name="/doctor_list" onClick={this.renderRefreshPage}>
+											Doctors
 										</Link>
-										<Link to="specialization_list">
-											<input type="radio" id="clinics" name="type_patient" value="clinics"/>
-											<label >Specialization</label>
+										<Link to="specialization_list" className="filter-button-style-label ml-1" name="/specialization_list" onClick={this.renderRefreshPage}>
+										 	Specialization
 										</Link>
-										<Link to="clinic_list">
-											<input type="radio" id="clinics" name="type_patient" value="clinics" />
-											<label >Clinics</label>
+										<Link to="clinic_list" className="filter-button-style-label ml-1" name="/clinic_list" onClick={this.renderRefreshPage}>
+											Clinics
 										</Link>
+										
 									</div>
 								</li>
 								<li className="pt-3">
