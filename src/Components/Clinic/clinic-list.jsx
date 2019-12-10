@@ -155,7 +155,7 @@ class CenterList extends Component{
 						</div>
 					</div> */}
 					
-					<div className="container margin_0_35">
+					<div className="container margin_0_35 ">
 						<div className="row">
 							{this.ListOfCenters()}
 						</div>

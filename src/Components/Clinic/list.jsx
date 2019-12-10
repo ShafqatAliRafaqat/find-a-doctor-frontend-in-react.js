@@ -13,30 +13,28 @@ class List extends Component{
 		return center_data.map(m => {
 			return(
 				<div className="col-lg-3 col-md-4  text-center feature-item spin rounded py-3">
-						
+					<div className="shadow list-card center-card">
+						{/* <button className="btn btn-sm btn-doctors">{m.count_doctors} Doctors</button> */}
+						<Link to={{pathname:`/center_detail/${m.id}`}}>
 
-				<div className="shadow list-card center-card">
-					{/* <button className="btn btn-sm btn-doctors">{m.count_doctors} Doctors</button> */}
-					<Link to={{pathname:`/center_detail/${m.id}`}}>
+						<div className="img-padding">
+						<div className="circle">
+							{(m.picture) ?  <img src={m.picture} alt=""/>: <img src="https://support.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt=""/>}
+							{/* // <img src="https://support.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt=""/> */}
+						</div>
+						</div>
+						<h6 className="h6-center-list">{m.name}</h6>	
+						<small className=" btn-block text-truncate">{m.focus_area}</small>
 
-					<div className="img-padding">
-					<div className="circle">
-						{(m.picture) ?  <img src={m.picture} alt=""/>: <img src="https://support.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt=""/>}
-						{/* // <img src="https://support.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt=""/> */}
+						</Link>
+
+						<hr className="hr-card"></hr>
+						<div className="row">
+							<div className="col-6 col-sm-6 text-left text-12 border-right"><a href={m.map} >View on map</a></div>
+							<div className="col-6 col-sm-6 text-right text-12 border-left"><Link to={{pathname:`/center_detail/${m.id}`}}>{m.count_doctors} Doctors</Link></div>
+						</div>
 					</div>
-					</div>
-					<h6 className="h6-center-list">{m.name}</h6>	
-					<small className=" btn-block text-truncate">{m.focus_area}</small>
-
-					</Link>
-
-					<hr className="hr-card"></hr>
-					<div className="row">
-						<div className="col-6 col-sm-6 text-left text-12 border-right"><a href={m.map} >View on map</a></div>
-						<div className="col-6 col-sm-6 text-right text-12 border-left"><Link to={{pathname:`/center_detail/${m.id}`}}>{m.count_doctors} Doctors</Link></div>
-					</div>
-				</div>
-			</div>				
+				</div>				
 
 				// <div className="col-lg-4">
 				// 	<div className="box_list wow fadeIn">

@@ -700,7 +700,7 @@ ol {
     padding-right: .5rem;
     padding-left: .5rem;
     color: black;
-    font-size: 16px !important;
+    font-size: 15px !important;
   }
 }
 @media (max-width: 992px){
@@ -827,5 +827,15 @@ ol {
     min-width: 339px !important;
     right: 0px !important;
     width: -webkit-fill-available;
+  }
+}
+@media (min-width: 100px) and (max-width: 768px){
+  .clinics-main{
+    display: none !important;
+  }
+}
+@media (min-width:769px){
+  .clinics-mobile{
+    display: none !important;
   }
 }
