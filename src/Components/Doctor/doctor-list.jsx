@@ -376,10 +376,11 @@ class DoctorList extends Component{
 						<div className="row">
 							<div className="text-center col-12">
 								{(total != 0)?	<Pagination
-									prevPageText='prev'
-									nextPageText='next'
-									firstPageText='first'
-									lastPageText='last'
+									prevPageText='<'
+									nextPageText='>'
+									firstPageText='<<'
+									lastPageText='>>'
+									pageRangeDisplayed={4}
 									activePage={this.state.current_page}
 									itemsCountPerPage={this.state.per_page}
 									totalItemsCount={this.state.total}

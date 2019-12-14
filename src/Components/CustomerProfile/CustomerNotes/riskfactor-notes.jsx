@@ -8,7 +8,7 @@ import * as actions from "../../../Store/Actions/CustomerAction";
 class RiskFactorNotes extends Component{
     constructor(props) {
         super(props);
-        this.defaultOption = { "id": "-1", "value": "" };
+        this.defaultOption = { "notes": "" };
         this.state = {
             riskfactor: "",
             options: [this.defaultOption]
@@ -40,7 +40,7 @@ class RiskFactorNotes extends Component{
             });
             if(res.data.nodata){
                 this.setState({
-                    options	: [{ "id": "-1", "value": "" }],
+                    options	: [{ "notes": "" }],
                 }); 
                 alertify.error('There is no Risk Factor');
             }
@@ -86,11 +86,11 @@ class RiskFactorNotes extends Component{
             }
             if(res.data.nodata){
                 this.setState({
-                    options	: [{ "id": "-1", "value": "" }],
+                    options	: [{ "notes": "" }],
                 }); 
                
             }
-            setTimeout(window.location.reload(),100000);
+            // setTimeout(window.location.reload(),100000);
 		}).catch(errorHandler).finally(() => {
 			this.setState({
                 processing: false
@@ -143,7 +143,7 @@ class RiskFactorNotes extends Component{
         }
         let { options } = this.state;
         if(!options){
-            options =[{ "id": "-1", "value": "" }];
+            options =[{ "notes": "" }];
         }
         return(
             <React.Fragment>

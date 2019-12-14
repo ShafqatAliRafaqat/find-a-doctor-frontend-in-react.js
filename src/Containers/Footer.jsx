@@ -65,13 +65,13 @@ class Footer extends Component {
                                 <div className="col-6">
                                     <h6 className="h6-footer">Pages</h6>
                                     <ul className="links">
-                                        <li><Link className="link-footer" to="/about_us" onClick={this.renderRefreshPage}>About us</Link></li>
-                                        <li><Link className="link-footer" to="/doctor_list" onClick={this.renderRefreshPage}>Doctors</Link></li>
-                                        <li><Link className="link-footer" to="/specialization_list" onClick={this.renderRefreshPage}>Specializations</Link></li>
-                                        <li><Link className="link-footer" to="/clinic_list" onClick={this.renderRefreshPage}>Clinics</Link></li>
-                                        <li><Link className="link-footer" to="/contact_us" onClick={this.renderRefreshPage}>Contact Us</Link></li>
-                                        <li><Link className="link-footer" to="/privacy-policy" onClick={this.renderRefreshPage}>Privacy policy</Link></li>
-                                        <li><Link className="link-footer" to="/terms-and-conditions" onClick={this.renderRefreshPage}>Terms &amp; Conditions</Link></li>
+                                        <li><Link className="link-footer" to="/about_us"            name = "/about_us"              onClick={this.renderRefreshPage}>About us</Link></li>
+                                        <li><Link className="link-footer" to="/doctor_list"         name = "/doctor_list"           onClick={this.renderRefreshPage}>Doctors</Link></li>
+                                        <li><Link className="link-footer" to="/specialization_list" name = "/specialization_list"   onClick={this.renderRefreshPage}>Specializations</Link></li>
+                                        <li><Link className="link-footer" to="/clinic_list"         name = "/clinic_list"           onClick={this.renderRefreshPage}>Clinics</Link></li>
+                                        <li><Link className="link-footer" to="/contact_us"          name = "/contact_us"            onClick={this.renderRefreshPage}>Contact Us</Link></li>
+                                        <li><Link className="link-footer" to="/privacy-policy"      name = "/privacy-policy"        onClick={this.renderRefreshPage}>Privacy policy</Link></li>
+                                        <li><Link className="link-footer" to="/terms-and-conditions"name = "/terms-and-conditions"  onClick={this.renderRefreshPage}>Terms &amp; Conditions</Link></li>
 
                                     </ul>
                                 </div>
