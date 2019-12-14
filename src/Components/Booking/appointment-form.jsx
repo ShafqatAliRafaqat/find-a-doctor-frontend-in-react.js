@@ -131,7 +131,7 @@ class AppointmentForm extends Component{
         if(treatment_id != '' && center_id != '' && booking_date != '' && time !=''){
             this.bookAppointment();
         }else{
-            alertify.error('Enter all fields first');
+            alertify.error('Select all fields!');
         }
     };
     renderCenterTreatment =()=>{
@@ -191,7 +191,7 @@ class AppointmentForm extends Component{
     renderWhenUserLogin = () => {
             return (
                 <div style={{ position:"relative" }}>
-                    <button onClick={this.renderCheckFields} disabled={!this.state.treatment_id}className='btn_1 full-width'>
+                    <button onClick={this.renderCheckFields} className='btn_1 full-width'>
                         Book Appointment
                     </button>
                 </div>

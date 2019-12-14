@@ -84,7 +84,13 @@ class GeneralInfo extends Component {
 				<div className="row">
 					<div className="col-lg-5 col-md-4">
 						<figure>
-							{(doctor_data.picture) ? <img src={doctor_data.picture} alt="" className="img-fluid" /> : <img src="web_imgs/doctor2.jpg" alt="" className="img-fluid" />}
+							{(doctor_data.picture) ? <img src={doctor_data.picture} alt="" className="img-fluid" /> 
+							:
+							(doctor_data.gender == "Male")?
+                            <img src="web_imgs/Male.png" alt="" className="img-fluid" />
+                            :
+                            <img src="web_imgs/Female.png" alt="" className="img-fluid" /> 
+							}
 						</figure>
 					</div>
 					<div className="col-lg-7 col-md-8">
