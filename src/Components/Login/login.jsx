@@ -88,10 +88,10 @@ class Login extends Component{
 											</div>
 											<div className="form-group">
 												<div className="row">
-													<div className="col-6 text-left">
+													<div className="col-12 col-sm-6 text-center mb-1">
 														<button color="primary" className='btn_1' onClick={this.signIn}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
 													</div>
-													<div className="col-6 text-right">
+													<div className="col-12 col-sm-6 text-center">
 														{this.renderForgetPasswordModal()}
 													</div>
 												</div>

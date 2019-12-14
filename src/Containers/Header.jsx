@@ -63,9 +63,10 @@ class Header extends Component{
                         </li>
                         {(user != null)? 
                         <li className="nav-item nav-item-margin-top dropdown">
-                            <Link lassName={(name == '#/approved_appointments' || name == '#/pending_appointments' || name == '#/customer_profile'|| name == '#/current_lab_test'|| name == '#/allergy_notes' || name == '#/riskfactor_notes' || name == '#/doctor_notes') ? "nav-link dropdown-toggle active-nav" : "nav-link dropdown-toggle"} to="/customer_profile" id="loged-in" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                            <a className={(name == '#/approved_appointments' || name == '#/pending_appointments' || name == '#/customer_profile'|| name == '#/current_lab_test'|| name == '#/allergy_notes' || name == '#/riskfactor_notes' || name == '#/doctor_notes') ? "nav-link dropdown-toggle active-nav" : "nav-link dropdown-toggle"} to="#" id="loged-in" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {user.customer.name}
-                            </Link>
+                            </a>
                             <div className="dropdown-menu" aria-labelledby="loged-in">
                                 <Link className={(name == '#/approved_appointments') ? " dropdown-item active-nav" : "dropdown-item"} name="#/approved_appointments" to="/approved_appointments" onClick={this.renderRefreshPage}>My Appointments</Link>
                                 <Link className={(name == '#/pending_appointments' ) ? " dropdown-item active-nav" : "dropdown-item"} name="#/pending_appointments"  to="/pending_appointments" onClick={this.renderRefreshPage}>Pending Appointments</Link>

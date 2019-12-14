@@ -273,7 +273,7 @@ class JoinDoctor extends Component{
 					<h1>Join Our Best Doctor's Team</h1>
 					<div className="row justify-content-center">
 						<div className="col-md-8">
-								<div className="box_form">
+								<div className="box_form box-media">
 									<div className="form-group row">
                                         <div className="col-md-6">
 										<label>First name</label>

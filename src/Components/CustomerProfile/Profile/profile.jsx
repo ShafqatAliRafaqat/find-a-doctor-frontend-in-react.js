@@ -209,7 +209,7 @@ class Profile extends Component{
                                       
                                     </div>
                                     <div className="row">
-                                        <div className="col-md-6 ">
+                                        <div className="col-md-6 col-6">
                                             <div className="form-group">
                                                 <FormControl className="form-control">
                                                     <InputLabel htmlFor="grouped-select">Marital Status </InputLabel>
@@ -220,7 +220,7 @@ class Profile extends Component{
                                                 </FormControl>
                                             </div>
                                         </div>
-                                        <div className="col-md-6">
+                                        <div className="col-md-6 col-6">
                                             <div className="form-group">
                                             <FormControl className="form-control">
                                                     <InputLabel  htmlFor="grouped-select">Gender</InputLabel>
@@ -233,13 +233,13 @@ class Profile extends Component{
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-md-6 ">
+                                        <div className="col-md-6 col-6">
                                             <div className="form-group">    
                                                 <TextField   type="number" defaultValue = {height} onChange={this.onChange}  step="0.01" name="height"  className="form-control" label="Height (Feet)" margin="normal" />                                      
                                             </div>
                                         </div>
                                     
-                                        <div className="col-md-6">
+                                        <div className="col-md-6 col-6">
                                             <div className="form-group">
                                             <FormControl className="form-control">
                                                     <InputLabel  htmlFor="grouped-select">Blood Group</InputLabel>

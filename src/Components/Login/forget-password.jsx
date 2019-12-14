@@ -279,7 +279,7 @@ class PhoneModal extends Component {
                                     className   = "form-control"
                                     name        = "phone"
                                     placeholder = "Enter Phone Number"
-                                    value       = {this.state.phone}
+                                    value       = { this.state.phone }
                                     onChange    = { phone => this.setState({ phone }) }
                                     error       = { phone ? (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number') : 'Phone number required' }required/>
                                 </div>
