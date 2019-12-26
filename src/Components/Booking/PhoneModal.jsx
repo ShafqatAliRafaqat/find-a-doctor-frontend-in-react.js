@@ -86,6 +86,7 @@ class PhoneModal extends Component {
     };
 
     toggleSendCodeClose = () => {
+        window.location.reload();
         this.setState({
             SendCodeModal: false,
         })
@@ -286,7 +287,7 @@ class PhoneModal extends Component {
                             <div className="forgetbutton" >
                                 {this.renderForgetPasswordModal()}                    
                             </div>
-                                <button color="primary" className='btn_1' onClick={this.signIn}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
+                                <button color="primary" className='btn_1' autofocus onClick={this.signIn}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                                 <button color="primary" className='btn_danger' onClick={this.toggleSignInClose}>Close</button>
                     </ModalFooter>
                 </Modal>
@@ -329,6 +330,15 @@ class PhoneModal extends Component {
             </React.Fragment>
         );
     };
+    codeChecker = () =>{
+        const {code} = this.state;
+
+        if(code != null ){
+            this.sendCode();
+        }else{
+            alertify.error('Enter code first');
+        }
+    }
     renderCodeSendedModal = () => {
         const { SendCodeModal ,processing ,codeVarified} 	= this.state;
         if(codeVarified){
@@ -358,7 +368,7 @@ class PhoneModal extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <button color="primary" className='btn_danger' onClick={this.toggleSendCodeClose}>Close</button>
-                        <button color="primary" className='btn_1' onClick={this.sendCode}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
+                        <button color="primary" className='btn_1' onClick={this.codeChecker}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
             </React.Fragment>
@@ -379,7 +389,7 @@ class PhoneModal extends Component {
         return (
             <React.Fragment>
                 <div style={{ position:"relative" }}>
-                    <button onClick={this.toggle}  className='btn_1 full-width'>
+                    <button onClick={this.toggle} autofocus  className='btn_1 full-width'>
                         Book Appointment
                     </button>
                 </div>
@@ -411,7 +421,7 @@ class PhoneModal extends Component {
                         </div>
                     </ModalBody>
                     <ModalFooter>
-                        <button color="primary" className='btn_1' onClick={(phone)? this.create: ""}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
+                        <button color="primary" className='btn_1' autofocus onClick={(phone)? this.create: ""}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
             </React.Fragment>

@@ -85,8 +85,8 @@ class Header extends Component{
                             <div className="nav-icons-span"><i className="pe-7s-add-user user-logo"></i><span>Register</span></div>
                             </a>
                             <div className="dropdown-menu m-top" aria-labelledby="signup-nav">
-                                <Link className="dropdown-item" to="/register" onClick={this.renderRefreshPage}>Customer Register</Link>
-                                <Link className="dropdown-item"   to="/join_doctor" onClick={this.renderRefreshPage}>Doctor Register</Link>
+                                <Link className="dropdown-item" to="/register" onClick={this.renderRefreshPage}>User Registration</Link>
+                                <Link className="dropdown-item"   to="/join_doctor" onClick={this.renderRefreshPage}>Doctor Registration</Link>
                             </div>
                         </li>
                         <li className="nav-item dropdown">
@@ -94,7 +94,7 @@ class Header extends Component{
                             <div className="nav-icons-span"><i className="pe-7s-user user-logo"></i><span>Login</span></div>
                             </a>
                             <div className="dropdown-menu m-top" aria-labelledby="login-nav">
-                                <Link className="dropdown-item" to="/login" onClick={this.renderRefreshPage}>Customer Login</Link>
+                                <Link className="dropdown-item" to="/login" onClick={this.renderRefreshPage}>User Login</Link>
                                 <Link className="dropdown-item" to="/doctor_signin" onClick={this.renderRefreshPage}>Doctor Login</Link>
                             </div>
                         </li>
