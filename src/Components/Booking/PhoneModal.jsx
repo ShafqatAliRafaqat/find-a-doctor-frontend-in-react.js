@@ -172,6 +172,7 @@ class PhoneModal extends Component {
 
         const { phone, password, } 	=	this.state;
         let params = { phone, password, treatment_id, date,time, center_id, doctor_id};
+        
         signIn(params).then(res => {
 
             this.setState({
@@ -183,12 +184,13 @@ class PhoneModal extends Component {
                 type: actions.SIGN_IN,
                 payload: res.data
             });
-            // this.props.history.push('/');
-            alertify.success('Your appointment has been booked. Thank you for contacting us.')
-            setTimeout(window.location.reload(),100000);
-
             
-
+            alertify.alert('Confirmation Alert', "Thank you for requesting an appointment! We'll contact you shortly to confirm. ", function(){ 
+                window.location.assign("https://www.hospitallcare.com/#/pending_appointments")
+                setTimeout(window.location.reload(),100000);
+              
+            });
+            // alertify.success('Your appointment has been booked. Thank you for contacting us.')
         }).catch(errorHandler).finally(() => {
             this.setState({
                 processing: false
@@ -226,11 +228,13 @@ class PhoneModal extends Component {
                 type: actions.SIGN_UP,
                 payload: res.data
             });
-            // this.props.history.push('/'); 
-            alertify.success('Your appointment has been booked. Thank you for contacting us.')
-            setTimeout(window.location.reload(),100000);
             
-
+            alertify.alert('Confirmation Alert', "Thank you for requesting an appointment! We'll contact you shortly to confirm. ", function(){ 
+                window.location.assign("https://www.hospitallcare.com/#/pending_appointments")
+                setTimeout(window.location.reload(),100000);
+              
+            });
+        
         }).catch(errorHandler).finally(() => {
             this.setState({
                 processing: false

@@ -9,7 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import * as actions from "../../Store/Actions/AuthAction";
 import * as treatmentactions from "../../Store/Actions/TreatmentAction";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { noConflict } from "q";
 
 alertify.set('notifier', 'position', 'top-center');
@@ -51,7 +51,8 @@ class AppointmentForm extends Component{
     getCenterTreatments =()=>{
         this.setState({
 			isLoading: true
-		});
+        });
+        var props_var = this.props;
         let { getCenterTreatments, dispatch, errorHandler } = this.props;
         const {doctor_id, center_id} = this.state;
         let params ={doctor_id, center_id};
@@ -102,9 +103,11 @@ class AppointmentForm extends Component{
               ...this.initState,
           });
 
-          this.props.history.push('/pending_appointments');
-          alertify.success('Your appointment has been booked.')
-          setTimeout(window.location.reload(),100000);
+          alertify.alert('Confirmation Alert', "Thank you for requesting an appointment! We'll contact you shortly to confirm. ", function(){ 
+            window.location.assign("https://www.hospitallcare.com/#/pending_appointments")
+            setTimeout(window.location.reload(),100000);
+          
+            });
           
           dispatch({
               type: actions.BOOK_APPOINTMENT,
