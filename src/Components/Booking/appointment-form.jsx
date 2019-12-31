@@ -10,7 +10,6 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import * as actions from "../../Store/Actions/AuthAction";
 import * as treatmentactions from "../../Store/Actions/TreatmentAction";
 import { Link, Redirect } from "react-router-dom";
-import { noConflict } from "q";
 
 alertify.set('notifier', 'position', 'top-center');
 

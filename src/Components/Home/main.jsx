@@ -217,7 +217,7 @@ class Main extends Component{
                                     autoplay    = {true}
                                     animateOut  = {true}
                                     center      = {true}
-                                    nav         = {true}                    
+                                    // nav         = {true}                    
                                     >
                                     {this.ListOfDoctors()}
                                 </OwlCarousel>

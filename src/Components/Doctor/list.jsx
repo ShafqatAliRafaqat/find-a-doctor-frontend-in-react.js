@@ -184,7 +184,7 @@ class List extends Component{
                                                     <svg viewBox="0 0 100 100" className="d-inline-block listing-svg" width="15px" height="15px" fill="#ff9e15">
                                                     </svg>
                                                 </span>
-                                                {(m.centers)? m.centers.map(s => <small className="col pl-0 text-sm">Rs. {s.fare}</small>):""}
+                                                 {(m.centers)? m.centers.map(s => <small className="col pl-0 text-sm">{(s.fare)? 'Rs.' :''} {s.fare}</small>):""}
                                             </div>
                                         </div>
                                         <div className="my-1 col-6 col-lg-12">
