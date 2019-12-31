@@ -179,7 +179,7 @@ class SearchHeader extends Component {
             <h3>{page}</h3>
             
               <span>
-                Changing the way you precieve and receive healthcare,
+                Changing the way you perceive and receive healthcare,
               </span>
               <br /> 
               <span>while assuring exceptional patient experience and care.</span>
