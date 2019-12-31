@@ -101,13 +101,20 @@ class Header extends Component{
                         </React.Fragment>
                         }
                         <li className="nav-item nav-item-margin-top app-nav">
-
-                        <a href="https://play.google.com/store/apps/details?id=com.hospitall.drathospitall">
-                            <div className="div-icon"><i className="icon-mobile-1 app-icon"></i></div>
-                            <div className="text-app">Download Our DoctorALL App Now.<br/>
-                                <span>Now it's Easy to handle your Appointments</span>
-                            </div>
-                        </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.hospitall.patientathospitall">
+                                <div className="div-icon"><i className="icon-mobile-1 app-icon"></i></div>
+                                <div className="text-app">Download Our User App Now.<br/>
+                                    <span>A Comprehensive Healthcare Super App</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li className="nav-item nav-item-margin-top app-nav">
+                            <a href="https://play.google.com/store/apps/details?id=com.hospitall.drathospitall">
+                                <div className="div-icon"><i className="icon-mobile-1 app-icon"></i></div>
+                                <div className="text-app">Download Our DoctorALL App Now.<br/>
+                                    <span>Now It's Easy To Handle Your Appointments</span>
+                                </div>
+                            </a>
                         </li>
                         </ul>
                     </div>

@@ -47,8 +47,8 @@ class Footer extends Component {
                             Surgeons, etc. in Pakistan conveniently.</p>
                             <h4 className="app-h4-footer"> Download Now! </h4>
                             <div className="app_buttons wow  pb-4" data-wow-offset="100">
-                            <a href="https://play.google.com/store/apps/details?id=com.hospitall.drathospitall" className="fadeIn "><img src="img/apple_app.png" className="app-link-img" alt="" width="150" height="50" data-retina="true"  /></a>
-                            <a href="https://play.google.com/store/apps/details?id=com.hospitall.drathospitall" className="fadeIn"><img src="img/google_play_app.png" alt="" width="150" height="50" data-retina="true" /></a>
+                            {/* <a target="_blank" href="https://play.google.com/store/apps/details?id=com.hospitall.patientathospitall" className="fadeIn "><img src="img/apple_app.png" className="app-link-img" alt="" width="150" height="50" data-retina="true"  /></a> */}
+                            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.hospitall.patientathospitall" className="fadeIn"><img src="img/google_play_app.png" alt="" width="150" height="50" data-retina="true" /></a>
                         </div>
                         </div>
                         <div className="col-12 col-sm-6 pt-md-3">
