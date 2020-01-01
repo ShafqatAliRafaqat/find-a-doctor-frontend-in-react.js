@@ -33,6 +33,7 @@ class Footer extends Component {
         });
     };
     render() {
+		var slugify         = require('slugify');
         const {specializations} = this.state;
         return (
             <footer className="bg-dark">
@@ -57,7 +58,7 @@ class Footer extends Component {
                                     <h6 className="h6-footer">Specializations</h6>
                                     <ul className="links">
                                         {(specializations) ?
-                                            specializations.map(m => <li ><Link className="link-footer" to={{ pathname: `/treatment_detail/${m.id}` }}>{m.name}</Link></li>)
+                                            specializations.map(m => <li ><Link className="link-footer" to={{ pathname: `/treatment_detail/${slugify(m.name,'_')}/${m.id}` }}>{m.name}</Link></li>)
                                             :
                                             ''}
                                     </ul>

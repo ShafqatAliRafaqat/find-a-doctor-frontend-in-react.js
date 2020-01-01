@@ -67,13 +67,14 @@ class SearchHeader extends Component {
     const { search } = this.state;
     let doctors = search.doctors;
     let specializations = search.specializations;
+		var slugify = require('slugify');
     let centers = search.centers;
     if (!doctors) {
       return;
     }
     var specializations1= specializations.map(m => {
       return (
-        <Link to={{pathname:`/treatment_detail/${m.id}`}}>
+        <Link to={{pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}`}}>
         <ListItem key={m.id} className="search-list">
           <div>
             <SearchIcon className="search-icon"></SearchIcon>
@@ -88,7 +89,7 @@ class SearchHeader extends Component {
 
     var doctors1= doctors.map(m => {
       return (
-        <Link to={{pathname:`/doctor_detail/${m.id}`}}>
+        <Link to={{pathname:`/doctor_detail/${slugify(m.name,'_')}/${m.id}`}}>
         <ListItem key={m.id} className="search-list">
           <div>
           {(m.picture) ?
@@ -113,7 +114,7 @@ class SearchHeader extends Component {
 
     var centers1= centers.map(m => {
       return (
-        <Link to={{pathname:`/center_detail/${m.id}`}}>
+        <Link to={{pathname:`/center_detail/${slugify(m.name,'_')}/${m.id}`}}>
         <ListItem key={m.id} className="search-list">
           <div>
           <SearchIcon className="search-icon"></SearchIcon>

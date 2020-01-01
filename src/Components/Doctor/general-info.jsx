@@ -193,6 +193,8 @@ class GeneralInfo extends Component {
 	}
 	relatedDoctors = () => {
 		const {related_doctors} =	this.state;
+		var slugify = require('slugify');
+
 		if(related_doctors){
 			if (related_doctors.length < 1) {
 				return(
@@ -206,7 +208,7 @@ class GeneralInfo extends Component {
 			<div className="row">
 				<div className="col">
 				{(related_doctors)?
-					related_doctors.map(m =><Link to={{ pathname:`/doctor_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					related_doctors.map(m =><Link to={{ pathname:`/doctor_detail/${slugify(m.name,'_')}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}
@@ -216,6 +218,7 @@ class GeneralInfo extends Component {
 		);
 	}
 	relatedCenters = () => {
+		var slugify = require('slugify');
 		const {related_centers} =	this.state;
 		if(related_centers){
 			if (related_centers.length < 1) {
@@ -231,7 +234,7 @@ class GeneralInfo extends Component {
 			<div className="row">
 				<div className="col">
 				{(related_centers)?
-					related_centers.map(m =><Link to={{ pathname:`/center_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					related_centers.map(m =><Link to={{ pathname:`/center_detail/${slugify(m.name,'_')}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}
@@ -244,6 +247,7 @@ class GeneralInfo extends Component {
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }
+		var slugify = require('slugify');
 		const { doctor_data } 		= this.state;
 		const {history } 			=	this.props;
 		return (
@@ -259,7 +263,7 @@ class GeneralInfo extends Component {
 												<li><Link to="/">Home</Link></li>
 												<li><Link to="/doctor_list">Find a Doctor</Link></li>
 												{(doctor_data.city_name)?<li><Link to="#">{doctor_data.city_name}</Link></li>:''}
-												{(doctor_data.speciality)?<li><Link to={{ pathname: `/treatment_detail/${doctor_data.speciality}`}}>{doctor_data.speciality}</Link></li>:''}
+												{(doctor_data.speciality)?<li><Link to={{ pathname: `/treatment_detail/${slugify(doctor_data.speciality,'_')}/${doctor_data.speciality}`}}>{doctor_data.speciality}</Link></li>:''}
 												
 												<li>{doctor_data.first_name}</li>
 											</ul>

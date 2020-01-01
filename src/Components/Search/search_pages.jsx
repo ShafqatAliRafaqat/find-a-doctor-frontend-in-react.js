@@ -67,13 +67,14 @@ class SearchPages extends Component {
         let doctors         = search.doctors;
         let specializations = search.specializations;
         let centers         = search.centers;
+		var slugify         = require('slugify');
         
         if (!doctors) {
             return true;
         }
         var specializations1 = specializations.map(m => {
             return (
-                <Link to={{ pathname: `/treatment_detail/${m.id}` }}>
+                <Link to={{ pathname: `/treatment_detail/${slugify(m.name,'_')}/${m.id}` }}>
                     <ListItem key={m.id} className="search-list-pages">
                         <div>
                             <ul style={{ whiteSpace: "nowrap", overflow: 'hidden' }}>
@@ -95,7 +96,7 @@ class SearchPages extends Component {
 
         var doctors1 = doctors.map(m => {
             return (
-                <Link to={{ pathname: `/doctor_detail/${m.id}` }}>
+                <Link to={{ pathname: `/doctor_detail/${slugify(m.name,'_')}/${m.id}` }}>
                     <ListItem key={m.id} className="search-list-pages">
                         <div>
                             {(m.picture) ?
@@ -122,7 +123,7 @@ class SearchPages extends Component {
 
         var centers1 = centers.map(m => {
             return (
-                <Link to={{ pathname: `/center_detail/${m.id}` }}>
+                <Link to={{ pathname: `/center_detail/${slugify(m.name,'_')}/${m.id}` }}>
                     <ListItem key={m.id} className="search-list-pages">
                         <div>
                             <SearchIcon className="search-icon"></SearchIcon>

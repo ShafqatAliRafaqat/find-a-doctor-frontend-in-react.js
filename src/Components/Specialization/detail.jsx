@@ -231,6 +231,7 @@ class Detail extends Component{
 	}
 
 	RelatedTreatments = () => {
+		var slugify         = require('slugify');
 		const{ related_treatments } 	=	this.state;
 		if (related_treatments.length < 1) {
 			return(
@@ -243,7 +244,7 @@ class Detail extends Component{
 			<div className="row">
 				<div className="col">
 				{(related_treatments)?
-					related_treatments.map(m =><Link to={{ pathname:`/treatment_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					related_treatments.map(m =><Link to={{ pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}

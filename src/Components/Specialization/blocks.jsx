@@ -39,6 +39,7 @@ class Blocks extends Component {
     };
     Blocks = () => {
 
+		var slugify         = require('slugify');
         const { specializations } = this.state;
         if (!specializations) {
             return true;
@@ -46,7 +47,7 @@ class Blocks extends Component {
         return specializations.map(m => {
             return (
                 <div className="col-lg-3 col-md-6">
-                    <Link to={{pathname:`/treatment_detail/${m.id}`}}>
+                    <Link to={{pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}`}}>
                         <a href="#0" className="box_cat_home">
                             <i className="icon-info-4"></i>
                             <img src={m.picture_path} width="60" height="60" alt="" />

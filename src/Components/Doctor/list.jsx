@@ -50,6 +50,7 @@ class List extends Component{
         });
     }
 	render(){
+		var slugify = require('slugify');
         const { doctor_data } = this.state;
         if(!doctor_data){
             return true;
@@ -64,7 +65,7 @@ class List extends Component{
                                         <div className="row css-row-picture-name">
                                             <div className="col-3 col-lg-12 px-3 px-lg-3 pb-2">
                                                 <div className=" position-relative">
-                                                    <Link to={{pathname:`/doctor_detail/${m.id}`}} className="css-avatar-img rounded-circle d-block overflow-hidden position-relative overflow-hidden shadow-none">
+                                                    <Link to={{pathname:`/doctor_detail/${slugify(m.first_name,'_')}/${m.id}`}} className="css-avatar-img rounded-circle d-block overflow-hidden position-relative overflow-hidden shadow-none">
                                                     {(m.picture) ?
                                                         <img className="img-fluid card-img-overlay card-img-fit p-0" src={m.picture} alt="img" />
                                                         :
@@ -85,7 +86,7 @@ class List extends Component{
                                                         <div className="row css-name-offset">
                                                             <div className="col-12">
                                                                 <h2 className="h5 font-weight-bold m-0">
-                                                                    <Link to={{pathname:`/doctor_detail/${m.id}`}} className="text-decoration-none shadow-none btn-outline-none">{m.first_name} {m.last_name}</Link>
+                                                                    <Link to={{pathname:`/doctor_detail/${slugify(m.first_name,'_')}/${m.id}`}} className="text-decoration-none shadow-none btn-outline-none">{m.first_name} {m.last_name}</Link>
                                                                 </h2>
                                                                 <p className="m-0">{(m.doctor_qualification)? m.doctor_qualification.map(dq=><small className="text-sm pr-2 degree-text">{dq.degree}</small>):""}</p>
                                                                 <h3 className="m-0 h6"><small className="text-sm">{m.focus_area}</small></h3>
@@ -103,7 +104,7 @@ class List extends Component{
                                                 <div className="row css-name-offset">
                                                     <div className="col-12">
                                                         <h2 className="h5 font-weight-bold m-0">
-                                                            <Link to={{pathname:`/doctor_detail/${m.id}`}} className="btn-light bg-transparent text-decoration-none shadow-none btn-outline-none">{m.first_name}</Link>
+                                                            <Link to={{pathname:`/doctor_detail/${slugify(m.first_name,'_')}/${m.id}`}} className="btn-light bg-transparent text-decoration-none shadow-none btn-outline-none">{m.first_name}</Link>
                                                         </h2>
                                                         <p className="m-0">{(m.doctor_qualification)? m.doctor_qualification.map(dq=><small className="text-sm pr-2 degree-text">{dq.degree}</small>):""}</p>
                                                         <h3 className="m-0 h6"><small className="text-sm ">{m.focus_area}</small></h3>
@@ -129,13 +130,13 @@ class List extends Component{
                                                         </div>
                                                     <div className="row pt-2 pt-lg-0">
                                                         <div className="col-6 col-lg-5 col-xl-4 mb-2 mb-lg-0 d-lg-none">
-                                                            <Link to={{pathname:`/doctor_detail/${m.id}`}} className="btn btn-block btn-outline-primary font-weight-bold text-size-14">View Profile</Link>
+                                                            <Link to={{pathname:`/doctor_detail/${slugify(m.first_name,'_')}/${m.id}`}} className="btn btn-block btn-outline-primary font-weight-bold text-size-14">View Profile</Link>
                                                         </div>
                                                         <div className="col-6 col-lg-5 col-xl-4 top-arrow-dropdown dropdown mb-2 mb-lg-0">
-                                                            <Link to={{pathname:`/doctor_detail/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold d-none d-lg-block no-booking-btn"   >
+                                                            <Link to={{pathname:`/doctor_detail/${slugify(m.first_name,'_')}/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold d-none d-lg-block no-booking-btn"   >
                                                                 Book Now
                                                             </Link>
-                                                            <Link to={{pathname:`/doctor_detail/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold m-0 d-lg-none no-booking-btn">
+                                                            <Link to={{pathname:`/doctor_detail/${slugify(m.first_name,'_')}/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold m-0 d-lg-none no-booking-btn">
                                                                 Book Now
                                                             </Link>
                                                         </div>

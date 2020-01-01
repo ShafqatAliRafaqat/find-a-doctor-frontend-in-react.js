@@ -90,11 +90,12 @@ class Main extends Component{
 		if (!this.state.doctor_data) {
             return true;
         }
+		var slugify = require('slugify');
         const { doctor_data } = this.state;
         return doctor_data.map( d =>{
             return (
                 <div className="item">
-                    <Link to={{pathname:`/doctor_detail/${d.id}`}}>
+                    <Link to={{pathname:`/doctor_detail/${slugify(d.first_name,'_')}/${d.id}`}}>
 						<div className="views"><i className="icon-eye-7"></i>98</div>
 						{/* <div className="title">
 							<h4>{d.first_name}<em>{d.focus_area}</em></h4>
@@ -123,11 +124,12 @@ class Main extends Component{
 		if (!this.state.top_centers) {
             return true;
         }
+		var slugify = require('slugify');
         const { top_centers } = this.state;
         return top_centers.map( c =>{
             return (
                 <div className="item">
-                    <Link to={{pathname:`/center_detail/${c.id}`}}>
+                    <Link to={{pathname:`/center_detail/${slugify(c.name,'_')}/${c.id}`}}>
 						<div className="views"><i className="icon-eye-7"></i>98</div>
 						{/* <div className="title">
 							<h4>{c.name}

@@ -263,6 +263,7 @@ class Detail extends Component{
 		);
 	}
 	centerTreatments = () => {
+		var slugify = require('slugify');
 		const { center_treatments,center_data } 	=	this.state;
 		if (center_treatments.length < 1) {
 			return(
@@ -275,7 +276,7 @@ class Detail extends Component{
 				<div className="row">
 					<div className="col">
 					{(center_treatments)?
-						center_treatments.map(m =><Link to={{ pathname:`/treatment_detail/${m.id}`, state: { center_id : center_data.id }}} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+						center_treatments.map(m =><Link to={{ pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}`, state: { center_id : center_data.id }}} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 					:
 					''
 					}
@@ -286,6 +287,7 @@ class Detail extends Component{
 		}
 	}
 	nearestClinics = () => {
+		var slugify = require('slugify');
 		const { nearest_clinics,center_data } 	=	this.state;
 		if (nearest_clinics.length < 1) {
 			return(
@@ -298,7 +300,7 @@ class Detail extends Component{
 				<div className="row">
 					<div className="col">
 					{(nearest_clinics)?
-						nearest_clinics.map(m =><Link to={{ pathname:`/center_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+						nearest_clinics.map(m =><Link to={{ pathname:`/center_detail/${slugify(m.name,'_')}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 					:
 					''
 					}
