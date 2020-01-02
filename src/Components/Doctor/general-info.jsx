@@ -159,6 +159,32 @@ class GeneralInfo extends Component {
 			);
 		}
 	}
+	DoctorTreatments = () => {
+		if (this.state.isLoading) {
+            return (<div data-loader="circle-side"></div>);
+        }
+		const { all_treatments } = this.state;
+		const counts = all_treatments.length;
+		if (counts > 0) {
+			return all_treatments.map(m => {
+				return (
+					<div className="col-lg-6">
+						<ul className="bullets">
+							<li>{m}</li>
+						</ul>
+					</div>
+				);
+			});
+		} else {
+			return (
+				<div className="col-lg-6">
+					<ul className="list_edu">
+						<li>Not Updated Yet</li>
+					</ul>
+				</div>
+			);
+		}
+	}
 	Curriculum = () => {
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
@@ -306,6 +332,12 @@ class GeneralInfo extends Component {
 											<h6>Specializations</h6>
 											<div className="row">
 												{this.DoctorSpecialization()}
+											</div>
+										</div>
+										<div className="wrapper_indent mt-2">
+											<h6>Treatments</h6>
+											<div className="row">
+												{this.DoctorTreatments()}
 											</div>
 										</div>
 										<hr />
