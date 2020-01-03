@@ -5,11 +5,12 @@ import * as actions from "../../Store/Actions/DoctorAction";
 import * as center_actions from "../../Store/Actions/CenterAction";
 import * as qs from 'query-string';
 import SpecializationBlocks from './../Specialization/blocks';
-import AppSection from "./app_section";
 import SearchHeader from "./search_header"; 
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+
+
 class Main extends Component{
     state = {
         isLoading   : true,
@@ -33,6 +34,43 @@ class Main extends Component{
             },
         },
     };
+    //   carouselRoll = () => {
+    //     var Coverflow = require('react-coverflow');
+    //     if (this.state.isLoading) {
+    //         return(<div data-loader="circle-side"></div>);
+    //     }
+	// 	if (!this.state.doctor_data) {
+    //         return true;
+    //     }
+    //     const { doctor_data } = this.state;
+    //     return (
+    //         <StyleRoot>
+    //           <Coverflow
+    //             displayQuantityOfSide={2}
+    //             navigation
+    //             infiniteScroll
+    //             enableHeading
+    //             media={{
+    //               '@media (max-width: 900px)': {
+    //                 width: '600px',
+    //                 height: '300px'
+    //               },
+    //               '@media (min-width: 900px)': {
+    //                 width: '960px',
+    //                 height: '600px'
+    //               }
+    //             }}
+    //           >
+    //               {doctor_data.map(d =>
+    //             <img src={d.picture} alt='Album one' data-action="https://facebook.github.io/react/"/>
+    //             )}
+    //             {/* <img src='images/album-2.png' alt='Album two' data-action="http://passer.cc"/>
+    //             <img src='images/album-3.png' alt='Album three' data-action="https://doce.cc/"/>
+    //             <img src='images/album-4.png' alt='Album four' data-action="http://tw.yahoo.com"/> */}
+    //           </Coverflow>
+    //         </StyleRoot>
+    //     );
+    //   }
     componentDidMount() {
 		let search = this.props.location.search;
         const params = qs.parse(search);
@@ -100,9 +138,9 @@ class Main extends Component{
 							<h4>{d.first_name}<em>{d.focus_area}</em></h4>
 						</div> */}
                         {(d.picture) ? 
-                        <img src={d.picture} alt=""  width="200px"  height="300px" /> 
+                        <img src={d.picture} alt="" /> 
                         : 
-                        <img src="web_imgs/doctor2.jpg" alt="" width="200px"  height="300px" />
+                        <img src="web_imgs/doctor2.jpg" alt=""/>
                         }
                         <div className="card-bottom">
 							<h6>{d.first_name}</h6>
@@ -135,9 +173,9 @@ class Main extends Component{
                             </h4>
 						</div> */}
                         {(c.picture) ? 
-                        <img src={c.picture} alt=""  width="200px"  height="300px" /> 
+                        <img src={c.picture} alt="" /> 
                         : 
-                        <img src="web_imgs/doctor2.jpg" alt="" width="300px"  height="400px" />
+                        <img src="web_imgs/doctor2.jpg" alt="" />
                         }
                         <div className="card-bottom">
 							<h6>{c.name}</h6>
@@ -166,7 +204,6 @@ class Main extends Component{
         if (this.state.isLoading) {
             return(<div data-loader="circle-side"></div>);
         }
-        const { doctor_data } = this.state;
         return(
             <React.Fragment>
                 <main>
@@ -214,7 +251,7 @@ class Main extends Component{
                                     margin      = {0}
                                     items       = {5}
                                     responsive  = {this.state.responsive}
-                                    autoplay    = {true}
+                                    autoplay    = {false}
                                     animateOut  = {true}
                                     center      = {true}
                                     nav         = {true}                    
@@ -245,6 +282,7 @@ class Main extends Component{
                                 </OwlCarousel>
                             </div>
                         </div>
+                        {/* {this.carouselRoll()} */}
                     {/* <AppSection /> */}
                 </main>
             </React.Fragment>

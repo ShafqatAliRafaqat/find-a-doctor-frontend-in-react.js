@@ -58,7 +58,7 @@ class Header extends Component{
                             </a>
                             <div className="dropdown-menu" aria-labelledby="about">
                                 <Link className={(name == '#/about_us') ? " dropdown-item active-nav" : "dropdown-item"} name="#/about_us" to="/about_us" onClick={this.renderRefreshPage}>About</Link>
-                                <Link className={(name == '#/contact_us') ? " dropdown-item active-nav" : "dropdown-item"} name="#/contact_us" to="/contacts" onClick={this.renderRefreshPage}>Contact Us</Link>
+                                <Link className={(name == '#/contact_us') ? " dropdown-item active-nav" : "dropdown-item"} name="#/contact_us" to="/contact_us" onClick={this.renderRefreshPage}>Contact Us</Link>
                             </div>
                         </li>
                         {(user != null)? 
