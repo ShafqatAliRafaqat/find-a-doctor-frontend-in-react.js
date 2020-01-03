@@ -24,6 +24,7 @@ class GeneralInfo extends Component {
 		certification	: '',
 		schedules		: '',
 		specialization	: '',
+		specialization_id: '',
 		related_doctors	: '',
 		related_centers : '',
 		doctorId		: '',
@@ -52,6 +53,7 @@ class GeneralInfo extends Component {
 				qualification	: res.data.meta.doctor_qualification,
 				certification	: res.data.meta.doctor_certification,
 				schedules		: res.data.meta.doctor_schedules,
+				specialization_id: res.data.meta.specialization_id,
 				specialization	: res.data.meta.specialization,
 				all_treatments	: res.data.meta.all_treatments,
 				related_doctors	: res.data.meta.related_doctors,
@@ -136,15 +138,16 @@ class GeneralInfo extends Component {
 	DoctorSpecialization = () => {
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
-        }
-		const { specialization } = this.state;
+		}
+		var slugify = require('slugify');
+		const { specialization,specialization_id } = this.state;
 		const counts = specialization.length;
 		if (counts > 0) {
-			return specialization.map(m => {
+			return specialization.map((m,i) => {
 				return (
 					<div className="col-lg-6">
 						<ul className="bullets">
-							<li>{m}</li>
+							<li className="inline"><Link to={{ pathname: `/treatment_detail/${slugify(m,'_')}/${specialization_id[i]}`}}><h6>{m}</h6></Link></li>
 						</ul>
 					</div>
 				);
@@ -170,7 +173,7 @@ class GeneralInfo extends Component {
 				return (
 					<div className="col-lg-6">
 						<ul className="bullets">
-							<li>{m}</li>
+							<li className="text-xs text-truncate">{m}</li>
 						</ul>
 					</div>
 				);
