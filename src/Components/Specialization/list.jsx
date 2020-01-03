@@ -9,11 +9,12 @@ class List extends Component{
         ...this.initState
     };
 	render(){
+		var slugify         = require('slugify');
         const { treatment_data } = this.state;
 		return treatment_data.map(m => {
 			return(
 				<div className="col-lg-3 col-md-4 col-6 text-center feature-item spin rounded py-3">
-				<Link to={{pathname:`/treatment_detail/${m.id}`}}>
+				<Link to={{pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}`}}>
 				<div className="shadow list-card list-card-media specialization-card">
 					<div className="img-padding img-media">
 					<div className="circle">

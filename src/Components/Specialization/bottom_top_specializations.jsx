@@ -36,6 +36,7 @@ class BottomTopSpecializations extends Component{
     };
 
     render(){
+		var slugify         = require('slugify');
         const {specializations } = this.state;
 		if (specializations.length < 1) {
 			return(
@@ -48,7 +49,7 @@ class BottomTopSpecializations extends Component{
 			<div className="row">
 				<div className="col">
 				{(specializations)?
-					specializations.map(m =><Link to={{ pathname:`/treatment_detail/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					specializations.map(m =><Link to={{ pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}

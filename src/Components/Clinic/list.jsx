@@ -9,6 +9,7 @@ class List extends Component{
         ...this.initState
     };
 	render(){
+		var slugify = require('slugify');
         const { center_data } = this.state;
 		return center_data.map(m => {
 			return(
@@ -17,7 +18,7 @@ class List extends Component{
 				<div className="col-lg-3 col-md-4 clinics-main text-center feature-item spin rounded py-3">
 					<div className="shadow list-card center-card">
 						{/* <button className="btn btn-sm btn-doctors">{m.count_doctors} Doctors</button> */}
-						<Link to={{pathname:`/center_detail/${m.id}`}}>
+						<Link to={{pathname:`/center_detail/${slugify(m.name,'_')}/${m.id}`}}>
 
 						<div className="img-padding">
 						<div className="circle">
@@ -33,7 +34,7 @@ class List extends Component{
 						<hr className="hr-card"></hr>
 						<div className="row">
 							<div className="col-6 col-sm-6 text-left text-12 border-right"><a href={m.map} >View on map</a></div>
-							<div className="col-6 col-sm-6 text-right text-12 border-left"><Link to={{pathname:`/center_detail/${m.id}`}}>{m.count_doctors} Doctors</Link></div>
+							<div className="col-6 col-sm-6 text-right text-12 border-left"><Link to={{pathname:`/center_detail/${slugify(m.name,'_')}/${m.id}`}}>{m.count_doctors} Doctors</Link></div>
 						</div>
 					</div>
 				</div>
@@ -41,7 +42,7 @@ class List extends Component{
 
 				{/* Mobile View */}
 				<div className="col-6 text-center clinics-mobile feature-item spin rounded py-3">
-					<Link to={{pathname:`/center_detail/${m.id}`}}>
+					<Link to={{pathname:`/center_detail/${slugify(m.name,'_')}/${m.id}`}}>
 					<div className="shadow list-card list-card-media specialization-card">
 						<div className="img-padding img-media">
 						<div className="circle">

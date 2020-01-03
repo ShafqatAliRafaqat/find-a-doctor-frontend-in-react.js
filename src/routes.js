@@ -35,9 +35,9 @@ import DoctorNotes from './Components/CustomerProfile/CustomerNotes/doctor-notes
 
 export default [
   { path: "/", exact: true,name:"Layout", Component: MainHome },
-  { path: "/doctor_detail/:doctorId", name:"Genral Detail", Component: DoctorDetails },
-  { path: "/center_detail/:centerId", name:"Genral Detail", Component: CenterDetails },
-  { path: "/treatment_detail/:treatmentId", name:"Genral Detail", Component: TreatmentDetails },
+  { path: "/doctor_detail/:doctorName/:doctorId", name:"Genral Detail", Component: DoctorDetails },
+  { path: "/center_detail/:centerName/:centerId", name:"Genral Detail", Component: CenterDetails },
+  { path: "/treatment_detail/:treatmentName/:treatmentId", name:"Genral Detail", Component: TreatmentDetails },
   // { path: "/get_treatment/:treatmentName", name:"Genral Detail", Component: TreatmentDetails },
   { path: "/doctor_list", name:"Genral List", Component: DoctorList },      
   { path: "/booking", name:"Booking", Component: Booking },      
