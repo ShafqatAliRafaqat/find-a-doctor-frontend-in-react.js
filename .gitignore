@@ -3,4 +3,6 @@ node_modules/
 npm-debug.log
 /src/Models/*.key
 Models
+Models/*
+APIModel.js
 /README.md
