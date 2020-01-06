@@ -104,7 +104,7 @@ class SpecializatoinList extends Component{
 													<div className="container">
 														<ul>
 															<li><Link to="/">Home</Link></li>
-															<li><Link to="/doctor_list">Find a Doctor</Link></li>
+															<li><Link to="/doctor-list">Find a Doctor</Link></li>
 															<li>Specializations</li>
 														</ul>
 													</div>
@@ -121,13 +121,13 @@ class SpecializatoinList extends Component{
 								<li>
 									<h6>Type</h6>
 									<div className="switch-field">
-										<Link to="specialization_list" className="filter-button-style-label-active " name="/specialization_list" onClick={this.renderRefreshPage}>
+										<Link to="specialization_list" className="filter-button-style-label-active " name="/specialization-list" onClick={this.renderRefreshPage}>
 										 	Specialization
 										</Link>
-										<Link to="clinic_list" className="filter-button-style-label ml-1" name="/clinic_list" onClick={this.renderRefreshPage}>
+										<Link to="clinic_list" className="filter-button-style-label ml-1" name="/clinic-list" onClick={this.renderRefreshPage}>
 											Clinics
 										</Link>
-										<Link to="doctor_list" className=" filter-button-style-label ml-1" name="/doctor_list" onClick={this.renderRefreshPage}>
+										<Link to="doctor_list" className=" filter-button-style-label ml-1" name="/doctor-list" onClick={this.renderRefreshPage}>
 											Doctors
 										</Link>
 										

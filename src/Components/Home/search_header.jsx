@@ -74,7 +74,7 @@ class SearchHeader extends Component {
     }
     var specializations1= specializations.map(m => {
       return (
-        <Link to={{pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}`}}>
+        <Link to={{pathname:`/treatment-detail/${slugify(m.name)}/${m.id}`}}>
         <ListItem key={m.id} className="search-list">
           <div>
             <SearchIcon className="search-icon"></SearchIcon>
@@ -89,7 +89,7 @@ class SearchHeader extends Component {
 
     var doctors1= doctors.map(m => {
       return (
-        <Link to={{pathname:`/doctor_detail/${slugify(m.name,'_')}/${m.id}`}}>
+        <Link to={{pathname:`/doctor-detail/${slugify(m.name)}/${m.id}`}}>
         <ListItem key={m.id} className="search-list">
           <div>
           {(m.picture) ?
@@ -114,7 +114,7 @@ class SearchHeader extends Component {
 
     var centers1= centers.map(m => {
       return (
-        <Link to={{pathname:`/center_detail/${slugify(m.name,'_')}/${m.id}`}}>
+        <Link to={{pathname:`/center-detail/${slugify(m.name)}/${m.id}`}}>
         <ListItem key={m.id} className="search-list">
           <div>
           <SearchIcon className="search-icon"></SearchIcon>
@@ -213,17 +213,17 @@ class SearchHeader extends Component {
                   <label htmlFor="all">All</label>
                 </li>
                 <li>
-                    <Link to="doctor_list" className=" filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/doctor_list" onClick={this.renderRefreshPage}>
+                    <Link to="doctor_list" className=" filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/doctor-list" onClick={this.renderRefreshPage}>
 											Doctors
 										</Link>
                 </li>
                 <li>
-                    <Link to="specialization_list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/specialization_list" onClick={this.renderRefreshPage}>
+                    <Link to="specialization_list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/specialization-list" onClick={this.renderRefreshPage}>
 										 	Specialization
 										</Link>
                 </li>
                 <li>
-                    <Link to="clinic_list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/clinic_list" onClick={this.renderRefreshPage}>
+                    <Link to="clinic_list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/clinic-list" onClick={this.renderRefreshPage}>
 											Clinics
 										</Link>
                 </li>

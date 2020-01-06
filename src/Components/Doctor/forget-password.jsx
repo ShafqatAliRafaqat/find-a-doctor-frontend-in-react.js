@@ -154,7 +154,7 @@ class PhoneModal extends Component {
                 PasswordModal:false,
             });  
             alertify.success('Your Password has been updated. Thank you for contacting us.')
-			this.props.history.push('/doctor_signin');
+			this.props.history.push('/doctor-signin');
            
         }).catch(errorHandler).finally(() => {
             this.setState({

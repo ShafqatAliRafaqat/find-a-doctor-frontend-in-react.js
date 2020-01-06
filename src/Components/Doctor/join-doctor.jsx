@@ -262,7 +262,7 @@ class JoinDoctor extends Component{
     render(){
 		const {phone,} = this.state;
         if(this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
 		};
         return(
             <React.Fragment>
@@ -334,7 +334,7 @@ class JoinDoctor extends Component{
 									</div>
 									{this.renderCodeSendedModal()}
 								</div>
-                                <p className="text-center link_bright">Already have an Account <Link to="/doctor_signin" style={{ color:"#7ecaff", }}><strong>Login now!</strong></Link></p>
+                                <p className="text-center link_bright">Already have an Account <Link to="/doctor-signin" style={{ color:"#7ecaff", }}><strong>Login now!</strong></Link></p>
 						</div>
 					</div>
 					{/* <!-- /row --> */}

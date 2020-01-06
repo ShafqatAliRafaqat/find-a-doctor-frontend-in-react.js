@@ -50,14 +50,14 @@ class Layout extends Component {
                                             </div>  
                                           );
                                       }
-                                      return <Redirect to='/404_not_found' />;
+                                      return <Redirect to='/404-not-found' />;
                                   }}
                                   />     
                           )
                             : (null) 
                         },
                           )}
-                          <Redirect to='/404_not_found' />
+                          <Redirect to='/404-not-found' />
                           {/* </ScrollToTop> */}
                       </Switch>
                     

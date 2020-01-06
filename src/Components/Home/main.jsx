@@ -95,7 +95,7 @@ class Main extends Component{
         return doctor_data.map( d =>{
             return (
                 <div className="item">
-                    <Link to={{pathname:`/doctor_detail/${slugify(d.first_name,'_')}/${d.id}`}}>
+                    <Link to={{pathname:`/doctor-detail/${slugify(d.first_name)}/${d.id}`}}>
 						<div className="views"><i className="icon-eye-7"></i>98</div>
 						{/* <div className="title">
 							<h4>{d.first_name}<em>{d.focus_area}</em></h4>
@@ -129,7 +129,7 @@ class Main extends Component{
         return top_centers.map( c =>{
             return (
                 <div className="item">
-                    <Link to={{pathname:`/center_detail/${slugify(c.name,'_')}/${c.id}`}}>
+                    <Link to={{pathname:`/center-detail/${slugify(c.name)}/${c.id}`}}>
 						<div className="views"><i className="icon-eye-7"></i>98</div>
 						{/* <div className="title">
 							<h4>{c.name}
@@ -201,7 +201,7 @@ class Main extends Component{
                                     </div>
                                 </div>
                             </div>
-                            <p className="text-center"><Link to="/doctor_list" className="btn_1 medium">Find Doctor</Link></p>
+                            <p className="text-center"><Link to="/doctor-list" className="btn_1 medium">Find Doctor</Link></p>
                         </div>
                         <div className="bg_color_1">
                             <div className="container margin_120_95">

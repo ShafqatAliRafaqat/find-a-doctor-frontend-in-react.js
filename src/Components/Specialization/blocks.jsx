@@ -47,7 +47,7 @@ class Blocks extends Component {
         return specializations.map(m => {
             return (
                 <div className="col-lg-3 col-md-6">
-                    <Link to={{pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}`}}>
+                    <Link to={{pathname:`/treatment-detail/${slugify(m.name)}/${m.id}`}}>
                         <a href="#0" className="box_cat_home">
                             <i className="icon-info-4"></i>
                             <img src={m.picture_path} width="60" height="60" alt="" />
@@ -73,7 +73,7 @@ class Blocks extends Component {
                     {this.Blocks()}
                 </div>
                 <div>
-                    <p className="text-center"><Link to="/specialization_list" className="btn_1 medium">See More</Link></p>
+                    <p className="text-center"><Link to="/specialization-list" className="btn_1 medium">See More</Link></p>
                 </div>
             </div>
         );

@@ -29,7 +29,7 @@ class Profile extends Component{
     
     componentDidMount (){
         if(!this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
         };
         this.fetchCustomer();
     }
@@ -102,7 +102,7 @@ class Profile extends Component{
 				access_token: token,
             });
             if(res.data.data){
-                // this.props.history.push('/approved_appointments');
+                // this.props.history.push('/approved-appointments');
                 alertify.success("Your profile has been updated!");
                 setTimeout(window.location.reload(false),100000);
             }
@@ -122,7 +122,7 @@ class Profile extends Component{
     render(){
 
         if(!this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
         };
         if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
@@ -151,9 +151,9 @@ class Profile extends Component{
                                                 <i class="icon_document_alt"></i>Appointments</a>
                                                 <div id="appointment" class="collapse ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/pending_appointments" >Pending Appointments</Link></li>
-                                                    <li className="pl-3"><Link to="/approved_appointments" >Approved Appointments</Link></li>
-                                                    <li className="pl-3"><Link to="/appointment_history">Appointment History</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/pending-appointments" >Pending Appointments</Link></li>
+                                                    <li className="pl-3"><Link to="/approved-appointments" >Approved Appointments</Link></li>
+                                                    <li className="pl-3"><Link to="/appointment-history">Appointment History</Link></li>
                                                 </ul>
                                                 </div>
                                             </li>
@@ -162,8 +162,8 @@ class Profile extends Component{
                                                 <i class="icon_document_alt"></i>Lab Test</a>
                                                 <div id="labTest" class="collapse ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current_lab_test" >Current Test</Link></li>
-                                                    <li className="pl-3"><Link to="/lab_test_history" >Test History</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current-lab-test" >Current Test</Link></li>
+                                                    <li className="pl-3"><Link to="/lab-test-history" >Test History</Link></li>
                                                 </ul>
                                                 </div>
                                             </li>
@@ -172,9 +172,9 @@ class Profile extends Component{
                                                 <i class="icon_document_alt"></i>Additional Detail</a>
                                                 <div id="details" class="collapse ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/allergy_notes" >Allergy Notes</Link></li>
-                                                    <li className="pl-3"><Link to="/riskfactor_notes" >Risk Factor</Link></li>
-                                                    <li className="pl-3"><Link to="/doctor_notes" >Doctor Notes</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/allergy-notes" >Allergy Notes</Link></li>
+                                                    <li className="pl-3"><Link to="/riskfactor-notes" >Risk Factor</Link></li>
+                                                    <li className="pl-3"><Link to="/doctor-notes" >Doctor Notes</Link></li>
                                                 </ul>
                                                 </div>
                                             </li>

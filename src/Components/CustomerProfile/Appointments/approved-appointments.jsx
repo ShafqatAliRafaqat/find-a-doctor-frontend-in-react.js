@@ -16,7 +16,7 @@ class Appointments extends Component{
     };
     componentDidMount (){
         if(!this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
         };
         this.fetchApprovedAppointment();
     }
@@ -66,7 +66,7 @@ class Appointments extends Component{
                                 <div className="row css-row-picture-name">
                                     <div className="col-3 col-lg-12 px-3 px-lg-3 pb-2">
                                         <div className=" position-relative">
-                                            <Link to={{pathname:`/doctor_detail/${m.doctor_id}`}} className="css-avatar-img rounded-circle d-block overflow-hidden position-relative overflow-hidden shadow-none">
+                                            <Link to={{pathname:`/doctor-detail/${m.doctor_id}`}} className="css-avatar-img rounded-circle d-block overflow-hidden position-relative overflow-hidden shadow-none">
                                                 {(m.doctor_image) ? <img src={m.doctor_image} alt="" className="img-fluid card-img-overlay p-0" style={{width:"100%", height:"auto"}} /> : <img src="web_imgs/doctor2.jpg" alt="" className="img-fluid card-img-overlay p-0" />}
                                             </Link>
                                         </div>
@@ -77,7 +77,7 @@ class Appointments extends Component{
                                                 <div className="row css-name-offset">
                                                     <div className="col-12">
                                                         <h2 className="h5 font-weight-bold m-0">
-                                                            <Link to={{pathname:`/doctor_detail/${m.doctor_id}`}} className="text-decoration-none shadow-none btn-outline-none">{m.doctor_name}</Link>
+                                                            <Link to={{pathname:`/doctor-detail/${m.doctor_id}`}} className="text-decoration-none shadow-none btn-outline-none">{m.doctor_name}</Link>
                                                         </h2>
                                                         <h3 className="m-0 pt-2 h6"><small className="text-sm">{m.treatment_name}</small></h3>
                                                         <p className="m-0 pt-2"><small className="text-muted text-sm">{m.center_name}</small></p>
@@ -94,7 +94,7 @@ class Appointments extends Component{
                                         <div className="row css-name-offset">
                                             <div className="col-12">
                                                 <h2 className="h5 font-weight-bold m-0">
-                                                    <Link to={{pathname:`/doctor_detail/${m.doctor_id}`}} className="btn-light bg-transparent text-decoration-none shadow-none btn-outline-none">{m.doctor_name}</Link>
+                                                    <Link to={{pathname:`/doctor-detail/${m.doctor_id}`}} className="btn-light bg-transparent text-decoration-none shadow-none btn-outline-none">{m.doctor_name}</Link>
                                                 </h2>
                                                 <h3 className="m-0  pt-2 h6"><small className="text-sm ">{m.treatment_name}</small></h3>
                                                 <p className="m-0  pt-2"><small className="text-muted text-sm ">{m.center_name}</small></p>
@@ -110,7 +110,7 @@ class Appointments extends Component{
                                             <div className="row pt-2 pt-lg-0">
                                               
                                                 <div className="col-6 col-lg-5 col-xl-4 top-arrow-dropdown dropdown mb-2 mb-lg-0">
-                                                <Link to="/doctor_list" className="btn btn-block btn-warning text-white font-weight-bold d-none d-lg-block no-booking-btn">
+                                                <Link to="/doctor-list" className="btn btn-block btn-warning text-white font-weight-bold d-none d-lg-block no-booking-btn">
                                                     Book another
                                                 </Link>
                                                 </div>
@@ -167,7 +167,7 @@ class Appointments extends Component{
     render(){
 
         if(!this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
         };
         if(this.state.isLoading){
             return (<div data-loader="circle-side"></div>);
@@ -189,15 +189,15 @@ class Appointments extends Component{
                             <aside className="col-lg-3" id="sidebar">
                                     <div className="box_style_cat" id="faq_box">
                                         <ul id="cat_nav">
-                                            <li><Link to="/customer_profile"><i className="icon_document_alt"></i>My Profile</Link></li>
+                                            <li><Link to="/customer-profile"><i className="icon_document_alt"></i>My Profile</Link></li>
                                             <li >
                                                 <a href="#" data-toggle="collapse" data-target="#appointment" aria-expanded="false" aria-controls="users">
                                                 <i class="icon_document_alt"></i>Appointments</a>
                                                 <div id="appointment" class="collapse show ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/pending_appointments">Pending Appointments</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/pending-appointments">Pending Appointments</Link></li>
                                                     <li className="pl-3"><Link to="#" className="active">Approved Appointments</Link></li>
-                                                    <li className="pl-3"><Link to="/appointment_history">Appointment History</Link></li>
+                                                    <li className="pl-3"><Link to="/appointment-history">Appointment History</Link></li>
                                                 </ul>
                                                 </div>
                                             </li>
@@ -206,8 +206,8 @@ class Appointments extends Component{
                                                 <i class="icon_document_alt"></i>Lab Test</a>
                                                 <div id="labTest" class="collapse ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current_lab_test" >Current Test</Link></li>
-                                                    <li className="pl-3"><Link to="/lab_test_history" >Test History</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current-lab-test" >Current Test</Link></li>
+                                                    <li className="pl-3"><Link to="/lab-test-history" >Test History</Link></li>
                                                 </ul>
                                                 </div>
                                             </li>
@@ -216,9 +216,9 @@ class Appointments extends Component{
                                                 <i class="icon_document_alt"></i>Additional Detail</a>
                                                 <div id="details" class="collapse ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/allergy_notes" >Allergy Notes</Link></li>
-                                                    <li className="pl-3"><Link to="/riskfactor_notes" >Risk Factor</Link></li>
-                                                    <li className="pl-3"><Link to="/doctor_notes" >Doctor Notes</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/allergy-notes" >Allergy Notes</Link></li>
+                                                    <li className="pl-3"><Link to="/riskfactor-notes" >Risk Factor</Link></li>
+                                                    <li className="pl-3"><Link to="/doctor-notes" >Doctor Notes</Link></li>
                                                 </ul>
                                                 </div>
                                             </li>

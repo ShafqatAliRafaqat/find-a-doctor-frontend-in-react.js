@@ -16,7 +16,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import SearchPages from '../Search/search_pages';
-import BottomFaq from './../FAQ/bottom_faq';
+import BottomFaq from './../FAQ/bottom-faq';
 import Pagination from "react-js-pagination";
 
 
@@ -276,7 +276,7 @@ class Detail extends Component{
 				<div className="row">
 					<div className="col">
 					{(center_treatments)?
-						center_treatments.map(m =><Link to={{ pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}`, state: { center_id : center_data.id }}} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+						center_treatments.map(m =><Link to={{ pathname:`/treatment-detail/${slugify(m.name)}/${m.id}`, state: { center_id : center_data.id }}} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 					:
 					''
 					}
@@ -300,7 +300,7 @@ class Detail extends Component{
 				<div className="row">
 					<div className="col">
 					{(nearest_clinics)?
-						nearest_clinics.map(m =><Link to={{ pathname:`/center_detail/${slugify(m.name,'_')}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+						nearest_clinics.map(m =><Link to={{ pathname:`/center-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 					:
 					''
 					}
@@ -445,7 +445,7 @@ class Detail extends Component{
 										<div className="container">
 											<ul>
 												<li><Link to="/">Home</Link></li>
-												<li><Link to="/clinic_list">Hospitals</Link></li>
+												<li><Link to="/clinic-list">Hospitals</Link></li>
 												 	{(center_data.city_name)?<li><Link to="#">Hospitals in {center_data.city_name}</Link></li>:''}												
 												<li><Link>{center_data.name}</Link></li>
 											</ul>
