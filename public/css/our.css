@@ -840,3 +840,11 @@ ol {
     display: none !important;
   }
 }
+.a-see-more{
+  font-size: 15px;
+  font-weight: 700;
+}
+.a-see-more:hover{
+  cursor: pointer;
+  color: #21a747 !important;
+}

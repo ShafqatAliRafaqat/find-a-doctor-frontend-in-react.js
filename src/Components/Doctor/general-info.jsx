@@ -17,6 +17,8 @@ class GeneralInfo extends Component {
 	state = {
 		// ...this.props.match.params.doctorId,
 		isLoading		: true,
+		isOpenDoctor	: false,
+		isOpenCenter	: false,
 		callNowStyle	: 'none',
 		callNowButtoneStyle	: '',
 		doctor_data		: '',
@@ -220,6 +222,20 @@ class GeneralInfo extends Component {
 		const { all_treatments, doctor_data, schedules } 	= this.state;
 		return<AppointmentForm {...this.props} doctor_data = {doctor_data} all_treatments={all_treatments} schedules ={schedules}/>;
 	}
+	toggleDoctors = () => {
+		this.setState({ isOpenDoctor: !this.state.isOpenDoctor });
+	  }
+	  
+	  getRenderedDoctors() {
+		const MAX_ITEMS = 40;
+		const {related_doctors} =	this.state;
+
+		if (this.state.isOpenDoctor) {
+		  return related_doctors;
+		}
+		return related_doctors.slice(0, MAX_ITEMS);
+	  }
+	
 	relatedDoctors = () => {
 		const {related_doctors} =	this.state;
 		var slugify = require('slugify');
@@ -231,20 +247,41 @@ class GeneralInfo extends Component {
 				);
 			}
 		}
+		
 		return(
 			<div className="container margin_25_padding_0">
 			<h6 className="h6-brief-intro">Nearest &amp; Related Doctors</h6>
-			<div className="row">
+			<div className="row pb-2">
 				<div className="col">
 				{(related_doctors)?
-					related_doctors.map(m =><Link to={{ pathname:`/doctor-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					this.getRenderedDoctors().map(m =><Link to={{ pathname:`/doctor-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}
 				</div>
 			</div>
+			<div className="row text-right">
+				<div className="col">
+					<a className="a-see-more" onClick={this.toggleDoctors}>
+						{this.state.isOpenDoctor ? 'Show Less. . .' : 'Show More. . .'}
+					</a>
+				</div>
+			</div>
 		</div>
 		);
+	}
+	toggleCenters = () => {
+		this.setState({ isOpenCenter: !this.state.isOpenCenter });
+	  }
+	  
+	getRenderedCenters() {
+	const MAX_CENTERS = 40;
+	const {related_centers} =	this.state;
+
+	if (this.state.isOpenCenter) {
+		return related_centers;
+	}
+	return related_centers.slice(0, MAX_CENTERS);
 	}
 	relatedCenters = () => {
 		var slugify = require('slugify');
@@ -260,13 +297,20 @@ class GeneralInfo extends Component {
 		return(
 			<div className="container margin_25">
 			<h6 className="h6-brief-intro">Nearest Centers</h6>
-			<div className="row">
+			<div className="row pb-2">
 				<div className="col">
 				{(related_centers)?
-					related_centers.map(m =><Link to={{ pathname:`/center-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					this.getRenderedCenters().map(m =><Link to={{ pathname:`/center-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}
+				</div>
+			</div>
+			<div className="row text-right">
+				<div className="col">
+					<a className="a-see-more" onClick={this.toggleCenters}>
+						{this.state.isOpenCenter ? 'Show Less. . .' : 'Show More. . .'}
+					</a>
 				</div>
 			</div>
 		</div>
