@@ -1,8 +1,4 @@
 node_modules/
-/src/Models/APIModel.js
 npm-debug.log
-src/Models/*.js
-Models
-Models/*
-APIModel.js
-/README.md
+# Models/
+Models/APIModel.js
