@@ -5,7 +5,7 @@ import * as actions from "../../Store/Actions/DoctorAction";
 import * as appointmentactions from "../../Store/Actions/AppointmentAction";
 import AppointmentForm from "../Booking/appointment-form";
 import PhoneModal from "../Booking/PhoneModal";
-import DoctorFaq from './../FAQ/doctor_faq';
+import DoctorFaq from './../FAQ/doctor-faq';
 import SearchPages from '../Search/search_pages';
 
 class GeneralInfo extends Component {
@@ -24,6 +24,7 @@ class GeneralInfo extends Component {
 		certification	: '',
 		schedules		: '',
 		specialization	: '',
+		specialization_id: '',
 		related_doctors	: '',
 		related_centers : '',
 		doctorId		: '',
@@ -52,6 +53,7 @@ class GeneralInfo extends Component {
 				qualification	: res.data.meta.doctor_qualification,
 				certification	: res.data.meta.doctor_certification,
 				schedules		: res.data.meta.doctor_schedules,
+				specialization_id: res.data.meta.specialization_id,
 				specialization	: res.data.meta.specialization,
 				all_treatments	: res.data.meta.all_treatments,
 				related_doctors	: res.data.meta.related_doctors,
@@ -136,15 +138,16 @@ class GeneralInfo extends Component {
 	DoctorSpecialization = () => {
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
-        }
-		const { specialization } = this.state;
+		}
+		var slugify = require('slugify');
+		const { specialization,specialization_id } = this.state;
 		const counts = specialization.length;
 		if (counts > 0) {
-			return specialization.map(m => {
+			return specialization.map((m,i) => {
 				return (
 					<div className="col-lg-6">
 						<ul className="bullets">
-							<li>{m}</li>
+							<li className="inline"><Link to={{ pathname: `/treatment-detail/${slugify(m)}/${specialization_id[i]}`}}><h6>{m}</h6></Link></li>
 						</ul>
 					</div>
 				);
@@ -170,7 +173,7 @@ class GeneralInfo extends Component {
 				return (
 					<div className="col-lg-6">
 						<ul className="bullets">
-							<li>{m}</li>
+							<li className="text-xs text-truncate">{m}</li>
 						</ul>
 					</div>
 				);
@@ -234,7 +237,7 @@ class GeneralInfo extends Component {
 			<div className="row">
 				<div className="col">
 				{(related_doctors)?
-					related_doctors.map(m =><Link to={{ pathname:`/doctor_detail/${slugify(m.name,'_')}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					related_doctors.map(m =><Link to={{ pathname:`/doctor-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}
@@ -260,7 +263,7 @@ class GeneralInfo extends Component {
 			<div className="row">
 				<div className="col">
 				{(related_centers)?
-					related_centers.map(m =><Link to={{ pathname:`/center_detail/${slugify(m.name,'_')}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					related_centers.map(m =><Link to={{ pathname:`/center-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}
@@ -287,9 +290,9 @@ class GeneralInfo extends Component {
 										<div className="container">
 											<ul>
 												<li><Link to="/">Home</Link></li>
-												<li><Link to="/doctor_list">Find a Doctor</Link></li>
+												<li><Link to="/doctor-list">Find a Doctor</Link></li>
 												{(doctor_data.city_name)?<li><Link to="#">{doctor_data.city_name}</Link></li>:''}
-												{(doctor_data.speciality)?<li><Link to={{ pathname: `/treatment_detail/${slugify(doctor_data.speciality,'_')}/${doctor_data.speciality}`}}>{doctor_data.speciality}</Link></li>:''}
+												{(doctor_data.speciality)?<li><Link to={{ pathname: `/treatment-detail/${slugify(doctor_data.speciality)}/${doctor_data.speciality}`}}>{doctor_data.speciality}</Link></li>:''}
 												
 												<li>{doctor_data.first_name}</li>
 											</ul>

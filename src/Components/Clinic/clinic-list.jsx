@@ -120,13 +120,13 @@ class CenterList extends Component{
 								<li>
 									<h6>Type</h6>
 									<div className="switch-field">
-										<Link to="clinic_list" className="filter-button-style-label-active" name="/clinic_list" onClick={this.renderRefreshPage}>
+										<Link to="clinic_list" className="filter-button-style-label-active" name="/clinic-list" onClick={this.renderRefreshPage}>
 											Clinics
 										</Link>
-										<Link to="doctor_list" className=" filter-button-style-label ml-1" name="/doctor_list" onClick={this.renderRefreshPage}>
+										<Link to="doctor_list" className=" filter-button-style-label ml-1" name="/doctor-list" onClick={this.renderRefreshPage}>
 											Doctors
 										</Link>
-										<Link to="specialization_list" className="filter-button-style-label ml-1" name="/specialization_list" onClick={this.renderRefreshPage}>
+										<Link to="specialization_list" className="filter-button-style-label ml-1" name="/specialization-list" onClick={this.renderRefreshPage}>
 										 	Specialization
 										</Link>
 									</div>

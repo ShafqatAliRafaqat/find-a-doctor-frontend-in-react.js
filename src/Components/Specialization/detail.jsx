@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import List from './../Doctor/list';
-import BottomFaq from './../FAQ/bottom_faq';
+import BottomFaq from './../FAQ/bottom-faq';
 import * as actions from "../../Store/Actions/TreatmentAction";
 import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
@@ -244,7 +244,7 @@ class Detail extends Component{
 			<div className="row">
 				<div className="col">
 				{(related_treatments)?
-					related_treatments.map(m =><Link to={{ pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					related_treatments.map(m =><Link to={{ pathname:`/treatment-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}
@@ -361,7 +361,7 @@ class Detail extends Component{
 										<div className="container">
 											<ul>
 												<li><Link to="/">Home</Link></li>
-												<li><Link to="/doctor_list">Find A Doctor</Link></li>
+												<li><Link to="/doctor-list">Find A Doctor</Link></li>
 												<li><Link>{treatment_data.name}</Link></li>
 											</ul>
 										</div>

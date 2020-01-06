@@ -14,7 +14,7 @@ class List extends Component{
 		return treatment_data.map(m => {
 			return(
 				<div className="col-lg-3 col-md-4 col-6 text-center feature-item spin rounded py-3">
-				<Link to={{pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}`}}>
+				<Link to={{pathname:`/treatment-detail/${slugify(m.name)}/${m.id}`}}>
 				<div className="shadow list-card list-card-media specialization-card">
 					<div className="img-padding img-media">
 					<div className="circle">
@@ -31,7 +31,7 @@ class List extends Component{
 // <div className="box_list wow fadeIn">
 // 	<a href="#0" className="wish_bt"></a>
 // 	<figure>
-// 	<Link to={{pathname:`/treatment_detail/${m.id}`}}>
+// 	<Link to={{pathname:`/treatment-detail/${m.id}`}}>
 // 		{(m.picture) ? <img src={m.picture} alt="" className="img-fluid mx-auto d-block"  style={{width:"100%", height:"auto"}} /> : <img src="web_imgs/treatment.jpg" alt="" className="img-fluid mx-auto d-block" style={{width:"100%", height:"auto"}}/>}
 // 		<div className="preview"><span>Read more</span></div>
 // 	</Link>
@@ -44,8 +44,8 @@ class List extends Component{
 // 		<a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" className="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt="" /></a>
 // 	</div>
 // 	<ul>
-// 		<li><Link to={{pathname:`/treatment_detail/${m.id}`}}>View Details</Link></li>
-// 		<li><Link to={{pathname:`/treatment_detail/${m.id}`}}></Link></li>
+// 		<li><Link to={{pathname:`/treatment-detail/${m.id}`}}>View Details</Link></li>
+// 		<li><Link to={{pathname:`/treatment-detail/${m.id}`}}></Link></li>
 
 // 	</ul>
 // </div>

@@ -206,7 +206,7 @@ class Register extends Component{
     render(){
 		const {phone,} = this.state;
         if(this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
 		};
         return(
             <React.Fragment>

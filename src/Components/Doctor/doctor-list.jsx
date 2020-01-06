@@ -5,8 +5,8 @@ import * as actions from "../../Store/Actions/DoctorAction";
 import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
 import List from './list';
-import BottomFaq from './../FAQ/bottom_faq';
-import BottomTopSpecialization from './../Specialization/bottom_top_specializations';
+import BottomFaq from './../FAQ/bottom-faq';
+import BottomTopSpecialization from './../Specialization/bottom-top-specializations';
 import alertify from 'alertifyjs';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -300,7 +300,7 @@ class DoctorList extends Component{
 			<div className="row">
 				<div className="col">
 				{(specializations)?
-					specializations.map(m =><Link to={{ pathname:`/treatment_detail/${slugify(m.name,'_')}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+					specializations.map(m =><Link to={{ pathname:`/treatment-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}
@@ -348,13 +348,13 @@ class DoctorList extends Component{
 									<h6>Type</h6>
 									<div className="switch-field">
 										
-										<Link to="doctor_list" className=" filter-button-style-label-active" name="/doctor_list" onClick={this.renderRefreshPage}>
+										<Link to="doctor_list" className=" filter-button-style-label-active" name="/doctor-list" onClick={this.renderRefreshPage}>
 											Doctors
 										</Link>
-										<Link to="specialization_list" className="filter-button-style-label ml-1" name="/specialization_list" onClick={this.renderRefreshPage}>
+										<Link to="specialization_list" className="filter-button-style-label ml-1" name="/specialization-list" onClick={this.renderRefreshPage}>
 										 	Specialization
 										</Link>
-										<Link to="clinic_list" className="filter-button-style-label ml-1" name="/clinic_list" onClick={this.renderRefreshPage}>
+										<Link to="clinic_list" className="filter-button-style-label ml-1" name="/clinic-list" onClick={this.renderRefreshPage}>
 											Clinics
 										</Link>
 										

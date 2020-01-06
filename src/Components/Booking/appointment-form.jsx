@@ -103,7 +103,7 @@ class AppointmentForm extends Component{
           });
 
           alertify.alert('Confirmation Alert', "Thank you for requesting an appointment! We'll contact you shortly to confirm. ", function(){ 
-            window.location.assign("https://www.hospitallcare.com/#/pending_appointments")
+            window.location.assign("https://www.hospitallcare.com/#/pending-appointments")
             setTimeout(window.location.reload(),100000);
           
             });
@@ -226,7 +226,7 @@ class AppointmentForm extends Component{
             return(
                 
                 <small  className="col pl-0  text-sm">
-                    <Link to={{ pathname:`/center_detail/${c.center_id}` }}><h6>{c.center_name}</h6></Link>
+                    <Link to={{ pathname:`/center-detail/${c.center_id}` }}><h6>{c.center_name}</h6></Link>
                     {(day_from)? day_from.map((d,index)=>
                     <ul className="bullets ">
                         <li>{d} to {day_to[index]} {moment(time_from[index],"hh").format('LT')} - { moment(time_to[index],"hh").format('LT')}</li>
