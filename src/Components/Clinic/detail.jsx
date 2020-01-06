@@ -88,20 +88,22 @@ class Detail extends Component{
 	}
     state = {
 		...this.initState,
-		isLoading	: true,
-		center_data	: '',
-		current_page: 0,
-		last_page	: 0,
-		per_page	: 0,
-		treatment_data:'',
-		center_treatments:'',
-		nearest_clinics: '',
-		activePage	:0,
-		treatments	: '',
-		centerId	:'',
-		center_doctor:'',
-		latitude	:'',
-		longitude	:'',
+		isLoading		: true,
+		center_data		: '',
+		current_page	: 0,
+		last_page		: 0,
+		per_page		: 0,
+		treatment_data	:'',
+		center_treatments	:'',
+		nearest_clinics	: '',
+		activePage		:0,
+		treatments		: '',
+		centerId		:'',
+		center_doctor	:'',
+		latitude		:'',
+		longitude		:'',
+		isOpenDoctor	: false,
+		isOpenCenter	: false,
 	};
 	componentDidUpdate(prevProps) {
         if (this.props.location.pathname !== prevProps.location.pathname) {
@@ -262,6 +264,21 @@ class Detail extends Component{
 			</div>		
 		);
 	}
+
+	toggleDoctors = () => {
+		this.setState({ isOpenDoctor: !this.state.isOpenDoctor });
+	}
+	  
+	getRenderedDoctors() {
+		const MAX_ITEMS = 40;
+		const { center_treatments } 	=	this.state;
+
+		if (this.state.isOpenDoctor) {
+			return center_treatments;
+		}
+		return center_treatments.slice(0, MAX_ITEMS);
+	}
+	  
 	centerTreatments = () => {
 		var slugify = require('slugify');
 		const { center_treatments,center_data } 	=	this.state;
@@ -273,19 +290,41 @@ class Detail extends Component{
 			return(
 				<div className="container margin_25">
 				<h6 className="h6-brief-intro">Treatments done in {center_data.name} </h6>
-				<div className="row">
+				<div className="row pb-2">
 					<div className="col">
 					{(center_treatments)?
-						center_treatments.map(m =><Link to={{ pathname:`/treatment-detail/${slugify(m.name)}/${m.id}`, state: { center_id : center_data.id }}} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+						this.getRenderedDoctors().map(m =><Link to={{ pathname:`/treatment-detail/${slugify(m.name)}/${m.id}`, state: { center_id : center_data.id }}} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 					:
 					''
 					}
+					</div>
+				</div>
+				<div className="row text-right">
+					<div className="col">
+						<a className="a-see-more" onClick={this.toggleDoctors}>
+							{this.state.isOpenDoctor ? 'Show Less. . .' : 'Show More. . .'}
+						</a>
 					</div>
 				</div>
 			</div>
 			);
 		}
 	}
+
+	toggleCenters = () => {
+		this.setState({ isOpenCenter: !this.state.isOpenCenter });
+	  }
+	  
+	getRenderedCenters() {
+	const MAX_CENTERS = 40;
+	const { nearest_clinics } 	=	this.state;
+
+	if (this.state.isOpenCenter) {
+		return nearest_clinics;
+	}
+	return nearest_clinics.slice(0, MAX_CENTERS);
+	}
+
 	nearestClinics = () => {
 		var slugify = require('slugify');
 		const { nearest_clinics,center_data } 	=	this.state;
@@ -297,13 +336,20 @@ class Detail extends Component{
 			return(
 				<div className="container margin_25">
 				<h6 className="h6-brief-intro">Clinics/Centers near {center_data.name}</h6>
-				<div className="row">
+				<div className="row pb-2">
 					<div className="col">
 					{(nearest_clinics)?
-						nearest_clinics.map(m =><Link to={{ pathname:`/center-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+						this.getRenderedCenters().map(m =><Link to={{ pathname:`/center-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 					:
 					''
 					}
+					</div>
+				</div>
+				<div className="row text-right">
+					<div className="col">
+						<a className="a-see-more" onClick={this.toggleCenters}>
+							{this.state.isOpenCenter ? 'Show Less. . .' : 'Show More. . .'}
+						</a>
 					</div>
 				</div>
 			</div>
