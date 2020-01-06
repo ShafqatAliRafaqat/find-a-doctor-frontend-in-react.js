@@ -168,8 +168,8 @@ class SearchHeader extends Component {
 
   }
   renderRefreshPage = (e)=>{
-		this.props.history.push(e.target.name);
-    window.location.reload();
+		// this.props.history.push(e.target.name);
+    // window.location.reload();
   }
   render() {
     const { search,page } = this.state;
