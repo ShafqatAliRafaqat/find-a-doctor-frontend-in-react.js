@@ -203,6 +203,7 @@ class AppointmentForm extends Component{
         if(!center){
             return true;
         }
+        const { doctor_data } = this.state;
 		var slugify = require('slugify');
         return center.map( c => {
             if(c.day_from == null || c.day_to == null || c.time_from == null || c.time_to == null){
@@ -229,10 +230,15 @@ class AppointmentForm extends Component{
                 <small  className="col pl-0  text-sm">
                     <Link to={{ pathname:`/center-detail/${slugify(c.center_name)}/${c.center_id}` }}><h6>{c.center_name}</h6></Link>
                     {(day_from)? day_from.map((d,index)=>
-                    <ul className="bullets ">
+                    <React.Fragment>
+                    <ul className="bullets mb-2">
                         <li>{d} to {day_to[index]} {moment(time_from[index],"hh").format('LT')} - { moment(time_to[index],"hh").format('LT')}</li>
                         
                     </ul>
+                    {(doctor_data.partnership == 0)? 
+                        <small  className="col pl-0  text-sm"><h6>Call Helpline:<a href="tel://{(c.assistant_phone)? c.assistant_phone : c.phone}"> {(c.assistant_phone)? c.assistant_phone : c.phone}</a><br /></h6></small>     
+                    :''}
+                    </React.Fragment>
                     )
                     :""
                 } 
@@ -242,7 +248,7 @@ class AppointmentForm extends Component{
     }
     render(){
 
-        const { isLoading, schedules } = this.state;
+        const { isLoading, schedules,doctor_data } = this.state;
         const { user } = this.props;
         const { treatments } = this.state.doctor_data;
         if(!isLoading){
@@ -256,8 +262,9 @@ class AppointmentForm extends Component{
 				    </div>
                     {this.renderCenter(schedules)}
 				    <div id="message-booking"></div>
-					
-					<div className="row">
+					{(doctor_data.partnership == 1) ? 
+					<React.Fragment>
+                    <div className="row">
 						<div className="col-lg-12">
 							<div className="form-group">
 								<select className="form-control" name="center_id"  onChange={this.onChangeCenter} required>
@@ -266,10 +273,13 @@ class AppointmentForm extends Component{
 								</select>
 							</div>
 						</div>
-					</div>
+					</div>  
                     {this.renderCenterTreatment()}
                     {(user)? this.renderWhenUserLogin() :this.renderPhoneModal()}
-			    </div>
+                    </React.Fragment>
+                    :''
+                    }
+                    </div>
 		    </aside>		
         );
     }
