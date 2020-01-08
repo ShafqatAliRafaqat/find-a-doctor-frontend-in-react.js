@@ -48,7 +48,7 @@ class Blocks extends Component {
             return (
                 <div className="col-lg-3 col-md-6">
                     <Link to={{pathname:`/treatment-detail/${slugify(m.name)}/${m.id}`}}>
-                        <span className="box_cat_home">
+                        <a href="#0" className="box_cat_home">
                             <i className="icon-info-4"></i>
                             <img src={m.picture_path} width="60" height="60" alt="" />
                             <h3>{m.name}</h3>
@@ -56,7 +56,7 @@ class Blocks extends Component {
                                 <li><strong>{m.doctors}</strong>Doctors</li>
                                 <li><strong>{m.centers}</strong>Clinics</li>
                             </ul>
-                        </span>
+                        </a>
                     </Link>
                 </div>
             );
