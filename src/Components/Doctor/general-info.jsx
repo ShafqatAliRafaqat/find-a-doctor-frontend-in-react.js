@@ -124,7 +124,8 @@ class GeneralInfo extends Component {
 							<li>
 								<h6>Address</h6>
 								{doctor_data.address}
-								<a href={doctor_data.map} target="_blank"><strong> <i className="icon-location"></i>View on map</strong></a>
+								<br/>
+								<a href={doctor_data.map} target="_blank" ><strong className="mt-2"> <i className="icon-location"></i>View on map</strong></a>
 							</li>
 							<li>
 								<button className="btn_1" onClick={ () => this.setState({ callNowButtoneStyle:"none", callNowStyle:""})} style={{display:callNowButtoneStyle}}> 

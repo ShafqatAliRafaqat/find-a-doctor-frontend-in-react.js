@@ -236,7 +236,7 @@ class AppointmentForm extends Component{
                         
                     </ul>
                     {(doctor_data.partnership == 0)? 
-                        <small  className="col pl-0  text-sm"><h6>Call Helpline:<a href="tel://{(c.assistant_phone)? c.assistant_phone : c.phone}"> {(c.assistant_phone)? c.assistant_phone : c.phone}</a><br /></h6></small>     
+                        <small  className="col pl-0  text-sm"><h6>{(c.assistant_phone)? 'Assistant Number' : ((c.phone)?'Call Helpline':'Call Our Customer Care')}: <a href="tel://{(c.assistant_phone)? c.assistant_phone : ((c.phone)?c.phone:+92-322-2555600)}"> {(c.assistant_phone)? c.assistant_phone : ((c.phone)?c.phone:'+92-322-2555600')}</a><br /></h6></small>     
                     :''}
                     </React.Fragment>
                     )
