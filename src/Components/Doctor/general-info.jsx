@@ -124,7 +124,7 @@ class GeneralInfo extends Component {
 							<li>
 								<h6>Address</h6>
 								{doctor_data.address}
-								<a href={doctor_data.map} target="_blank"><i class="fa fa-map-marker" style={{fontSize:'48px',color:"red"}}></i> <strong>View on map</strong></a>
+								<a href={doctor_data.map} target="_blank"><strong> <i className="icon-location"></i>View on map</strong></a>
 							</li>
 							<li>
 								<button className="btn_1" onClick={ () => this.setState({ callNowButtoneStyle:"none", callNowStyle:""})} style={{display:callNowButtoneStyle}}> 
