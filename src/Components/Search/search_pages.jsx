@@ -202,7 +202,7 @@ class SearchPages extends Component {
                             className="form-control"
                             onChange={e => this.onChange(e)}
                             placeholder="Ex. Doctor, Specialization ...."
-                            autocomplete="off"
+                            autoComplete="off"
                         />
                         <div>
                             {(search) ?

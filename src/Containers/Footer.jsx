@@ -94,10 +94,10 @@ class Footer extends Component {
                         </div>
                         <div className="col-lg-6 col-sm-12 col-lg-auto text-side-right">
                             <span className="p-btm-footer">Connect with us Through</span>
-                            <a className="link-footer" href="https://www.facebook.com/HospitALLOfficial/" target="_blank"><i class="icon-facebook-squared-1 footer-icon"></i></a>
-                            <a className="link-footer" href="https://www.instagram.com/hospitallofficial/"><i class=" icon-instagram-filled footer-icon footer-icon-insta"></i></a>
-                            <a className="link-footer" href="mailto:hello@hospitall.com"><i class="icon-email footer-icon"></i></a>
-                            <a className="link-footer" href="tel://03222555600"><i class="icon-phone-squared footer-icon"></i></a>
+                            <a className="link-footer" href="https://www.facebook.com/HospitALLOfficial/" target="_blank"><i className="icon-facebook-squared-1 footer-icon"></i></a>
+                            <a className="link-footer" href="https://www.instagram.com/hospitallofficial/"><i className=" icon-instagram-filled footer-icon footer-icon-insta"></i></a>
+                            <a className="link-footer" href="mailto:hello@hospitall.com"><i className="icon-email footer-icon"></i></a>
+                            <a className="link-footer" href="tel://03222555600"><i className="icon-phone-squared footer-icon"></i></a>
 
                         </div>                        
                     </div>

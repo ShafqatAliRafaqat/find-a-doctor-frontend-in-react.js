@@ -194,7 +194,7 @@ class SearchHeader extends Component {
                 className="search-query" 
                 onChange={e => this.onChange(e)} 
                 placeholder="Ex. Doctor, Specialization ...." 
-                autocomplete="off"
+                autoComplete="off"
                 />
                <div >
                  {(search)?

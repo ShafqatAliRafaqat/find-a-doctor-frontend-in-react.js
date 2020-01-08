@@ -47,9 +47,11 @@ class GeneralInfo extends Component {
 		this.setState({
 			isLoading: true
 		});
-		let { fetchDoctor, dispatch, errorHandler } = this.props;
+		let { fetchDoctor, dispatch, errorHandler,user } = this.props;
+		var id = (user)? user.customer.id:'';
+		let data = {id};
 		let doctorId = this.props.match.params.doctorId;
-		fetchDoctor(doctorId).then(res => {
+		fetchDoctor(doctorId,data).then(res => {
 			this.setState({
 				doctor_data		: res.data.data,
 				qualification	: res.data.meta.doctor_qualification,
@@ -421,7 +423,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		dispatch: dispatch,
-		fetchDoctor: (id) => actions.fetchDoctor(id),
+		fetchDoctor: (id,data) => actions.fetchDoctor(id,data),
         create: (params) => appointmentactions.postLeadCrm(params),
 
 	};

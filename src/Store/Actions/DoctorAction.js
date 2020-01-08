@@ -24,8 +24,8 @@ export const getTopDoctors = (search,data) => {
   });
 };
 
-export const fetchDoctor = (id) => {
-  return axios.get(APIModel.HOST+"fetch_doctor/"+id,{
+export const fetchDoctor = (id,data) => {
+  return axios.post(APIModel.HOST+"fetch_doctor/"+id,data,{
     'headers': {
       'Content-Type': 'application/json',
       'Accept':'application/json',
