@@ -33,7 +33,7 @@ class List extends Component{
 
 						<hr className="hr-card"></hr>
 						<div className="row">
-							<div className="col-6 col-sm-6 text-left text-12 border-right"><a href={m.map} >View on map</a></div>
+							<div className="col-6 col-sm-6 text-left text-12 border-right"><a target="_blank" href={m.map} >View on map</a></div>
 							<div className="col-6 col-sm-6 text-right text-12 border-left"><Link to={{pathname:`/center-detail/${slugify(m.name)}/${m.id}`}}>{m.count_doctors} Doctors</Link></div>
 						</div>
 					</div>
