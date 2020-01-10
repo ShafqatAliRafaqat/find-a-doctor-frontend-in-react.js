@@ -57,7 +57,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://127.0.0.1:8080",
-  "build": "react-scripts build",
-  "postbuild": "rimraf build/**/*.map"
+  "proxy": "http://127.0.0.1:8080"
+  
 }
