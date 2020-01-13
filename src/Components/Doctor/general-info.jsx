@@ -101,7 +101,10 @@ class GeneralInfo extends Component {
 					</div>
 					<div className="col-lg-7 col-md-8">
 						<small>{doctor_data.focus_area}</small>
-						<h1>{doctor_data.first_name} {doctor_data.last_name}</h1>
+						<div className="doctor-name-ok">
+						<h1 >{doctor_data.first_name} {doctor_data.last_name} 
+						{(doctor_data.partnership == 1)?<span data-tooltip="Varified and Onboard" data-tooltip-location="right"><i class="icon-ok-circled text-success" style={{fontSize: '18px;'}}></i></span>:''}</h1>
+						</div>
 						<span className="rating">
 							<i className="icon_star voted"></i>
 							<i className="icon_star voted"></i>
