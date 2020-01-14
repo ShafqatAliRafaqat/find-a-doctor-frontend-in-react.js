@@ -21,7 +21,6 @@ class PhoneModal extends Component {
 
     initState = {
         ...this.props,
-        phone       : '',
         name        : '',
         password    : '',
         processing  : false,
@@ -32,6 +31,7 @@ class PhoneModal extends Component {
     state = {
         ...this.initState,
         codeSended      : '',
+        phone           : '',
         sendCode        : '',
         codeVarified    : '',
         customer        : '',
