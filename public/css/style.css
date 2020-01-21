@@ -4677,8 +4677,8 @@ ul.bullets li:before {
     padding: 10px;
     line-height: 20px;
     position: fixed;
-    bottom: 50px;
-    right: 20px;
+    bottom: 30px;
+    right: 100px;
     cursor: pointer;
     display: none;
     color: #fff;
