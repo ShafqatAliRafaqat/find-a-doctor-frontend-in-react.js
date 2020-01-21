@@ -66,6 +66,7 @@ class Layout extends Component {
                     <MessengerCustomerChat
                     pageId="334061247107629"
                     appId="347537516095173"
+                    htmlRef={window.location.pathname}
                   />
                   </HashRouter>
             </React.Fragment>
