@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect, Route, Switch, HashRouter } from 'react-router-dom';
 import FooterSection from "./Footer";
 import NavBarSection from "./Header";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
 import ScrollToTop from "./../ScrollToTop"
@@ -62,8 +63,11 @@ class Layout extends Component {
                       </Switch>
                     
                     <FooterSection />
+                    <MessengerCustomerChat
+                    pageId="334061247107629"
+                    appId="347537516095173"
+                  />
                   </HashRouter>
-                  
             </React.Fragment>
         );
       }
