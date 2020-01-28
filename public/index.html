@@ -209,6 +209,29 @@
         'window.jQuery': 'jquery'
     })
     </script> -->
+    <!-- <script>
+      if(localStorage.getItem("iknowyou")){
+      $('#app_div').hide();
+      console.log("You were already here");
+      }else{
+      localStorage.setItem("iknowyou",true);
+
+      $('#app_div').hide();
+      console.log("New Here");
+      }
+      </script>
+       -->
+<script>
+  $(document).ready(function(){
+    if(sessionStorage.firstVisit != "true") {
+        sessionStorage.firstVisit = "true";
+        $('#app_div').show();
+    } else {
+        $('#app_div').hide();
+    }
+  });
+</script>
+
 </body>
 
 </html>
