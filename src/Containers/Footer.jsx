@@ -54,16 +54,16 @@ class Footer extends Component {
                         </div>
                         <div className="col-12 col-sm-6 pt-md-3">
                             <div className="row">
-                                <div className="col-6">
+                                <div className="col-8">
                                     <h6 className="h6-footer">Specializations</h6>
                                     <ul className="links">
                                         {(specializations) ?
-                                            specializations.map(m => <li ><Link className="link-footer" to={{ pathname: `/treatment-detail/${slugify(m.name)}/${m.id}` }}>{m.name}</Link></li>)
+                                            specializations.map(m => <li ><Link className="link-footer" to={{ pathname: `/treatment-detail/${slugify(m.name)}/${m.id}` }}>Best {m.name} Doctors In Lahore</Link></li>)
                                             :
                                             ''}
                                     </ul>
                                 </div>
-                                <div className="col-6">
+                                <div className="col-4">
                                     <h6 className="h6-footer">Pages</h6>
                                     <ul className="links">
                                         <li><Link className="link-footer" to="/about-us"            name = "/about-us"              onClick={this.renderRefreshPage}>About us</Link></li>

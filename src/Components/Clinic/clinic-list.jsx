@@ -105,7 +105,7 @@ class CenterList extends Component{
 											<ul>
 												<li><Link to="/">Home</Link></li>
 												<li>Hospitals</li>
-												<li>Hospitals in Lahore</li>
+												<li>Top Hospitals in Lahore</li>
 											</ul>
 										</div>
 									</div>

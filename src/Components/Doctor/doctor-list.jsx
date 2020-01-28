@@ -332,7 +332,7 @@ class DoctorList extends Component{
 											<ul>
 												<li><Link to="/">Home</Link></li>
 												<li>Find a Doctor</li>
-												<li>Doctors in Lahore</li>
+												<li>Best Doctors in Lahore</li>
 											</ul>
 										</div>
 									</div>
