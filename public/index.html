@@ -166,6 +166,39 @@
     <script src="js/owl.carousel.js"></script>
     <!-- <script src="js/video_header.js"></script> -->
 
+	<!-- <script>
+		'use strict';
+		HeaderVideo.init({
+			container: $('.header-video'),
+			header: $('.header-video--media'),
+			videoTrigger: $("#video-trigger"),
+			autoPlayVideo: true
+		});
+	</script>
+    <script>
+        $('#chkbx-1').change(function() {
+            if ($(this).is(":checked")) {
+                $('.font-icon-code').addClass('show');
+                return;
+            }
+            $('.font-icon-code').removeClass('show');
+        });
+     new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+    })
+    </script> -->
+<script>
+  $(document).ready(function(){
+    if(sessionStorage.firstVisit != "true") {
+        sessionStorage.firstVisit = "true";
+        $('#app_div').show();
+    } else {
+        $('#app_div').hide();
+    }
+  });
+</script>
 
 </body>
 
