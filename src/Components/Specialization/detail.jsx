@@ -87,6 +87,7 @@ class Detail extends Component{
 		radio				: 2,
 		treatment_data		: '',
 		related_treatments	: '',
+		related_centers		: '',
 		current_page		: 0,
 		last_page			: 0,
 		per_page			: 0,
@@ -193,6 +194,7 @@ class Detail extends Component{
 			this.setState({
 				treatment_data	: res.data.meta.treatment,
 				related_treatments	: res.data.meta.related_treatments,
+				related_centers: res.data.meta.related_centers,
 				doctor_treatment:res.data.data,
 				current_page: res.data.meta.current_page,
                 last_page	: res.data.meta.last_page,
@@ -245,6 +247,29 @@ class Detail extends Component{
 				<div className="col">
 				{(related_treatments)?
 					related_treatments.map(m =><Link to={{ pathname:`/treatment-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+				:
+				''
+				}
+				</div>
+			</div>
+		</div>
+		);
+	}	
+	TreatmentInCenters = () => {
+		var slugify         = require('slugify');
+		const{ related_centers, treatment_data } 	=	this.state;
+		if (related_centers.length < 1) {
+			return(
+				<div className="pb-5"></div>
+			);
+		}
+		return(
+			<div className="container margin_25">
+			<h6 className="h6-brief-intro"> {treatment_data.name} In Hospitals</h6>
+			<div className="row">
+				<div className="col">
+				{(related_centers)?
+					related_centers.map(m =><Link to={{ pathname:`/center-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
 				:
 				''
 				}
@@ -362,7 +387,7 @@ class Detail extends Component{
 											<ul>
 												<li><Link to="/">Home</Link></li>
 												<li><Link to="/doctor-list">Find A Doctor</Link></li>
-												<li><Link>{treatment_data.name}</Link></li>
+												<li><Link>Best {treatment_data.name} Doctors In Lahore</Link></li>
 											</ul>
 										</div>
 									</div>
@@ -431,6 +456,7 @@ class Detail extends Component{
 						<BottomFaq/>
 
 						{this.RelatedTreatments()}
+						{this.TreatmentInCenters()}
 
 					</main>
                 </React.Fragment>

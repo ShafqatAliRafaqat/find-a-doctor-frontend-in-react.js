@@ -105,7 +105,7 @@ class SpecializatoinList extends Component{
 														<ul>
 															<li><Link to="/">Home</Link></li>
 															<li><Link to="/doctor-list">Find a Doctor</Link></li>
-															<li>Specializations</li>
+															<li>Top Specializations</li>
 														</ul>
 													</div>
 												</div>

@@ -42,7 +42,7 @@ class Header extends Component{
                     <span className="navbar-brand" >
                         <div id="logo_home">
                             <h1>
-                                <Link to="/" onClick={this.renderRefreshPage} title="Find a Doctor">Find doctor</Link>
+                                <Link to="/" onClick={this.renderRefreshPage} title="Find a Doctor">Find and book the best doctors in Pakistan</Link>
                             </h1>
                         </div>
                     </span>
