@@ -191,12 +191,22 @@
     </script> -->
 <script>
   $(document).ready(function(){
-    if(sessionStorage.firstVisit != "true") {
-        sessionStorage.firstVisit = "true";
+    if(localStorage.firstVisit != "true") {
+        localStorage.firstVisit = "true";
         $('#app_div').show();
     } else {
         $('#app_div').hide();
     }
+    var lastclear = localStorage.getItem('lastclear'),
+      time_now  = (new Date()).getTime();
+
+  // .getTime() returns milliseconds so 1000 * 60 * 60 * 24 = 24 days
+  if ((time_now - lastclear) > 1000 * 10) {
+    // localStorage.clear();
+    localStorage.firstVisit = "false";
+
+    localStorage.setItem('lastclear',time_now);
+  }
   });
 </script>
 
