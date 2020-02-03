@@ -569,7 +569,8 @@ header.header_sticky {
 }
 
 header.header_sticky.sticky {
-    border-bottom: 1px solid #ededed;
+    border-top: 0.5px solid #21a747;
+    border-bottom: 1px solid #21a747;
     position: fixed;
     left: 0;
     top: 0;

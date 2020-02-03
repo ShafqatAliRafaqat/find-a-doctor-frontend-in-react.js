@@ -26,7 +26,7 @@ class Header extends Component{
         const { name } = this.state;
         return(
             <React.Fragment>
-                <header className="header_sticky ">
+                <header className="header_sticky sticky">
                 <div id="app_div">
                     <a href="https://play.google.com/store/apps/details?id=com.hospitall.patientathospitall">
                         <div className="div-icon"><i className="icon-mobile-1 app-icon"></i></div>
