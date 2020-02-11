@@ -967,4 +967,9 @@ ol {
 [data-tooltip-location="right"]:hover:after {
   transform: translateY(50%) scaleX(1);
 }
-
+/* Messenger Aligning */
+.fb_dialog_advanced{
+  right: 20pt !important;
+  top: auto !important;
+  bottom: 40px !important;
+}
