@@ -83,8 +83,8 @@ class SpecializatoinList extends Component{
 		this.getTreatments(search + "page=" + 	pageNumber , actions.GET_ALL_TREATMENTS);
 	}
 	renderRefreshPage = (e)=>{
-		this.props.history.push(e.target.name);
-            window.location.reload();
+		// this.props.history.push(e.target.name);
+        //     window.location.reload();
     }
     render(){
 
@@ -121,13 +121,13 @@ class SpecializatoinList extends Component{
 								<li>
 									<h6>Type</h6>
 									<div className="switch-field">
-										<Link to="specialization-list" className="filter-button-style-label-active " name="/specialization-list" onClick={this.renderRefreshPage}>
+										<Link to="specialization-list" className="filter-button-style-label-active " name="/specialization-list">
 										 	Specialization
 										</Link>
-										<Link to="clinic-list" className="filter-button-style-label ml-1" name="/clinic-list" onClick={this.renderRefreshPage}>
+										<Link to="clinic-list" className="filter-button-style-label ml-1" name="/clinic-list" >
 											Clinics
 										</Link>
-										<Link to="doctor-list" className=" filter-button-style-label ml-1" name="/doctor-list" onClick={this.renderRefreshPage}>
+										<Link to="doctor-list" className=" filter-button-style-label ml-1" name="/doctor-list">
 											Doctors
 										</Link>
 										
