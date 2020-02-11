@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Route, Switch, HashRouter } from 'react-router-dom';
+import { Redirect, Route, Switch, HashRouter,BrowserRouter } from 'react-router-dom';
 import FooterSection from "./Footer";
 import NavBarSection from "./Header";
 import MessengerCustomerChat from 'react-messenger-customer-chat';
@@ -36,7 +36,7 @@ class Layout extends Component {
                   <div id="preloader">
                     <div data-loader="circle-side"></div>
                   </div>
-                  <HashRouter>
+                  <BrowserRouter>
                   <NavBarSection />
                   
                       <Switch>
@@ -68,7 +68,7 @@ class Layout extends Component {
                     appId="347537516095173"
                     htmlRef={window.location.pathname}
                   />
-                  </HashRouter>
+                  </BrowserRouter>
             </React.Fragment>
         );
       }
