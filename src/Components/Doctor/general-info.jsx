@@ -90,7 +90,7 @@ class GeneralInfo extends Component {
 				<div className="row">
 					<div className="col-lg-5 col-md-4">
 						<figure>
-							{(doctor_data.picture) ? <img src={doctor_data.picture} alt="" className="img-fluid" /> 
+							{(doctor_data.picture) ? <img src={doctor_data.picture} alt="" className="img-fluid doctor_profile_img" /> 
 							:
 							(doctor_data.gender == "Male")?
                             <img src="web_imgs/Male.png" alt="" className="img-fluid" />
@@ -120,22 +120,22 @@ class GeneralInfo extends Component {
 							<li>854 Views</li>
 							<li>124 Patients</li>
 						</ul>
-						<ul className="col pl-0 font-weight-bold text-sm">
-							<li><p style={{color: "#21a747"}}>{doctor_data.gender}</p></li>
+						<ul className="col pl-0 font-weight-bold mb-0 text-sm">
+							<li><span style={{color: "#21a747"}}>{(doctor_data.gender == 'Male')? <i class="icon-male"></i> : <i class="icon-female"></i>}{doctor_data.gender}</span></li>
 						</ul>
 						<ul className="contacts">
 							<li>
-								<h6>Address</h6>
-								{doctor_data.address}
+								<h6 style={{color: "#21a747"}}><i className="icon-address"></i> Address</h6>
+								<span className="ml-4">{doctor_data.address}</span>
 								<br/>
-								<a href={doctor_data.map} target="_blank" ><strong className="mt-2"> <i className="icon-location"></i>View on map</strong></a>
+								<a href={doctor_data.map} target="_blank" ><strong className="mt-2"><i className="icon-direction"></i> View on map</strong></a>
 							</li>
 							<li>
 								<button className="btn_1" onClick={ () => this.setState({ callNowButtoneStyle:"none", callNowStyle:""})} style={{display:callNowButtoneStyle}}> 
 									Call Now
 								</button>
-								<a href="tel://+923222555600" style={{display:callNowStyle}}>+92-322-2555600</a><br />
-								<a href="tel://+923222555400" style={{display:callNowStyle}}>+92-322-2555400</a><br />
+								<a href="tel://+923222555600" style={{display:callNowStyle}}><i className="icon-phone-squared"></i> +92-322-2555600</a><br />
+								<a href="tel://+923222555400" style={{display:callNowStyle}}><i className="icon-phone-squared"></i>+92-322-2555400</a><br />
 							</li>
 						</ul>
 					</div>

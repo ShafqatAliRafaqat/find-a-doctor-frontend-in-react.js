@@ -121,7 +121,7 @@ class List extends Component{
                                             <div className="col-12">
                                                 <div className="row align-items-center">
                                                     <div className="col-12 pr-lg-5">
-                                                        <div className="row">
+                                                        <div className="row mb-3">
                                                             <div className="col-12">
                                                                 <div className="row">
                                                                 {(m.treatments)?m.treatments.map(t=>
@@ -163,6 +163,7 @@ class List extends Component{
                                         <div className="my-1 col-6 col-lg-12">
                                             <div className="row align-items-center text-available">
                                                 <span className="col-2 text-center d-flex justify-content-center align-items-center">
+                                                {(m.gender == 'Male')? <i class="icon-male"></i> : <i class="icon-female"></i>}
                                                 </span>
                                                 <small className="col pl-0 font-weight-bold text-sm">{m.gender}</small>
                                             </div>
@@ -170,6 +171,8 @@ class List extends Component{
                                         <div className="my-1 col-6 col-lg-12">
                                             <div className="row align-items-center">
                                                 <span className="col-2 text-center d-flex justify-content-center align-items-center">
+                                                <i className="icon-clock-6"></i>
+                                                
                                                 </span>
                                                 <small className="col pl-0 text-sm">{m.experience}</small>
                                             </div>
@@ -177,35 +180,31 @@ class List extends Component{
                                         <div className="my-1 col-6 col-lg-12">
                                             <div className="row align-items-center">
                                                 <span className="col-2 text-center d-flex justify-content-center align-items-center">
-                                                    <svg viewBox="0 0 100 100" className="d-inline-block listing-svg" width="14px">
-                                                    </svg>
+                                                    {/* <svg viewBox="0 0 100 100" className="d-inline-block listing-svg" width="14px"> */}
+                                                    {/* </svg> */}
+                                                    <i className="icon-location-circled"></i>
                                                 </span>
                                                 <small className="col pl-0 text-sm text-truncate">{m.address}</small>
                                             </div>
                                         </div>
                                         <div className="my-1 col-6 col-lg-12">
                                             <div className="row align-items-center">
-                                                <span className="col-2 text-center d-flex justify-content-center align-items-center">
-                                                    <svg viewBox="0 0 100 100" className="d-inline-block listing-svg" width="15px" height="15px" fill="#ff9e15">
-                                                    </svg>
-                                                </span>
+                                                
+                                                {(m.centers)? m.centers.map(s => <span className="col-2 text-center d-flex justify-content-center align-items-center">{(s.fare)? <i className="icon-money"></i> :''}</span>):""}
+                                                
                                                  {(m.centers)? m.centers.map(s => <small className="col pl-0 text-sm">{(s.fare)? 'Rs.' :''} {s.fare}</small>):""}
                                             </div>
                                         </div>
                                         <div className="my-1 col-6 col-lg-12">
                                             <div className="row align-items-center text-available ">
                                                 <span className="col-2 text-center d-flex justify-content-center align-items-center">
-                                                    <i className="icon-available"></i>
+                                                    <i className="icon-calendar-circled"></i>
                                                 </span>
                                                 <small className="col pl-0 font-weight-bold text-sm">Availability </small>
                                             </div>
                                         </div>
                                         <div className="my-1 col-12 col-lg-12">
                                             <div className="row align-items-center">
-                                                {/* <span className="col-2 text-center d-flex justify-content-center align-items-center">
-                                                    <svg viewBox="0 0 100 100" className="d-inline-block listing-svg" width="15px" height="15px" fill="#ff9e15">
-                                                    </svg>
-                                                </span> */}
                                                 {this.renderCenter(m.centers)}
                                             </div>
                                         </div>

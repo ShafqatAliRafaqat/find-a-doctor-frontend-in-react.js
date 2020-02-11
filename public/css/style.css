@@ -48,7 +48,10 @@ Author URI: http://themeforest.net/user/Ansonika/
 
 
 /*-------- Preloader --------*/
-
+.doctor_profile_img{
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.30);
+}
 #preloader {
     position: fixed;
     top: 0;
@@ -3543,7 +3546,7 @@ label.css-label strong {
 }
 
 .profile ul.contacts {
-    margin: 25px 0 0 0;
+    margin: 10px 0 0 0;
 }
 
 .profile ul.contacts li {
