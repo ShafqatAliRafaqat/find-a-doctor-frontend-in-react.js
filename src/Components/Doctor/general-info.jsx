@@ -7,6 +7,7 @@ import AppointmentForm from "../Booking/appointment-form";
 import PhoneModal from "../Booking/PhoneModal";
 import DoctorFaq from './../FAQ/doctor-faq';
 import SearchPages from '../Search/search_pages';
+import {Helmet} from "react-helmet";
 
 class GeneralInfo extends Component {
 
@@ -331,6 +332,15 @@ class GeneralInfo extends Component {
 		const {history } 			=	this.props;
 		return (
 			<React.Fragment>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Book an appointment with {doctor_data.first_name}" />
+    				<meta name="author" content="Ansonika" />
+					<title>{doctor_data.first_name}</title>
+					<Link to={{pathname:`/doctor-detail/${slugify(doctor_data.first_name)}/${doctor_data.id}`}}></Link>
+            	</Helmet>
 				<main>
 				<div id="results">
 						<div className="container">
