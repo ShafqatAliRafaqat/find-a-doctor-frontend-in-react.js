@@ -103,7 +103,7 @@ class AppointmentForm extends Component{
           });
 
           alertify.alert('Confirmation Alert', "Thank you for requesting an appointment! We'll contact you shortly to confirm. ", function(){ 
-            window.location.assign("https://www.hospitallcare.com/#/pending-appointments")
+            window.location.assign("https://www.hospitallcare.com/pending-appointments")
             setTimeout(window.location.reload(),100000);
           
             });
