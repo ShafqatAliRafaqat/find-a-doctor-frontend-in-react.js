@@ -348,13 +348,13 @@ class DoctorList extends Component{
 									<h6>Type</h6>
 									<div className="switch-field">
 										
-										<Link to="doctor-list" className=" filter-button-style-label-active" name="/doctor-list" onClick={this.renderRefreshPage}>
+										<Link to="doctor-list" className=" filter-button-style-label-active" name="/doctor-list" >
 											Doctors
 										</Link>
-										<Link to="specialization-list" className="filter-button-style-label ml-1" name="/specialization-list" onClick={this.renderRefreshPage}>
+										<Link to="specialization-list" className="filter-button-style-label ml-1" name="/specialization-list" >
 										 	Specialization
 										</Link>
-										<Link to="clinic-list" className="filter-button-style-label ml-1" name="/clinic-list" onClick={this.renderRefreshPage}>
+										<Link to="clinic-list" className="filter-button-style-label ml-1" name="/clinic-list">
 											Clinics
 										</Link>
 										

@@ -213,17 +213,17 @@ class SearchHeader extends Component {
                   <label htmlFor="all">All</label>
                 </li>
                 <li>
-                    <Link to="doctor-list" className=" filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/doctor-list" onClick={this.renderRefreshPage}>
+                    <Link to="doctor-list" className=" filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/doctor-list" >
 											Doctors
 										</Link>
                 </li>
                 <li>
-                    <Link to="specialization-list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/specialization-list" onClick={this.renderRefreshPage}>
+                    <Link to="specialization-list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/specialization-list" >
 										 	Specialization
 										</Link>
                 </li>
                 <li>
-                    <Link to="clinic-list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/clinic-list" onClick={this.renderRefreshPage}>
+                    <Link to="clinic-list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/clinic-list" >
 											Clinics
 										</Link>
                 </li>

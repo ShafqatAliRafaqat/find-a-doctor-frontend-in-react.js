@@ -82,10 +82,7 @@ class SpecializatoinList extends Component{
 		let search = getSearchUrlFromState(this.state);
 		this.getTreatments(search + "page=" + 	pageNumber , actions.GET_ALL_TREATMENTS);
 	}
-	renderRefreshPage = (e)=>{
-		// this.props.history.push(e.target.name);
-        //     window.location.reload();
-    }
+	
     render(){
 
 		let { page, totalPages,to,total } = this.state;
