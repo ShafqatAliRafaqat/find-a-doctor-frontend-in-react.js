@@ -11,6 +11,7 @@ import SearchPages from '../Search/search_pages';
 import Pagination from "react-js-pagination";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import {Helmet} from "react-helmet";
 
 class CenterList extends Component{
     state = {
@@ -94,8 +95,16 @@ class CenterList extends Component{
         }
         return(
             <React.Fragment>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="List of top hospitals and clinics in pakistan- Book an appointment with top doctors" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Top Hospitals | Clinics In Pakistan - Book an appointment with top doctors of hospitals</title>
+					<Link to='/specialization-list'></Link>
+            	</Helmet>
 				<main>
-
 					<div id="results">
 						<div className="container">
 							<div className="row">
@@ -120,7 +129,7 @@ class CenterList extends Component{
 								<li>
 									<h6>Type</h6>
 									<div className="switch-field">
-										<Link to="clinic-list" className="filter-button-style-label-active" name="/clinic-list" >
+										<Link to="clinic-list" className="filter-button-style-label-active" name="/clinic-list" onClick={this.renderRefreshPage}>
 											Clinics
 										</Link>
 										<Link to="doctor-list" className=" filter-button-style-label ml-1" name="/doctor-list" >

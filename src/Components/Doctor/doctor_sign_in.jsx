@@ -5,6 +5,7 @@ import PhoneModal from "./forget-password";
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
 import SweetAlert from 'react-bootstrap-sweetalert';
+import {Helmet} from "react-helmet";
 import 'react-phone-number-input/style.css'
 import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
 alertify.set('notifier', 'position', 'top-center');
@@ -78,6 +79,15 @@ class DoctorSignIn extends Component{
 		};
         return(
             <React.Fragment>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Login as a Doctor | Get Onboard | Get Doctor Dashboard | Get our DoctorALL app" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Login as a Doctor | Get Onboard | Get Doctor Dashboard | Get our DoctorALL app</title>
+					<link rel="canonical" href="https://hospitallcare.com" />
+            	</Helmet>
 				<main>
 					<div className="bg_color_2">
 						<div className="container margin_60_35">

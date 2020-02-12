@@ -337,8 +337,8 @@ class GeneralInfo extends Component {
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     				<meta name="description" content="Book an appointment with {doctor_data.first_name}" />
-    				<meta name="author" content="Ansonika" />
-					<title>{doctor_data.first_name}</title>
+    				<meta name="author" content="Hospitall Care" />
+					<title>{doctor_data.first_name} one of best doctor - Book an appointment with {doctor_data.first_name}</title>
 					<Link to={{pathname:`/doctor-detail/${slugify(doctor_data.first_name)}/${doctor_data.id}`}}></Link>
             	</Helmet>
 				<main>

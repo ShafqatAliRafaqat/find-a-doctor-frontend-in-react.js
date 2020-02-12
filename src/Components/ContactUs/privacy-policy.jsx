@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import OwlCarousel from 'react-owl-carousel';
-
+import {Helmet} from "react-helmet";
 
 import SearchPages from '../Search/search_pages';
 
@@ -15,6 +15,15 @@ class PrivacyPolicy extends Component{
     render(){
         return(
             <React.Fragment>
+        		<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Privacy Policy | What Information Do We Collect? | Security Measures | Your rights | Permissions | General | User Consent | Questions" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Privacy Policy | What Information Do We Collect? | Security Measures | Your rights | Permissions | General | User Consent | Questions</title>
+					<link rel="canonical" href="https://hospitallcare.com" />
+            	</Helmet>
             <main>
             <div id="results">
             <div className="container">

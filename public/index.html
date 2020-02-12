@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Find easily a doctor and book online an appointment">
-    <meta name="author" content="Ansonika">
+    <meta name="author" content="Hospitall Care">
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475238-1"></script>
@@ -190,6 +190,17 @@
     })
     </script> -->
 <script>
+   $(document).on('mouseenter', ".text-truncate", function () {
+     var $this = $(this);
+     if (this.offsetWidth < this.scrollWidth && !$this.attr('title')) {
+         $this.tooltip({
+             title: $this.text(),
+             placement: "bottom"
+         });
+         $this.tooltip('show');
+     }
+ });
+
   $(document).ready(function(){
     if(localStorage.firstVisit != "true") {
         localStorage.firstVisit = "true";

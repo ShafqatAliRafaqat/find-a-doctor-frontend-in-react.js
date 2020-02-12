@@ -9,6 +9,7 @@ import * as qs from 'query-string';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
+import {Helmet} from "react-helmet";
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -372,11 +373,21 @@ class Detail extends Component{
 	};
 	render(){
 		const { total, to,treatment_data ,related_treatments} = this.state;
-		// if (this.state.isLoading) {
-        //     return (<div data-loader="circle-side"></div>);
-        // }
+		var name = treatment_data.name ; 
+		if (this.state.isLoading) {
+            return (<div data-loader="circle-side"></div>);
+        }
 			return(
                 <React.Fragment>
+					<Helmet>
+						<meta charSet="utf-8" />
+						<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+						<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+						<meta name="description" content="{ name } | Top Doctors Of  - Book an appointment with top doctors of " />
+						<meta name="author" content="Hospitall Care" />
+						<title>{ name } | Best Doctors Of { name } - Book an appointment with top doctors of { name }</title>
+						
+            		</Helmet>
                     <main>
 					<div id="results">
 							<div className="container">

@@ -4,6 +4,7 @@ import * as actions from "../../Store/Actions/AuthAction";
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
 import 'react-phone-number-input/style.css';
+import {Helmet} from "react-helmet";
 import {
     Button,
     ModalFooter,
@@ -210,6 +211,15 @@ class Register extends Component{
 		};
         return(
             <React.Fragment>
+                <Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Register to Findoctor | Get best doctors near you | Get CareALL APP for patient profiling" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Register to Findoctor | Get best doctors near you | Get CareALL APP for patient profiling</title>
+					<Link to='/doctor-list'></Link>
+            	</Helmet>
 	<main>
 		<div className="bg_color_2">
 			<div className="container margin_60_35">

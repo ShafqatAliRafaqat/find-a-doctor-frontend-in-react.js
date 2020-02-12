@@ -8,7 +8,7 @@ import * as qs from 'query-string';
 import alertify from 'alertifyjs';
 import List from './list';
 import SearchPages from '../Search/search_pages';
-
+import {Helmet} from "react-helmet";
 import ReactDOM from "react-dom";
 import Pagination from "react-js-pagination";
 class SpecializatoinList extends Component{
@@ -82,7 +82,10 @@ class SpecializatoinList extends Component{
 		let search = getSearchUrlFromState(this.state);
 		this.getTreatments(search + "page=" + 	pageNumber , actions.GET_ALL_TREATMENTS);
 	}
-	
+	renderRefreshPage = (e)=>{
+		this.props.history.push(e.target.name);
+            window.location.reload();
+    }
     render(){
 
 		let { page, totalPages,to,total } = this.state;
@@ -91,6 +94,15 @@ class SpecializatoinList extends Component{
         }
         return(
             <React.Fragment>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Top Specialization - Book an appointment according to specializations" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Top Specialization - Book an appointment according to specializations</title>
+					<Link to='/doctor-list'></Link>
+            	</Helmet>
 				<main>
 					
 					<div id="results">
@@ -118,7 +130,7 @@ class SpecializatoinList extends Component{
 								<li>
 									<h6>Type</h6>
 									<div className="switch-field">
-										<Link to="specialization-list" className="filter-button-style-label-active " name="/specialization-list">
+										<Link to="specialization-list" className="filter-button-style-label-active " name="/specialization-list" onClick={this.renderRefreshPage}>
 										 	Specialization
 										</Link>
 										<Link to="clinic-list" className="filter-button-style-label ml-1" name="/clinic-list" >

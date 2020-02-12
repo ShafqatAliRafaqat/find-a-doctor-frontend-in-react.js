@@ -18,7 +18,7 @@ import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import SearchPages from '../Search/search_pages';
 import BottomFaq from './../FAQ/bottom-faq';
 import Pagination from "react-js-pagination";
-
+import {Helmet} from "react-helmet";
 
 const useStyles = makeStyles({
 	root: {
@@ -477,11 +477,21 @@ class Detail extends Component{
 	};
 	render(){
 		const { page,totalPages,total,to,center_data } = this.state;
-		// if (this.state.isLoading) {
-        //     return (<div data-loader="circle-side"></div>);
-        // }
+		var slugify = require('slugify');
+		if (this.state.isLoading) {
+            return (<div data-loader="circle-side"></div>);
+        }
 			return(
                 <React.Fragment>
+					<Helmet>
+						<meta charSet="utf-8" />
+						<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+						<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+						<meta name="description" content="{center_data.name} | List of top doctors in {center_data.name}- Book an appointment with top doctors" />
+						<meta name="author" content="Hospitall Care" />
+						<title>{center_data.name} | Top Doctors In {center_data.name} - Book an appointment with top doctors of {center_data.name}</title>
+						<Link to={{pathname:`/center-detail/${slugify(center_data.name)}/${center_data.id}`}}></Link>
+            		</Helmet>
                     <main>
 						<div id="results">
 							<div className="container">

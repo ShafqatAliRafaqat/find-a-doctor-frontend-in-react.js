@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import OwlCarousel from 'react-owl-carousel';
-
-
+import {Helmet} from "react-helmet";
 import SearchPages from '../Search/search_pages';
 
 class TermsAndConditions extends Component{
@@ -15,6 +14,15 @@ class TermsAndConditions extends Component{
     render(){
         return(
             <React.Fragment>
+        		<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Terms and Conditions | Definitions | Using Our Services | Registration Information | Using HospitALL | Services and Features | Sharing Information | Content Policy" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Terms and Conditions | Definitions | Using Our Services | Registration Information | Using HospitALL | Services and Features | Sharing Information | Content Policy</title>
+					<link rel="canonical" href="https://hospitallcare.com" />
+            	</Helmet>
             <main>
             <div id="results">
             <div className="container">

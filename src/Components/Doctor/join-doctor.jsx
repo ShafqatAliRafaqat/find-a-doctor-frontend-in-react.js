@@ -16,6 +16,7 @@ import {
     FormGroup, Input, Label,
 } from 'reactstrap';
 import clsx from 'clsx';
+import {Helmet} from "react-helmet";
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -266,6 +267,15 @@ class JoinDoctor extends Component{
 		};
         return(
             <React.Fragment>
+                <Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="SignUp as a Doctor| Join Our Best Doctor's Team | Get Onboard | Get Doctor Dashboard | Get our DoctorALL app" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>SignUp as a Doctor| Join Our Best Doctor's Team | Get Onboard | Get Doctor Dashboard | Get our DoctorALL app</title>
+					<link rel="canonical" href="https://hospitallcare.com" />
+            	</Helmet>
 	<main>
 		<div className="bg_color_2">
 			<div className="container margin_60_35">
