@@ -16,7 +16,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import SearchPages from '../Search/search_pages';
 import Pagination from "react-js-pagination";
-
+import {Helmet} from "react-helmet";
 
 const useStyles = makeStyles({
 	root: {
@@ -322,6 +322,15 @@ class DoctorList extends Component{
 		let { to,total } = this.state;
         return(
             <React.Fragment>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="List of top doctors in pakistan- Book an appointment with top doctors" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Top Doctors In Pakistan - Book an appointment with top doctors</title>
+					<Link to='/doctor-list'></Link>
+            	</Helmet>
 				<main>
 					<div id="results">
 						<div className="container">
@@ -332,7 +341,7 @@ class DoctorList extends Component{
 											<ul>
 												<li><Link to="/">Home</Link></li>
 												<li>Find a Doctor</li>
-												<li>Doctors in Lahore</li>
+												<li>Best Doctors in Lahore</li>
 											</ul>
 										</div>
 									</div>
@@ -348,13 +357,13 @@ class DoctorList extends Component{
 									<h6>Type</h6>
 									<div className="switch-field">
 										
-										<Link to="doctor-list" className=" filter-button-style-label-active" name="/doctor-list" onClick={this.renderRefreshPage}>
+										<Link to="doctor-list" className=" filter-button-style-label-active" name="/doctor-list" onClick={this.renderRefreshPage} >
 											Doctors
 										</Link>
-										<Link to="specialization-list" className="filter-button-style-label ml-1" name="/specialization-list" onClick={this.renderRefreshPage}>
+										<Link to="specialization-list" className="filter-button-style-label ml-1" name="/specialization-list" >
 										 	Specialization
 										</Link>
-										<Link to="clinic-list" className="filter-button-style-label ml-1" name="/clinic-list" onClick={this.renderRefreshPage}>
+										<Link to="clinic-list" className="filter-button-style-label ml-1" name="/clinic-list">
 											Clinics
 										</Link>
 										

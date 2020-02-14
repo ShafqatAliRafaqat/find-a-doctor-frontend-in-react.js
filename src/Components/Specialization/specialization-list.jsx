@@ -8,7 +8,7 @@ import * as qs from 'query-string';
 import alertify from 'alertifyjs';
 import List from './list';
 import SearchPages from '../Search/search_pages';
-
+import {Helmet} from "react-helmet";
 import ReactDOM from "react-dom";
 import Pagination from "react-js-pagination";
 class SpecializatoinList extends Component{
@@ -94,6 +94,15 @@ class SpecializatoinList extends Component{
         }
         return(
             <React.Fragment>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Top Specialization - Book an appointment according to specializations" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Top Specialization - Book an appointment according to specializations</title>
+					<Link to='/doctor-list'></Link>
+            	</Helmet>
 				<main>
 					
 					<div id="results">
@@ -105,7 +114,7 @@ class SpecializatoinList extends Component{
 														<ul>
 															<li><Link to="/">Home</Link></li>
 															<li><Link to="/doctor-list">Find a Doctor</Link></li>
-															<li>Specializations</li>
+															<li>Top Specializations</li>
 														</ul>
 													</div>
 												</div>
@@ -124,10 +133,10 @@ class SpecializatoinList extends Component{
 										<Link to="specialization-list" className="filter-button-style-label-active " name="/specialization-list" onClick={this.renderRefreshPage}>
 										 	Specialization
 										</Link>
-										<Link to="clinic-list" className="filter-button-style-label ml-1" name="/clinic-list" onClick={this.renderRefreshPage}>
+										<Link to="clinic-list" className="filter-button-style-label ml-1" name="/clinic-list" >
 											Clinics
 										</Link>
-										<Link to="doctor-list" className=" filter-button-style-label ml-1" name="/doctor-list" onClick={this.renderRefreshPage}>
+										<Link to="doctor-list" className=" filter-button-style-label ml-1" name="/doctor-list">
 											Doctors
 										</Link>
 										

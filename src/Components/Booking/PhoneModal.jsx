@@ -21,7 +21,6 @@ class PhoneModal extends Component {
 
     initState = {
         ...this.props,
-        phone       : '',
         name        : '',
         password    : '',
         processing  : false,
@@ -32,6 +31,7 @@ class PhoneModal extends Component {
     state = {
         ...this.initState,
         codeSended      : '',
+        phone           : '',
         sendCode        : '',
         codeVarified    : '',
         customer        : '',
@@ -186,7 +186,7 @@ class PhoneModal extends Component {
             });
             
             alertify.alert('Confirmation Alert', "Thank you for requesting an appointment! We'll contact you shortly to confirm. ", function(){ 
-                window.location.assign("https://www.hospitallcare.com/#/pending-appointments")
+                window.location.assign("https://www.hospitallcare.com/pending-appointments")
                 setTimeout(window.location.reload(),100000);
               
             });
@@ -230,7 +230,7 @@ class PhoneModal extends Component {
             });
             
             alertify.alert('Confirmation Alert', "Thank you for requesting an appointment! We'll contact you shortly to confirm. ", function(){ 
-                window.location.assign("https://www.hospitallcare.com/#/pending-appointments")
+                window.location.assign("https://www.hospitallcare.com/pending-appointments")
                 setTimeout(window.location.reload(),100000);
               
             });

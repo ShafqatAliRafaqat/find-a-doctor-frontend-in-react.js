@@ -5,6 +5,7 @@ import PhoneModal from "./forget-password";
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
 import 'react-phone-number-input/style.css'
+import {Helmet} from "react-helmet";
 import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
 alertify.set('notifier', 'position', 'top-center');
 
@@ -62,6 +63,15 @@ class Login extends Component{
 		};
         return(
             <React.Fragment>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Login to Findoctor | Get best doctors near you | Get CareALL APP for patient profiling" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Login to Findoctor!| Get best doctors near you | Get CareALL APP for patient profiling</title>
+					<Link to='/doctor-list'></Link>
+            	</Helmet>
 				<main>
 					<div className="bg_color_2">
 						<div className="container margin_60_35">

@@ -7,6 +7,7 @@ import AppointmentForm from "../Booking/appointment-form";
 import PhoneModal from "../Booking/PhoneModal";
 import DoctorFaq from './../FAQ/doctor-faq';
 import SearchPages from '../Search/search_pages';
+import {Helmet} from "react-helmet";
 
 class GeneralInfo extends Component {
 
@@ -90,7 +91,7 @@ class GeneralInfo extends Component {
 				<div className="row">
 					<div className="col-lg-5 col-md-4">
 						<figure>
-							{(doctor_data.picture) ? <img src={doctor_data.picture} alt="" className="img-fluid" /> 
+							{(doctor_data.picture) ? <img src={doctor_data.picture} alt="" className="img-fluid doctor_profile_img" /> 
 							:
 							(doctor_data.gender == "Male")?
                             <img src="web_imgs/Male.png" alt="" className="img-fluid" />
@@ -101,7 +102,10 @@ class GeneralInfo extends Component {
 					</div>
 					<div className="col-lg-7 col-md-8">
 						<small>{doctor_data.focus_area}</small>
-						<h1>{doctor_data.first_name} {doctor_data.last_name}</h1>
+						<div className="doctor-name-ok">
+						<h1 >{doctor_data.first_name} {doctor_data.last_name} 
+						{(doctor_data.partnership == 1)?<span data-tooltip="Varified and Onboard" data-tooltip-location="right"><i class="icon-ok-circled text-success" style={{fontSize: '18px;'}}></i></span>:''}</h1>
+						</div>
 						<span className="rating">
 							<i className="icon_star voted"></i>
 							<i className="icon_star voted"></i>
@@ -117,22 +121,22 @@ class GeneralInfo extends Component {
 							<li>854 Views</li>
 							<li>124 Patients</li>
 						</ul>
-						<ul className="col pl-0 font-weight-bold text-sm">
-							<li><p style={{color: "#21a747"}}>{doctor_data.gender}</p></li>
+						<ul className="col pl-0 font-weight-bold mb-0 text-sm">
+							<li><span style={{color: "#21a747"}}>{(doctor_data.gender == 'Male')? <i class="icon-male"></i> : <i class="icon-female"></i>}{doctor_data.gender}</span></li>
 						</ul>
 						<ul className="contacts">
 							<li>
-								<h6>Address</h6>
-								{doctor_data.address}
+								<h6 style={{color: "#21a747"}}><i className="icon-address"></i> Address</h6>
+								<span className="ml-4">{doctor_data.address}</span>
 								<br/>
-								<a href={doctor_data.map} target="_blank" ><strong className="mt-2"> <i className="icon-location"></i>View on map</strong></a>
+								<a href={doctor_data.map} target="_blank" ><strong className="mt-2"><i className="icon-direction"></i> View on map</strong></a>
 							</li>
 							<li>
 								<button className="btn_1" onClick={ () => this.setState({ callNowButtoneStyle:"none", callNowStyle:""})} style={{display:callNowButtoneStyle}}> 
 									Call Now
 								</button>
-								<a href="tel://+923222555600" style={{display:callNowStyle}}>+92-322-2555600</a><br />
-								<a href="tel://+923222555400" style={{display:callNowStyle}}>+92-322-2555400</a><br />
+								<a href="tel://+923222555600" style={{display:callNowStyle}}><i className="icon-phone-squared"></i> +92-322-2555600</a><br />
+								<a href="tel://+923222555400" style={{display:callNowStyle}}><i className="icon-phone-squared"></i>+92-322-2555400</a><br />
 							</li>
 						</ul>
 					</div>
@@ -328,6 +332,15 @@ class GeneralInfo extends Component {
 		const {history } 			=	this.props;
 		return (
 			<React.Fragment>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Book an appointment with {doctor_data.first_name}" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>{doctor_data.first_name} one of best doctor - Book an appointment with {doctor_data.first_name}</title>
+					<Link to={{pathname:`/doctor-detail/${slugify(doctor_data.first_name)}/${doctor_data.id}`}}></Link>
+            	</Helmet>
 				<main>
 				<div id="results">
 						<div className="container">

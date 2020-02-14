@@ -6,6 +6,7 @@ import * as center_actions from "../../Store/Actions/CenterAction";
 import * as qs from 'query-string';
 import SpecializationBlocks from './../Specialization/blocks';
 import SearchHeader from "./search_header"; 
+import {Helmet} from "react-helmet";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -208,6 +209,15 @@ class Main extends Component{
         }
         return(
             <React.Fragment>
+                <Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="HospitALL-Find a Doctor | Book an appointment with best doctors" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>HospitALL-Find a Doctor | Book an appointment with best doctors</title>
+					
+            	</Helmet>
                 <main>
                     {this.SearchHeader()}
                     {this.Specialization()}

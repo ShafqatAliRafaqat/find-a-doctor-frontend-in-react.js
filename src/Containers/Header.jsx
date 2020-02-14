@@ -7,6 +7,7 @@ alertify.set('notifier', 'position', 'top-center');
 
 // const Header = (props) => {
 class Header extends Component{
+    
     state = {
         name:window.location.hash,
     }
@@ -19,19 +20,29 @@ class Header extends Component{
         }
 
     }
+    
     render(){
         const { user } = this.props;
         const { name } = this.state;
         return(
             <React.Fragment>
-                <header className="header_sticky ">
+                <header className="header_sticky sticky">
+                <div id="app_div">
+                    <a href="https://play.google.com/store/apps/details?id=com.hospitall.patientathospitall">
+                        <div className="div-icon"><i className="icon-mobile-1 app-icon"></i></div>
+                        <div className="text-app">Download Our User App Now. <span className="sp-right">X</span> <br/>
+                            <span>A Comprehensive Healthcare Super App</span>
+                        </div>
+                    </a>
+                </div>
                 <div className="container">
+
                 {/* <!--Navbar --> */}
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <span className="navbar-brand" >
                         <div id="logo_home">
                             <h1>
-                                <Link to="/" onClick={this.renderRefreshPage} title="Find a Doctor">Find doctor</Link>
+                                <Link to="/" onClick={this.renderRefreshPage} title="Find a Doctor">Find and book the best doctors in Pakistan</Link>
                             </h1>
                         </div>
                     </span>

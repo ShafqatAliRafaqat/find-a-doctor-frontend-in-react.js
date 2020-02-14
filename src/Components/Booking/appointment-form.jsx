@@ -103,7 +103,7 @@ class AppointmentForm extends Component{
           });
 
           alertify.alert('Confirmation Alert', "Thank you for requesting an appointment! We'll contact you shortly to confirm. ", function(){ 
-            window.location.assign("https://www.hospitallcare.com/#/pending-appointments")
+            window.location.assign("https://www.hospitallcare.com/pending-appointments")
             setTimeout(window.location.reload(),100000);
           
             });
@@ -235,13 +235,13 @@ class AppointmentForm extends Component{
                         <li>{d} to {day_to[index]} {moment(time_from[index],"hh").format('LT')} - { moment(time_to[index],"hh").format('LT')}</li>
                         
                     </ul>
-                    {(doctor_data.partnership == 0)? 
-                        <small  className="col pl-0  text-sm"><h6>{(c.assistant_phone)? 'Assistant Number' : ((c.phone)?'Call Helpline':'Call Our Customer Care')}: <a href="tel://{(c.assistant_phone)? c.assistant_phone : ((c.phone)?c.phone:+92-322-2555600)}"> {(c.assistant_phone)? c.assistant_phone : ((c.phone)?c.phone:'+92-322-2555600')}</a><br /></h6></small>     
-                    :''}
                     </React.Fragment>
                     )
                     :""
                 } 
+                    {(doctor_data.partnership == 0)? 
+                        <small  className="col pl-0  text-sm"><h6>{(c.assistant_phone)? 'Assistant Number' : ((c.phone)?'Call Helpline':'Call Our Customer Care')}: <a href="tel://{(c.assistant_phone)? c.assistant_phone : ((c.phone)?c.phone:+92-322-2555600)}"> {(c.assistant_phone)? c.assistant_phone : ((c.phone)?c.phone:'+92-322-2555600')}</a><br /></h6></small>     
+                    :''}
                 </small>
             );
         });

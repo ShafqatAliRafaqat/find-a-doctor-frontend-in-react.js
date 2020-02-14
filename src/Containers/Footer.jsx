@@ -54,16 +54,16 @@ class Footer extends Component {
                         </div>
                         <div className="col-12 col-sm-6 pt-md-3">
                             <div className="row">
-                                <div className="col-6">
+                                <div className="col-8">
                                     <h6 className="h6-footer">Specializations</h6>
                                     <ul className="links">
                                         {(specializations) ?
-                                            specializations.map(m => <li ><Link className="link-footer" to={{ pathname: `/treatment-detail/${slugify(m.name)}/${m.id}` }}>{m.name}</Link></li>)
+                                            specializations.map(m => <li ><Link className="link-footer" to={{ pathname: `/treatment-detail/${slugify(m.name)}/${m.id}` }}>Best {m.name} Doctors In Lahore</Link></li>)
                                             :
                                             ''}
                                     </ul>
                                 </div>
-                                <div className="col-6">
+                                <div className="col-4">
                                     <h6 className="h6-footer">Pages</h6>
                                     <ul className="links">
                                         <li><Link className="link-footer" to="/about-us"            name = "/about-us"              onClick={this.renderRefreshPage}>About us</Link></li>
@@ -87,9 +87,9 @@ class Footer extends Component {
                             <p className="p-btm-footer m-0">
                                 &copy; 2018 - 2020 
                                 <a href="/" className="pl-1 hospitall-color">HospitALL-Care to Cure</a> 
-                                <a href="/#/privacy-policy" className=" pl-1 a-btm-footer text-sm">Privacy policy</a> | 
-                                <a href="/#/terms-and-conditions" className=" pl-1 a-btm-footer text-sm">Terms &amp; Conditions</a>
-                                {/* <a href="https://www.demo.hospitallcare.com/#/contact/" className=" pl-1 a-btm-footer text-sm">Contact us</a> */}
+                                <a href="/privacy-policy" className=" pl-1 a-btm-footer text-sm">Privacy policy</a> | 
+                                <a href="/terms-and-conditions" className=" pl-1 a-btm-footer text-sm">Terms &amp; Conditions</a>
+                                {/* <a href="https://www.hospitallcare.com/contact/" className=" pl-1 a-btm-footer text-sm">Contact us</a> */}
                             </p>
                         </div>
                         <div className="col-lg-6 col-sm-12 col-lg-auto text-side-right">

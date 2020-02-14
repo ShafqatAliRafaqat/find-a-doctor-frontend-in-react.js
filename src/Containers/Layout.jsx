@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Redirect, Route, Switch, HashRouter } from 'react-router-dom';
+import { Redirect, Route, Switch, HashRouter,BrowserRouter } from 'react-router-dom';
 import FooterSection from "./Footer";
 import NavBarSection from "./Header";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
 import ScrollToTop from "./../ScrollToTop"
@@ -35,7 +36,7 @@ class Layout extends Component {
                   <div id="preloader">
                     <div data-loader="circle-side"></div>
                   </div>
-                  <HashRouter>
+                  <BrowserRouter>
                   <NavBarSection />
                   
                       <Switch>
@@ -45,7 +46,7 @@ class Layout extends Component {
                                   <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => {
                                     if(route.path){
                                           return (
-                                            <div style={{minHeight:"436px"}}>
+                                            <div style={{minHeight:"436px" , marginTop:"64px"}}>
                                               <route.Component alertify={alertify} {...props} {...this.props} errorHandler={this.errorHandler} />                                  
                                             </div>  
                                           );
@@ -62,8 +63,12 @@ class Layout extends Component {
                       </Switch>
                     
                     <FooterSection />
-                  </HashRouter>
-                  
+                    <MessengerCustomerChat
+                    pageId="334061247107629"
+                    appId="347537516095173"
+                    htmlRef={window.location.pathname}
+                  />
+                  </BrowserRouter>
             </React.Fragment>
         );
       }

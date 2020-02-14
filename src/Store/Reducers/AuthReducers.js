@@ -6,7 +6,7 @@ const initSate = {
 };
 
 const AuthReducers = (state = initSate, action) => {
-  setTimeout(function(){localStorage.user = null; window.location.assign("https://www.hospitallcare.com/#/"); window.location.reload();}, 1000*60*30);
+  setTimeout(function(){localStorage.user = null; window.location.assign("https://www.hospitallcare.com/"); window.location.reload();}, 1000*60*30);
   switch (action.type) {
     case actions.PHONE_VARIFICATOIN: {
       return { ...state, users: action.payload };

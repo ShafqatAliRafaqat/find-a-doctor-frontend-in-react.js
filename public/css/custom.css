@@ -180,7 +180,7 @@
     border-color: #21a747;
 }
 .btn.btn-warning {
-    padding: 3px .75rem 4px;
+    /* padding: 3px .75rem 4px; */
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -399,6 +399,9 @@ a.wish_bt_appointment {
   width:-webkit-fill-available !important;
 }
 @media (min-width: 1200px){
+    .container {
+        max-width: 85%;
+    }
     .col-xl-4 {
         flex: 0 0 33.33333%;
         max-width: 33.33333%;
