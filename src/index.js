@@ -8,17 +8,17 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import reducers from "./Store/Reducers";
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
-
+import 'babel-polyfill';
 const store = createStore(combineReducers(reducers), compose(applyMiddleware(thunk)));
-ReactDOM.render(
-  <Provider store = { store } >
-    <BrowserRouter>
-      <ScrollToTop>
-           <App />
-      </ScrollToTop>
-    </BrowserRouter>
-  </Provider>, 
-document.getElementById('hospitallcare'));
+ReactDOM.render( 
+    <Provider store = { store } >
+        <BrowserRouter >
+            <ScrollToTop >
+                <App />
+            </ScrollToTop> 
+        </BrowserRouter> 
+    </Provider>, 
+    document.getElementById('hospitallcare'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
