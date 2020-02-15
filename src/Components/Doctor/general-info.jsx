@@ -104,7 +104,7 @@ class GeneralInfo extends Component {
 						<small>{doctor_data.focus_area}</small>
 						<div className="doctor-name-ok">
 						<h1 >{doctor_data.first_name} {doctor_data.last_name} 
-						{(doctor_data.partnership == 1)?<span data-tooltip="Varified and Onboard" data-tooltip-location="right"><i class="icon-ok-circled text-success" style={{fontSize: '18px;'}}></i></span>:''}</h1>
+						{(doctor_data.partnership == 1)?<span data-tooltip="Varified and Onboard" data-tooltip-location="right"><i class="icon-ok-circled text-success" style={{fontSize: '18px'}}></i></span>:''}</h1>
 						</div>
 						<span className="rating">
 							<i className="icon_star voted"></i>
@@ -330,13 +330,16 @@ class GeneralInfo extends Component {
 		var slugify = require('slugify');
 		const { doctor_data } 		= this.state;
 		const {history } 			=	this.props;
+		const {first_name} 			=	doctor_data;
+		const {focus_area} 			=	doctor_data;
+		var meta_description = "Book an appointment with"+first_name+" | "+first_name+"is one of best doctor of"+focus_area;
 		return (
 			<React.Fragment>
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    				<meta name="description" content="Book an appointment with {doctor_data.first_name}" />
+    				<meta name="description" content={meta_description} />
     				<meta name="author" content="Hospitall Care" />
 					<title>{doctor_data.first_name} one of best doctor - Book an appointment with {doctor_data.first_name}</title>
 					<Link to={{pathname:`/doctor-detail/${slugify(doctor_data.first_name)}/${doctor_data.id}`}}></Link>

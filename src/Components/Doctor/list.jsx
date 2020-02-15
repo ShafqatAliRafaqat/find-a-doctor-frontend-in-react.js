@@ -86,7 +86,7 @@ class List extends Component{
                                                         <div className="row css-name-offset">
                                                             <div className="col-12">
                                                                 <h2 className="h5 font-weight-bold m-0">
-                                                                    <Link to={{pathname:`/doctor-detail/${slugify(m.first_name)}/${m.id}`}} className="text-decoration-none shadow-none btn-outline-none">{m.first_name} {m.last_name} </Link>{(m.partnership == 1)? <i class="icon-ok-circled text-success" style={{fontSize: '18px;'}}></i>:''}
+                                                                    <Link to={{pathname:`/doctor-detail/${slugify(m.first_name)}/${m.id}`}} className="text-decoration-none shadow-none btn-outline-none">{m.first_name} {m.last_name} </Link>{(m.partnership == 1)? <i class="icon-ok-circled text-success" style={{fontSize: '18px'}}></i>:''}
                                                                 </h2>
                                                                 <p className="m-0">{(m.doctor_qualification)? m.doctor_qualification.map(dq=><small className="text-sm pr-2 degree-text">{dq.degree}</small>):""}</p>
                                                                 <h3 className="m-0 h6"><small className="text-sm">{m.focus_area}</small></h3>
@@ -106,7 +106,7 @@ class List extends Component{
                                                         <div className="doctor-name-ok">
                                                         <h2 className="h5 font-weight-bold m-0">
                                                             <Link to={{pathname:`/doctor-detail/${slugify(m.first_name)}/${m.id}`}} className="btn-light bg-transparent text-decoration-none shadow-none btn-outline-none">{m.first_name}</Link>
-                                                            {(m.partnership == 1)? <span data-tooltip="Varified and Onboard" data-tooltip-location="right"><i class="icon-ok-circled text-success" style={{fontSize: '18px;'}}></i></span>:''}
+                                                            {(m.partnership == 1)? <span data-tooltip="Varified and Onboard" data-tooltip-location="right"><i class="icon-ok-circled text-success" style={{fontSize: '18px'}}></i></span>:''}
                                                         </h2>
                                                         
                                                         </div>

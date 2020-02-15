@@ -181,12 +181,12 @@ class ContactUs extends Component {
 					</div>
 					{/* <!-- /container --> */}
 					<div id="map_contact">
-						<div class="pac-card display-none" id="pac-card">
+						<div className="pac-card display-none" id="pac-card">
 							<div>
 								<div id="title">
 									Autocomplete search
 			</div>
-								<div id="type-selector" class="pac-controls">
+								<div id="type-selector" className="pac-controls">
 									<input type="radio" name="type" id="changetype-all" checked="checked" />
 									<label for="changetype-all">All</label>
 
@@ -199,7 +199,7 @@ class ContactUs extends Component {
 									<input type="radio" name="type" id="changetype-geocode" />
 									<label for="changetype-geocode">Geocodes</label>
 								</div>
-								<div id="strict-bounds-selector" class="pac-controls">
+								<div id="strict-bounds-selector" className="pac-controls">
 									<input type="checkbox" id="use-strict-bounds" value="" />
 									<label for="use-strict-bounds">Strict Bounds</label>
 								</div>

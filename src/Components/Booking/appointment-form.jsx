@@ -193,7 +193,7 @@ class AppointmentForm extends Component{
     renderWhenUserLogin = () => {
             return (
                 <div style={{ position:"relative" }}>
-                    <button onClick={this.renderCheckFields} autofocus className='btn_1 full-width'>
+                    <button onClick={this.renderCheckFields} autoFocus className='btn_1 full-width'>
                         Book Appointment
                     </button>
                 </div>
