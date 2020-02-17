@@ -291,7 +291,7 @@ class PhoneModal extends Component {
                             <div className="forgetbutton" >
                                 {this.renderForgetPasswordModal()}                    
                             </div>
-                                <button color="primary" className='btn_1' autofocus onClick={this.signIn}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
+                                <button color="primary" className='btn_1' autoFocus onClick={this.signIn}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                                 <button color="primary" className='btn_danger' onClick={this.toggleSignInClose}>Close</button>
                     </ModalFooter>
                 </Modal>
@@ -393,7 +393,7 @@ class PhoneModal extends Component {
         return (
             <React.Fragment>
                 <div style={{ position:"relative" }}>
-                    <button onClick={this.toggle} autofocus  className='btn_1 full-width'>
+                    <button onClick={this.toggle} autoFocus  className='btn_1 full-width'>
                         Book Appointment
                     </button>
                 </div>
@@ -425,7 +425,7 @@ class PhoneModal extends Component {
                         </div>
                     </ModalBody>
                     <ModalFooter>
-                        <button color="primary" className='btn_1' autofocus onClick={(phone)? this.create: ""}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
+                        <button color="primary" className='btn_1' autoFocus onClick={(phone)? this.create: ""}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
             </React.Fragment>
