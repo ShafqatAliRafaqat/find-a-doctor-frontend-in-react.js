@@ -120,7 +120,7 @@ class About extends Component{
                         <div className="frontside">
                             <div className="card">
                                 <div className="card-body text-center">
-                                    <p><img className=" img-fluid" src="web_imgs/ayubGhauri.jpg" alt="card image"/></p>
+                                    <p><img className=" img-fluid" src="web_imgs/ayubGhauri.jpg" alt="Ayub Ghauri"/></p>
                                     <h4 className="card-title">Ayub Ghauri</h4>
                                     <h6 className="card-text h6-team">Founder / CEO</h6>
                                     {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
@@ -150,7 +150,7 @@ class About extends Component{
                         <div className="frontside">
                             <div className="card">
                                 <div className="card-body text-center">
-                                    <p><img className=" img-fluid" src="web_imgs/shahid-javed-burki.jpg" alt="card image"/></p>
+                                    <p><img className=" img-fluid" src="web_imgs/shahid-javed-burki.jpg" alt="Shahid Javed Burki"/></p>
                                     <h4 className="card-title">Shahid Burki</h4>
                                     <h6 className="card-text h6-team">Board of Director</h6>
                                     {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
@@ -179,7 +179,7 @@ class About extends Component{
                         <div className="frontside">
                             <div className="card">
                                 <div className="card-body text-center">
-                                    <p><img className=" img-fluid" src="web_imgs/najam-1.jpg" alt="card image"/></p>
+                                    <p><img className=" img-fluid" src="web_imgs/najam-1.jpg" alt="Shahid Najam"/></p>
                                     <h4 className="card-title">Shahid Najam</h4>
                                     <h6 className="card-text h6-team">Board of Director</h6>
                                     {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
@@ -210,7 +210,7 @@ class About extends Component{
                         <div className="frontside">
                             <div className="card">
                                 <div className="card-body text-center">
-                                    <p><img className=" img-fluid" src="web_imgs/Najeeb-Ghauri.jpg" alt="card image"/></p>
+                                    <p><img className=" img-fluid" src="web_imgs/Najeeb-Ghauri.jpg" alt="Najeeb Ghauri"/></p>
                                     <h4 className="card-title">Najeeb Ghauri</h4>
                                     <h6 className="card-text h6-team">Board of Advisory</h6>
                                     {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
@@ -240,7 +240,7 @@ class About extends Component{
                         <div className="frontside">
                             <div className="card">
                                 <div className="card-body text-center">
-                                    <p><img className=" img-fluid" src="web_imgs/Sairah.jpg" alt="card image"/></p>
+                                    <p><img className=" img-fluid" src="web_imgs/Sairah.jpg" alt="Saira Burki"/></p>
                                     <h4 className="card-title">Saira Burki</h4>
                                     <h6 className="card-text h6-team">Board of Advisory</h6>
                                     {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
@@ -271,7 +271,7 @@ class About extends Component{
                         <div className="frontside">
                             <div className="card">
                                 <div className="card-body text-center">
-                                    <p><img className=" img-fluid" src="web_imgs/Naeem-Ghuri.jpg" alt="card image"/></p>
+                                    <p><img className=" img-fluid" src="web_imgs/Naeem-Ghuri.jpg" alt="Naeem Ghauri"/></p>
                                     <h4 className="card-title">Naeem Ghauri</h4>
                                     <h6 className="card-text h6-team">Board of Advisory</h6>
                                     {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
@@ -329,33 +329,33 @@ class About extends Component{
 
                     <div className="item ">
                     <Link>
-                        <img className="logos-img" src="web_imgs/logos/Advance-Hair-Center-400x300.jpg" alt=""  width="200px"  height="300px" />
+                        <img className="logos-img" src="web_imgs/logos/Advance-Hair-Center-400x300.jpg" alt="Advance Hair Center"  width="200px"  height="300px" />
                     </Link>
                     </div>
 
                     <div className="item">
                     <Link>
-                    <img className="logos-img" src="web_imgs/logos/CosmoLux-400x300.jpg" alt=""  width="200px"  height="300px" />
+                    <img className="logos-img" src="web_imgs/logos/CosmoLux-400x300.jpg" alt="CosmoLux"  width="200px"  height="300px" />
                     </Link>
                     </div>
                     <div className="item">
                     <Link>
-                    <img className="logos-img" src="web_imgs/logos/Doctor-Hospital-400x300.jpg" alt=""  width="200px"  height="300px" />
+                    <img className="logos-img" src="web_imgs/logos/Doctor-Hospital-400x300.jpg" alt="Doctor Hospital"  width="200px"  height="300px" />
                     </Link>
                     </div>
                     <div className="item">
                     <Link>
-                        <img  className="logos-img"src="web_imgs/logos/Netsol-400x300.jpg" alt=""  width="200px"  height="300px" />
+                        <img  className="logos-img"src="web_imgs/logos/Netsol-400x300.jpg" alt="Netsol"  width="200px"  height="300px" />
                     </Link>
                     </div>
                     <div className="item">
                     <Link>
-                        <img className="logos-img" src="web_imgs/logos/NSpire-400x300.jpg" alt=""  width="200px"  height="300px" />
+                        <img className="logos-img" src="web_imgs/logos/NSpire-400x300.jpg" alt="NSpire"  width="200px"  height="300px" />
                     </Link>
                     </div>
                     <div className="item">
                     <Link>
-                        <img className="logos-img" src="web_imgs/logos/Servaid--400x300.jpg" alt=""  width="200px"  height="300px" />
+                        <img className="logos-img" src="web_imgs/logos/Servaid--400x300.jpg" alt="Servaid"  width="200px"  height="300px" />
                     </Link>
                     </div>
                 </OwlCarousel>

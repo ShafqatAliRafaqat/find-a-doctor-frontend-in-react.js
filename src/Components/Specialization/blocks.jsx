@@ -50,7 +50,7 @@ class Blocks extends Component {
                     <Link to={{pathname:`/treatment-detail/${slugify(m.name)}/${m.id}`}}>
                         <a href="#0" className="box_cat_home">
                             <i className="icon-info-4"></i>
-                            <img src={m.picture_path} width="60" height="60" alt="" />
+                            <img src={m.picture_path} width="60" height="60" alt={m.name} />
                             <h3>{m.name}</h3>
                             <ul className="clearfix">
                                 <li><strong>{m.doctors}</strong>Doctors</li>

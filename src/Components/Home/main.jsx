@@ -140,9 +140,9 @@ class Main extends Component{
 							<h4>{d.first_name}<em>{d.focus_area}</em></h4>
 						</div> */}
                         {(d.picture) ? 
-                        <img src={d.picture} alt="" /> 
+                        <img src={d.picture} alt={d.first_name} /> 
                         : 
-                        <img src="web_imgs/doctor2.jpg" alt=""/>
+                        <img src="web_imgs/doctor2.jpg" alt={d.first_name}/>
                         }
                         <div className="card-bottom">
 							<h6>{d.first_name}</h6>
@@ -176,9 +176,9 @@ class Main extends Component{
                             </h4>
 						</div> */}
                         {(c.picture) ? 
-                        <img src={c.picture} alt="" /> 
+                        <img src={c.picture} alt={c.name} /> 
                         : 
-                        <img src="web_imgs/doctor2.jpg" alt="" />
+                        <img src="web_imgs/doctor2.jpg" alt={c.name} />
                         }
                         <div className="card-bottom">
 							<h6>{c.name}</h6>
