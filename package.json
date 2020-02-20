@@ -60,9 +60,13 @@
         ]
     },
     "reactSnap": {
-        "source": "dist",
+        "source": "./dist",
+        "inlineCss": true,
+        "removeBlobs": true,
+        "removeScriptTags": true,
+        "removeStyleTags": true,
         "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-        "puppeteerExecutablePath": "/opt/google/chrome/",
+        "puppeteerExecutablePath": "/opt/google/chrome/google-chrome",
         "minifyHtml": {
             "collapseWhitespace": false,
             "sortClassName": false,
