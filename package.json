@@ -65,6 +65,8 @@
         "removeBlobs": true,
         "removeScriptTags": true,
         "removeStyleTags": true,
+        "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+        "puppeteerExecutablePath": "/opt/google/chrome/",
         "minifyHtml": {
             "collapseWhitespace": false,
             "sortClassName": false,
