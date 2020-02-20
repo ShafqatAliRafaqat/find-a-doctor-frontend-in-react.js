@@ -28,7 +28,7 @@
         "react-phone-number-input": "^2.5.3",
         "react-redux": "^7.1.1",
         "react-router-dom": "^5.1.2",
-        "react-scripts": "2.0.0-next.3e165448",
+        "react-scripts": "3.1.2",
         "react-select": "^3.0.8",
         "react-select-search": "^0.10.2",
         "reactstrap": "^8.4.1",
@@ -49,9 +49,9 @@
     },
     "browserslist": {
         "production": [
-            ">0.25%",
-            "not op_mini all",
-            "ie 11"
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
         ],
         "development": [
             "last 1 chrome version",
@@ -60,15 +60,12 @@
         ]
     },
     "reactSnap": {
-        "source": "dist",
+        "source": "./dist",
         "inlineCss": true,
         "removeBlobs": true,
         "removeScriptTags": true,
         "removeStyleTags": true,
-        "puppeteerArgs": [
-            "--no-sandbox",
-            "--disable-setuid-sandbox"
-        ],
+        "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
         "puppeteerExecutablePath": "/opt/google/chrome/google-chrome",
         "minifyHtml": {
             "collapseWhitespace": false,
