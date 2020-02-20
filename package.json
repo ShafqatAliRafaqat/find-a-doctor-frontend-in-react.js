@@ -60,7 +60,7 @@
         ]
     },
     "reactSnap": {
-        "source": "./dist",
+        "source": "dist",
         "inlineCss": true,
         "removeBlobs": true,
         "removeScriptTags": true,
