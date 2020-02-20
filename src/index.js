@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { hydrate, render } from "react-dom";
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
@@ -10,18 +11,9 @@ import reducers from "./Store/Reducers";
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 // import 'babel-polyfill';
 const store = createStore(combineReducers(reducers), compose(applyMiddleware(thunk)));
-        ReactDOM.hydrate( 
-            <Provider store = { store } >
-                <BrowserRouter >
-                    <ScrollToTop >
-                        <App />
-                    </ScrollToTop> 
-                </BrowserRouter> 
-            </Provider>, 
-            document.getElementById('hospitallcare'));
 const rootElement = document.getElementById("hospitallcare");
 if (rootElement.hasChildNodes()) {
-    ReactDOM.hydrate(
+    hydrate(
         <Provider store = { store } >
             <BrowserRouter >
                 <ScrollToTop >
@@ -30,7 +22,7 @@ if (rootElement.hasChildNodes()) {
             </BrowserRouter> 
         </Provider>, rootElement);
   } else {
-    ReactDOM.render(
+    render(
         <Provider store = { store } >
             <BrowserRouter >
                 <ScrollToTop >
