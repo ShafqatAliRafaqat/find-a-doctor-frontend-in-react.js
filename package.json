@@ -60,8 +60,11 @@
         ]
     },
     "reactSnap": {
-        "source": "dist",
+        "source": "./dist",
         "inlineCss": true,
+        "removeBlobs": true,
+        "removeScriptTags": true,
+        "removeStyleTags": true,
         "minifyHtml": {
             "collapseWhitespace": false,
             "sortClassName": false,
