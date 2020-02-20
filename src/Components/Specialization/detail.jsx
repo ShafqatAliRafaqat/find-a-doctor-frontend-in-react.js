@@ -377,7 +377,7 @@ class Detail extends Component{
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
 		}
-		var meta_description = name+"| Top Doctors Of "+name+"- Book an appointment with top doctors of "+name;
+		var meta_description = "Find best doctors of "+name+"| Top Doctors Of "+name+"- Book an appointment with top doctors of "+name;
 			return(
                 <React.Fragment>
 					<Helmet>
@@ -386,7 +386,7 @@ class Detail extends Component{
 						<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 						<meta name="description" content={ meta_description } />
 						<meta name="author" content="Hospitall Care" />
-						<title>{ name } | Best Doctors Of { name } - Book an appointment with top doctors of { name }</title>
+						<title>Find best doctors of +{ name } | Best Doctors Of { name } - Book an appointment with top doctors of { name }</title>
 						
             		</Helmet>
                     <main>

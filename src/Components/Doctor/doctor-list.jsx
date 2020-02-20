@@ -326,9 +326,9 @@ class DoctorList extends Component{
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    				<meta name="description" content="List of top doctors in pakistan- Book an appointment with top doctors" />
+    				<meta name="description" content="List of top doctors in pakistan- Book an appointment with top doctors - Get your digital records" />
     				<meta name="author" content="Hospitall Care" />
-					<title>Top Doctors In Pakistan - Book an appointment with top doctors</title>
+					<title>Top Doctors In Pakistan - Book an appointment with top doctors - Get your digital records</title>
 					<Link to='/doctor-list'></Link>
             	</Helmet>
 				<main>

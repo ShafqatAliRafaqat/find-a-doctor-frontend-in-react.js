@@ -68,9 +68,9 @@ class ContactUs extends Component {
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    				<meta name="description" content="Contact us | Address | Contact info- Book an appointment with top doctors" />
+    				<meta name="description" content="Contact us : +92-3222555600 Monday to Friday 9am - 6pm | Address: NETSOL Avenue, Main Ghazi Rd, Khuda Buksh Colony, Lahore, Pakistan | Contact info- Book an appointment with top doctors Book an Appointment| Call us now +92-322-2555600 +92-322-2555400" />
     				<meta name="author" content="Hospitall Care" />
-					<title>Contact us | Address | Contact info- Book an appointment with top doctors</title>
+					<title>Contact us : +92-3222555600 Monday to Friday 9am - 6pm | Address: NETSOL Avenue, Main Ghazi Rd, Khuda Buksh Colony, Lahore, Pakistan | Contact info- Book an appointment with top doctors Book an Appointment| Call us now +92-322-2555600 +92-322-2555400</title>
 					<link rel="canonical" href="https://hospitallcare.com" />
             	</Helmet>
 				<main>

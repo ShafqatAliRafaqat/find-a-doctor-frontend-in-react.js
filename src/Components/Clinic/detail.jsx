@@ -482,7 +482,7 @@ class Detail extends Component{
             return (<div data-loader="circle-side"></div>);
 		}
 		const {name} = center_data;
-		var meta_description = name+" | List of top doctors in "+name+"- Book an appointment with top doctors";
+		var meta_description = "Book an Appointment with our Best doctors in "+name+" | List of top doctors in "+name+"- Book an appointment with top doctors";
 		
 			return(
                 <React.Fragment>
@@ -492,7 +492,7 @@ class Detail extends Component{
 						<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 						<meta name="description" content= {meta_description}/>
 						<meta name="author" content="Hospitall Care" />
-						<title>{center_data.name} | Top Doctors In {center_data.name} - Book an appointment with top doctors of {center_data.name}</title>
+						<title>Book an Appointment with our Best doctors in {center_data.name} | Top Doctors In {center_data.name} - Book an appointment with top doctors of {center_data.name}</title>
 						<Link to={{pathname:`/center-detail/${slugify(center_data.name)}/${center_data.id}`}}></Link>
             		</Helmet>
                     <main>

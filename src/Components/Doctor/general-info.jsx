@@ -332,7 +332,8 @@ class GeneralInfo extends Component {
 		const {history } 			=	this.props;
 		const {first_name} 			=	doctor_data;
 		const {focus_area} 			=	doctor_data;
-		var meta_description = "Book an appointment with"+first_name+" | "+first_name+"is one of best doctor of"+focus_area;
+		const {city_name} 			=	doctor_data;
+		var meta_description = "Book an appointment with "+first_name+" | "+first_name+" is one of best doctor of "+focus_area+" | "+first_name+" practicing in "+city_name;
 		return (
 			<React.Fragment>
 				<Helmet>

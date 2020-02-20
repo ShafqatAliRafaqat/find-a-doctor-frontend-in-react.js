@@ -38,9 +38,9 @@ class About extends Component{
 						<meta charSet="utf-8" />
 						<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 						<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-						<meta name="description" content="About Us. Welcome to HospitALL | Leadership Team | Our Partners" />
+						<meta name="description" content="About Us. Welcome to HospitALL | Leadership Team | Our Partners | hospitallcare.com is Pakistan’s premier digital healthcare platform that aims to revolutionize the local healthcare market. It connects patients with the right doctors and enables the doctors to optimize their medical practices via their practice management software." />
 						<meta name="author" content="Hospitall Care" />
-						<title>About Us. Welcome to HospitALL | Leadership Team | Our Partners</title>
+						<title>About Us. Welcome to HospitALL | Leadership Team | Our Partners | hospitallcare.com is Pakistan’s premier digital healthcare platform that aims to revolutionize the local healthcare market. It connects patients with the right doctors and enables the doctors to optimize their medical practices via their practice management software.</title>
 				    <Link to="/about-us"></Link>
             	</Helmet>
             <main>
