@@ -4,7 +4,7 @@ class AppSection extends Component {
 
     render () {
         return(
-            <React.Fragment>
+            <>
                 <div id="app_section">
             <div className="container">
                 <div className="row justify-content-around">
@@ -26,7 +26,7 @@ class AppSection extends Component {
             {/* <!-- /container --> */}
         </div>
         {/* <!-- /app_section --> */}
-            </React.Fragment>
+            </>
         );
     }
 }

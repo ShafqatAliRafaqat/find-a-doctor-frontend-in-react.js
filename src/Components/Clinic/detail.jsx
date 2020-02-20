@@ -485,7 +485,7 @@ class Detail extends Component{
 		var meta_description = "Book an Appointment with our Best doctors in "+name+" | List of top doctors in "+name+"- Book an appointment with top doctors";
 		
 			return(
-                <React.Fragment>
+                <>
 					<Helmet>
 						<meta charSet="utf-8" />
 						<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -532,7 +532,7 @@ class Detail extends Component{
 						<BottomFaq/>
 						{this.nearestClinics()}
 					</main>
-                </React.Fragment>
+                </>
 			);
 		}
 	}

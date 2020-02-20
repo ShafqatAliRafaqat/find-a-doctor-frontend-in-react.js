@@ -142,7 +142,7 @@ class AppointmentForm extends Component{
         
         if(count > 0){
                 return(
-                    <React.Fragment>
+                    <>
                     <div className="row">
 						<div className="col-lg-12">
 							<div className="form-group">
@@ -186,7 +186,7 @@ class AppointmentForm extends Component{
                         }
                         </div>
                     </div>
-                    </React.Fragment>
+                    </>
                 );
         }
     };
@@ -230,12 +230,12 @@ class AppointmentForm extends Component{
                 <small  className="col pl-0  text-sm">
                     <Link to={{ pathname:`/center-detail/${slugify(c.center_name)}/${c.center_id}` }}><h6>{c.center_name}</h6></Link>
                     {(day_from)? day_from.map((d,index)=>
-                    <React.Fragment>
+                    <>
                     <ul className="bullets mb-2">
                         <li>{d} to {day_to[index]} {moment(time_from[index],"hh").format('LT')} - { moment(time_to[index],"hh").format('LT')}</li>
                         
                     </ul>
-                    </React.Fragment>
+                    </>
                     )
                     :""
                 } 
@@ -263,7 +263,7 @@ class AppointmentForm extends Component{
                     {this.renderCenter(schedules)}
 				    <div id="message-booking"></div>
 					{(doctor_data.partnership == 1) ? 
-					<React.Fragment>
+					<>
                     <div className="row">
 						<div className="col-lg-12">
 							<div className="form-group">
@@ -276,7 +276,7 @@ class AppointmentForm extends Component{
 					</div>  
                     {this.renderCenterTreatment()}
                     {(user)? this.renderWhenUserLogin() :this.renderPhoneModal()}
-                    </React.Fragment>
+                    </>
                     :''
                     }
                     </div>

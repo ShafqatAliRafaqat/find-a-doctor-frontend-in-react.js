@@ -25,7 +25,7 @@ class Header extends Component{
         const { user } = this.props;
         const { name } = this.state;
         return(
-            <React.Fragment>
+            <>
                 <header className="header_sticky sticky">
                 <div id="app_div">
                     <a href="https://play.google.com/store/apps/details?id=com.hospitall.patientathospitall">
@@ -90,7 +90,7 @@ class Header extends Component{
                             </div>
                         </li>
                         :
-                        <React.Fragment>
+                        <>
                         <li className="nav-item dropdown">
                             <a className="nav-link" href="#" id="signup-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div className="nav-icons-span"><i className="pe-7s-add-user user-logo"></i><span>Register</span></div>
@@ -109,7 +109,7 @@ class Header extends Component{
                                 <Link className="dropdown-item" to="/doctor-signin" onClick={this.renderRefreshPage}>Doctor Login</Link>
                             </div>
                         </li>
-                        </React.Fragment>
+                        </>
                         }
                         <li className="nav-item nav-item-margin-top app-nav">
                             <a href="https://play.google.com/store/apps/details?id=com.hospitall.patientathospitall">
@@ -133,7 +133,7 @@ class Header extends Component{
                 {/* <!--/.Navbar --> */}
                 </div>
             </header>
-            </React.Fragment>
+            </>
         );
     }
 };

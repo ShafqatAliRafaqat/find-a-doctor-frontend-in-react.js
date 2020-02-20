@@ -13,7 +13,7 @@ class List extends Component{
         const { center_data } = this.state;
 		return center_data.map(m => {
 			return(
-				<React.Fragment>
+				<>
 				{/* Laptop View */}
 				<div className="col-lg-3 col-md-4 clinics-main text-center feature-item spin rounded py-3">
 					<div className="shadow list-card center-card">
@@ -55,7 +55,7 @@ class List extends Component{
 					</Link>
 				</div>
 
-				</React.Fragment>
+				</>
 			);
 		});
 	}

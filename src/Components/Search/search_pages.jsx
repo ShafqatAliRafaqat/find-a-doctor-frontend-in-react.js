@@ -136,7 +136,7 @@ class SearchPages extends Component {
         })
         if (specializations1.length != 0 || doctors1.length != 0 || centers1.length != 0) {
             return (
-                <React.Fragment>
+                <>
                     <div className="clearfix">
                         <List className='small-search' style={{
                             maxWidth: 461,
@@ -156,11 +156,11 @@ class SearchPages extends Component {
                             {centers1}
                         </List>
                     </div>
-                </React.Fragment>
+                </>
             )
         } else {
             return (
-                <React.Fragment>
+                <>
                     <div className="clearfix">
                     <List className='small-search' style={{
                         maxWidth: 461,
@@ -184,7 +184,7 @@ class SearchPages extends Component {
                         </ListItem>
                     </List>
                     </div>
-                </React.Fragment>
+                </>
             )
         }
 
@@ -193,7 +193,7 @@ class SearchPages extends Component {
     render() {
         const { search } = this.state;
         return (
-            <React.Fragment>
+            <>
                 <div className="col-md-6">
                     <div className="search_bar_list">
                         <input
@@ -214,7 +214,7 @@ class SearchPages extends Component {
                         <input type="submit" value="Search" />
                     </div>
                 </div>
-            </React.Fragment>
+            </>
         );
     }
 }

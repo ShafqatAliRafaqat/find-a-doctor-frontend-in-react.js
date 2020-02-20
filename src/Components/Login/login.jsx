@@ -62,7 +62,7 @@ class Login extends Component{
 			return <Redirect to='/404-not-found' />;
 		};
         return(
-            <React.Fragment>
+            <>
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,7 +115,7 @@ class Login extends Component{
 						</div>
 					</div>
 				</main>
-            </React.Fragment>
+            </>
         );
     }
 }

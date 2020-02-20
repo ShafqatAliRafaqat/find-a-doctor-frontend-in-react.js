@@ -32,7 +32,7 @@ class Layout extends Component {
     
     render() {
           return ( 
-              <React.Fragment>
+              <>
                   <div id="preloader">
                     <div data-loader="circle-side"></div>
                   </div>
@@ -69,7 +69,7 @@ class Layout extends Component {
                     htmlRef={window.location.pathname}
                   />
                   </BrowserRouter>
-            </React.Fragment>
+            </>
         );
       }
     }

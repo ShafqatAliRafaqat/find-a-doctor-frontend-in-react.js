@@ -127,7 +127,7 @@ class SearchHeader extends Component {
     })
     if (specializations1.length != 0 || doctors1.length != 0 || centers1.length != 0) {
       return(
-        <React.Fragment>
+        <>
          <List  className="search-header-list"
             // style={{
             //   maxWidth: 542,
@@ -147,11 +147,11 @@ class SearchHeader extends Component {
           {doctors1}
           {centers1}
           </List>
-        </React.Fragment>
+        </>
        )
     } else {
       return(
-        <React.Fragment>
+        <>
          <List  className="search-header-list"
          >
         <ListItem key={0} className="search-list">
@@ -162,7 +162,7 @@ class SearchHeader extends Component {
           </div>
         </ListItem>
           </List>
-        </React.Fragment>
+        </>
        )
     }
 
@@ -174,7 +174,7 @@ class SearchHeader extends Component {
   render() {
     const { search,page } = this.state;
     return (
-      <React.Fragment>
+      <>
         <div className="hero_home version_1">
           <div className="content">
             <h3>{page}</h3>
@@ -232,7 +232,7 @@ class SearchHeader extends Component {
           </div>
         </div>
         {/* <!-- /Hero --> */}
-      </React.Fragment>
+      </>
     );
   }
 }

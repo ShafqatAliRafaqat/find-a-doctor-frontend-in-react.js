@@ -379,7 +379,7 @@ class Detail extends Component{
 		}
 		var meta_description = "Find best doctors of "+name+"| Top Doctors Of "+name+"- Book an appointment with top doctors of "+name;
 			return(
-                <React.Fragment>
+                <>
 					<Helmet>
 						<meta charSet="utf-8" />
 						<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -471,7 +471,7 @@ class Detail extends Component{
 						{this.TreatmentInCenters()}
 
 					</main>
-                </React.Fragment>
+                </>
 			);
 	}
 }

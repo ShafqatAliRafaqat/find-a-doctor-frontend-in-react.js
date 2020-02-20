@@ -198,7 +198,7 @@ class DoctorList extends Component{
 	
 	renderDoctorFilter = () => {
 		return	(
-			<React.Fragment>
+			<>
 				<aside className="col-xl-3 col-lg-4 doctor-filters" id="sidebar">
 				 	<div className="box_profile">
 				 		<div className="row">
@@ -279,7 +279,7 @@ class DoctorList extends Component{
 						</div>
 					</div>
 				</aside>	
-			</React.Fragment>
+			</>
 		);
 	};
 
@@ -321,7 +321,7 @@ class DoctorList extends Component{
     render(){
 		let { to,total } = this.state;
         return(
-            <React.Fragment>
+            <>
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -406,7 +406,7 @@ class DoctorList extends Component{
 					{this.BottomSpecialization()}
 					<div className="pb-5"></div>
 				</main>	
-            </React.Fragment>
+            </>
         );
     }
 }

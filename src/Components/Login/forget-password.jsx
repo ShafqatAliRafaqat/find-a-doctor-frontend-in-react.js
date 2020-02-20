@@ -175,7 +175,7 @@ class PhoneModal extends Component {
         const { PasswordModal ,processing} 	= this.state;
 
         return (
-            <React.Fragment>
+            <>
                  <Modal isOpen={PasswordModal} toggle={this.togglePassword} className="modal-primary modal-center">
                    <ModalHeader toggle={this.togglePassword}><i className="fa fa-edit" />New Password</ModalHeader>
                     <ModalBody>
@@ -200,7 +200,7 @@ class PhoneModal extends Component {
                         <button color="primary" className='btn_1' onClick={this.checkPassword}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     };
     checkCode = ()=>{
@@ -218,7 +218,7 @@ class PhoneModal extends Component {
             return this.renderNewPasswordModal();
         }
         return (
-            <React.Fragment>
+            <>
                  <Modal isOpen={SendCodeModal} toggle={this.toggleSendCode} className="modal-primary modal-center">
                    <ModalHeader toggle={this.toggleSendCode}><i className="fa fa-edit" />Enter 6-Digite Code</ModalHeader>
                     <ModalBody>
@@ -244,7 +244,7 @@ class PhoneModal extends Component {
                         <button color="primary" className='btn_1' onClick={this.checkCode}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     };
     render() {
@@ -257,7 +257,7 @@ class PhoneModal extends Component {
         }
       
         return (
-            <React.Fragment>
+            <>
                 <button onClick={this.toggle} className="btn_danger"><small>Forgot password?</small></button>
                 <Modal isOpen={isOpen} toggle={this.toggle} className="modal-primary modal-center">
                     <ModalHeader toggle={this.toggle}><i className="fa fa-edit" /> Forget Password</ModalHeader>
@@ -290,7 +290,7 @@ class PhoneModal extends Component {
                         <button color="primary" className='btn_1' onClick={(phone)? this.create: ""}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     }
 }

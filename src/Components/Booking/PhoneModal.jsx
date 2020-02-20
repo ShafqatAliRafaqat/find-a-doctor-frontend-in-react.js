@@ -250,7 +250,7 @@ class PhoneModal extends Component {
             this.state.SignInModal =true
         }
         return (
-            <React.Fragment>
+            <>
                  <Modal isOpen={(customer)? false :SignInModal} toggle={this.toggleSignIn} className="modal-primary modal-center">
                    <ModalHeader onClose={this.toggleSignIn}><i className="fa fa-edit" />Sign In</ModalHeader>
                     <ModalBody>
@@ -295,13 +295,13 @@ class PhoneModal extends Component {
                                 <button color="primary" className='btn_danger' onClick={this.toggleSignInClose}>Close</button>
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     };
     renderSignUpModal = () => {
         const { SignUpModal ,processing ,customerName} 	= this.state;
         return (
-            <React.Fragment>
+            <>
                  <Modal isOpen={SignUpModal} toggle={this.toggleSignUp} className="modal-primary modal-center">
                    <ModalHeader toggle={this.toggleSignUp}><i className="fa fa-edit" />Sign Up</ModalHeader>
                     <ModalBody>
@@ -331,7 +331,7 @@ class PhoneModal extends Component {
                         <button color="primary" className='btn_1' onClick={this.signUp}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     };
     codeChecker = () =>{
@@ -349,7 +349,7 @@ class PhoneModal extends Component {
             return this.renderSignUpModal();
         }
         return (
-            <React.Fragment>
+            <>
                  <Modal isOpen={SendCodeModal} toggle={this.toggleSendCode} className="modal-primary modal-center">
                    <ModalHeader toggle={this.toggleSendCode}><i className="fa fa-edit" />Enter 6-Digite Code</ModalHeader>
                     <ModalBody>
@@ -375,7 +375,7 @@ class PhoneModal extends Component {
                         <button color="primary" className='btn_1' onClick={this.codeChecker}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     };
     render() {
@@ -391,7 +391,7 @@ class PhoneModal extends Component {
       
         const { first_name }= this.props.doctor_data;
         return (
-            <React.Fragment>
+            <>
                 <div style={{ position:"relative" }}>
                     <button onClick={this.toggle} autoFocus  className='btn_1 full-width'>
                         Book Appointment
@@ -428,7 +428,7 @@ class PhoneModal extends Component {
                         <button color="primary" className='btn_1' autoFocus onClick={(phone)? this.create: ""}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     }
 }

@@ -10,7 +10,7 @@ class BottomFaq extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <>
                 <div className="container margin_25_padding_0">
                     <h6 className="h6-brief-intro">Frequently Asked Questions</h6>
                     <div className="row">
@@ -55,7 +55,7 @@ class BottomFaq extends Component {
                         </div>
                     </div>
                 </div>            
-                </React.Fragment>
+                </>
         );
     }
 

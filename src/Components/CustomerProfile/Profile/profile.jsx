@@ -129,7 +129,7 @@ class Profile extends Component{
         }
         const {processing, blood_group_id, marital_status, gender, name, phone,email,address,height,weight} =this.state;
         return(
-            <React.Fragment>
+            <>
                 <main>
                     <div id="breadcrumb">
                         <div className="container">
@@ -275,7 +275,7 @@ class Profile extends Component{
                         </div>
                     </div>
                 </main>
-            </React.Fragment>
+            </>
         );
     }
 }

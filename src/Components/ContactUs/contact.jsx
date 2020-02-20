@@ -63,7 +63,7 @@ class ContactUs extends Component {
 				window.location.reload();
 			}
 		return (
-			<React.Fragment>
+			<>
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -218,7 +218,7 @@ class ContactUs extends Component {
 					{/* <!-- /map --> */}
 				</main>
 				{/* <!-- /main --> */}
-			</React.Fragment>
+			</>
 		);
 	}
 }

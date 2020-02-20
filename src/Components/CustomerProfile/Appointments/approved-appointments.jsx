@@ -173,7 +173,7 @@ class Appointments extends Component{
             return (<div data-loader="circle-side"></div>);
         }
         return(
-            <React.Fragment>
+            <>
                 <main>
                     <div id="breadcrumb">
                         <div className="container">
@@ -231,7 +231,7 @@ class Appointments extends Component{
                         </div>
                     </div>
                 </main>
-            </React.Fragment>
+            </>
         );
     }
 }

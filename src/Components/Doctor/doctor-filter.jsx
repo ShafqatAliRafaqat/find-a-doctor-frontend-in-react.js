@@ -52,7 +52,7 @@ class DoctorFilter extends Component{
     render(){
         let { doctor_data, page, totalPages,to,total,male,female, available_any_day, available_today, available_on_weekend } = this.state;
         return(
-            <React.Fragment>
+            <>
                 <div className="sect-filters_and_sort bg-light pb-2 pt-2 text-sm">
                     <div className="container">
                         <div className="row">
@@ -109,7 +109,7 @@ class DoctorFilter extends Component{
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
+            </>
         );
     }
 }

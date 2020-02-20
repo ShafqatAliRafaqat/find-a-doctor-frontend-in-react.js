@@ -13,7 +13,7 @@ class TermsAndConditions extends Component{
 	};
     render(){
         return(
-            <React.Fragment>
+            <>
         		<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -478,7 +478,7 @@ class TermsAndConditions extends Component{
                 </div>
             </div>
             </div>
-            </React.Fragment>
+            </>
         );
     }
 }

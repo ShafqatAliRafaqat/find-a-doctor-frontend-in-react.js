@@ -166,7 +166,7 @@ class Register extends Component{
         const { SendCodeModal ,processing, phone} 	= this.state;
 		
         return (
-            <React.Fragment>
+            <>
 					<div className="form-group text-center add_top_30">
 						<button color="primary" className='btn_1' onClick={this.checkPassword}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
 					</div>
@@ -201,7 +201,7 @@ class Register extends Component{
 
                 </Modal>
 
-            </React.Fragment>
+            </>
         );
     };
     render(){
@@ -210,7 +210,7 @@ class Register extends Component{
 			return <Redirect to='/404-not-found' />;
 		};
         return(
-            <React.Fragment>
+            <>
                 <Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -271,7 +271,7 @@ class Register extends Component{
 		</div>
 	</main>
 	{/* <!-- /main --> */}
-            </React.Fragment>
+            </>
         );
     }
 }

@@ -335,7 +335,7 @@ class GeneralInfo extends Component {
 		const {city_name} 			=	doctor_data;
 		var meta_description = "Book an appointment with "+first_name+" | "+first_name+" is one of best doctor of "+focus_area+" | "+first_name+" practicing in "+city_name;
 		return (
-			<React.Fragment>
+			<>
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -428,7 +428,7 @@ class GeneralInfo extends Component {
 					{this.relatedCenters()}
 
 				</main>
-			</React.Fragment>
+			</>
 		);
 	}
 }

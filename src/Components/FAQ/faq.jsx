@@ -9,7 +9,7 @@ class Faq extends Component{
     
     render(){
         return(
-            <React.Fragment>
+            <>
             <main>
 		<div id="breadcrumb">
 			<div className="container">
@@ -307,7 +307,7 @@ class Faq extends Component{
 		{/* <!-- /container --> */}
 	</main>
 	{/* <!-- /main --> */}
-            </React.Fragment>
+            </>
         );
     }
 }

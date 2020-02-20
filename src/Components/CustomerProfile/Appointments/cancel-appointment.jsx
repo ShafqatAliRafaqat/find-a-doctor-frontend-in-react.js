@@ -70,7 +70,7 @@ class CancelAppointment extends Component {
 
         const { isOpen, processing} = this.state;
         return (
-            <React.Fragment>    
+            <>    
                 <button onClick={() => this.setState({ show: true })} className="btn btn-block btn-warning text-white font-weight-bold d-none d-lg-block no-booking-btn">
                     Cancel Booking
                 </button>
@@ -112,7 +112,7 @@ class CancelAppointment extends Component {
                         <button color="primary" className='btn_1' onClick={this.cancelAppointment}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal> */}
-            </React.Fragment>
+            </>
         );
     }
 }

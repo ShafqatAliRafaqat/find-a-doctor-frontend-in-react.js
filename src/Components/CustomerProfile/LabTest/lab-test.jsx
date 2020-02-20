@@ -203,7 +203,7 @@ class LabTest extends Component{
             return (<div data-loader="circle-side"></div>);
         }
         return(
-            <React.Fragment>
+            <>
                 <main>
                     <div id="breadcrumb">
                         <div className="container">
@@ -261,7 +261,7 @@ class LabTest extends Component{
                         </div>
                     </div>
                 </main>
-            </React.Fragment>
+            </>
         );
     }
 }

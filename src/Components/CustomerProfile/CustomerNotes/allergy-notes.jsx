@@ -146,7 +146,7 @@ class AllergyNotes extends Component{
             options =[{ "notes": "" }];
         }
         return(
-            <React.Fragment>
+            <>
                 <main>
                     <div id="breadcrumb">
                         <div className="container">
@@ -216,7 +216,7 @@ class AllergyNotes extends Component{
                         </div>
                     </div>
                 </main>
-            </React.Fragment>
+            </>
         );
     }
 }

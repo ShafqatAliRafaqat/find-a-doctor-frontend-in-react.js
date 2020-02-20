@@ -224,7 +224,7 @@ class JoinDoctor extends Component{
 	renderCodeSendedModal = () => {
         const { SendCodeModal ,processing, phone} 	= this.state;
          return (
-            <React.Fragment>
+            <>
 					<div className="form-group text-center add_top_30">
 						<button color="primary" className='btn_1' onClick={this.checkPassword}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
 					</div>
@@ -257,7 +257,7 @@ class JoinDoctor extends Component{
                         </ModalFooter>
                 </Modal>
 
-            </React.Fragment>
+            </>
         );
     };
     render(){
@@ -266,7 +266,7 @@ class JoinDoctor extends Component{
 			return <Redirect to='/404-not-found' />;
 		};
         return(
-            <React.Fragment>
+            <>
                 <Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -386,7 +386,7 @@ class JoinDoctor extends Component{
                     Your Number is already used. Please change your number or go to our <a href="https://support.hospitallcare.com/admin">Login page</a> to Sign In
             </SweetAlert>
 	{/* <!-- /main --> */}
-            </React.Fragment>
+            </>
         );
     }
 }

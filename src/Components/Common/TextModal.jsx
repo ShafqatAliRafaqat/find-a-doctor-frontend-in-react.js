@@ -34,7 +34,7 @@ class TextModal extends Component {
         const { text, title, icon } = this.props;
 
         return (
-            <React.Fragment>
+            <>
 
                 <Button block color="link" onClick={this.toggle} className="mr-1">
                     <i className={icon} />
@@ -53,7 +53,7 @@ class TextModal extends Component {
                     </ModalFooter>
 
                 </Modal>
-            </React.Fragment>
+            </>
         );
     }
 

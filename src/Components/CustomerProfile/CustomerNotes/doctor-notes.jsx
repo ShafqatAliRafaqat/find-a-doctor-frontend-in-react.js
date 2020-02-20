@@ -63,7 +63,7 @@ class DoctorNotes extends Component{
         }
         const {doctor_notes} =this.state;
         return(
-            <React.Fragment>
+            <>
                 <main>
                     <div id="breadcrumb">
                         <div className="container">
@@ -139,7 +139,7 @@ class DoctorNotes extends Component{
                         </div>
                     </div>
                 </main>
-            </React.Fragment>
+            </>
         );
     }
 }
