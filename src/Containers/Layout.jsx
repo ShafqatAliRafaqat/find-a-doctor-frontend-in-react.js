@@ -34,7 +34,7 @@ class Layout extends Component {
           return ( 
               <>
                   <div id="preloader">
-                    <div data-loader="circle-side"></div>
+                    {/* <div data-loader="circle-side"></div> */}
                   </div>
                   <BrowserRouter>
                   <NavBarSection />
