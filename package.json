@@ -62,7 +62,7 @@
     "reactSnap": {
         "source": "dist",
         "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-        "puppeteerExecutablePath": "/opt/google/chrome/google-chrome",
+        "puppeteerExecutablePath": "/opt/google/chrome/",
         "minifyHtml": {
             "collapseWhitespace": false,
             "sortClassName": false,
