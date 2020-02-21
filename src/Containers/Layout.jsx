@@ -33,9 +33,6 @@ class Layout extends Component {
     render() {
           return ( 
               <>
-                  <div id="preloader">
-                    {/* <div data-loader="circle-side"></div> */}
-                  </div>
                   <BrowserRouter>
                   <NavBarSection />
                   
