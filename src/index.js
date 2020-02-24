@@ -8,10 +8,15 @@ import ScrollToTop from './ScrollToTop';
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import reducers from "./Store/Reducers";
+import TagManager from 'react-gtm-module';
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 // import 'babel-polyfill';
 const store = createStore(combineReducers(reducers), compose(applyMiddleware(thunk)));
 const rootElement = document.getElementById("hospitallcare");
+const tagManagerArgs = {
+    gtmId: 'GTM-KLSG744'
+}
+TagManager.initialize(tagManagerArgs)
 if (rootElement.hasChildNodes()) {
     hydrate(
         <Provider store = { store } >
