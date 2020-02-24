@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import SweetAlert from 'react-bootstrap-sweetalert';
 import {Helmet} from "react-helmet";
 import 'react-phone-number-input/style.css'
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
 alertify.set('notifier', 'position', 'top-center');
 
 class DoctorSignIn extends Component{
@@ -35,7 +35,7 @@ class DoctorSignIn extends Component{
         this.setState({
             processing: true
         });
-        const {signIn,dispatch,errorHandler ,histroy} = this.props;
+        const {signIn,errorHandler } = this.props;
 
         const { phone, password } 	=	this.state;
         let params = { phone, password};

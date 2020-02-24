@@ -3,18 +3,14 @@ import { connect } from "react-redux";
 import alertify from "alertifyjs";
 import PasswordForget from "../Login/forget-password";
 import {
-    Button,
     ModalFooter,
     ModalBody,
     ModalHeader,
     Modal,
-    FormGroup, Input, Label,
 } from 'reactstrap';
-import moment from 'moment';
 import * as actions from "../../Store/Actions/AuthAction";
 import 'react-phone-number-input/style.css'
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
-import CodeVarificationModal from "./CodeVarificationModal";
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
 alertify.set('notifier', 'position', 'top-center');
 
 class PhoneModal extends Component {

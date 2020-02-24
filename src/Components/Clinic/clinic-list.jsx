@@ -2,15 +2,11 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../Store/Actions/CenterAction";
-import SimplePagination from "../Common/SimplePagination";
 import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
-import alertify from 'alertifyjs';
 import List from './list';
 import SearchPages from '../Search/search_pages';
 import Pagination from "react-js-pagination";
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import {Helmet} from "react-helmet";
 
 class CenterList extends Component{

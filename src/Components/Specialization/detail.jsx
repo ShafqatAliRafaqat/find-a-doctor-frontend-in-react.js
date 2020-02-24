@@ -287,7 +287,7 @@ class Detail extends Component{
 	}
 
     CenterProfile = () => {
-		const { treatment_data,total } = this.state;
+		// const { treatment_data,total } = this.state;
 		return (
             <aside className="col-xl-3 col-lg-4 pull-right" id="sidebar">
 					<div className="box_profile">
@@ -372,12 +372,12 @@ class Detail extends Component{
             );
 	};
 	render(){
-		const { total, to,treatment_data ,related_treatments} = this.state;
+		const { total, to,treatment_data } = this.state;
 		var name = treatment_data.name ; 
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
 		}
-		var meta_description = "Find best doctors of "+name+"| Top Doctors Of "+name+"- Book an appointment with top doctors of "+name;
+		var meta_description = "Find best doctors of "+name+" | Top Doctors Of "+name+" - Book an appointment with top doctors of "+name;
 			return(
                 <>
 					<Helmet>
@@ -386,7 +386,7 @@ class Detail extends Component{
 						<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 						<meta name="description" content={ meta_description } />
 						<meta name="author" content="Hospitall Care" />
-						<title>Find best doctors of +{ name } | Best Doctors Of { name } - Book an appointment with top doctors of { name }</title>
+						<title>Find best doctors of { name } | Best Doctors Of { name } - Book an appointment with top doctors of { name }</title>
 						
             		</Helmet>
                     <main>

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Redirect, Route, Switch, HashRouter,BrowserRouter } from 'react-router-dom';
+import { Redirect, Route, Switch,BrowserRouter } from 'react-router-dom';
 import FooterSection from "./Footer";
 import NavBarSection from "./Header";
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
-import ScrollToTop from "./../ScrollToTop"
 import routes from "./../routes";
 alertify.set('notifier', 'position', 'top-center');
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import alertify from 'alertifyjs';
 import * as actions from "../../Store/Actions/TreatmentAction";
 
 class Blocks extends Component {

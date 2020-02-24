@@ -30,7 +30,7 @@ class RiskFactorNotes extends Component{
 		this.setState({
 			isLoading: true
 		});
-		let { getRiskFactor, dispatch,alertify, errorHandler } = this.props;
+		let { getRiskFactor,alertify, errorHandler } = this.props;
 
         let customerId = this.props.user.customer.id;
         let token = this.props.user.access_token;
@@ -70,7 +70,7 @@ class RiskFactorNotes extends Component{
 		this.setState({
             processing: true
 		});
-        let { updateRiskFactor, dispatch, errorHandler,alertify } = this.props;
+        let { updateRiskFactor, errorHandler,alertify } = this.props;
        
         const {options} = this.state;
         

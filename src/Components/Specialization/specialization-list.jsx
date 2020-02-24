@@ -2,14 +2,11 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../Store/Actions/TreatmentAction";
-import SimplePagination from "../Common/SimplePagination";
 import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
-import alertify from 'alertifyjs';
 import List from './list';
 import SearchPages from '../Search/search_pages';
 import {Helmet} from "react-helmet";
-import ReactDOM from "react-dom";
 import Pagination from "react-js-pagination";
 class SpecializatoinList extends Component{
     state = {
@@ -88,7 +85,7 @@ class SpecializatoinList extends Component{
     }
     render(){
 
-		let { page, totalPages,to,total } = this.state;
+		let { to,total } = this.state;
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }

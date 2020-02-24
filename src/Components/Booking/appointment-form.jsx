@@ -9,7 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import * as actions from "../../Store/Actions/AuthAction";
 import * as treatmentactions from "../../Store/Actions/TreatmentAction";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 alertify.set('notifier', 'position', 'top-center');
 
@@ -51,8 +51,7 @@ class AppointmentForm extends Component{
         this.setState({
 			isLoading: true
         });
-        var props_var = this.props;
-        let { getCenterTreatments, dispatch, errorHandler } = this.props;
+        let { getCenterTreatments, errorHandler } = this.props;
         const {doctor_id, center_id} = this.state;
         let params ={doctor_id, center_id};
         getCenterTreatments(params).then(res => {
@@ -137,7 +136,7 @@ class AppointmentForm extends Component{
         }
     };
     renderCenterTreatment =()=>{
-        const { treatment_id, treatment_data, TimeRange, showStyle,time,myStyle} 	= this.state;
+        const {  treatment_data, TimeRange, showStyle,time,myStyle} 	= this.state;
         let count = treatment_data.length;
         
         if(count > 0){
@@ -250,7 +249,6 @@ class AppointmentForm extends Component{
 
         const { isLoading, schedules,doctor_data } = this.state;
         const { user } = this.props;
-        const { treatments } = this.state.doctor_data;
         if(!isLoading){
             return true;
         }

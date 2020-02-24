@@ -30,7 +30,7 @@ class AllergyNotes extends Component{
 		this.setState({
 			isLoading: true
 		});
-		let { getAllergies, dispatch,alertify, errorHandler } = this.props;
+		let { getAllergies,alertify, errorHandler } = this.props;
 
         let customerId = this.props.user.customer.id;
         let token = this.props.user.access_token;
@@ -70,7 +70,7 @@ class AllergyNotes extends Component{
 		this.setState({
             processing: true
 		});
-        let { updateAllergies, dispatch, errorHandler,alertify } = this.props;
+        let { updateAllergies, errorHandler,alertify } = this.props;
        
         const {options} = this.state;
         

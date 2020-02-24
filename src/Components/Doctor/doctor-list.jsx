@@ -6,7 +6,7 @@ import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
 import List from './list';
 import BottomFaq from './../FAQ/bottom-faq';
-import BottomTopSpecialization from './../Specialization/bottom-top-specializations';
+// import BottomTopSpecialization from './../Specialization/bottom-top-specializations';
 import alertify from 'alertifyjs';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';

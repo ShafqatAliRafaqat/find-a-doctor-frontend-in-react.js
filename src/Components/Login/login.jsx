@@ -6,7 +6,7 @@ import alertify from "alertifyjs";
 import { connect } from "react-redux";
 import 'react-phone-number-input/style.css'
 import {Helmet} from "react-helmet";
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
+import PhoneInput, {  isValidPhoneNumber } from 'react-phone-number-input'
 alertify.set('notifier', 'position', 'top-center');
 
 class Login extends Component{
@@ -29,7 +29,7 @@ class Login extends Component{
         this.setState({
             processing: true
         });
-        const {signIn,dispatch,errorHandler ,history} = this.props;
+        const {signIn,dispatch,errorHandler } = this.props;
 
         const { phone, password } 	=	this.state;
         let params = { phone, password};

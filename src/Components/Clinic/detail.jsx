@@ -9,12 +9,8 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import SearchPages from '../Search/search_pages';
 import BottomFaq from './../FAQ/bottom-faq';
 import Pagination from "react-js-pagination";
@@ -240,7 +236,7 @@ class Detail extends Component{
 		return	<List {...this.props} doctor_data={center_doctor} />
 	}
 	renderPagination =()=>{
-		const { page,totalPages,total,to,center_data } = this.state;
+		const { total } = this.state;
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }
@@ -482,7 +478,7 @@ class Detail extends Component{
             return (<div data-loader="circle-side"></div>);
 		}
 		const {name} = center_data;
-		var meta_description = "Book an Appointment with our Best doctors in "+name+" | List of top doctors in "+name+"- Book an appointment with top doctors";
+		var meta_description = "Book an Appointment with our Best doctors in "+name+" | List of top doctors in "+name+" - Book an appointment with top doctors";
 		
 			return(
                 <>

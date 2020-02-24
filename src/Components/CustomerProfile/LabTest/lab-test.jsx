@@ -1,18 +1,7 @@
 import React, {Component} from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import moment from 'moment';
-
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-
 import * as actions from "../../../Store/Actions/AppointmentAction";
   
 class LabTest extends Component{

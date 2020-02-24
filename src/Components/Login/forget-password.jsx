@@ -2,18 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import alertify from "alertifyjs";
 
-import {
-    Button,
-    ModalFooter,
-    ModalBody,
-    ModalHeader,
-    Modal,
-    FormGroup, Input, Label,
-} from 'reactstrap';
+import { ModalFooter, ModalBody, ModalHeader, Modal,} from 'reactstrap';
 
 import * as actions from "../../Store/Actions/AuthAction";
 import 'react-phone-number-input/style.css'
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
+import PhoneInput, {isValidPhoneNumber } from 'react-phone-number-input'
 alertify.set('notifier', 'position', 'top-center');
 
 class PhoneModal extends Component {
@@ -142,7 +135,7 @@ class PhoneModal extends Component {
         this.setState({
             processing: true,
         });
-        const {newPassword,dispatch,errorHandler} = this.props;
+        const {newPassword,errorHandler} = this.props;
 
         const {code,codeSended,password ,} 	=	this.state;
         

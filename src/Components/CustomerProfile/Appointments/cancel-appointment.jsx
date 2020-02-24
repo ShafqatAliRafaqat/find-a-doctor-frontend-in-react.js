@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import alertify from "alertifyjs";
-
-import {
-    Button,
-    ModalFooter,
-    ModalBody,
-    ModalHeader,
-    Modal,
-    FormGroup, Input, Label,
-} from 'reactstrap';
 import * as actions from "../../../Store/Actions/AppointmentAction";
 import SweetAlert from 'react-bootstrap-sweetalert';
 
@@ -45,7 +36,7 @@ class CancelAppointment extends Component {
  
     cancelAppointment = () => {
 
-        let { cancelAppointment, dispatch, errorHandler } = this.props;
+        let { cancelAppointment, errorHandler } = this.props;
 
         let id  = this.state.id;
         let token       = this.props.user.access_token;
@@ -68,7 +59,7 @@ class CancelAppointment extends Component {
    
     render() {
 
-        const { isOpen, processing} = this.state;
+        // const { isOpen, processing} = this.state;
         return (
             <>    
                 <button onClick={() => this.setState({ show: true })} className="btn btn-block btn-warning text-white font-weight-bold d-none d-lg-block no-booking-btn">
@@ -90,28 +81,6 @@ class CancelAppointment extends Component {
                     >
                     You want to cancel the appointment!
                 </SweetAlert>
-                {/* <Modal isOpen={isOpen} toggle={this.toggle} className="modal-primary modal-center">
-                    <ModalHeader toggle={this.toggle}><i className="fa fa-edit" />Cancel Appointment</ModalHeader>
-                    <ModalBody>
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="form-group text-center">
-                                    <label>
-                                        Are you sure? 
-                                    </label>
-                                </div>
-                                <div className="form-group text-center">
-                                    <label>
-                                        You want to cancel appointment!
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </ModalBody>
-                    <ModalFooter>
-                        <button color="primary" className='btn_1' onClick={this.cancelAppointment}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
-                    </ModalFooter>
-                </Modal> */}
             </>
         );
     }

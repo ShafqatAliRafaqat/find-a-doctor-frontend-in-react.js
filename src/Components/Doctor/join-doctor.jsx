@@ -1,29 +1,23 @@
 import React, {Component} from "react";
 import { Link,Redirect } from "react-router-dom";
 import * as actions from "../../Store/Actions/DoctorAuthAction";
-import PhoneModal from "./forget-password";
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
 import SweetAlert from 'react-bootstrap-sweetalert';
 import 'react-phone-number-input/style.css'
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
 import {
-    Button,
     ModalFooter,
     ModalBody,
     ModalHeader,
     Modal,
-    FormGroup, Input, Label,
 } from 'reactstrap';
 import clsx from 'clsx';
 import {Helmet} from "react-helmet";
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 
 alertify.set('notifier', 'position', 'top-center');
 const useStyles = makeStyles({

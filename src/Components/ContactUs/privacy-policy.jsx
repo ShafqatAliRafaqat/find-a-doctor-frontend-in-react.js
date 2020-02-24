@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
-import OwlCarousel from 'react-owl-carousel';
 import {Helmet} from "react-helmet";
 
 import SearchPages from '../Search/search_pages';

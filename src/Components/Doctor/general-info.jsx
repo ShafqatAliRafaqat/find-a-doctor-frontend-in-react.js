@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import * as actions from "../../Store/Actions/DoctorAction";
 import * as appointmentactions from "../../Store/Actions/AppointmentAction";
 import AppointmentForm from "../Booking/appointment-form";
-import PhoneModal from "../Booking/PhoneModal";
 import DoctorFaq from './../FAQ/doctor-faq';
 import SearchPages from '../Search/search_pages';
 import {Helmet} from "react-helmet";

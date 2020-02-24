@@ -6,14 +6,12 @@ import { connect } from "react-redux";
 import 'react-phone-number-input/style.css';
 import {Helmet} from "react-helmet";
 import {
-    Button,
     ModalFooter,
     ModalBody,
     ModalHeader,
     Modal,
-    FormGroup, Input, Label,
 } from 'reactstrap';
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input';
+import PhoneInput, { isValidPhoneNumber} from 'react-phone-number-input';
 alertify.set('notifier', 'position', 'top-center');
 
 class Register extends Component{
