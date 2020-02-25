@@ -9,10 +9,15 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import reducers from "./Store/Reducers";
 import TagManager from 'react-gtm-module';
+import ReactGA from 'react-ga';
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 // import 'babel-polyfill';
 const store = createStore(combineReducers(reducers), compose(applyMiddleware(thunk)));
 const rootElement = document.getElementById("hospitallcare");
+
+ReactGA.initialize('UA-137475238-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 const tagManagerArgs = {
     gtmId: 'GTM-KLSG744'
 }
