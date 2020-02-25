@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
-Sitemap: https://www.hospitallcare.com/sitemap.xml
+Sitemap: https://www.hospitallcare.com/sitemap.txt
 User-agent: *
 Disallow:
