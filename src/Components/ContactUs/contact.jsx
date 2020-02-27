@@ -66,6 +66,8 @@ class ContactUs extends Component {
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
+					<meta http-equiv="refresh" content="30"></meta>
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     				<meta name="description" content="Contact us : +92-3222555600 Monday to Friday 9am - 6pm | Address: NETSOL Avenue, Main Ghazi Rd, Khuda Buksh Colony, Lahore, Pakistan | Contact info- Book an appointment with top doctors Book an Appointment| Call us now +92-322-2555600 +92-322-2555400" />
     				<meta name="author" content="Hospitall Care" />

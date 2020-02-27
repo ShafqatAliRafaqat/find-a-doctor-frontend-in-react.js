@@ -15,7 +15,8 @@ import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 const store = createStore(combineReducers(reducers), compose(applyMiddleware(thunk)));
 const rootElement = document.getElementById("hospitallcare");
 
-ReactGA.initialize('UA-137475238-1');
+// ReactGA.initialize('UA-137475238-1');
+ReactGA.initialize('UA-000000000-0');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 const tagManagerArgs = {

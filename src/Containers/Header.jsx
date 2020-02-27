@@ -52,40 +52,50 @@ class Header extends Component{
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav ml-auto">
                         <li className="nav-item nav-item-margin-top">
-                            <Link className={(name == '#/') ? " nav-link active-nav" : "nav-link"} name="#/" to="/" onClick={this.renderRefreshPage}>Home <span className="sr-only">(current)</span></Link>
+                            <Link className={(name == '/') ? " nav-link active-nav" : "nav-link"} name="/" to="/" onClick={this.renderRefreshPage}>Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item nav-item-margin-top">
-                            <Link className={(name == '#/doctor-list') ? " nav-link active-nav" : "nav-link"} name="#/doctor-list" to="/doctor-list" onClick={this.renderRefreshPage}>Doctors</Link>
+                            <Link className={(name == '/doctor-list') ? " nav-link active-nav" : "nav-link"} name="/doctor-list" to="/doctor-list" onClick={this.renderRefreshPage}>Doctors</Link>
                         </li>
                         <li className="nav-item nav-item-margin-top">
-                            <Link className={(name == '#/specialization-list') ? " nav-link active-nav" : "nav-link"} name="#/specialization-list" to="/specialization-list" onClick={this.renderRefreshPage}>Specializations</Link>
+                            <Link className={(name == '/specialization-list') ? " nav-link active-nav" : "nav-link"} name="/specialization-list" to="/specialization-list" onClick={this.renderRefreshPage}>Specializations</Link>
                         </li>
                         <li className="nav-item nav-item-margin-top">
-                            <Link className={(name == '#/clinic-list') ? " nav-link active-nav" : "nav-link"} name="#/clinic-list" to="/clinic-list" onClick={this.renderRefreshPage}>Clinics</Link>
+                            <Link className={(name == '/clinic-list') ? " nav-link active-nav" : "nav-link"} name="/clinic-list" to="/clinic-list" onClick={this.renderRefreshPage}>Clinics</Link>
                         </li>
                         <li className="nav-item nav-item-margin-top dropdown">
-                            <a  className={(name == '#/about-us' || name == '#/contacts') ? "nav-link dropdown-toggle active-nav" : "nav-link dropdown-toggle"}  href="#" id="about" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a  className={(name == '/blogs' || name == '/vlogs' || name =='/videos') ? "nav-link dropdown-toggle active-nav" : "nav-link dropdown-toggle"}  href="#" id="mediahub" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Media Hub
+                            </a>
+                            <div className="dropdown-menu" aria-labelledby="mediahub">
+                                <Link className={(name == '/blogs') ? " dropdown-item active-nav" : "dropdown-item"} name="/blogs" to="/blogs" onClick={this.renderRefreshPage}>Blogs</Link>
+                                <Link className={(name == '/vlogs') ? " dropdown-item active-nav" : "dropdown-item"} name="/vlogs" to="/vlogs" onClick={this.renderRefreshPage}>Vlogs</Link>
+                                <Link className={(name == '/videos') ? " dropdown-item active-nav" : "dropdown-item"} name="/videos" to="/videos" onClick={this.renderRefreshPage}>Videos</Link>
+                            </div>
+                        </li>
+                        <li className="nav-item nav-item-margin-top dropdown">
+                            <a  className={(name == '/' || name == '/contacts') ? "nav-link dropdown-toggle active-nav" : "nav-link dropdown-toggle"}  href="#" id="about" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             About Us
                             </a>
                             <div className="dropdown-menu" aria-labelledby="about">
-                                <Link className={(name == '#/about-us') ? " dropdown-item active-nav" : "dropdown-item"} name="#/about-us" to="/about-us" onClick={this.renderRefreshPage}>About</Link>
-                                <Link className={(name == '#/contact-us') ? " dropdown-item active-nav" : "dropdown-item"} name="#/contact-us" to="/contact-us" onClick={this.renderRefreshPage}>Contact Us</Link>
+                                <Link className={(name == '/about-us') ? " dropdown-item active-nav" : "dropdown-item"} name="/about-us" to="/about-us" onClick={this.renderRefreshPage}>About</Link>
+                                <Link className={(name == '/contact-us') ? " dropdown-item active-nav" : "dropdown-item"} name="/contact-us" to="/contact-us" onClick={this.renderRefreshPage}>Contact Us</Link>
                             </div>
                         </li>
                         {(user != null)? 
                         <li className="nav-item nav-item-margin-top dropdown">
 
-                            <a className={(name == '#/approved-appointments' || name == '#/pending-appointments' || name == '#/customer-profile'|| name == '#/current-lab-test'|| name == '#/allergy-notes' || name == '#/riskfactor-notes' || name == '#/doctor-notes') ? "nav-link dropdown-toggle active-nav" : "nav-link dropdown-toggle"} to="#" id="loged-in" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a className={(name == '/approved-appointments' || name == '/pending-appointments' || name == '/customer-profile'|| name == '/current-lab-test'|| name == '/allergy-notes' || name == '/riskfactor-notes' || name == '/doctor-notes') ? "nav-link dropdown-toggle active-nav" : "nav-link dropdown-toggle"} to="#" id="loged-in" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {user.customer.name}
                             </a>
                             <div className="dropdown-menu" aria-labelledby="loged-in">
-                                <Link className={(name == '#/approved-appointments') ? " dropdown-item active-nav" : "dropdown-item"} name="#/approved-appointments" to="/approved-appointments" onClick={this.renderRefreshPage}>My Appointments</Link>
-                                <Link className={(name == '#/pending-appointments' ) ? " dropdown-item active-nav" : "dropdown-item"} name="#/pending-appointments"  to="/pending-appointments" onClick={this.renderRefreshPage}>Pending Appointments</Link>
-                                <Link className={(name == '#/customer-profile'     ) ? " dropdown-item active-nav" : "dropdown-item"} name="#/customer-profile"      to="/customer-profile" onClick={this.renderRefreshPage}>My Profile</Link>
-                                <Link className={(name == '#/current-lab-test'     ) ? " dropdown-item active-nav" : "dropdown-item"} name="#/current-lab-test"      to="/current-lab-test" onClick={this.renderRefreshPage}>My Test</Link>
-                                <Link className={(name == '#/allergy-notes'        ) ? " dropdown-item active-nav" : "dropdown-item"} name="#/allergy-notes"         to="/allergy-notes" onClick={this.renderRefreshPage}>Allergies</Link>
-                                <Link className={(name == '#/riskfactor-notes'     ) ? " dropdown-item active-nav" : "dropdown-item"} name="#/riskfactor-notes"      to="/riskfactor-notes" onClick={this.renderRefreshPage}>Risk Factor</Link>
-                                <Link className={(name == '#/doctor-notes'         ) ? " dropdown-item active-nav" : "dropdown-item"} name="#/doctor-notes"          to="/doctor-notes" onClick={this.renderRefreshPage}>Doctor Notes</Link>
+                                <Link className={(name == '/approved-appointments') ? " dropdown-item active-nav" : "dropdown-item"} name="/approved-appointments" to="/approved-appointments" onClick={this.renderRefreshPage}>My Appointments</Link>
+                                <Link className={(name == '/pending-appointments' ) ? " dropdown-item active-nav" : "dropdown-item"} name="/pending-appointments"  to="/pending-appointments" onClick={this.renderRefreshPage}>Pending Appointments</Link>
+                                <Link className={(name == '/customer-profile'     ) ? " dropdown-item active-nav" : "dropdown-item"} name="/customer-profile"      to="/customer-profile" onClick={this.renderRefreshPage}>My Profile</Link>
+                                <Link className={(name == '/current-lab-test'     ) ? " dropdown-item active-nav" : "dropdown-item"} name="/current-lab-test"      to="/current-lab-test" onClick={this.renderRefreshPage}>My Test</Link>
+                                <Link className={(name == '/allergy-notes'        ) ? " dropdown-item active-nav" : "dropdown-item"} name="/allergy-notes"         to="/allergy-notes" onClick={this.renderRefreshPage}>Allergies</Link>
+                                <Link className={(name == '/riskfactor-notes'     ) ? " dropdown-item active-nav" : "dropdown-item"} name="/riskfactor-notes"      to="/riskfactor-notes" onClick={this.renderRefreshPage}>Risk Factor</Link>
+                                <Link className={(name == '/doctor-notes'         ) ? " dropdown-item active-nav" : "dropdown-item"} name="/doctor-notes"          to="/doctor-notes" onClick={this.renderRefreshPage}>Doctor Notes</Link>
                                 <Link className="dropdown-item" to="/logout" onClick={this.renderRefreshPage}>Logout</Link>
                             </div>
                         </li>

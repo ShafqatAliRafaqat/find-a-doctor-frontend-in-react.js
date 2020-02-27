@@ -17,8 +17,10 @@ import Contacts from './Components/ContactUs/contact';
 import About from './Components/ContactUs/about';
 import PrivacyPolicy from './Components/ContactUs/privacy-policy';
 import TermsAndConditions from './Components/ContactUs/terms-and-conditions';
-import Blog from './Components/Blog/blog';
-import BlogPage from './Components/Blog/blog-page';
+import Blog from './Components/MediaHub/Blogs/blog';
+import BlogCategory from './Components/MediaHub/Blogs/blogCategory';
+import Vlogs from './Components/MediaHub/Vlogs/vlog';
+import Videos from './Components/MediaHub/Videos/video';
 import DoctorSignIn from './Components/Doctor/doctor_sign_in';
 import JoinDoctor from './Components/Doctor/join-doctor';
 import Confirm from './Components/Booking/confirm';
@@ -32,6 +34,9 @@ import LabTestHistory from './Components/CustomerProfile/LabTest/history';
 import AllergyNotes from './Components/CustomerProfile/CustomerNotes/allergy-notes';
 import RiskFactorNotes from './Components/CustomerProfile/CustomerNotes/riskfactor-notes';
 import DoctorNotes from './Components/CustomerProfile/CustomerNotes/doctor-notes';
+import BlogDetail from './Components/MediaHub/Blogs/blogDetail';
+import VlogDetail from './Components/MediaHub/Vlogs/vlogDetail';
+import VideoDetail from './Components/MediaHub/Videos/videoDetail';
 
 export default [
   { path: "/", exact: true,name:"Layout", Component: MainHome },
@@ -53,8 +58,13 @@ export default [
   { path: "/about-us", name:"AboutUs", Component: About },                  
   { path: "/privacy-policy", name:"PrivacyPolicy", Component: PrivacyPolicy },                  
   { path: "/terms-and-conditions", name:"TermsAndConditions", Component: TermsAndConditions },                  
-  { path: "/blog", name:"Blog", Component: Blog},                  
-  { path: "/blog-page", name:"Blog Page", Component: BlogPage},                  
+  { path: "/blogs", name:"Blog", name:"List of all blogs", Component: Blog},                  
+  { path: "/blog-detail/:blogName/:blogId", name:"Blog Detail Page", Component: BlogDetail},
+  { path: "/blog/:blogCategory/:categoryId", name:"Blog Categories", Component: BlogCategory},
+  { path: "/vlogs", name:"List of vlogs", Component: Vlogs},
+  { path: "/vlog/:vlogName/:vlogId", name:"Vlog Detail Page", Component: VlogDetail},
+  { path: "/videos", name:"List of all videos", Component: Videos},
+  { path: "/video/:videoName/:videoId", name:"Detail page of video", Component: VideoDetail},
   { path: "/join-doctor", name:"Join Doctor", Component: JoinDoctor},                  
   { path: "/doctor-signin", name:"Doctor Sign In", Component: DoctorSignIn},                  
   { path: "/confirm", name:"Confirm", Component: Confirm },                  
