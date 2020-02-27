@@ -100,7 +100,7 @@ class BlogDetail extends Component{
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
-					<meta http-equiv="refresh" content="30"></meta>
+					
     				<meta name="description" content={blog_data.meta_description} />
     				<meta name="author" content="Hospitall Care" />
 					<title>{blog_data.meta_title}</title>

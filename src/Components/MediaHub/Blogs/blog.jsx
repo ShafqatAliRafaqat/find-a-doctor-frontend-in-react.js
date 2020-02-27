@@ -147,7 +147,7 @@ class Blog extends Component{
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
-					<meta http-equiv="refresh" content="30"></meta>
+					
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     				<meta name="description" content="Top blog of health | get latast News regarting health | HospitALL Health Care" />
     				<meta name="author" content="Hospitall Care" />

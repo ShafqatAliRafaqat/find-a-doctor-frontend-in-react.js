@@ -265,7 +265,7 @@ class JoinDoctor extends Component{
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
                     <meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
-					<meta http-equiv="refresh" content="30"></meta>
+					
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     				<meta name="description" content="SignUp as a Doctor| Join Our Best Doctor's Team | Get Onboard | Get Doctor Dashboard | Get our DoctorALL app" />
     				<meta name="author" content="Hospitall Care" />
