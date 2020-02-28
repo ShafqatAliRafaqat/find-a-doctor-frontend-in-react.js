@@ -103,7 +103,7 @@ class GeneralInfo extends Component {
 						<small>{doctor_data.focus_area}</small>
 						<div className="doctor-name-ok">
 						<h1 >{doctor_data.first_name} {doctor_data.last_name} 
-						{(doctor_data.partnership == 1)?<span data-tooltip="Varified and Onboard" data-tooltip-location="right"><i class="icon-ok-circled text-success" style={{fontSize: '18px'}}></i></span>:''}</h1>
+						{(doctor_data.partnership == 1)?<span data-tooltip="Verified and Onboard" data-tooltip-location="right"><i className="icon-ok-circled text-success" style={{fontSize: '18px'}}></i></span>:''}</h1>
 						</div>
 						<span className="rating">
 							<i className="icon_star voted"></i>
@@ -121,9 +121,13 @@ class GeneralInfo extends Component {
 							<li>124 Patients</li>
 						</ul>
 						<ul className="col pl-0 font-weight-bold mb-0 text-sm">
-							<li><span style={{color: "#21a747"}}>{(doctor_data.gender == 'Male')? <i class="icon-male"></i> : <i class="icon-female"></i>}{doctor_data.gender}</span></li>
+							<li><span style={{color: "#21a747"}}>{(doctor_data.gender == 'Male')? <i className="icon-male"></i> : <i className="icon-female"></i>}{doctor_data.gender}</span></li>
 						</ul>
 						<ul className="contacts">
+							<li>
+								<h6 style={{color: "#21a747"}}><i className="icon-clock-6"></i> Experience</h6>
+								<span className="ml-4">{doctor_data.experience}</span>
+							</li>
 							<li>
 								<h6 style={{color: "#21a747"}}><i className="icon-address"></i> Address</h6>
 								<span className="ml-4">{doctor_data.address}</span>
@@ -131,7 +135,7 @@ class GeneralInfo extends Component {
 								<a href={doctor_data.map} target="_blank" ><strong className="mt-2"><i className="icon-direction"></i> View on map</strong></a>
 							</li>
 							<li>
-								<button className="btn_1" onClick={ () => this.setState({ callNowButtoneStyle:"none", callNowStyle:""})} style={{display:callNowButtoneStyle}}> 
+								<button className="btn_1 CallNowButtonClass" onClick={ () => this.setState({ callNowButtoneStyle:"none", callNowStyle:""})} style={{display:callNowButtoneStyle}}> 
 									Call Now
 								</button>
 								<a href="tel://+923222555600" style={{display:callNowStyle}}><i className="icon-phone-squared"></i> +92-322-2555600</a><br />
@@ -374,12 +378,12 @@ class GeneralInfo extends Component {
 							<div className="col-xl-7 col-lg-7">
 								<nav id="secondary_nav">
 									<div className="container">
-										<ul className="clearfix">
+										<ul className="clearfix" style={{color:'#fff'}}>
 											<li>
-												<a href="#section_1" className="active">General info</a>
+												General info
 											</li>
 											<li>
-												<a href="#sidebar">Booking</a>
+												Booking
 											</li>
 										</ul>
 									</div>

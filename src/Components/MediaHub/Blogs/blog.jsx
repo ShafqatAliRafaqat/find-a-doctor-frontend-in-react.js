@@ -81,7 +81,7 @@ class Blog extends Component{
 		var slugify = require('slugify');
 		return blog_data.map(m => {
 			var image = "http://127.0.0.1:8000/backend/uploads/blogs/"+m.picture
-			var description = m.description.substr(0, 500)
+			var description = m.description.substr(0, 300)
 			return(
 				<article className="blog wow fadeIn">
 					<div className="row no-gutters">

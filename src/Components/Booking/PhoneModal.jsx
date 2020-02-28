@@ -287,7 +287,7 @@ class PhoneModal extends Component {
                             <div className="forgetbutton" >
                                 {this.renderForgetPasswordModal()}                    
                             </div>
-                                <button color="primary" className='btn_1' autoFocus onClick={this.signIn}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
+                                <button color="primary" className='btn_1 BookAppointmentClass' autoFocus onClick={this.signIn}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                                 <button color="primary" className='btn_danger' onClick={this.toggleSignInClose}>Close</button>
                     </ModalFooter>
                 </Modal>
@@ -324,7 +324,7 @@ class PhoneModal extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <button color="primary" className='btn_danger' onClick={this.toggleSignUpClose}>Close</button>
-                        <button color="primary" className='btn_1' onClick={this.signUp}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
+                        <button color="primary" className='btn_1 BookAppointmentClass' onClick={this.signUp}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
             </>

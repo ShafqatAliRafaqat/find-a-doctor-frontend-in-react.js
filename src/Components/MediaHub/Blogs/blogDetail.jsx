@@ -87,12 +87,25 @@ class BlogDetail extends Component{
 			);	
 		});
 	};
+	renderTags = () =>{
+		let { blog_data } = this.state;	
+		if (this.state.isLoading) {
+            return (<div data-loader="circle-side"></div>);
+		}
+		if(blog_data.meta_tags != null){
+			const tagArray = blog_data.meta_tags.split(",");
+			return tagArray.map( m =>{
+				return(<Link to="#" >{m}</Link>);
+			});
+		}
+	}
     render(){
 		let { blog_data } = this.state;	
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
 		}
 		var image = "http://127.0.0.1:8000/backend/uploads/blogs/"+blog_data.picture
+		const tagArray = blog_data.meta_tags.split(",");
         return(
             <>
 				<Helmet>
@@ -194,12 +207,7 @@ class BlogDetail extends Component{
 							<h4>Popular Tags</h4>
 						</div>
 						<div className="tags">
-							<Link to="/" >Medicine</Link>
-							<Link to="/" >Treatments</Link>
-							<Link to="/" >Events</Link>
-							<Link to="/" >Specialist</Link>
-							<Link to="/" >Pills</Link>
-							<Link to="/" >Cancer</Link>
+							{this.renderTags()}
 						</div>
 					</div>
 				</aside>
