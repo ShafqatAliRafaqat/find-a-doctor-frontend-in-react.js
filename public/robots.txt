@@ -2,4 +2,4 @@
 Sitemap: https://www.hospitallcare.com/sitemap.txt
 Sitemap: https://www.hospitallcare.com/sitemap.xml
 User-agent: *
-Disallow:
+allow:
