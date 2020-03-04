@@ -176,8 +176,7 @@ class Blog extends Component{
 
 		<div className="container margin_60">
 			<div className="main_title">
-				<h1>Findoctor Blog</h1>
-				<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie. Sed ad debet scaevola, ne mel.</p>
+				<h1>Blogs</h1>
 			</div>
 			<div className="row">
 				<div className="col-lg-9">
