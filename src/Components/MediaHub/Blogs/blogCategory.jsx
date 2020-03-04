@@ -94,7 +94,7 @@ class BlogCategory extends Component{
 		const { blog_data } = this.state;
 		var slugify = require('slugify');
 		return blog_data.map(m => {
-			var image = "http://127.0.0.1:8000/backend/uploads/blogs/"+m.picture
+			var image = "https://support.hospitallcare.com/backend/uploads/blogs/"+m.picture
 			var description = m.description.substr(0, 500)
 			return(
 				<article className="blog wow fadeIn">
@@ -129,7 +129,7 @@ class BlogCategory extends Component{
 		const { recent_blogs } = this.state;
 		var slugify = require('slugify');
 		return recent_blogs.map(m => {
-			var image = "http://127.0.0.1:8000/backend/uploads/blogs/"+m.picture
+			var image = "https://support.hospitallcare.com/backend/uploads/blogs/"+m.picture
 			return(
 				<li>
 					<div className="alignleft">
