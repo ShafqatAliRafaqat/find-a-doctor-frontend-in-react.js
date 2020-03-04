@@ -104,7 +104,7 @@ class BlogDetail extends Component{
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
 		}
-		var image = "http://127.0.0.1:8000/backend/uploads/blogs/"+blog_data.picture
+		var image = "https://support.hospitallcare.com/backend/uploads/blogs/"+blog_data.picture
 		const tagArray = blog_data.meta_tags.split(",");
         return(
             <>
