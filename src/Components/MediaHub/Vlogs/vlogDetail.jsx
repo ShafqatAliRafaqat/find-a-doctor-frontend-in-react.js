@@ -2,12 +2,9 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../../Store/Actions/MediaHubAction";
-import { getSearchUrlFromState } from '../../../util/functions'
-import * as qs from 'query-string';
 import SearchPages from '../../Search/search_pages';
 import {Helmet} from "react-helmet";
 import moment from 'moment';
-import Pagination from "react-js-pagination";
 class VlogDetail extends Component{
 
 	state = {
