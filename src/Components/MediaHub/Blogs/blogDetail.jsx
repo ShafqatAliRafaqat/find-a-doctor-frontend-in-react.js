@@ -2,12 +2,9 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../../Store/Actions/MediaHubAction";
-import { getSearchUrlFromState } from '../../../util/functions'
-import * as qs from 'query-string';
 import SearchPages from '../../Search/search_pages';
 import {Helmet} from "react-helmet";
 import moment from 'moment';
-import Pagination from "react-js-pagination";
 
 class BlogDetail extends Component{
 	state = {
@@ -105,7 +102,6 @@ class BlogDetail extends Component{
             return (<div data-loader="circle-side"></div>);
 		}
 		var image = "https://support.hospitallcare.com/backend/uploads/blogs/"+blog_data.picture
-		const tagArray = blog_data.meta_tags.split(",");
         return(
             <>
 				<Helmet>
