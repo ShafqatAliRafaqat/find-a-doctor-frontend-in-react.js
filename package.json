@@ -43,7 +43,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "postbuild": "zip -r finddoctor.zip ./build/ react-snap ",
+        "postbuild": "react-snap zip -r finddoctor.zip ./build/",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
@@ -63,23 +63,13 @@
         ]
     },
     "reactSnap": {
-        "source": "./dist",
-        "inlineCss": true,
-        "removeBlobs": true,
-        "removeScriptTags": true,
-        "removeStyleTags": true,
+        "fixWebpackChunksIssue": false,
         "puppeteerArgs": [
             "--no-sandbox",
             "--disable-setuid-sandbox"
-        ],
-        "puppeteerExecutablePath": "/opt/google/chrome/google-chrome",
-        "minifyHtml": {
-            "collapseWhitespace": false,
-            "sortClassName": false,
-            "removeComments": false
-        }
+        ]
     },
-    "proxy": "http://127.0.0.1:8080",
+    "proxy": "http://127.0.0.1:3000",
     "devDependencies": {
         "babel-cli": "^6.26.0",
         "babel-preset-es2015": "^6.24.1",
