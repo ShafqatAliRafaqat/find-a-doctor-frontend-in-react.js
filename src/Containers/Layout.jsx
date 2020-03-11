@@ -59,11 +59,11 @@ class Layout extends Component {
                       </Switch>
                     
                     <FooterSection />
-                    <MessengerCustomerChat
+                    {/* <MessengerCustomerChat
                     pageId="334061247107629"
                     appId="347537516095173"
                     htmlRef={window.location.pathname}
-                  />
+                  /> */}
                   </BrowserRouter>
             </>
         );
