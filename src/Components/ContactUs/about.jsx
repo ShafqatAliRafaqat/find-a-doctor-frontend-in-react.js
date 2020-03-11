@@ -37,7 +37,7 @@ class About extends Component{
                 <Helmet>
 						<meta charSet="utf-8" />
 						<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                        <meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
+                        <meta name="keywords" content="contact us,about us,hospitall,careALL,"></meta>
 					    
 						<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 						<meta name="description" content="About Us. Welcome to HospitALL | Leadership Team | Our Partners | hospitallcare.com is Pakistan’s premier digital healthcare platform that aims to revolutionize the local healthcare market. It connects patients with the right doctors and enables the doctors to optimize their medical practices via their practice management software." />

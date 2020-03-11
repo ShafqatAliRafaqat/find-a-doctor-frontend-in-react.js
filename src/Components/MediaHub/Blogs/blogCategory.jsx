@@ -154,15 +154,16 @@ class BlogCategory extends Component{
 		});
 	};
     render(){
-		let { total ,category} = this.state;	
-
+		let { total ,category,blog_categories} = this.state;	
+		if (this.state.isLoading) {
+            return (<div data-loader="circle-side"></div>);
+        }
         return(
             <>
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
-					
+					<meta name="keywords" content={blog_categories.map(m=>m.name)}></meta>
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     				<meta name="description" content={category.meta_description} />
     				<meta name="author" content="Hospitall Care" />

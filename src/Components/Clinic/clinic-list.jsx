@@ -85,7 +85,7 @@ class CenterList extends Component{
             window.location.reload();
     }	
     render(){
-		let { to,total } = this.state;
+		let { to,total,center_data } = this.state;
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }
@@ -94,8 +94,7 @@ class CenterList extends Component{
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
-					
+					<meta name="keywords" content={center_data.map(m=>m.name)}></meta>
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     				<meta name="description" content="List of top hospitals and clinics in pakistan- Book an appointment with top doctors - Download our CareALL APP to book an appointment with our Best doctors" />
     				<meta name="author" content="Hospitall Care" />
@@ -144,24 +143,7 @@ class CenterList extends Component{
 							</ul>
 						</div>
 					</div>
-					{/* <div className="container margin_60_35">
-						<div className="grid-root">
-							<Grid container spacing={3}>
-								<Grid item xs={3}>
-								<Paper className="grid-paper">xs=3</Paper>
-								</Grid>
-								<Grid item xs={3}>
-								<Paper className="grid-paper">xs=3</Paper>
-								</Grid>
-								<Grid item xs={3}>
-								<Paper className="grid-paper">xs=3</Paper>
-								</Grid>
-								<Grid item xs={3}>
-								<Paper className="grid-paper">xs=3</Paper>
-								</Grid>
-							</Grid>
-						</div>
-					</div> */}
+					
 					
 					<div className="container margin_0_35 ">
 						<div className="row">

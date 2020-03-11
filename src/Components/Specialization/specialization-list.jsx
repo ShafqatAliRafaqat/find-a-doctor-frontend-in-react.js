@@ -85,7 +85,7 @@ class SpecializatoinList extends Component{
     }
     render(){
 
-		let { to,total } = this.state;
+		let { to,total ,treatment_data} = this.state;
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }
@@ -94,7 +94,7 @@ class SpecializatoinList extends Component{
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
+					<meta name="keywords" content={treatment_data.map(m=>m.name)}></meta>
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     				<meta name="description" content="Top Specialization - Book an appointment according to specializations - Book an appointment with our best doctors" />
     				<meta name="author" content="Hospitall Care" />

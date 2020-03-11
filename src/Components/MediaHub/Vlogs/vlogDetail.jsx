@@ -96,7 +96,7 @@ class VlogDetail extends Component{
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
+					<meta name="keywords" content={vlog_data.meta_tags}></meta>
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     				<meta name="description" content={vlog_data.meta_description} />
     				<meta name="author" content="Hospitall Care" />
@@ -112,7 +112,7 @@ class VlogDetail extends Component{
 													<div className="container">
 														<ul>
 															<li><Link to="/">Home</Link></li>
-															<li><Link to="/blogs">Vlogs</Link></li>
+															<li><Link to="/vlogs">Vlogs</Link></li>
 															<li>{vlog_data.title}</li>
 														</ul>
 													</div>

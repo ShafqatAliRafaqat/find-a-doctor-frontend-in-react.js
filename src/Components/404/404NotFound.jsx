@@ -16,7 +16,7 @@ class NotFound extends Component{
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
+					<meta name="keywords" content="Hospitall,404,page not found"></meta>
 					
     				<meta name="description" content="List of top doctors in pakistan- Book an appointment with top doctors" />
     				<meta name="author" content="Hospitall Care" />
