@@ -2,6 +2,7 @@
     "name": "finddoctor",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://www.hospitallcare.com/",
     "dependencies": {
         "@date-io/date-fns": "^1.3.13",
         "@material-ui/core": "^4.9.0",
@@ -63,11 +64,20 @@
         ]
     },
     "reactSnap": {
-        "fixWebpackChunksIssue": false,
         "puppeteerArgs": [
             "--no-sandbox",
             "--disable-setuid-sandbox"
-        ]
+        ],
+        "inlineCss": true,
+        "removeBlobs": true,
+        "removeScriptTags": true,
+        "removeStyleTags": true,
+        "puppeteer": { "cache": false },
+        "minifyHtml": {
+            "collapseWhitespace": false,
+            "sortClassName": false,
+            "removeComments": false
+        }
     },
     "proxy": "http://127.0.0.1:3000",
     "devDependencies": {
