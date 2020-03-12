@@ -458,7 +458,7 @@ class Detail extends Component{
 
 						{(treatment_data.article) ? 						
 						<div className="container margin_25_padding_0">
-							<h6 className="h6-brief-intro">A Brief intro to {treatment_data.name}</h6>
+							<h6 className="h6-brief-intro">{(treatment_data.article_heading != "")? treatment_data.article_heading:treatment_data.name}</h6>
 							<div className="row">
 								<div className="col">
 							<p className="p-brief-intro text-justify">{treatment_data.article}</p>
@@ -467,7 +467,7 @@ class Detail extends Component{
 						</div> : ''}
 
 
-						<BottomFaq/>
+						{/* <BottomFaq/> */}
 
 						{this.RelatedTreatments()}
 						{this.TreatmentInCenters()}

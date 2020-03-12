@@ -526,7 +526,7 @@ class Detail extends Component{
 							</div>
 						</div>
 						{this.centerTreatments()}
-						<BottomFaq/>
+						{/* <BottomFaq/> */}
 						{this.nearestClinics()}
 					</main>
                 </>

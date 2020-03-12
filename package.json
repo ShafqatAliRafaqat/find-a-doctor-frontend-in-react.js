@@ -64,20 +64,11 @@
         ]
     },
     "reactSnap": {
+        "fixWebpackChunksIssue": false,
         "puppeteerArgs": [
             "--no-sandbox",
             "--disable-setuid-sandbox"
-        ],
-        "inlineCss": true,
-        "removeBlobs": true,
-        "removeScriptTags": true,
-        "removeStyleTags": true,
-        "puppeteer": { "cache": false },
-        "minifyHtml": {
-            "collapseWhitespace": false,
-            "sortClassName": false,
-            "removeComments": false
-        }
+        ]
     },
     "proxy": "http://127.0.0.1:3000",
     "devDependencies": {

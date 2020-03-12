@@ -429,7 +429,7 @@ class GeneralInfo extends Component {
 						</div>
 					</div>
 					{this.relatedDoctors()}
-					{this.DoctorFaq()}
+					{/* {this.DoctorFaq()} */}
 					{this.relatedCenters()}
 
 				</main>

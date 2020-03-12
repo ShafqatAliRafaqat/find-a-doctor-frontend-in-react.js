@@ -407,7 +407,7 @@ class DoctorList extends Component{
 							</div>
 						</div>
 					</div>
-					<BottomFaq/>
+					{/* <BottomFaq/> */}
 					{this.BottomSpecialization()}
 					<div className="pb-5"></div>
 				</main>	
