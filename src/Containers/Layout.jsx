@@ -42,7 +42,7 @@ class Layout extends Component {
                                   <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => {
                                     if(route.path){
                                           return (
-                                            <div style={{minHeight:"436px"}}>
+                                            <div style={{minHeight:"436px" , marginTop:"64px"}}>
                                               <route.Component alertify={alertify} {...props} {...this.props} errorHandler={this.errorHandler} />                                  
                                             </div>  
                                           );
@@ -59,11 +59,11 @@ class Layout extends Component {
                       </Switch>
                     
                     <FooterSection />
-                    {/* <MessengerCustomerChat
+                    <MessengerCustomerChat
                     pageId="334061247107629"
                     appId="347537516095173"
                     htmlRef={window.location.pathname}
-                  /> */}
+                  />
                   </BrowserRouter>
             </>
         );
