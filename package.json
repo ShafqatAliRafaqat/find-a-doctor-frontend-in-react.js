@@ -44,7 +44,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "postbuild": "-r finddoctor.zip ./build/ react-snap zip",
+        "postbuild": "zip -r finddoctor.zip ./build/ react-snap",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
