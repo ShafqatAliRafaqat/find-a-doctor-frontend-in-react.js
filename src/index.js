@@ -16,13 +16,13 @@ const store = createStore(combineReducers(reducers), compose(applyMiddleware(thu
 const rootElement = document.getElementById("hospitallcare");
 
 // ReactGA.initialize('UA-137475238-1');
-ReactGA.initialize('UA-000000000-0');
-ReactGA.pageview(window.location.pathname + window.location.search);
+//ReactGA.initialize('UA-000000000-0');
+//ReactGA.pageview(window.location.pathname + window.location.search);
 
-const tagManagerArgs = {
-    gtmId: 'GTM-KLSG744'
-}
-TagManager.initialize(tagManagerArgs)
+//const tagManagerArgs = {
+  //  gtmId: 'GTM-KLSG744'
+//}
+//TagManager.initialize(tagManagerArgs)
 if (rootElement.hasChildNodes()) {
     hydrate(
         <Provider store = { store } >
