@@ -2,18 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import alertify from "alertifyjs";
 
-import {
-    Button,
-    ModalFooter,
-    ModalBody,
-    ModalHeader,
-    Modal,
-    FormGroup, Input, Label,
-} from 'reactstrap';
+import { ModalFooter, ModalBody, ModalHeader, Modal,} from 'reactstrap';
 
 import * as actions from "../../Store/Actions/AuthAction";
 import 'react-phone-number-input/style.css'
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
+import PhoneInput, {isValidPhoneNumber } from 'react-phone-number-input'
 alertify.set('notifier', 'position', 'top-center');
 
 class PhoneModal extends Component {
@@ -30,12 +23,13 @@ class PhoneModal extends Component {
     state = {
         ...this.initState,
         codeSended      : '',
+        code            : '',
         sendCode        : '',
         codeVarified    : '',
         customer        : '',
         SendCodeModal   : false,
         isLoading       : false,
-        NewPasswordModal: false,
+        PasswordModal   : false,
     };
 
     toggle = () => {
@@ -141,7 +135,7 @@ class PhoneModal extends Component {
         this.setState({
             processing: true,
         });
-        const {newPassword,dispatch,errorHandler} = this.props;
+        const {newPassword,errorHandler} = this.props;
 
         const {code,codeSended,password ,} 	=	this.state;
         
@@ -174,7 +168,7 @@ class PhoneModal extends Component {
         const { PasswordModal ,processing} 	= this.state;
 
         return (
-            <React.Fragment>
+            <>
                  <Modal isOpen={PasswordModal} toggle={this.togglePassword} className="modal-primary modal-center">
                    <ModalHeader toggle={this.togglePassword}><i className="fa fa-edit" />New Password</ModalHeader>
                     <ModalBody>
@@ -199,9 +193,17 @@ class PhoneModal extends Component {
                         <button color="primary" className='btn_1' onClick={this.checkPassword}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     };
+    checkCode = ()=>{
+        const {code} 	= this.state;
+        if(code !=''){
+            this.sendCode();
+        }else{
+            alertify.error('Enter Code first');
+        }
+    }
     renderCodeSendedModal = () => {
         const { SendCodeModal ,processing ,codeVarified} 	= this.state;
         
@@ -209,7 +211,7 @@ class PhoneModal extends Component {
             return this.renderNewPasswordModal();
         }
         return (
-            <React.Fragment>
+            <>
                  <Modal isOpen={SendCodeModal} toggle={this.toggleSendCode} className="modal-primary modal-center">
                    <ModalHeader toggle={this.toggleSendCode}><i className="fa fa-edit" />Enter 6-Digite Code</ModalHeader>
                     <ModalBody>
@@ -232,10 +234,10 @@ class PhoneModal extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <button color="primary" className='btn_danger' onClick={this.toggleSendCodeClose}>Close</button>
-                        <button color="primary" className='btn_1' onClick={this.sendCode}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
+                        <button color="primary" className='btn_1' onClick={this.checkCode}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     };
     render() {
@@ -248,7 +250,7 @@ class PhoneModal extends Component {
         }
       
         return (
-            <React.Fragment>
+            <>
                 <button onClick={this.toggle} className="btn_danger"><small>Forgot password?</small></button>
                 <Modal isOpen={isOpen} toggle={this.toggle} className="modal-primary modal-center">
                     <ModalHeader toggle={this.toggle}><i className="fa fa-edit" /> Forget Password</ModalHeader>
@@ -270,7 +272,7 @@ class PhoneModal extends Component {
                                     className   = "form-control"
                                     name        = "phone"
                                     placeholder = "Enter Phone Number"
-                                    value       = {this.state.phone}
+                                    value       = { this.state.phone }
                                     onChange    = { phone => this.setState({ phone }) }
                                     error       = { phone ? (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number') : 'Phone number required' }required/>
                                 </div>
@@ -281,7 +283,7 @@ class PhoneModal extends Component {
                         <button color="primary" className='btn_1' onClick={(phone)? this.create: ""}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     }
 }

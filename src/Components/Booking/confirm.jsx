@@ -13,7 +13,7 @@ class Confirm extends Component{
 			strokeDashoffset: "0px",
 		  };
         return(
-            <React.Fragment>
+            <>
             	<main>
 		<div id="breadcrumb">
 			<div className="container">
@@ -48,7 +48,7 @@ class Confirm extends Component{
 		{/* <!-- /container --> */}
 	</main>
 	{/* <!-- /main --> */}
-            </React.Fragment>
+            </>
         );
     }
 }

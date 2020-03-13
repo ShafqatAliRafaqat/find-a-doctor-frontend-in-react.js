@@ -1,15 +1,6 @@
 import React, {Component} from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import moment from 'moment';
 
 import * as actions from "../../../Store/Actions/AppointmentAction";
@@ -26,7 +17,7 @@ class LabTestHistory extends Component{
     };
     componentDidMount (){
         if(!this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
         };
         this.fetchLabTestHistory();
     }
@@ -132,13 +123,13 @@ class LabTestHistory extends Component{
                                                     </div>
                                                 <div className="row pt-2 pt-lg-0">
                                                     {/* <div className="col-6 col-lg-5 col-xl-4 mb-2 mb-lg-0 d-lg-none">
-                                                        <Link to={{pathname:`/doctor_detail/${m.id}`}} className="btn btn-block btn-outline-primary font-weight-bold text-size-14">View Profile</Link>
+                                                        <Link to={{pathname:`/doctor-detail/${m.id}`}} className="btn btn-block btn-outline-primary font-weight-bold text-size-14">View Profile</Link>
                                                     </div> */}
                                                     {/* <div className="col-6 col-lg-5 col-xl-4 top-arrow-dropdown dropdown mb-2 mb-lg-0">
-                                                        <Link to={{pathname:`/doctor_detail/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold d-none d-lg-block no-booking-btn"   >
+                                                        <Link to={{pathname:`/doctor-detail/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold d-none d-lg-block no-booking-btn"   >
                                                             Book Now
                                                         </Link>
-                                                        <Link to={{pathname:`/doctor_detail/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold m-0 d-lg-none no-booking-btn">
+                                                        <Link to={{pathname:`/doctor-detail/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold m-0 d-lg-none no-booking-btn">
                                                             Book Now
                                                         </Link>
                                                     </div> */}
@@ -196,13 +187,13 @@ class LabTestHistory extends Component{
     render(){
 
         if(!this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
         };
         if(this.state.isLoading){
             return (<div data-loader="circle-side"></div>);
         }
         return(
-            <React.Fragment>
+            <>
                 <main>
                     <div id="breadcrumb">
                         <div className="container">
@@ -218,14 +209,15 @@ class LabTestHistory extends Component{
                             <aside className="col-lg-3" id="sidebar">
                                     <div className="box_style_cat" id="faq_box">
                                         <ul id="cat_nav">
-                                            <li><Link to="/customer_profile"><i className="icon_document_alt"></i>My Profile</Link></li>
+                                            <li><Link to="/customer-profile"><i className="icon_document_alt"></i>My Profile</Link></li>
                                             <li>
                                                 <a href="#" data-toggle="collapse" data-target="#appointment" aria-expanded="false" aria-controls="users">
                                                 <i class="icon_document_alt"></i>Appointments</a>
                                                 <div id="appointment" class="collapse ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current_appointment" >Current Appointments</Link></li>
-                                                    <li className="pl-3"><Link to="/appointment_history" >Appointment History</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/pending-appointments" >Pending Appointments</Link></li>
+                                                    <li className="pl-3"><Link to="/approved-appointments" >Approved Appointments</Link></li>
+                                                    <li className="pl-3"><Link to="/appointment-history">Appointment History</Link></li>
                                                 </ul>
                                                 </div>
                                             </li>
@@ -234,8 +226,19 @@ class LabTestHistory extends Component{
                                                 <i class="icon_document_alt"></i>Lab Test</a>
                                                 <div id="labTest" class="collapse show">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current_lab_test" >Current Test</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current-lab-test" >Current Test</Link></li>
                                                     <li className="pl-3"><Link to="#" className="active">Test History</Link></li>
+                                                </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-toggle="collapse" data-target="#details" aria-expanded="false" aria-controls="users">
+                                                <i class="icon_document_alt"></i>Additional Detail</a>
+                                                <div id="details" class="collapse ">
+                                                <ul class="sidebar-menu">
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/allergy-notes" >Allergy Notes</Link></li>
+                                                    <li className="pl-3"><Link to="/riskfactor-notes" >Risk Factor</Link></li>
+                                                    <li className="pl-3"><Link to="/doctor-notes" >Doctor Notes</Link></li>
                                                 </ul>
                                                 </div>
                                             </li>
@@ -248,7 +251,7 @@ class LabTestHistory extends Component{
                         </div>
                     </div>
                 </main>
-            </React.Fragment>
+            </>
         );
     }
 }

@@ -71,7 +71,7 @@ class CodeVarificationModal extends Component {
 
         const { phone,isModalOpen,processing} = this.state;
         return (
-            <React.Fragment>
+            <>
                 <Modal isOpen={isModalOpen} toggle={this.toggle} className="modal-primary">
                     <ModalHeader toggle={this.toggle}><i className="fa fa-edit" /> Login/Register</ModalHeader>
                     <ModalBody>
@@ -103,7 +103,7 @@ class CodeVarificationModal extends Component {
                         <button color="primary" className='btn_1' onClick={this.create}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     }
 }

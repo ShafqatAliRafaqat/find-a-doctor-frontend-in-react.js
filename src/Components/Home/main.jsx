@@ -5,11 +5,13 @@ import * as actions from "../../Store/Actions/DoctorAction";
 import * as center_actions from "../../Store/Actions/CenterAction";
 import * as qs from 'query-string';
 import SpecializationBlocks from './../Specialization/blocks';
-import AppSection from "./app_section";
 import SearchHeader from "./search_header"; 
+import {Helmet} from "react-helmet";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+
+
 class Main extends Component{
     state = {
         isLoading   : true,
@@ -33,6 +35,43 @@ class Main extends Component{
             },
         },
     };
+    //   carouselRoll = () => {
+    //     var Coverflow = require('react-coverflow');
+    //     if (this.state.isLoading) {
+    //         return(<div data-loader="circle-side"></div>);
+    //     }
+	// 	if (!this.state.doctor_data) {
+    //         return true;
+    //     }
+    //     const { doctor_data } = this.state;
+    //     return (
+    //         <StyleRoot>
+    //           <Coverflow
+    //             displayQuantityOfSide={2}
+    //             navigation
+    //             infiniteScroll
+    //             enableHeading
+    //             media={{
+    //               '@media (max-width: 900px)': {
+    //                 width: '600px',
+    //                 height: '300px'
+    //               },
+    //               '@media (min-width: 900px)': {
+    //                 width: '960px',
+    //                 height: '600px'
+    //               }
+    //             }}
+    //           >
+    //               {doctor_data.map(d =>
+    //             <img src={d.picture} alt='Album one' data-action="https://facebook.github.io/react/"/>
+    //             )}
+    //             {/* <img src='images/album-2.png' alt='Album two' data-action="http://passer.cc"/>
+    //             <img src='images/album-3.png' alt='Album three' data-action="https://doce.cc/"/>
+    //             <img src='images/album-4.png' alt='Album four' data-action="http://tw.yahoo.com"/> */}
+    //           </Coverflow>
+    //         </StyleRoot>
+    //     );
+    //   }
     componentDidMount() {
 		let search = this.props.location.search;
         const params = qs.parse(search);
@@ -54,7 +93,7 @@ class Main extends Component{
 
             getDoctors(search).then(res => {
             this.setState({
-                doctor_data: res.data.data
+                doctor_data: JSON.parse(window.atob(res.data))
             });
 
         }).catch(errorHandler).finally(() => {
@@ -90,19 +129,20 @@ class Main extends Component{
 		if (!this.state.doctor_data) {
             return true;
         }
+		var slugify = require('slugify');
         const { doctor_data } = this.state;
         return doctor_data.map( d =>{
             return (
                 <div className="item">
-                    <Link to={{pathname:`/doctor_detail/${d.id}`}}>
+                    <Link to={{pathname:`/doctor-detail/${slugify(d.first_name)}/${d.id}`}}>
 						<div className="views"><i className="icon-eye-7"></i>98</div>
 						{/* <div className="title">
 							<h4>{d.first_name}<em>{d.focus_area}</em></h4>
 						</div> */}
                         {(d.picture) ? 
-                        <img src={d.picture} alt=""  width="200px"  height="300px" /> 
+                        <img src={d.picture} alt={d.first_name} /> 
                         : 
-                        <img src="web_imgs/doctor2.jpg" alt="" width="200px"  height="300px" />
+                        <img src="web_imgs/doctor2.jpg" alt={d.first_name}/>
                         }
                         <div className="card-bottom">
 							<h6>{d.first_name}</h6>
@@ -123,11 +163,12 @@ class Main extends Component{
 		if (!this.state.top_centers) {
             return true;
         }
+		var slugify = require('slugify');
         const { top_centers } = this.state;
         return top_centers.map( c =>{
             return (
                 <div className="item">
-                    <Link to={{pathname:`/center_detail/${c.id}`}}>
+                    <Link to={{pathname:`/center-detail/${slugify(c.name)}/${c.id}`}}>
 						<div className="views"><i className="icon-eye-7"></i>98</div>
 						{/* <div className="title">
 							<h4>{c.name}
@@ -135,9 +176,9 @@ class Main extends Component{
                             </h4>
 						</div> */}
                         {(c.picture) ? 
-                        <img src={c.picture} alt=""  width="200px"  height="300px" /> 
+                        <img src={c.picture} alt={c.name} /> 
                         : 
-                        <img src="web_imgs/doctor2.jpg" alt="" width="300px"  height="400px" />
+                        <img src="web_imgs/doctor2.jpg" alt={c.name} />
                         }
                         <div className="card-bottom">
 							<h6>{c.name}</h6>
@@ -166,46 +207,55 @@ class Main extends Component{
         if (this.state.isLoading) {
             return(<div data-loader="circle-side"></div>);
         }
-        const { doctor_data } = this.state;
         return(
-            <React.Fragment>
+            <>
+                <Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                    <meta name="keywords" content="top Doctors,Hospitall,CareALL,Top clinics,top hospitals,top specializations"></meta>
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+                    <meta name="description" content="HospitALL-Find a Doctor | Book an appointment with best doctors | Find a Doctor by Specialization, Clinic or Doctors near to your location using filters | From the list of Doctors, click on any Doctor's name and View his/her Profile | On Doctor's Profile, select the Center, Treatment, date and slot of Appointment" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>HospitALL-Find a Doctor | Book an appointment with best doctors</title>
+					
+            	</Helmet>
                 <main>
                     {this.SearchHeader()}
                     {this.Specialization()}
                         <div className="container margin_120_95">
                             <div className="main_title">
                                 <h2>Discover the <strong>online</strong> appointment!</h2>
-                                <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie. Sed ad debet scaevola, ne mel.</p>
+                                <p>Now you can Book your Appointment with a Doctor in three very easy Steps.</p>
                             </div>
                             <div className="row add_bottom_30">
                                 <div className="col-lg-4">
                                     <div className="box_feat" id="icon_1">
                                         <span></span>
                                         <h3>Find a Doctor</h3>
-                                        <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
+                                        <p>Find a Doctor by Specialization, Clinic or Doctors near to your location using filters.</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box_feat" id="icon_2">
                                         <span></span>
                                         <h3>View profile</h3>
-                                        <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
+                                        <p>From the list of Doctors, click on any Doctor's name and View his/her Profile</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box_feat" id="icon_3">
                                         <h3>Book a visit</h3>
-                                        <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
+                                        <p>On Doctor's Profile, select the Center, Treatment, date and slot of Appointment.</p>
                                     </div>
                                 </div>
                             </div>
-                            <p className="text-center"><Link to="/doctor_list" className="btn_1 medium">Find Doctor</Link></p>
+                            <p className="text-center"><Link to="/doctor-list" className="btn_1 medium">Find Doctor</Link></p>
                         </div>
                         <div className="bg_color_1">
                             <div className="container margin_120_95">
                                 <div className="main_title">
                                     <h2>Most Viewed doctors</h2>
-                                    <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>
+                                    <p>Here is few of our Top Doctors loved by our Customers</p>
                                 </div>
                                 <OwlCarousel
                                     id          = "reccomended"
@@ -214,10 +264,10 @@ class Main extends Component{
                                     margin      = {0}
                                     items       = {5}
                                     responsive  = {this.state.responsive}
-                                    autoplay    = {true}
+                                    autoplay    = {false}
                                     animateOut  = {true}
                                     center      = {true}
-                                    nav         = {true}                    
+                                    // nav         = {true}                    
                                     >
                                     {this.ListOfDoctors()}
                                 </OwlCarousel>
@@ -227,7 +277,7 @@ class Main extends Component{
                             <div className="container margin_120_95">
                                 <div className="main_title">
                                     <h2>Most Viewed Medical Facilities</h2>
-                                    <p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>
+                                    <p>Here is the list of our Most viewed Medical Facilities in Town.</p>
                                 </div>
                                 <OwlCarousel
                                     id          = "reccomended"
@@ -245,9 +295,10 @@ class Main extends Component{
                                 </OwlCarousel>
                             </div>
                         </div>
+                        {/* {this.carouselRoll()} */}
                     {/* <AppSection /> */}
                 </main>
-            </React.Fragment>
+            </>
         );
     }
 }

@@ -67,13 +67,14 @@ class SearchPages extends Component {
         let doctors         = search.doctors;
         let specializations = search.specializations;
         let centers         = search.centers;
+		var slugify         = require('slugify');
         
         if (!doctors) {
             return true;
         }
         var specializations1 = specializations.map(m => {
             return (
-                <Link to={{ pathname: `/treatment_detail/${m.id}` }}>
+                <Link to={{ pathname: `/treatment-detail/${slugify(m.name)}/${m.id}` }}>
                     <ListItem key={m.id} className="search-list-pages">
                         <div>
                             <ul style={{ whiteSpace: "nowrap", overflow: 'hidden' }}>
@@ -95,16 +96,16 @@ class SearchPages extends Component {
 
         var doctors1 = doctors.map(m => {
             return (
-                <Link to={{ pathname: `/doctor_detail/${m.id}` }}>
+                <Link to={{ pathname: `/doctor-detail/${slugify(m.name)}/${m.id}` }}>
                     <ListItem key={m.id} className="search-list-pages">
                         <div>
                             {(m.picture) ?
-                                <img className="list-img" src={`https://support.hospitallcare.com/backend/uploads/doctors/${m.picture.picture}`} alt="img" />
+                                <img className="list-img" src={`https://support.hospitallcare.com/backend/uploads/doctors/${m.picture.picture}`} alt={m.name} />
                                 :
                                 (m.gender == 1)?
-                                <img src="web_imgs/male.png" alt="" className="list-img" />
+                                <img src="web_imgs/Male.png" alt="" className="list-img" />
                                 :
-                                <img src="web_imgs/female.png" alt="" className="list-img" />
+                                <img src="web_imgs/Female.png" alt="" className="list-img" />
 
                             }
                             <span className="search-name">{m.name}</span>
@@ -122,7 +123,7 @@ class SearchPages extends Component {
 
         var centers1 = centers.map(m => {
             return (
-                <Link to={{ pathname: `/center_detail/${m.id}` }}>
+                <Link to={{ pathname: `/center-detail/${slugify(m.name)}/${m.id}` }}>
                     <ListItem key={m.id} className="search-list-pages">
                         <div>
                             <SearchIcon className="search-icon"></SearchIcon>
@@ -135,7 +136,7 @@ class SearchPages extends Component {
         })
         if (specializations1.length != 0 || doctors1.length != 0 || centers1.length != 0) {
             return (
-                <React.Fragment>
+                <>
                     <div className="clearfix">
                         <List className='small-search' style={{
                             maxWidth: 461,
@@ -155,11 +156,11 @@ class SearchPages extends Component {
                             {centers1}
                         </List>
                     </div>
-                </React.Fragment>
+                </>
             )
         } else {
             return (
-                <React.Fragment>
+                <>
                     <div className="clearfix">
                     <List className='small-search' style={{
                         maxWidth: 461,
@@ -183,7 +184,7 @@ class SearchPages extends Component {
                         </ListItem>
                     </List>
                     </div>
-                </React.Fragment>
+                </>
             )
         }
 
@@ -192,7 +193,7 @@ class SearchPages extends Component {
     render() {
         const { search } = this.state;
         return (
-            <React.Fragment>
+            <>
                 <div className="col-md-6">
                     <div className="search_bar_list">
                         <input
@@ -201,7 +202,7 @@ class SearchPages extends Component {
                             className="form-control"
                             onChange={e => this.onChange(e)}
                             placeholder="Ex. Doctor, Specialization ...."
-                            autocomplete="off"
+                            autoComplete="off"
                         />
                         <div>
                             {(search) ?
@@ -213,7 +214,7 @@ class SearchPages extends Component {
                         <input type="submit" value="Search" />
                     </div>
                 </div>
-            </React.Fragment>
+            </>
         );
     }
 }

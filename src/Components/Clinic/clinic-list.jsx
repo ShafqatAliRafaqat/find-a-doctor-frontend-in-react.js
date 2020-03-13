@@ -2,13 +2,12 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../Store/Actions/CenterAction";
-import SimplePagination from "../Common/SimplePagination";
 import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
-import alertify from 'alertifyjs';
 import List from './list';
 import SearchPages from '../Search/search_pages';
 import Pagination from "react-js-pagination";
+import {Helmet} from "react-helmet";
 
 class CenterList extends Component{
     state = {
@@ -22,6 +21,7 @@ class CenterList extends Component{
     };
     componentDidMount() {
 		let search = this.props.location.search;
+		window.scrollTo(0, 0);
         const params = qs.parse(search);
         for (let key in params) {
             this.setState({
@@ -78,14 +78,29 @@ class CenterList extends Component{
 		this.setState({activePage: pageNumber});
 		let search = getSearchUrlFromState(this.state);
 		this.getCenters(search + "page=" + 	pageNumber , actions.GET_ALL_CENTERS);
-	}	
+	}
+	renderRefreshPage = (e)=>{
+
+		this.props.history.push(e.target.name);
+            window.location.reload();
+    }	
     render(){
-		let { to,total } = this.state;
+		let { to,total,center_data } = this.state;
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }
         return(
-            <React.Fragment>
+            <>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+					<meta name="keywords" content={center_data.map(m=>m.name)}></meta>
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="List of top hospitals and clinics in pakistan- Book an appointment with top doctors - Download our CareALL APP to book an appointment with our Best doctors" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Top Hospitals | Clinics In Pakistan - Book an appointment with top doctors of hospitals - Download our CareALL APP to book an appointment with our Best doctors</title>
+					<Link to='/specialization-list'></Link>
+            	</Helmet>
 				<main>
 					<div id="results">
 						<div className="container">
@@ -96,7 +111,7 @@ class CenterList extends Component{
 											<ul>
 												<li><Link to="/">Home</Link></li>
 												<li>Hospitals</li>
-												<li>Hospitals in Lahore</li>
+												<li>Top Hospitals in Lahore</li>
 											</ul>
 										</div>
 									</div>
@@ -111,19 +126,15 @@ class CenterList extends Component{
 								<li>
 									<h6>Type</h6>
 									<div className="switch-field">
-										<Link to="clinic_list">
-											<input type="radio" id="clinics" name="type_patient" value="clinics" checked/>
-											<label >Clinics</label>
+										<Link to="clinic-list" className="filter-button-style-label-active" name="/clinic-list" onClick={this.renderRefreshPage}>
+											Clinics
 										</Link>
-										<Link to="doctor_list">
-											<input type="radio" id="doctors" name="type_patient" value="doctors" />
-											<label >Doctors</label>
+										<Link to="doctor-list" className=" filter-button-style-label ml-1" name="/doctor-list" >
+											Doctors
 										</Link>
-										<Link to="specialization_list">
-											<input type="radio" id="clinics" name="type_patient" value="clinics"/>
-											<label >Specialization</label>
+										<Link to="specialization-list" className="filter-button-style-label ml-1" name="/specialization-list" >
+										 	Specialization
 										</Link>
-										
 									</div>
 								</li>	
 								<li className="pt-3">
@@ -132,17 +143,20 @@ class CenterList extends Component{
 							</ul>
 						</div>
 					</div>
-					<div className="container margin_60_35">
+					
+					
+					<div className="container margin_0_35 ">
 						<div className="row">
 							{this.ListOfCenters()}
 						</div>
 						<div className="row">
 							<div className="text-center col-12">
 								{(total != 0)?	<Pagination
-									prevPageText='prev'
-									nextPageText='next'
-									firstPageText='first'
-									lastPageText='last'
+									prevPageText='<'
+									nextPageText='>'
+									firstPageText='<<'
+									lastPageText='>>'
+									pageRangeDisplayed={4}
 									activePage={this.state.current_page}
 									itemsCountPerPage={this.state.per_page}
 									totalItemsCount={this.state.total}
@@ -154,7 +168,7 @@ class CenterList extends Component{
 						</div>
 					</div>
 				</main>	
-            </React.Fragment>
+            </>
         );
     }
 }

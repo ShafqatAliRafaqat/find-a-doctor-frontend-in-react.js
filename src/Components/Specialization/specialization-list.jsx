@@ -2,14 +2,11 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../Store/Actions/TreatmentAction";
-import SimplePagination from "../Common/SimplePagination";
 import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
-import alertify from 'alertifyjs';
 import List from './list';
 import SearchPages from '../Search/search_pages';
-
-import ReactDOM from "react-dom";
+import {Helmet} from "react-helmet";
 import Pagination from "react-js-pagination";
 class SpecializatoinList extends Component{
     state = {
@@ -23,6 +20,7 @@ class SpecializatoinList extends Component{
 		
     };
     componentDidMount() {
+		window.scrollTo(0, 0);
 		let search	 = this.props.location.search;
         const params = qs.parse(search);
         for (let key in params) {
@@ -81,15 +79,28 @@ class SpecializatoinList extends Component{
 		let search = getSearchUrlFromState(this.state);
 		this.getTreatments(search + "page=" + 	pageNumber , actions.GET_ALL_TREATMENTS);
 	}
-
+	renderRefreshPage = (e)=>{
+		this.props.history.push(e.target.name);
+            window.location.reload();
+    }
     render(){
 
-		let { page, totalPages,to,total } = this.state;
+		let { to,total ,treatment_data} = this.state;
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }
         return(
-            <React.Fragment>
+            <>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+					<meta name="keywords" content={treatment_data.map(m=>m.name)}></meta>
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Top Specialization - Book an appointment according to specializations - Book an appointment with our best doctors" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Top Specialization - Book an appointment according to specializations - Book an appointment with our best doctors </title>
+					<Link to='/doctor-list'></Link>
+            	</Helmet>
 				<main>
 					
 					<div id="results">
@@ -100,8 +111,8 @@ class SpecializatoinList extends Component{
 													<div className="container">
 														<ul>
 															<li><Link to="/">Home</Link></li>
-															<li>Find a Doctor</li>
-															<li>Specializations</li>
+															<li><Link to="/doctor-list">Find a Doctor</Link></li>
+															<li>Top Specializations</li>
 														</ul>
 													</div>
 												</div>
@@ -117,22 +128,18 @@ class SpecializatoinList extends Component{
 								<li>
 									<h6>Type</h6>
 									<div className="switch-field">
-										<Link to="specialization_list">
-											<input type="radio" id="clinics" name="type_patient" value="clinics" checked/>
-											<label >Specialization</label>
+										<Link to="specialization-list" className="filter-button-style-label-active " name="/specialization-list" onClick={this.renderRefreshPage}>
+										 	Specialization
 										</Link>
-										<Link to="doctor_list">
-										<input type="radio" id="doctors" name="type_patient" value="doctors" />
-										<label >Doctors</label>
+										<Link to="clinic-list" className="filter-button-style-label ml-1"	 name="/clinic-list" >
+											Clinics
 										</Link>
-										<Link to="clinic_list">
-										<input type="radio" id="clinics" name="type_patient" value="clinics" />
-										<label >Clinics</label>
+										<Link to="doctor-list" className=" filter-button-style-label ml-1" name="/doctor-list">
+											Doctors
 										</Link>
 										
 									</div>
 								</li>
-							
 								<li className="pt-3">
 									<span><strong>Showing {to}</strong> of {total} results</span>
 								</li>
@@ -140,7 +147,7 @@ class SpecializatoinList extends Component{
 						</div>
 					</div>
 					
-					<div className="container margin_60_35">
+					<div className="container margin_0_35">
 						<div className="row">
 
 							{this.ListOftreatments()}
@@ -148,10 +155,11 @@ class SpecializatoinList extends Component{
 						<div className="row">
 							<div className="text-center col-12">
 								{(total != 0)?	<Pagination
-									prevPageText='prev'
-									nextPageText='next'
-									firstPageText='first'
-									lastPageText='last'
+									prevPageText='<'
+									nextPageText='>'
+									firstPageText='<<'
+									lastPageText='>>'
+									pageRangeDisplayed={4}
 									activePage={this.state.current_page}
 									itemsCountPerPage={this.state.per_page}
 									totalItemsCount={this.state.total}
@@ -164,7 +172,7 @@ class SpecializatoinList extends Component{
 					</div>
 				</main>
 	
-            </React.Fragment>
+            </>
         );
     }
 }

@@ -52,7 +52,7 @@ class DoctorFilter extends Component{
     render(){
         let { doctor_data, page, totalPages,to,total,male,female, available_any_day, available_today, available_on_weekend } = this.state;
         return(
-            <React.Fragment>
+            <>
                 <div className="sect-filters_and_sort bg-light pb-2 pt-2 text-sm">
                     <div className="container">
                         <div className="row">
@@ -92,7 +92,7 @@ class DoctorFilter extends Component{
                                         <div className="custom-control custom-checkbox custom-control-inline bg-white  pr-3 ">
                                             <ul style={{margin:0}}> 
                                                 <li>
-                                                    <h6 style={{fontSize:"0.75rem", color:"#999",marginBottom:"5px"}}>Consultaton Fee</h6>
+                                                    <h6 style={{fontSize:"0.75rem", color:"#999",marginBottom:"5px"}}>Consultation Fee</h6>
                                                         <select name="orderby" className="selectbox" onChange={ this.onChange } name="consultation_fee">
                                                             <option value="Closest">300-500</option>
                                                             <option value="Best rated">500-1000</option>
@@ -109,7 +109,7 @@ class DoctorFilter extends Component{
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
+            </>
         );
     }
 }

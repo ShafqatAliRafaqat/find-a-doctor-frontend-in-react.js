@@ -1,15 +1,11 @@
 import React, {Component} from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 import * as actions from "../../../Store/Actions/CustomerAction";
   
@@ -29,7 +25,7 @@ class Profile extends Component{
     
     componentDidMount (){
         if(!this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
         };
         this.fetchCustomer();
     }
@@ -55,8 +51,6 @@ class Profile extends Component{
                 address	        : res.data.data.address,
                 height	        : res.data.data.height,
                 weight	        : res.data.data.weight,
-                allergies	    : res.data.data.allergies,
-                riskfactor_notes: res.data.data.riskfactor_notes,
                 
 			});
 			dispatch({
@@ -78,12 +72,12 @@ class Profile extends Component{
 		});
         let { updateCustomer, dispatch, errorHandler,alertify } = this.props;
        
-        const {blood_group_id, marital_status, gender, name, phone,email,address,height,weight,allergies,riskfactor_notes} = this.state;
+        const {blood_group_id, marital_status, gender, name, phone,email,address,height,weight,} = this.state;
         
         let id = this.props.user.customer.id;
         let token = this.props.user.access_token;
 
-        let params ={blood_group_id, marital_status, gender, name, phone,email,address,height,weight,allergies,riskfactor_notes, id};
+        let params ={blood_group_id, marital_status, gender, name, phone,email,address,height,weight, id};
 
         updateCustomer(params, token).then(res => {
 			this.setState({
@@ -97,8 +91,6 @@ class Profile extends Component{
                 address	        : res.data.data.address,
                 height	        : res.data.data.height,
                 weight	        : res.data.data.weight,
-                allergies	    : res.data.data.allergies,
-                riskfactor_notes: res.data.data.riskfactor_notes,
             });
 			dispatch({
 				type: actions.UPDATE_CUSTOMER,
@@ -106,7 +98,7 @@ class Profile extends Component{
 				access_token: token,
             });
             if(res.data.data){
-                this.props.history.push('/current_appointment');
+                // this.props.history.push('/approved-appointments');
                 alertify.success("Your profile has been updated!");
                 setTimeout(window.location.reload(false),100000);
             }
@@ -126,21 +118,21 @@ class Profile extends Component{
     render(){
 
         if(!this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
         };
         if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }
-        const {processing, customer_data, blood_group_id, marital_status, gender, name, phone,email,address,height,weight,allergies,riskfactor_notes} =this.state;
+        const {processing, blood_group_id, marital_status, gender, name, phone,email,address,height,weight} =this.state;
         return(
-            <React.Fragment>
+            <>
                 <main>
                     <div id="breadcrumb">
                         <div className="container">
                             <ul>
-                            <li><Link to="/">Home</Link></li>
-                                <li><Link to="/">Category</Link></li>
-                                <li>Page active</li>
+                                <li><Link to="/">Home</Link></li>
+                                <li><Link to="#">My Profile</Link></li>
+                                {/* <li>History</li> */}
                             </ul>
                         </div>
                     </div>
@@ -155,8 +147,9 @@ class Profile extends Component{
                                                 <i class="icon_document_alt"></i>Appointments</a>
                                                 <div id="appointment" class="collapse ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current_appointment" >Current Appointments</Link></li>
-                                                    <li className="pl-3"><Link to="/appointment_history">Appointment History</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/pending-appointments" >Pending Appointments</Link></li>
+                                                    <li className="pl-3"><Link to="/approved-appointments" >Approved Appointments</Link></li>
+                                                    <li className="pl-3"><Link to="/appointment-history">Appointment History</Link></li>
                                                 </ul>
                                                 </div>
                                             </li>
@@ -165,8 +158,19 @@ class Profile extends Component{
                                                 <i class="icon_document_alt"></i>Lab Test</a>
                                                 <div id="labTest" class="collapse ">
                                                 <ul class="sidebar-menu">
-                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current_lab_test" >Current Test</Link></li>
-                                                    <li className="pl-3"><Link to="/lab_test_history" >Test History</Link></li>
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/current-lab-test" >Current Test</Link></li>
+                                                    <li className="pl-3"><Link to="/lab-test-history" >Test History</Link></li>
+                                                </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-toggle="collapse" data-target="#details" aria-expanded="false" aria-controls="users">
+                                                <i class="icon_document_alt"></i>Additional Detail</a>
+                                                <div id="details" class="collapse ">
+                                                <ul class="sidebar-menu">
+                                                    <li className="pl-3" style={{borderTop:"1px solid #e1e8ed"}}><Link to="/allergy-notes" >Allergy Notes</Link></li>
+                                                    <li className="pl-3"><Link to="/riskfactor-notes" >Risk Factor</Link></li>
+                                                    <li className="pl-3"><Link to="/doctor-notes" >Doctor Notes</Link></li>
                                                 </ul>
                                                 </div>
                                             </li>
@@ -201,7 +205,7 @@ class Profile extends Component{
                                       
                                     </div>
                                     <div className="row">
-                                        <div className="col-md-6 ">
+                                        <div className="col-md-6 col-6">
                                             <div className="form-group">
                                                 <FormControl className="form-control">
                                                     <InputLabel htmlFor="grouped-select">Marital Status </InputLabel>
@@ -212,7 +216,7 @@ class Profile extends Component{
                                                 </FormControl>
                                             </div>
                                         </div>
-                                        <div className="col-md-6">
+                                        <div className="col-md-6 col-6">
                                             <div className="form-group">
                                             <FormControl className="form-control">
                                                     <InputLabel  htmlFor="grouped-select">Gender</InputLabel>
@@ -225,13 +229,13 @@ class Profile extends Component{
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-md-6 ">
+                                        <div className="col-md-6 col-6">
                                             <div className="form-group">    
                                                 <TextField   type="number" defaultValue = {height} onChange={this.onChange}  step="0.01" name="height"  className="form-control" label="Height (Feet)" margin="normal" />                                      
                                             </div>
                                         </div>
                                     
-                                        <div className="col-md-6">
+                                        <div className="col-md-6 col-6">
                                             <div className="form-group">
                                             <FormControl className="form-control">
                                                     <InputLabel  htmlFor="grouped-select">Blood Group</InputLabel>
@@ -256,32 +260,18 @@ class Profile extends Component{
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
-                                        <div className="col-md-6 ">
-                                            <div className="form-group">
-                                                <InputLabel htmlFor="grouped-select">Allergies</InputLabel>
-                                                <TextareaAutosize className="form-control" name="allergies" onChange={this.onChange}  defaultValue = {allergies} aria-label="Allergies" rows={3} placeholder="Allergies" />
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <div className="form-group">
-                                                <InputLabel htmlFor="grouped-select">Risk Factor</InputLabel>
-                                                <TextareaAutosize className="form-control" name="riskfactor_notes" onChange={this.onChange}  defaultValue = {riskfactor_notes} aria-label="Risk Factor" rows={3} placeholder="Risk Factor" />
-                                            </div>
-                                        </div>
-                                    </div>
                                     <p className="text-center add_top_30">
                                         <button color="primary" className='btn_1' onClick={ this.updateCustomer}>{(processing) ? "Updating..." : " Update Profile"}</button>{' '}
                                     </p>
                                     <div className="text-center">
-                                        <small>Ut nam graece accumsan cotidieque. Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet.</small>
+                                        {/* <small>Ut nam graece accumsan cotidieque. Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet.</small> */}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </main>
-            </React.Fragment>
+            </>
         );
     }
 }

@@ -2,24 +2,21 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../Store/Actions/DoctorAction";
-import SimplePagination from "../Common/SimplePagination";
 import { getSearchUrlFromState } from '../../util/functions'
 import * as qs from 'query-string';
 import List from './list';
+import BottomFaq from './../FAQ/bottom-faq';
+// import BottomTopSpecialization from './../Specialization/bottom-top-specializations';
 import alertify from 'alertifyjs';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import SearchPages from '../Search/search_pages';
 import Pagination from "react-js-pagination";
-
+import {Helmet} from "react-helmet";
 
 const useStyles = makeStyles({
 	root: {
@@ -77,13 +74,14 @@ const useStyles = makeStyles({
   }
 class DoctorList extends Component{
 	initState = {
-		nearest_doctor	: '',
-		male			: false,
-		female			: false,
-		consultation_fee: '',
-		available		: '',
-        available_today	: false,		
-        available_any_day:false,
+		nearest_doctor		: '',
+		specializations		: '',
+		male				: false,
+		female				: false,
+		consultation_fee	: '',
+		available			: '',
+        available_today		: false,		
+        available_any_day 	:false,
         available_on_weekend:false,
 	}
 	state = {
@@ -96,14 +94,14 @@ class DoctorList extends Component{
 		doctor_data		: '',
 		latitude		: '',
 		longitude		: '',
-		current_page: 0,
-		last_page	: 0,
-		per_page	: 0,
-		activePage	:0,
-        
+		current_page	: 0,
+		last_page		: 0,
+		per_page		: 0,
+		activePage		:0,   
 	};
 
     componentDidMount() {
+		window.scrollTo(0, 0);
 		let search = this.props.location.search;
         const params = qs.parse(search);
         for (let key in params) {
@@ -148,7 +146,6 @@ class DoctorList extends Component{
 	};
 	
 	onChange =e =>{
-		
         this.setState({
             [e.target.name]: e.target.value
         }, () => {
@@ -163,12 +160,13 @@ class DoctorList extends Component{
 		});
 		let { getDoctors, dispatch, errorHandler } = this.props;
 
-		const {male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude ,longitude} =	this.state;  
-        let data = {male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude,longitude }; 
+		const { male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude ,longitude} =	this.state;  
+        let data = { male, female, available_today, available_any_day, available_on_weekend, consultation_fee, nearest_doctor, available, latitude,longitude }; 
 		
 	    getDoctors(search,data).then(res => {
             this.setState({
 				doctor_data	: res.data.data,
+				specializations	: res.data.meta.specializations,
 				current_page: res.data.meta.current_page,
                 last_page	: res.data.meta.last_page,
                 to			: res.data.meta.to,
@@ -200,7 +198,7 @@ class DoctorList extends Component{
 	
 	renderDoctorFilter = () => {
 		return	(
-			<React.Fragment>
+			<>
 				<aside className="col-xl-3 col-lg-4 doctor-filters" id="sidebar">
 				 	<div className="box_profile">
 				 		<div className="row">
@@ -244,7 +242,7 @@ class DoctorList extends Component{
 						<div className="row css-col-top">
 						 	<div className="col-12 pt-2 text-left css-col-bottom">
 								 <h1 style={{color:"#fff"}}>
-								 	Consultaton Fee
+								 	Consultation Fee
 								 </h1>
 							</div>
 							<div className="col-12 mt-3 text-left">
@@ -252,11 +250,9 @@ class DoctorList extends Component{
 									<FormControl component="fieldset" className="custom-control">
 										<RadioGroup aria-label="consultation_fee" name="consultation_fee" onChange={this.onChange}>
 											<FormControlLabel value="0-100000" control={<StyledRadio />} label="All" />
-											<FormControlLabel value="0-500" control={<StyledRadio />} label="300-500" />
-											<FormControlLabel value="501-1000" control={<StyledRadio />} label="500-1000" />
-											<FormControlLabel value="1001-2000" control={<StyledRadio />} label="1000-2000" />
-											<FormControlLabel value="2001-5000" control={<StyledRadio />} label="2000-5000" />
-											<FormControlLabel value="5001-100000" control={<StyledRadio />} label="5000+" />
+											<FormControlLabel value="0-1000" control={<StyledRadio />} label="1-1000" />
+											<FormControlLabel value="1001-3000" control={<StyledRadio />} label="1000-3000" />
+											<FormControlLabel value="3001-100000" control={<StyledRadio />} label="3000+" />
 										</RadioGroup>
 									</FormControl>
 								</div>
@@ -273,9 +269,8 @@ class DoctorList extends Component{
 									<FormControl component="fieldset" className="custom-control">
 										<RadioGroup aria-label="nearest_doctor" name="nearest_doctor" onChange={this.onChange}>
 											<FormControlLabel value="0-10000" control={<StyledRadio />} label="All" />
-											<FormControlLabel value="0-5" control={<StyledRadio />} label="0-5 Km" />
-											<FormControlLabel value="5-10" control={<StyledRadio />} label="5-10 Km" />
-											<FormControlLabel value="10-20" control={<StyledRadio />} label="10-20 Km" />
+											<FormControlLabel value="1-10" control={<StyledRadio />} label="1-10 Km" />
+											<FormControlLabel value="11-20" control={<StyledRadio />} label="11-20 Km" />
 											<FormControlLabel value="21-10000" control={<StyledRadio />} label="20+" />
 										</RadioGroup>
 									</FormControl>
@@ -284,19 +279,63 @@ class DoctorList extends Component{
 						</div>
 					</div>
 				</aside>	
-			</React.Fragment>
+			</>
 		);
 	};
 
+	BottomSpecialization = () => {
+		const {specializations } = this.state;
+		var slugify = require('slugify');
+
+		if(specializations){
+			if (specializations.length < 1) {
+				return(
+					<div className="pb-5"></div>
+				);
+			}
+		}
+		return(
+			<div className="container margin_25">
+			<h6 className="h6-brief-intro">Top Specializations</h6>
+			<div className="row">
+				<div className="col">
+				{(specializations)?
+					specializations.map(m =><Link to={{ pathname:`/treatment-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+				:
+				''
+				}
+				</div>
+			</div>
+		</div>
+		);
+	}
 	handlePageChange = (pageNumber) => {
 		this.setState({activePage: pageNumber});
 		let search = getSearchUrlFromState(this.state);
 		this.getDoctors(search + "page=" + 	pageNumber , actions.GET_ALL_DOCTORS);
 	}
+	renderRefreshPage = (e)=>{
+		this.props.history.push(e.target.name);
+            window.location.reload();
+    }
     render(){
-		let { page, totalPages,to,total } = this.state;
+		let { to,total ,specializations} = this.state;
+		if (this.state.isLoading) {
+            return (<div data-loader="circle-side"></div>);
+        }
         return(
-            <React.Fragment>
+            <>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+					<meta name="keywords" content={specializations.map(m=>m.name)}></meta>
+					
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="List of top doctors in pakistan- Book an appointment with top doctors - Get your digital records" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Top Doctors In Pakistan - Book an appointment with top doctors - Get your digital records</title>
+					<Link to='/doctor-list'></Link>
+            	</Helmet>
 				<main>
 					<div id="results">
 						<div className="container">
@@ -307,7 +346,7 @@ class DoctorList extends Component{
 											<ul>
 												<li><Link to="/">Home</Link></li>
 												<li>Find a Doctor</li>
-												<li>Doctors in Lahore</li>
+												<li>Best Doctors in Lahore</li>
 											</ul>
 										</div>
 									</div>
@@ -322,18 +361,17 @@ class DoctorList extends Component{
 								<li>
 									<h6>Type</h6>
 									<div className="switch-field">
-										<Link to="doctor_list">
-											<input type="radio" id="doctors" name="type_patient" value="doctors" checked/>
-											<label >Doctors</label>
+										
+										<Link to="doctor-list" className=" filter-button-style-label-active" name="/doctor-list" onClick={this.renderRefreshPage} >
+											Doctors
 										</Link>
-										<Link to="specialization_list">
-											<input type="radio" id="clinics" name="type_patient" value="clinics"/>
-											<label >Specialization</label>
+										<Link to="specialization-list" className="filter-button-style-label ml-1" name="/specialization-list" >
+										 	Specialization
 										</Link>
-										<Link to="clinic_list">
-											<input type="radio" id="clinics" name="type_patient" value="clinics" />
-											<label >Clinics</label>
+										<Link to="clinic-list" className="filter-button-style-label ml-1" name="/clinic-list">
+											Clinics
 										</Link>
+										
 									</div>
 								</li>
 								<li className="pt-3">
@@ -342,7 +380,7 @@ class DoctorList extends Component{
 							</ul>
 						</div>
 					</div>
-					<div className="container margin_60_35">
+					<div className="container margin_0_35">
 						<div className="row">	
 							{this.renderDoctorFilter()}
 							<div className="col-xl-9 col-lg-8">
@@ -354,10 +392,11 @@ class DoctorList extends Component{
 						<div className="row">
 							<div className="text-center col-12">
 								{(total != 0)?	<Pagination
-									prevPageText='prev'
-									nextPageText='next'
-									firstPageText='first'
-									lastPageText='last'
+									prevPageText='<'
+									nextPageText='>'
+									firstPageText='<<'
+									lastPageText='>>'
+									pageRangeDisplayed={4}
 									activePage={this.state.current_page}
 									itemsCountPerPage={this.state.per_page}
 									totalItemsCount={this.state.total}
@@ -368,8 +407,11 @@ class DoctorList extends Component{
 							</div>
 						</div>
 					</div>
+					{/* <BottomFaq/> */}
+					{this.BottomSpecialization()}
+					<div className="pb-5"></div>
 				</main>	
-            </React.Fragment>
+            </>
         );
     }
 }

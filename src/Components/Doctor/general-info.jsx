@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import * as actions from "../../Store/Actions/DoctorAction";
 import * as appointmentactions from "../../Store/Actions/AppointmentAction";
 import AppointmentForm from "../Booking/appointment-form";
-import PhoneModal from "../Booking/PhoneModal";
+import DoctorFaq from './../FAQ/doctor-faq';
 import SearchPages from '../Search/search_pages';
+import {Helmet} from "react-helmet";
 
 class GeneralInfo extends Component {
 
@@ -16,11 +17,18 @@ class GeneralInfo extends Component {
 	state = {
 		// ...this.props.match.params.doctorId,
 		isLoading		: true,
+		isOpenDoctor	: false,
+		isOpenCenter	: false,
+		callNowStyle	: 'none',
+		callNowButtoneStyle	: '',
 		doctor_data		: '',
 		qualification	: '',
 		certification	: '',
 		schedules		: '',
 		specialization	: '',
+		specialization_id: '',
+		related_doctors	: '',
+		related_centers : '',
 		doctorId		: '',
 		all_treatments	: '',
 		...this.initState,
@@ -31,6 +39,7 @@ class GeneralInfo extends Component {
         }
     }
 	componentDidMount() {
+		window.scrollTo(0, 0);
 		this.getData()
 	}
 	getData = () => {
@@ -38,16 +47,21 @@ class GeneralInfo extends Component {
 		this.setState({
 			isLoading: true
 		});
-		let { fetchDoctor, dispatch, errorHandler } = this.props;
+		let { fetchDoctor, dispatch, errorHandler,user } = this.props;
+		var id = (user)? user.customer.id:'';
+		let data = {id};
 		let doctorId = this.props.match.params.doctorId;
-		fetchDoctor(doctorId).then(res => {
+		fetchDoctor(doctorId,data).then(res => {
 			this.setState({
 				doctor_data		: res.data.data,
 				qualification	: res.data.meta.doctor_qualification,
 				certification	: res.data.meta.doctor_certification,
 				schedules		: res.data.meta.doctor_schedules,
+				specialization_id: res.data.meta.specialization_id,
 				specialization	: res.data.meta.specialization,
 				all_treatments	: res.data.meta.all_treatments,
+				related_doctors	: res.data.meta.related_doctors,
+				related_centers	: res.data.meta.related_centers,
 			});
 			dispatch({
 				type: actions.FETCH_DOCTOR,
@@ -60,25 +74,37 @@ class GeneralInfo extends Component {
 		});
 	};
 	SearchPages = () => {
-		return	<SearchPages {...this.props} />		
+		return	<SearchPages {...this.props  } />		
 	};
-	
+
+	DoctorFaq = () => {
+		return <DoctorFaq {...this.props  } doctor_data = {this.state.doctor_data} schedules = {this.state.schedules} />
+	}	
 	DoctorProfile = () => {
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }
-		const { doctor_data } = this.state;
+		const { doctor_data, callNowStyle, callNowButtoneStyle } = this.state;
 		return (
 			<div className="profile">
 				<div className="row">
 					<div className="col-lg-5 col-md-4">
 						<figure>
-							{(doctor_data.picture) ? <img src={doctor_data.picture} alt="" className="img-fluid" /> : <img src="web_imgs/doctor2.jpg" alt="" className="img-fluid" />}
+							{(doctor_data.picture) ? <img src={doctor_data.picture} alt={doctor_data.first_name} className="img-fluid doctor_profile_img" /> 
+							:
+							(doctor_data.gender == "Male")?
+                            <img src="web_imgs/Male.png" alt={doctor_data.first_name} className="img-fluid" />
+                            :
+                            <img src="web_imgs/Female.png" alt={doctor_data.first_name} className="img-fluid" /> 
+							}
 						</figure>
 					</div>
 					<div className="col-lg-7 col-md-8">
 						<small>{doctor_data.focus_area}</small>
-						<h1>{doctor_data.first_name} {doctor_data.last_name}</h1>
+						<div className="doctor-name-ok">
+						<h1 >{doctor_data.first_name} {doctor_data.last_name} 
+						{(doctor_data.partnership == 1)?<span data-tooltip="Verified and Onboard" data-tooltip-location="right"><i className="icon-ok-circled text-success" style={{fontSize: '18px'}}></i></span>:''}</h1>
+						</div>
 						<span className="rating">
 							<i className="icon_star voted"></i>
 							<i className="icon_star voted"></i>
@@ -94,18 +120,26 @@ class GeneralInfo extends Component {
 							<li>854 Views</li>
 							<li>124 Patients</li>
 						</ul>
-						<ul className="col pl-0 font-weight-bold text-sm">
-							<li><p style={{color: "#21a747"}}>{doctor_data.gender}</p></li>
+						<ul className="col pl-0 font-weight-bold mb-0 text-sm">
+							<li><span style={{color: "#21a747"}}>{(doctor_data.gender == 'Male')? <i className="icon-male"></i> : <i className="icon-female"></i>}{doctor_data.gender}</span></li>
 						</ul>
 						<ul className="contacts">
 							<li>
-								<h6>Address</h6>
-								{doctor_data.address}
-								<a href={doctor_data.map} target="_blank"> <strong>View on map</strong></a>
+								<h6 style={{color: "#21a747"}}><i className="icon-clock-6"></i> Experience</h6>
+								<span className="ml-4">{doctor_data.experience}</span>
 							</li>
 							<li>
-								<h6>Phone</h6>
-								<a href="tel://03068989809">{doctor_data.phone}</a>
+								<h6 style={{color: "#21a747"}}><i className="icon-address"></i> Address</h6>
+								<span className="ml-4">{doctor_data.address}</span>
+								<br/>
+								<a href={doctor_data.map} target="_blank" ><strong className="mt-2"><i className="icon-direction"></i> View on map</strong></a>
+							</li>
+							<li>
+								<button className="btn_1 CallNowButtonClass" onClick={ () => this.setState({ callNowButtoneStyle:"none", callNowStyle:""})} style={{display:callNowButtoneStyle}}> 
+									Call Now
+								</button>
+								<a href="tel://+923222555600" style={{display:callNowStyle}}><i className="icon-phone-squared"></i> +92-322-2555600</a><br />
+								<a href="tel://+923222555400" style={{display:callNowStyle}}><i className="icon-phone-squared"></i>+92-322-2555400</a><br />
 							</li>
 						</ul>
 					</div>
@@ -116,15 +150,16 @@ class GeneralInfo extends Component {
 	DoctorSpecialization = () => {
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
-        }
-		const { specialization } = this.state;
+		}
+		var slugify = require('slugify');
+		const { specialization,specialization_id } = this.state;
 		const counts = specialization.length;
 		if (counts > 0) {
-			return specialization.map(m => {
+			return specialization.map((m,i) => {
 				return (
 					<div className="col-lg-6">
 						<ul className="bullets">
-							<li>{m}</li>
+							<li className="inline"><Link to={{ pathname: `/treatment-detail/${slugify(m)}/${specialization_id[i]}`}}><h6>{m}</h6></Link></li>
 						</ul>
 					</div>
 				);
@@ -138,7 +173,32 @@ class GeneralInfo extends Component {
 				</div>
 			);
 		}
-
+	}
+	DoctorTreatments = () => {
+		if (this.state.isLoading) {
+            return (<div data-loader="circle-side"></div>);
+        }
+		const { all_treatments } = this.state;
+		const counts = all_treatments.length;
+		if (counts > 0) {
+			return all_treatments.map(m => {
+				return (
+					<div className="col-lg-6">
+						<ul className="bullets">
+							<li className="text-xs text-truncate">{m}</li>
+						</ul>
+					</div>
+				);
+			});
+		} else {
+			return (
+				<div className="col-lg-6">
+					<ul className="list_edu">
+						<li>Not Updated Yet</li>
+					</ul>
+				</div>
+			);
+		}
 	}
 	Curriculum = () => {
 		if (this.state.isLoading) {
@@ -166,20 +226,130 @@ class GeneralInfo extends Component {
 	}
 
 	renderBookingCard = () => {
-		if (this.state.isLoading) {
+		if (this.state.isLoading ) {
             return (<div data-loader="circle-side"></div>);
         }
 		const { all_treatments, doctor_data, schedules } 	= this.state;
 		return<AppointmentForm {...this.props} doctor_data = {doctor_data} all_treatments={all_treatments} schedules ={schedules}/>;
 	}
+	toggleDoctors = () => {
+		this.setState({ isOpenDoctor: !this.state.isOpenDoctor });
+	  }
+	  
+	  getRenderedDoctors() {
+		const MAX_ITEMS = 40;
+		const {related_doctors} =	this.state;
+
+		if (this.state.isOpenDoctor) {
+		  return related_doctors;
+		}
+		return related_doctors.slice(0, MAX_ITEMS);
+	  }
+	
+	relatedDoctors = () => {
+		const {related_doctors} =	this.state;
+		var slugify = require('slugify');
+
+		if(related_doctors){
+			if (related_doctors.length < 1) {
+				return(
+					<div className="pb-5"></div>
+				);
+			}
+		}
+		
+		return(
+			<div className="container margin_25_padding_0">
+			<h6 className="h6-brief-intro">Nearest &amp; Related Doctors</h6>
+			<div className="row pb-2">
+				<div className="col">
+				{(related_doctors)?
+					this.getRenderedDoctors().map(m =><Link to={{ pathname:`/doctor-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+				:
+				''
+				}
+				</div>
+			</div>
+			<div className="row text-right">
+				<div className="col">
+					<a className="a-see-more" onClick={this.toggleDoctors}>
+						{this.state.isOpenDoctor ? 'Show Less. . .' : 'Show More. . .'}
+					</a>
+				</div>
+			</div>
+		</div>
+		);
+	}
+	toggleCenters = () => {
+		this.setState({ isOpenCenter: !this.state.isOpenCenter });
+	  }
+	  
+	getRenderedCenters() {
+	const MAX_CENTERS = 40;
+	const {related_centers} =	this.state;
+
+	if (this.state.isOpenCenter) {
+		return related_centers;
+	}
+	return related_centers.slice(0, MAX_CENTERS);
+	}
+	relatedCenters = () => {
+		var slugify = require('slugify');
+		const {related_centers} =	this.state;
+		if(related_centers){
+			if (related_centers.length < 1) {
+				return(
+					<div className="pb-5"></div>
+				);
+			}
+		}
+		
+		return(
+			<div className="container margin_25">
+			<h6 className="h6-brief-intro">Nearest Centers</h6>
+			<div className="row pb-2">
+				<div className="col">
+				{(related_centers)?
+					this.getRenderedCenters().map(m =><Link to={{ pathname:`/center-detail/${slugify(m.name)}/${m.id}` }} className="m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal">{m.name}</Link>)
+				:
+				''
+				}
+				</div>
+			</div>
+			<div className="row text-right">
+				<div className="col">
+					<a className="a-see-more" onClick={this.toggleCenters}>
+						{this.state.isOpenCenter ? 'Show Less. . .' : 'Show More. . .'}
+					</a>
+				</div>
+			</div>
+		</div>
+		);
+	}
 	render() {
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
         }
-		const { doctor_data } 		= this.state;
+		var slugify = require('slugify');
+		const { doctor_data,all_treatments } 		= this.state;
 		const {history } 			=	this.props;
+		const {first_name} 			=	doctor_data;
+		const {focus_area} 			=	doctor_data;
+		const {city_name} 			=	doctor_data;
+		var meta_description = "Book an appointment with "+first_name+" | "+first_name+" is one of best doctor of "+focus_area+" | "+first_name+" practicing in "+city_name;
 		return (
-			<React.Fragment>
+			<>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+					<meta name="keywords" content={all_treatments.map(m=>m)}></meta>
+					
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content={meta_description} />
+    				<meta name="author" content="Hospitall Care" />
+					<title>{doctor_data.first_name} one of best doctor - Book an appointment with {doctor_data.first_name}</title>
+					<Link to={{pathname:`/doctor-detail/${slugify(doctor_data.first_name)}/${doctor_data.id}`}}></Link>
+            	</Helmet>
 				<main>
 				<div id="results">
 						<div className="container">
@@ -189,9 +359,9 @@ class GeneralInfo extends Component {
 										<div className="container">
 											<ul>
 												<li><Link to="/">Home</Link></li>
-												<li><Link to="#">Find a Doctor</Link></li>
+												<li><Link to="/doctor-list">Find a Doctor</Link></li>
 												{(doctor_data.city_name)?<li><Link to="#">{doctor_data.city_name}</Link></li>:''}
-												{(doctor_data.speciality)?<li><Link to={{ pathname: `/treatment_detail/${doctor_data.speciality}`}}>{doctor_data.speciality}</Link></li>:''}
+												{(doctor_data.speciality)?<li><Link to={{ pathname: `/treatment-detail/${slugify(doctor_data.speciality)}/${doctor_data.speciality}`}}>{doctor_data.speciality}</Link></li>:''}
 												
 												<li>{doctor_data.first_name}</li>
 											</ul>
@@ -208,12 +378,12 @@ class GeneralInfo extends Component {
 							<div className="col-xl-7 col-lg-7">
 								<nav id="secondary_nav">
 									<div className="container">
-										<ul className="clearfix">
+										<ul className="clearfix" style={{color:'#fff'}}>
 											<li>
-												<a href="#section_1" className="active">General info</a>
+												General info
 											</li>
 											<li>
-												<a href="#sidebar">Booking</a>
+												Booking
 											</li>
 										</ul>
 									</div>
@@ -225,15 +395,21 @@ class GeneralInfo extends Component {
 										<div className="indent_title_in">
 											<i className="pe-7s-user"></i>
 											<h3>Professional statement</h3>
-											<p>Best Known for Non Surgical Orthopedic Treatments.</p>
+											<p>{doctor_data.focus_area}</p>
 										</div>
-										<div className="wrapper_indent">
+										<div className="wrapper_indent text-justify">
 											<p>{doctor_data.about}</p>
 										</div>
 										<div className="wrapper_indent">
 											<h6>Specializations</h6>
 											<div className="row">
 												{this.DoctorSpecialization()}
+											</div>
+										</div>
+										<div className="wrapper_indent mt-2">
+											<h6>Treatments</h6>
+											<div className="row">
+												{this.DoctorTreatments()}
 											</div>
 										</div>
 										<hr />
@@ -243,10 +419,6 @@ class GeneralInfo extends Component {
 											<p>Highly Educated and Skilled.</p>
 										</div>
 										<div className="wrapper_indent">
-											<p>{doctor_data.first_name} is a Nephrologist practicing in Lahore. {doctor_data.first_name} has
-												the following degrees: MBBS, MRCP (UK), MRCP (Glasgow), FCPS, FRCP (Glasgow).
-												You can book an appointment with {doctor_data.first_name} by calling us or
-												using the 'book appointment' button.</p>
 											<h6>Curriculum</h6>
 											{this.Curriculum()}
 										</div>
@@ -256,8 +428,12 @@ class GeneralInfo extends Component {
 							{this.renderBookingCard()}
 						</div>
 					</div>
+					{this.relatedDoctors()}
+					{/* {this.DoctorFaq()} */}
+					{this.relatedCenters()}
+
 				</main>
-			</React.Fragment>
+			</>
 		);
 	}
 }
@@ -270,7 +446,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		dispatch: dispatch,
-		fetchDoctor: (id) => actions.fetchDoctor(id),
+		fetchDoctor: (id,data) => actions.fetchDoctor(id,data),
         create: (params) => appointmentactions.postLeadCrm(params),
 
 	};

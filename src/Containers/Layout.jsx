@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch,BrowserRouter } from 'react-router-dom';
 import FooterSection from "./Footer";
 import NavBarSection from "./Header";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
-
 import routes from "./../routes";
 alertify.set('notifier', 'position', 'top-center');
 
 class Layout extends Component {
-  
     errorHandler = error => {
 
         let title = "Error";
@@ -31,36 +30,42 @@ class Layout extends Component {
       }
     
     render() {
-     
           return ( 
-              <React.Fragment>
-                  <div id="preloader">
-                    <div data-loader="circle-side"></div>
-                  </div>
+              <>
+                  <BrowserRouter>
                   <NavBarSection />
-                  <Switch>
-                    {routes.map((route, idx) => {
-                        return route.Component ? (
-                                <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => {
-                                  
-                                  if(route.path){
-                                        return (
-                                          <div style={{minHeight:"500px"}}>
-                                            <route.Component alertify={alertify} {...props} {...this.props} errorHandler={this.errorHandler}  />                                  
-                                          </div>  
-                                        );
-                                    }
-                                    return <Redirect to='/404_not_found' />;
-                                }}
-                                />     
-                        )
-                          : (null) 
-                      },
-                      )}
-                    <Redirect to='/404_not_found' />
-                  </Switch>
-                  <FooterSection />
-            </React.Fragment>
+                  
+                      <Switch>
+                      {/* <ScrollToTop> */}
+                        {routes.map((route, idx) => {
+                          return route.Component ? (
+                                  <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => {
+                                    if(route.path){
+                                          return (
+                                            <div style={{minHeight:"436px" , marginTop:"64px"}}>
+                                              <route.Component alertify={alertify} {...props} {...this.props} errorHandler={this.errorHandler} />                                  
+                                            </div>  
+                                          );
+                                      }
+                                      return <Redirect to='/404-not-found' />;
+                                  }}
+                                  />     
+                          )
+                            : (null) 
+                        },
+                          )}
+                          <Redirect to='/404-not-found' />
+                          {/* </ScrollToTop> */}
+                      </Switch>
+                    
+                    <FooterSection />
+                    <MessengerCustomerChat
+                    pageId="334061247107629"
+                    appId="347537516095173"
+                    htmlRef={window.location.pathname}
+                  />
+                  </BrowserRouter>
+            </>
         );
       }
     }

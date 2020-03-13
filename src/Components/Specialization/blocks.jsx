@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import alertify from 'alertifyjs';
 import * as actions from "../../Store/Actions/TreatmentAction";
 
 class Blocks extends Component {
@@ -11,6 +10,7 @@ class Blocks extends Component {
         treatments      : '',
     };
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.getTreatments();
     }
 
@@ -38,6 +38,7 @@ class Blocks extends Component {
     };
     Blocks = () => {
 
+		var slugify         = require('slugify');
         const { specializations } = this.state;
         if (!specializations) {
             return true;
@@ -45,10 +46,10 @@ class Blocks extends Component {
         return specializations.map(m => {
             return (
                 <div className="col-lg-3 col-md-6">
-                    <Link to={{pathname:`/treatment_detail/${m.id}`}}>
+                    <Link to={{pathname:`/treatment-detail/${slugify(m.name)}/${m.id}`}}>
                         <a href="#0" className="box_cat_home">
                             <i className="icon-info-4"></i>
-                            <img src={m.picture_path} width="60" height="60" alt="" />
+                            <img src={m.picture_path} width="60" height="60" alt={m.name} />
                             <h3>{m.name}</h3>
                             <ul className="clearfix">
                                 <li><strong>{m.doctors}</strong>Doctors</li>
@@ -65,13 +66,13 @@ class Blocks extends Component {
             <div className="container margin_120_95">
                 <div className="main_title">
                     <h2>Find by specialization</h2>
-                    <p>Nec graeci sadipscing disputationi ne, mea ea nonumes percipitur. Nonumy ponderum oporteat cu mel, pro movet cetero at.</p>
+                    <p>Here is our few of the Top Specializations.</p>
                 </div>
                 <div className="row">
                     {this.Blocks()}
                 </div>
                 <div>
-                    <p className="text-center"><Link to="/specialization_list" className="btn_1 medium">See More</Link></p>
+                    <p className="text-center"><Link to="/specialization-list" className="btn_1 medium">See More</Link></p>
                 </div>
             </div>
         );

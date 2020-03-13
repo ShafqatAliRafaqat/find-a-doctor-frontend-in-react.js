@@ -23,8 +23,8 @@ export const getTopCenters = (search) => {
   });
 };
 
-export const fetchCenter = (id,search) => {
-  return axios.get(APIModel.HOST+"fetch_center/"+id+search,{
+export const fetchCenter = (search,data) => {
+  return axios.post(APIModel.HOST+"fetch_center?search="+search,data,{
     'headers': {
       'Content-Type': 'application/json',
       'Accept':'application/json',

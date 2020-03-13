@@ -5,7 +5,8 @@ import PhoneModal from "./forget-password";
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
 import 'react-phone-number-input/style.css'
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
+import {Helmet} from "react-helmet";
+import PhoneInput, {  isValidPhoneNumber } from 'react-phone-number-input'
 alertify.set('notifier', 'position', 'top-center');
 
 class Login extends Component{
@@ -28,7 +29,7 @@ class Login extends Component{
         this.setState({
             processing: true
         });
-        const {signIn,dispatch,errorHandler ,histroy} = this.props;
+        const {signIn,dispatch,errorHandler } = this.props;
 
         const { phone, password } 	=	this.state;
         let params = { phone, password};
@@ -58,10 +59,20 @@ class Login extends Component{
     render(){
 		const {phone , processing} = this.state;
 		if(this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
 		};
         return(
-            <React.Fragment>
+            <>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+					<meta name="keywords" content="top Doctors,Hospitall,CareALL,Top clinics,top hospitals,top specializations"></meta>
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Login to Findoctor | Get best doctors near you | Get CareALL APP for patient profiling" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Login to Findoctor!| Get best doctors near you | Get CareALL APP for patient profiling</title>
+					<Link to='/doctor-list'></Link>
+            	</Helmet>
 				<main>
 					<div className="bg_color_2">
 						<div className="container margin_60_35">
@@ -88,10 +99,10 @@ class Login extends Component{
 											</div>
 											<div className="form-group">
 												<div className="row">
-													<div className="col-6 text-left">
+													<div className="col-12 col-sm-6 text-center mb-1">
 														<button color="primary" className='btn_1' onClick={this.signIn}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
 													</div>
-													<div className="col-6 text-right">
+													<div className="col-12 col-sm-6 text-center">
 														{this.renderForgetPasswordModal()}
 													</div>
 												</div>
@@ -105,7 +116,7 @@ class Login extends Component{
 						</div>
 					</div>
 				</main>
-            </React.Fragment>
+            </>
         );
     }
 }

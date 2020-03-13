@@ -50,6 +50,7 @@ class List extends Component{
         });
     }
 	render(){
+		var slugify = require('slugify');
         const { doctor_data } = this.state;
         if(!doctor_data){
             return true;
@@ -64,8 +65,18 @@ class List extends Component{
                                         <div className="row css-row-picture-name">
                                             <div className="col-3 col-lg-12 px-3 px-lg-3 pb-2">
                                                 <div className=" position-relative">
-                                                    <Link to={{pathname:`/doctor_detail/${m.id}`}} className="css-avatar-img rounded-circle d-block overflow-hidden position-relative overflow-hidden shadow-none">
-                                                        {(m.picture) ? <img src={m.picture} alt="" className="img-fluid card-img-overlay p-0" style={{width:"100%", height:"auto"}} /> : <img src="web_imgs/doctor2.jpg" alt="" className="img-fluid card-img-overlay p-0" />}
+                                                    <Link to={{pathname:`/doctor-detail/${slugify(m.first_name)}/${m.id}`}} className="css-avatar-img rounded-circle d-block overflow-hidden position-relative overflow-hidden shadow-none">
+                                                    {(m.picture) ?
+                                                        <img className="img-fluid card-img-overlay card-img-fit p-0" src={m.picture} alt={m.first_name} />
+                                                        :
+                                                        (m.gender == "Male")?
+                                                        <img src="web_imgs/Male.png" alt={m.first_name} className="img-fluid card-img-overlay p-0" />
+                                                        :
+                                                        <img src="web_imgs/Female.png" alt={m.first_name} className="img-fluid card-img-overlay p-0" />
+
+                                                    }    
+                                                    {/* {(m.picture) ? <img src={m.picture} alt="" className="img-fluid card-img-overlay card-img-fit p-0"/> : <img src="web_imgs/doctor2.jpg" alt="" className="img-fluid card-img-overlay p-0" />} */}
+                                                    
                                                     </Link>
                                                 </div>
                                             </div>
@@ -75,7 +86,7 @@ class List extends Component{
                                                         <div className="row css-name-offset">
                                                             <div className="col-12">
                                                                 <h2 className="h5 font-weight-bold m-0">
-                                                                    <Link to={{pathname:`/doctor_detail/${m.id}`}} className="text-decoration-none shadow-none btn-outline-none">{m.first_name}</Link>
+                                                                    <Link to={{pathname:`/doctor-detail/${slugify(m.first_name)}/${m.id}`}} className="text-decoration-none shadow-none btn-outline-none">{m.first_name} {m.last_name} </Link>{(m.partnership == 1)? <i class="icon-ok-circled text-success" style={{fontSize: '18px'}}></i>:''}
                                                                 </h2>
                                                                 <p className="m-0">{(m.doctor_qualification)? m.doctor_qualification.map(dq=><small className="text-sm pr-2 degree-text">{dq.degree}</small>):""}</p>
                                                                 <h3 className="m-0 h6"><small className="text-sm">{m.focus_area}</small></h3>
@@ -92,9 +103,13 @@ class List extends Component{
                                             <div className="col-12 pr-5">
                                                 <div className="row css-name-offset">
                                                     <div className="col-12">
+                                                        <div className="doctor-name-ok">
                                                         <h2 className="h5 font-weight-bold m-0">
-                                                            <Link to={{pathname:`/doctor_detail/${m.id}`}} className="btn-light bg-transparent text-decoration-none shadow-none btn-outline-none">{m.first_name}</Link>
+                                                            <Link to={{pathname:`/doctor-detail/${slugify(m.first_name)}/${m.id}`}} className="btn-light bg-transparent text-decoration-none shadow-none btn-outline-none">{m.first_name}</Link>
+                                                            {(m.partnership == 1)? <span data-tooltip="Verified and Onboard" data-tooltip-location="right"><i class="icon-ok-circled text-success" style={{fontSize: '18px'}}></i></span>:''}
                                                         </h2>
+                                                        
+                                                        </div>
                                                         <p className="m-0">{(m.doctor_qualification)? m.doctor_qualification.map(dq=><small className="text-sm pr-2 degree-text">{dq.degree}</small>):""}</p>
                                                         <h3 className="m-0 h6"><small className="text-sm ">{m.focus_area}</small></h3>
                                                         <p className="m-0"><small className="text-muted text-sm ">{m.about}</small></p>
@@ -106,7 +121,7 @@ class List extends Component{
                                             <div className="col-12">
                                                 <div className="row align-items-center">
                                                     <div className="col-12 pr-lg-5">
-                                                        <div className="row">
+                                                        <div className="row mb-3">
                                                             <div className="col-12">
                                                                 <div className="row">
                                                                 {(m.treatments)?m.treatments.map(t=>
@@ -119,13 +134,13 @@ class List extends Component{
                                                         </div>
                                                     <div className="row pt-2 pt-lg-0">
                                                         <div className="col-6 col-lg-5 col-xl-4 mb-2 mb-lg-0 d-lg-none">
-                                                            <Link to={{pathname:`/doctor_detail/${m.id}`}} className="btn btn-block btn-outline-primary font-weight-bold text-size-14">View Profile</Link>
+                                                            <Link to={{pathname:`/doctor-detail/${slugify(m.first_name)}/${m.id}`}} className="btn btn-block btn-outline-primary font-weight-bold text-size-14">View Profile</Link>
                                                         </div>
                                                         <div className="col-6 col-lg-5 col-xl-4 top-arrow-dropdown dropdown mb-2 mb-lg-0">
-                                                            <Link to={{pathname:`/doctor_detail/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold d-none d-lg-block no-booking-btn"   >
+                                                            <Link to={{pathname:`/doctor-detail/${slugify(m.first_name)}/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold d-none d-lg-block no-booking-btn"   >
                                                                 Book Now
                                                             </Link>
-                                                            <Link to={{pathname:`/doctor_detail/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold m-0 d-lg-none no-booking-btn">
+                                                            <Link to={{pathname:`/doctor-detail/${slugify(m.first_name)}/${m.id}`}} className="btn btn-block btn-warning text-white font-weight-bold m-0 d-lg-none no-booking-btn">
                                                                 Book Now
                                                             </Link>
                                                         </div>
@@ -134,7 +149,7 @@ class List extends Component{
                                                                 View on map
                                                             </a>
                                                             <a href={m.map} className="btn btn-block btn-light text-white font-weight-bold m-0 d-lg-none no-booking-btn">
-                                                            View on map
+                                                                View on map
                                                             </a>
                                                         </div>
                                                     </div>
@@ -148,6 +163,7 @@ class List extends Component{
                                         <div className="my-1 col-6 col-lg-12">
                                             <div className="row align-items-center text-available">
                                                 <span className="col-2 text-center d-flex justify-content-center align-items-center">
+                                                {(m.gender == 'Male')? <i class="icon-male"></i> : <i class="icon-female"></i>}
                                                 </span>
                                                 <small className="col pl-0 font-weight-bold text-sm">{m.gender}</small>
                                             </div>
@@ -155,6 +171,8 @@ class List extends Component{
                                         <div className="my-1 col-6 col-lg-12">
                                             <div className="row align-items-center">
                                                 <span className="col-2 text-center d-flex justify-content-center align-items-center">
+                                                <i className="icon-clock-6"></i>
+                                                
                                                 </span>
                                                 <small className="col pl-0 text-sm">{m.experience}</small>
                                             </div>
@@ -162,35 +180,31 @@ class List extends Component{
                                         <div className="my-1 col-6 col-lg-12">
                                             <div className="row align-items-center">
                                                 <span className="col-2 text-center d-flex justify-content-center align-items-center">
-                                                    <svg viewBox="0 0 100 100" className="d-inline-block listing-svg" width="14px">
-                                                    </svg>
+                                                    {/* <svg viewBox="0 0 100 100" className="d-inline-block listing-svg" width="14px"> */}
+                                                    {/* </svg> */}
+                                                    <i className="icon-location-circled"></i>
                                                 </span>
                                                 <small className="col pl-0 text-sm text-truncate">{m.address}</small>
                                             </div>
                                         </div>
                                         <div className="my-1 col-6 col-lg-12">
                                             <div className="row align-items-center">
-                                                <span className="col-2 text-center d-flex justify-content-center align-items-center">
-                                                    <svg viewBox="0 0 100 100" className="d-inline-block listing-svg" width="15px" height="15px" fill="#ff9e15">
-                                                    </svg>
-                                                </span>
-                                                {(m.centers)? m.centers.map(s => <small className="col pl-0 text-sm">Rs. {s.fare}</small>):""}
+                                                
+                                                {(m.centers)? m.centers.map(s => <span className="col-2 text-center d-flex justify-content-center align-items-center">{(s.fare)? <i className="icon-money"></i> :''}</span>):""}
+                                                
+                                                 {(m.centers)? m.centers.map(s => <small className="col pl-0 text-sm">{(s.fare)? 'Rs.' :''} {s.fare}</small>):""}
                                             </div>
                                         </div>
                                         <div className="my-1 col-6 col-lg-12">
                                             <div className="row align-items-center text-available ">
                                                 <span className="col-2 text-center d-flex justify-content-center align-items-center">
-                                                    <i className="icon-available"></i>
+                                                    <i className="icon-calendar-circled"></i>
                                                 </span>
                                                 <small className="col pl-0 font-weight-bold text-sm">Availability </small>
                                             </div>
                                         </div>
-                                        <div className="my-1 col-6 col-lg-12">
+                                        <div className="my-1 col-12 col-lg-12">
                                             <div className="row align-items-center">
-                                                {/* <span className="col-2 text-center d-flex justify-content-center align-items-center">
-                                                    <svg viewBox="0 0 100 100" className="d-inline-block listing-svg" width="15px" height="15px" fill="#ff9e15">
-                                                    </svg>
-                                                </span> */}
                                                 {this.renderCenter(m.centers)}
                                             </div>
                                         </div>

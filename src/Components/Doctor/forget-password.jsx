@@ -2,18 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import alertify from "alertifyjs";
 
-import {
-    Button,
-    ModalFooter,
-    ModalBody,
-    ModalHeader,
-    Modal,
-    FormGroup, Input, Label,
-} from 'reactstrap';
+import {ModalFooter,ModalBody,ModalHeader,Modal,} from 'reactstrap';
 
-import * as actions from "../../Store/Actions/AuthAction";
+import * as actions from "../../Store/Actions/DoctorAuthAction";
 import 'react-phone-number-input/style.css'
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input'
+import PhoneInput, {  isValidPhoneNumber } from 'react-phone-number-input'
 alertify.set('notifier', 'position', 'top-center');
 
 class PhoneModal extends Component {
@@ -96,7 +89,7 @@ class PhoneModal extends Component {
 			    this.props.history.push('/register');
             }
             dispatch({
-                type: actions.FORGET_PHONE_VARIFICATOIN,
+                type: actions.FORGET_PHONE_VARIFICATION,
                 payload: res.data.data
             });
         }).catch(errorHandler).finally(() => {
@@ -126,7 +119,7 @@ class PhoneModal extends Component {
             });  
 
             dispatch({
-                type: actions.CODE_VARIFICATOIN,
+                type: actions.CODE_VARIFICATION,
                 payload: res.data.data
             });
         }).catch(errorHandler).finally(() => {
@@ -154,7 +147,7 @@ class PhoneModal extends Component {
                 PasswordModal:false,
             });  
             alertify.success('Your Password has been updated. Thank you for contacting us.')
-			this.props.history.push('/login');
+			this.props.history.push('/doctor-signin');
            
         }).catch(errorHandler).finally(() => {
             this.setState({
@@ -174,7 +167,7 @@ class PhoneModal extends Component {
         const { PasswordModal ,processing} 	= this.state;
 
         return (
-            <React.Fragment>
+            <>
                  <Modal isOpen={PasswordModal} toggle={this.togglePassword} className="modal-primary modal-center">
                    <ModalHeader toggle={this.togglePassword}><i className="fa fa-edit" />New Password</ModalHeader>
                     <ModalBody>
@@ -199,7 +192,7 @@ class PhoneModal extends Component {
                         <button color="primary" className='btn_1' onClick={this.checkPassword}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     };
     renderCodeSendedModal = () => {
@@ -209,7 +202,7 @@ class PhoneModal extends Component {
             return this.renderNewPasswordModal();
         }
         return (
-            <React.Fragment>
+            <>
                  <Modal isOpen={SendCodeModal} toggle={this.toggleSendCode} className="modal-primary modal-center">
                    <ModalHeader toggle={this.toggleSendCode}><i className="fa fa-edit" />Enter 6-Digite Code</ModalHeader>
                     <ModalBody>
@@ -235,7 +228,7 @@ class PhoneModal extends Component {
                         <button color="primary" className='btn_1' onClick={this.sendCode}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     };
     render() {
@@ -248,7 +241,7 @@ class PhoneModal extends Component {
         }
       
         return (
-            <React.Fragment>
+            <>
                 <button onClick={this.toggle} className="btn_danger"><small>Forgot password?</small></button>
                 <Modal isOpen={isOpen} toggle={this.toggle} className="modal-primary modal-center">
                     <ModalHeader toggle={this.toggle}><i className="fa fa-edit" /> Forget Password</ModalHeader>
@@ -281,7 +274,7 @@ class PhoneModal extends Component {
                         <button color="primary" className='btn_1' onClick={(phone)? this.create: ""}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
                     </ModalFooter>
                 </Modal>
-            </React.Fragment>
+            </>
         );
     }
 }
@@ -295,7 +288,7 @@ const mapDispatchToProps = dispatch => {
 		dispatch: dispatch,
         newPassword : (params) => actions.newPassword(params),
         create      : (params) => actions.forgetPhoneVarification(params),
-        sendCode    : (params) => actions.codeVarification(params),
+        sendCode    : (params) => actions.doctorForgetCodeVarification(params),
 	};
 };
 

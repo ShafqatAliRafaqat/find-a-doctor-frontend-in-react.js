@@ -4,15 +4,14 @@ import * as actions from "../../Store/Actions/AuthAction";
 import alertify from "alertifyjs";
 import { connect } from "react-redux";
 import 'react-phone-number-input/style.css';
+import {Helmet} from "react-helmet";
 import {
-    Button,
     ModalFooter,
     ModalBody,
     ModalHeader,
     Modal,
-    FormGroup, Input, Label,
 } from 'reactstrap';
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber,parsePhoneNumber } from 'react-phone-number-input';
+import PhoneInput, { isValidPhoneNumber} from 'react-phone-number-input';
 alertify.set('notifier', 'position', 'top-center');
 
 class Register extends Component{
@@ -150,13 +149,11 @@ class Register extends Component{
     };
     checkPassword = () => {
         const {password, confirmPassword,name,phone} = this.state;
-        console.log("password =>",password,"password1 =>",confirmPassword)
 
         if(name != '' && phone != '' && password != '' && confirmPassword != ''){
             if(password == confirmPassword ){
                 this.create();
             }else{
-                console.log("password =>",password,"password1 =>",confirmPassword)
                 alertify.error("The passwords don't match")
             }
         }else{
@@ -167,7 +164,7 @@ class Register extends Component{
         const { SendCodeModal ,processing, phone} 	= this.state;
 		
         return (
-            <React.Fragment>
+            <>
 					<div className="form-group text-center add_top_30">
 						<button color="primary" className='btn_1' onClick={this.checkPassword}>{(processing) ? "Updating..." : " Continue"}</button>{' '}
 					</div>
@@ -202,16 +199,26 @@ class Register extends Component{
 
                 </Modal>
 
-            </React.Fragment>
+            </>
         );
     };
     render(){
 		const {phone,} = this.state;
         if(this.props.user){
-			return <Redirect to='/404_not_found' />;
+			return <Redirect to='/404-not-found' />;
 		};
         return(
-            <React.Fragment>
+            <>
+                <Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+					<meta name="keywords" content="top Doctors,Hospitall,CareALL,Top clinics,top hospitals,top specializations"></meta>
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Register to Findoctor | Get best doctors near you | Get CareALL APP for patient profiling" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Register to Findoctor | Get best doctors near you | Get CareALL APP for patient profiling</title>
+					<Link to='/doctor-list'></Link>
+            	</Helmet>
 	<main>
 		<div className="bg_color_2">
 			<div className="container margin_60_35">
@@ -253,8 +260,7 @@ class Register extends Component{
 									</div>
 									{this.renderCodeSendedModal()}
 								</div>
-								<p className="text-center">
-                                    <small>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</small></p>
+                                <p className="text-center link_bright">Already have an Account <Link to="/login" style={{ color:"#7ecaff", }}><strong>Login now!</strong></Link></p>
 						</div>
 					</div>
 					{/* <!-- /row --> */}
@@ -264,7 +270,7 @@ class Register extends Component{
 		</div>
 	</main>
 	{/* <!-- /main --> */}
-            </React.Fragment>
+            </>
         );
     }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import * as actions from "../../Store/Actions/AuthAction";
 import { connect } from "react-redux";
-import alertify from "alertifyjs";
 
 class Logout extends Component {
 

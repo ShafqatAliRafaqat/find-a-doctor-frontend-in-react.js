@@ -5,7 +5,7 @@ class BlogPage extends Component{
 
     render(){
         return(
-            <React.Fragment>
+            <>
             	<main>
 		<div id="breadcrumb">
 			<div className="container">
@@ -219,8 +219,7 @@ class BlogPage extends Component{
 		</div>
 		{/* <!-- /container --> */}
 	</main>
-	{/* <!-- /main --> */}
-            </React.Fragment>
+            </>
         );
     }
 }

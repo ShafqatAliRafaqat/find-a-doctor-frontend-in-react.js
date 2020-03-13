@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../Store/Actions/AuthAction";
+import {Helmet} from "react-helmet";
 
 class ContactUs extends Component {
 	initState = {
@@ -14,7 +14,9 @@ class ContactUs extends Component {
 	state = {
 		...this.initState,
 	};
-
+    componentDidMount(){
+        window.scrollTo(0, 0);
+    }
 	onChange = e => {
 		this.setState({
 			[e.target.name] 	:	e.target.value
@@ -55,9 +57,23 @@ class ContactUs extends Component {
 
 	render() {
 		const {name,email,phone,message} 	=	this.state;
-
+			if(window.location.href == "https://www.hospitallcare.com/contacts") {
+				window.location = window.location.href + '/';
+				window.location.reload();
+			}
 		return (
-			<React.Fragment>
+			<>
+				<Helmet>
+					<meta charSet="utf-8" />
+    				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+					<meta name="keywords" content="contact us,about us,hospitall,careALL, privacy policy, terms and conditions"></meta>
+					
+    				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    				<meta name="description" content="Contact us : +92-3222555600 Monday to Friday 9am - 6pm | Address: NETSOL Avenue, Main Ghazi Rd, Khuda Buksh Colony, Lahore, Pakistan | Contact info- Book an appointment with top doctors Book an Appointment| Call us now +92-322-2555600 +92-322-2555400" />
+    				<meta name="author" content="Hospitall Care" />
+					<title>Contact us : +92-3222555600 Monday to Friday 9am - 6pm | Address: NETSOL Avenue, Main Ghazi Rd, Khuda Buksh Colony, Lahore, Pakistan | Contact info- Book an appointment with top doctors Book an Appointment| Call us now +92-322-2555600 +92-322-2555400</title>
+					<link rel="canonical" href="https://hospitallcare.com" />
+            	</Helmet>
 				<main>
 
 					<div className="container margin_60_35">
@@ -166,12 +182,12 @@ class ContactUs extends Component {
 					</div>
 					{/* <!-- /container --> */}
 					<div id="map_contact">
-						<div class="pac-card display-none" id="pac-card">
+						<div className="pac-card display-none" id="pac-card">
 							<div>
 								<div id="title">
 									Autocomplete search
 			</div>
-								<div id="type-selector" class="pac-controls">
+								<div id="type-selector" className="pac-controls">
 									<input type="radio" name="type" id="changetype-all" checked="checked" />
 									<label for="changetype-all">All</label>
 
@@ -184,7 +200,7 @@ class ContactUs extends Component {
 									<input type="radio" name="type" id="changetype-geocode" />
 									<label for="changetype-geocode">Geocodes</label>
 								</div>
-								<div id="strict-bounds-selector" class="pac-controls">
+								<div id="strict-bounds-selector" className="pac-controls">
 									<input type="checkbox" id="use-strict-bounds" value="" />
 									<label for="use-strict-bounds">Strict Bounds</label>
 								</div>
@@ -203,7 +219,7 @@ class ContactUs extends Component {
 					{/* <!-- /map --> */}
 				</main>
 				{/* <!-- /main --> */}
-			</React.Fragment>
+			</>
 		);
 	}
 }

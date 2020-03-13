@@ -39,10 +39,9 @@ class SearchHeader extends Component {
     this.setState({
       isLoading: true
     });
-    let { getSearch, dispatch } = this.props;
+    let { getSearch, dispatch ,errorHandler} = this.props;
     let search = e;
     getSearch(search).then(res => {
-      console.log("in get function", res.data.data);
       if(res.data.message){
         this.setState({
           ...this.initState,
@@ -57,11 +56,7 @@ class SearchHeader extends Component {
         type: actions.GET_ALL_SEARCH,
         payload: res.data.data
       });
-    }).catch(
-      error => {
-        console.log("Error=>", error);
-      }
-    ).finally(() => {
+    }).catch(errorHandler).finally(() => {
       this.setState({
         isLoading: false
       });
@@ -70,16 +65,16 @@ class SearchHeader extends Component {
 
   datalist = () => {
     const { search } = this.state;
-    console.log("search data", search);
     let doctors = search.doctors;
     let specializations = search.specializations;
+		var slugify = require('slugify');
     let centers = search.centers;
     if (!doctors) {
       return;
     }
     var specializations1= specializations.map(m => {
       return (
-        <Link to={{pathname:`/treatment_detail/${m.id}`}}>
+        <Link to={{pathname:`/treatment-detail/${slugify(m.name)}/${m.id}`}}>
         <ListItem key={m.id} className="search-list">
           <div>
             <SearchIcon className="search-icon"></SearchIcon>
@@ -94,16 +89,16 @@ class SearchHeader extends Component {
 
     var doctors1= doctors.map(m => {
       return (
-        <Link to={{pathname:`/doctor_detail/${m.id}`}}>
+        <Link to={{pathname:`/doctor-detail/${slugify(m.name)}/${m.id}`}}>
         <ListItem key={m.id} className="search-list">
           <div>
           {(m.picture) ?
-          <img className="list-img" src={`https://support.hospitallcare.com/backend/uploads/doctors/${m.picture.picture}`} alt="img" />
+          <img className="list-img" src={`https://support.hospitallcare.com/backend/uploads/doctors/${m.picture.picture}`} alt={m.name} />
           :
           (m.gender == 1)?
-          <img src="web_imgs/male.png" alt="" className="list-img" />
+          <img src="web_imgs/Male.png" alt={m.name} className="list-img" />
           :
-          <img src="web_imgs/female.png" alt="" className="list-img" />
+          <img src="web_imgs/Female.png" alt={m.name} className="list-img" />
 
           }
 
@@ -119,7 +114,7 @@ class SearchHeader extends Component {
 
     var centers1= centers.map(m => {
       return (
-        <Link to={{pathname:`/center_detail/${m.id}`}}>
+        <Link to={{pathname:`/center-detail/${slugify(m.name)}/${m.id}`}}>
         <ListItem key={m.id} className="search-list">
           <div>
           <SearchIcon className="search-icon"></SearchIcon>
@@ -132,7 +127,7 @@ class SearchHeader extends Component {
     })
     if (specializations1.length != 0 || doctors1.length != 0 || centers1.length != 0) {
       return(
-        <React.Fragment>
+        <>
          <List  className="search-header-list"
             // style={{
             //   maxWidth: 542,
@@ -152,50 +147,40 @@ class SearchHeader extends Component {
           {doctors1}
           {centers1}
           </List>
-        </React.Fragment>
+        </>
        )
     } else {
       return(
-        <React.Fragment>
-         <List  
-          style={{
-           // width: '100%',
-           maxWidth: 542,
-           minWidth: 542,
-           position: 'absolute',
-           right:'108px',
-           top:'27px',
-           overflow: 'auto',
-           color: "black",
-           maxHeight: 300,
-           backgroundColor:"#ffffff",
-           boxShadow:"#b3b3b3 0px 0px 5px 1px",
-         }}
+        <>
+         <List  className="search-header-list"
          >
         <ListItem key={0} className="search-list">
           <div>
           <SearchIcon className="search-icon"></SearchIcon>
           <span className="search-name">No Search Found</span>
+
           </div>
         </ListItem>
           </List>
-        </React.Fragment>
+        </>
        )
     }
 
   }
-
+  renderRefreshPage = (e)=>{
+		// this.props.history.push(e.target.name);
+    // window.location.reload();
+  }
   render() {
     const { search,page } = this.state;
-    console.log("search",search);
     return (
-      <React.Fragment>
+      <>
         <div className="hero_home version_1">
           <div className="content">
             <h3>{page}</h3>
             
               <span>
-                Changing the way you precieve and receive healthcare,
+                Changing the way you perceive and receive healthcare,
               </span>
               <br /> 
               <span>while assuring exceptional patient experience and care.</span>
@@ -209,7 +194,7 @@ class SearchHeader extends Component {
                 className="search-query" 
                 onChange={e => this.onChange(e)} 
                 placeholder="Ex. Doctor, Specialization ...." 
-                autocomplete="off"
+                autoComplete="off"
                 />
                <div >
                  {(search)?
@@ -228,26 +213,26 @@ class SearchHeader extends Component {
                   <label htmlFor="all">All</label>
                 </li>
                 <li>
-                  <Link to="/doctor_list" className="filter-button-style">
-                    <label htmlFor="doctor">Doctors</label>
-                  </Link>
+                    <Link to="doctor-list" className=" filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/doctor-list" >
+											Doctors
+										</Link>
                 </li>
                 <li>
-                  <Link to="/clinic_list" className="filter-button-style">
-                    <label htmlFor="clinic">Clinics</label>
-                  </Link>
+                    <Link to="specialization-list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/specialization-list" >
+										 	Specialization
+										</Link>
                 </li>
                 <li>
-                  <Link to="/specialization_list" className="filter-button-style">
-                    <label htmlFor="Specialization">Specializations</label>
-                  </Link>
+                    <Link to="clinic-list" className="filter-button-style-label" style={{color:'#fff',border:"none",backgroundColor:"rgba(0, 0, 0, 0.3)" }} name="/clinic-list" >
+											Clinics
+										</Link>
                 </li>
               </ul>
             </div>
           </div>
         </div>
         {/* <!-- /Hero --> */}
-      </React.Fragment>
+      </>
     );
   }
 }

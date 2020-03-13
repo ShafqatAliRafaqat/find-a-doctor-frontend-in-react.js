@@ -23,8 +23,8 @@ export const getSpecialization = () => {
   });
 };
 
-export const fetchTreatemnt = (id,search) => {
-  return axios.get(APIModel.HOST+"fetch_treatment/"+id+search,{
+export const fetchTreatemnt = (search,data) => {
+  return axios.post(APIModel.HOST+"fetch_treatment?search="+search,data,{
     'headers': {
       'Content-Type': 'application/json',
       'Accept':'application/json',
