@@ -361,7 +361,7 @@ class Detail extends Component{
             <aside className="col-xl-3 col-lg-4" id="sidebar">
 				<div className="box_profile">
 					<figure>
-						{ (center_data.picture) ? <img src={center_data.picture} alt={center_data.name} className="img-fluid" /> : <img src="http://via..com/565x565.jpg" alt={center_data.name} className="img-fluid" />}
+						{ (center_data.picture) ? <img src={center_data.picture} alt={center_data.name} className="img-fluid" /> : <img src="http://test.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt={center_data.name} className="img-fluid" />}
 					</figure>
 					<small>{center_data.focus_area}</small>
 					<h1>{center_data.name}</h1>
