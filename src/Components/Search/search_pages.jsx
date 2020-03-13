@@ -100,7 +100,7 @@ class SearchPages extends Component {
                     <ListItem key={m.id} className="search-list-pages">
                         <div>
                             {(m.picture) ?
-                                <img className="list-img" src={`https://support.hospitallcare.com/backend/uploads/doctors/${m.picture.picture}`} alt={m.name} />
+                                <img className="list-img" src={`http://test.hospitallcare.com/backend/uploads/doctors/${m.picture.picture}`} alt={m.name} />
                                 :
                                 (m.gender == 1)?
                                 <img src="web_imgs/Male.png" alt="" className="list-img" />

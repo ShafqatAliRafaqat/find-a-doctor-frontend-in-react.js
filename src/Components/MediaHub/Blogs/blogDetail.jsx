@@ -60,7 +60,7 @@ class BlogDetail extends Component{
 		const { recent_blogs } = this.state;
 		var slugify = require('slugify');
 		return recent_blogs.map(m => {
-			var image = "https://support.hospitallcare.com/backend/uploads/blogs/"+m.picture
+			var image = "http://test.hospitallcare.com/backend/uploads/blogs/"+m.picture
 			return(
 				<li>
 					<div className="alignleft">
@@ -101,7 +101,7 @@ class BlogDetail extends Component{
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
 		}
-		var image = "https://support.hospitallcare.com/backend/uploads/blogs/"+blog_data.picture
+		var image = "http://test.hospitallcare.com/backend/uploads/blogs/"+blog_data.picture
         return(
             <>
 				<Helmet>

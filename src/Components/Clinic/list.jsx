@@ -22,8 +22,8 @@ class List extends Component{
 
 						<div className="img-padding">
 						<div className="circle">
-							{(m.picture) ?  <img src={m.picture} alt={m.name}/>: <img src="https://support.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt={m.name}/>}
-							{/* // <img src="https://support.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt=""/> */}
+							{(m.picture) ?  <img src={m.picture} alt={m.name}/>: <img src="http://test.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt={m.name}/>}
+							{/* // <img src="http://test.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt=""/> */}
 						</div>
 						</div>
 						<h6 className="h6-center-list">{m.name}</h6>	
@@ -46,8 +46,8 @@ class List extends Component{
 					<div className="shadow list-card list-card-media specialization-card">
 						<div className="img-padding img-media">
 						<div className="circle">
-							{(m.picture) ?  <img src={m.picture} alt={m.name}/>: <img src="https://support.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt={m.name}/>}
-							{/* // <img src="https://support.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt=""/> */}
+							{(m.picture) ?  <img src={m.picture} alt={m.name}/>: <img src="http://test.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt={m.name}/>}
+							{/* // <img src="http://test.hospitallcare.com/backend/web_imgs/specialization/32.svg" alt=""/> */}
 						</div>
 						</div>
 						<h6 className="h6-center-list h6-media">{m.name}</h6>

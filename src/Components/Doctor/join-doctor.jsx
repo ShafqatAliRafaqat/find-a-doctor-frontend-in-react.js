@@ -139,7 +139,7 @@ class JoinDoctor extends Component{
                     this.setState({
                         showLoginAlert:true,
                     });
-                    // window.location.assign('https://support.hospitallcare.com/login');
+                    // window.location.assign('http://test.hospitallcare.com/login');
                 }
                  else if(res.data.create_doctor_password){
                     this.setState({
@@ -368,7 +368,7 @@ class JoinDoctor extends Component{
                 onConfirm={() => this.setState({ ...this.initState })}
                 onCancel={() => this.setState({ showSignUpCfm: false })}
                 >
-                    You're Registered Successfully. Please Follow the  <a href="https://support.hospitallcare.com/admin">Link</a>to Login.
+                    You're Registered Successfully. Please Follow the  <a href="http://test.hospitallcare.com/admin">Link</a>to Login.
             </SweetAlert>
 
             <SweetAlert
@@ -379,7 +379,7 @@ class JoinDoctor extends Component{
                 onConfirm={() => this.setState({ ...this.initState })}
                 onCancel={() => this.setState({ showLoginAlert: false })}
                 >
-                    Your Number is already used. Please change your number or go to our <a href="https://support.hospitallcare.com/admin">Login page</a> to Sign In
+                    Your Number is already used. Please change your number or go to our <a href="http://test.hospitallcare.com/admin">Login page</a> to Sign In
             </SweetAlert>
 	{/* <!-- /main --> */}
             </>

@@ -51,7 +51,7 @@ class DoctorSignIn extends Component{
 				this.setState({
 					showLoginAlert:true,
 				});
-				// window.location.assign('https://support.hospitallcare.com/login');
+				// window.location.assign('http://test.hospitallcare.com/login');
 			} else if(res.data.create_doctor_password){
 				this.setState({
 					show:true,
@@ -153,7 +153,7 @@ class DoctorSignIn extends Component{
 					onConfirm={() => this.setState({ ...this.initState })}
 					onCancel={() => this.setState({ showLoginAlert: false })}
 					>
-						Please follow the <a href="https://support.hospitallcare.com/admin">link</a> to Sign In. Thanks
+						Please follow the <a href="http://test.hospitallcare.com/admin">link</a> to Sign In. Thanks
 				</SweetAlert>
 				<SweetAlert
 					warning
