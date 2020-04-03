@@ -472,7 +472,7 @@ class Detail extends Component{
         );
 	};
 	render(){
-		const { page,totalPages,total,to,center_data } = this.state;
+		const { page,totalPages,total,to,center_data,center_treatments } = this.state;
 		var slugify = require('slugify');
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
@@ -485,8 +485,7 @@ class Detail extends Component{
 					<Helmet>
 						<meta charSet="utf-8" />
 						<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-						<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
-						
+						<meta name="keywords" content={center_treatments.map(m=>m.name)}></meta>
 						<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 						<meta name="description" content= {meta_description}/>
 						<meta name="author" content="Hospitall Care" />
@@ -527,7 +526,7 @@ class Detail extends Component{
 							</div>
 						</div>
 						{this.centerTreatments()}
-						<BottomFaq/>
+						{/* <BottomFaq/> */}
 						{this.nearestClinics()}
 					</main>
                 </>

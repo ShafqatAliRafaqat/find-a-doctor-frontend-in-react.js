@@ -17,7 +17,7 @@ class PrivacyPolicy extends Component{
         		<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                    <meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
+                    <meta name="keywords" content="contact us,about us,hospitall,careALL, privacy policy, terms and conditions"></meta>
 					
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     				<meta name="description" content="Privacy Policy | What Information Do We Collect? | Security Measures | Your rights | Permissions | General | User Consent | Questions" />

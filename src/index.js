@@ -20,7 +20,7 @@ ReactGA.initialize('UA-000000000-0');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 const tagManagerArgs = {
-    gtmId: 'GTM-KLSG744'
+    gtmId: 'GTM-0000000'
 }
 TagManager.initialize(tagManagerArgs)
 if (rootElement.hasChildNodes()) {

@@ -2,12 +2,9 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../../Store/Actions/MediaHubAction";
-import { getSearchUrlFromState } from '../../../util/functions'
-import * as qs from 'query-string';
 import SearchPages from '../../Search/search_pages';
 import {Helmet} from "react-helmet";
 import moment from 'moment';
-import Pagination from "react-js-pagination";
 
 class BlogDetail extends Component{
 	state = {
@@ -63,7 +60,7 @@ class BlogDetail extends Component{
 		const { recent_blogs } = this.state;
 		var slugify = require('slugify');
 		return recent_blogs.map(m => {
-			var image = "http://127.0.0.1:8000/backend/uploads/blogs/"+m.picture
+			var image = "https://support.hospitallcare.com/backend/uploads/blogs/"+m.picture
 			return(
 				<li>
 					<div className="alignleft">
@@ -104,15 +101,14 @@ class BlogDetail extends Component{
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
 		}
-		var image = "http://127.0.0.1:8000/backend/uploads/blogs/"+blog_data.picture
-		const tagArray = blog_data.meta_tags.split(",");
+		var image = "https://support.hospitallcare.com/backend/uploads/blogs/"+blog_data.picture
         return(
             <>
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
+					<meta name="keywords" content={blog_data.meta_tags}></meta>
 					
     				<meta name="description" content={blog_data.meta_description} />
     				<meta name="author" content="Hospitall Care" />

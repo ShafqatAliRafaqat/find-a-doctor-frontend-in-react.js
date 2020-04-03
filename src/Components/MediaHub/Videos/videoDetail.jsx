@@ -2,12 +2,9 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../../Store/Actions/MediaHubAction";
-import { getSearchUrlFromState } from '../../../util/functions'
-import * as qs from 'query-string';
 import SearchPages from '../../Search/search_pages';
 import {Helmet} from "react-helmet";
 import moment from 'moment';
-import Pagination from "react-js-pagination";
 
 class VideoDetail extends Component{
 
@@ -100,13 +97,13 @@ class VideoDetail extends Component{
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
+					<meta name="keywords" content={video_data.meta_tags}></meta>
 					
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    				<meta name="description" content="Top blog of health | get latast News regarting health | HospitALL Health Care" />
+    				<meta name="description" content={video_data.meta_description} />
     				<meta name="author" content="Hospitall Care" />
-					<title>Top blog of health | get latast News regarting health | HospitALL Health Care</title>
-					<Link to='/blogs'></Link>
+					<title>{video_data.meta_title}</title>
+					<Link to='/videos'></Link>
             	</Helmet>
             	<main>
 					<div id="results">
@@ -117,8 +114,8 @@ class VideoDetail extends Component{
 													<div className="container">
 														<ul>
 															<li><Link to="/">Home</Link></li>
-															<li><Link to="/blogs">Vlogs</Link></li>
-															<li>List of Vlogs</li>
+															<li><Link to="/videos">Videos</Link></li>
+															<li>{video_data.meta_title}</li>
 														</ul>
 													</div>
 												</div>

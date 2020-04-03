@@ -176,7 +176,7 @@ class AppointmentForm extends Component{
                             TimeRange.map(( m, index )=>
                             <span id={index}>
                                 <button className='m-1 text-sm btn btn-outline-midgray btn-sm mb-1 mr-1 white-space-normal' style={(time == m)? myStyle : showStyle} onClick={ () => this.setState({ time: m,})}>
-                                    {m}
+                                    {moment(m, 'HH:mm').format('hh:mm A')}
                                 </button>
                             </span>
                             )

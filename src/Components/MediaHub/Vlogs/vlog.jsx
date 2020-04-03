@@ -113,12 +113,11 @@ class Vlog extends Component{
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     				<meta name="description" content="Top blog of health | get latast News regarting health | HospitALL Health Care" />
     				<meta name="author" content="Hospitall Care" />
-					<title>Top blog of health | get latast News regarting health | HospitALL Health Care</title>
-					<Link to='/blogs'></Link>
+					<title>Top vlogs of health | get latast News regarting health | HospitALL Health Care</title>
+					<Link to='/vlogs'></Link>
             	</Helmet>
             	<main>
 					<div id="results">
@@ -129,7 +128,7 @@ class Vlog extends Component{
 										<div className="container">
 											<ul>
 												<li><Link to="/">Home</Link></li>
-												<li><Link to="/blogs">Vlogs</Link></li>
+												<li><Link to="/vlogs">Vlogs</Link></li>
 												<li>List of Vlogs</li>
 											</ul>
 										</div>

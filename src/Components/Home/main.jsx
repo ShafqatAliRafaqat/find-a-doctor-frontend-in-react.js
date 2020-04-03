@@ -212,8 +212,9 @@ class Main extends Component{
                 <Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                    <meta name="keywords" content="top Doctors,Hospitall,CareALL,Top clinics,top hospitals,top specializations"></meta>
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    				<meta name="description" content="HospitALL-Find a Doctor | Book an appointment with best doctors" />
+                    <meta name="description" content="HospitALL-Find a Doctor | Book an appointment with best doctors | Find a Doctor by Specialization, Clinic or Doctors near to your location using filters | From the list of Doctors, click on any Doctor's name and View his/her Profile | On Doctor's Profile, select the Center, Treatment, date and slot of Appointment" />
     				<meta name="author" content="Hospitall Care" />
 					<title>HospitALL-Find a Doctor | Book an appointment with best doctors</title>
 					

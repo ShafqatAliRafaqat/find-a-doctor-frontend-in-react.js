@@ -372,7 +372,7 @@ class Detail extends Component{
             );
 	};
 	render(){
-		const { total, to,treatment_data } = this.state;
+		const { total, to,treatment_data,related_treatments } = this.state;
 		var name = treatment_data.name ; 
 		if (this.state.isLoading) {
             return (<div data-loader="circle-side"></div>);
@@ -383,7 +383,7 @@ class Detail extends Component{
 					<Helmet>
 						<meta charSet="utf-8" />
 						<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-						<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
+						<meta name="keywords" content={related_treatments.map(m=>m.name)}></meta>
 						
 						<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 						<meta name="description" content={ meta_description } />
@@ -458,7 +458,7 @@ class Detail extends Component{
 
 						{(treatment_data.article) ? 						
 						<div className="container margin_25_padding_0">
-							<h6 className="h6-brief-intro">A Brief intro to {treatment_data.name}</h6>
+							<h6 className="h6-brief-intro">{(treatment_data.article_heading != "")? treatment_data.article_heading:treatment_data.name}</h6>
 							<div className="row">
 								<div className="col">
 							<p className="p-brief-intro text-justify">{treatment_data.article}</p>
@@ -467,7 +467,7 @@ class Detail extends Component{
 						</div> : ''}
 
 
-						<BottomFaq/>
+						{/* <BottomFaq/> */}
 
 						{this.RelatedTreatments()}
 						{this.TreatmentInCenters()}

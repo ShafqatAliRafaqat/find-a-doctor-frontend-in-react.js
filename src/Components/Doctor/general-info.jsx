@@ -331,7 +331,7 @@ class GeneralInfo extends Component {
             return (<div data-loader="circle-side"></div>);
         }
 		var slugify = require('slugify');
-		const { doctor_data } 		= this.state;
+		const { doctor_data,all_treatments } 		= this.state;
 		const {history } 			=	this.props;
 		const {first_name} 			=	doctor_data;
 		const {focus_area} 			=	doctor_data;
@@ -342,7 +342,7 @@ class GeneralInfo extends Component {
 				<Helmet>
 					<meta charSet="utf-8" />
     				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-					<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
+					<meta name="keywords" content={all_treatments.map(m=>m)}></meta>
 					
     				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     				<meta name="description" content={meta_description} />
@@ -429,7 +429,7 @@ class GeneralInfo extends Component {
 						</div>
 					</div>
 					{this.relatedDoctors()}
-					{this.DoctorFaq()}
+					{/* {this.DoctorFaq()} */}
 					{this.relatedCenters()}
 
 				</main>
