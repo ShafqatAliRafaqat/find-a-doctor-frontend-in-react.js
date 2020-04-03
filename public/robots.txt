@@ -1,5 +1,2 @@
-# https://www.robotstxt.org/robotstxt.html
-Sitemap: https://www.hospitallcare.com/sitemap.txt
-Sitemap: https://www.hospitallcare.com/sitemap.xml
 User-agent: *
 Disallow:
